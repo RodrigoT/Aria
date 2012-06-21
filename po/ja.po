@@ -1,0 +1,2614 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: aria 0.1.4\n"
+"POT-Creation-Date: 2002-12-16 22:05+0900\n"
+"PO-Revision-Date: 2002-10-02 00:38+0900\n"
+"Last-Translator: Tatsuhiro tsujikawa <tujikawa@ics.es.osaka-u.ac.jp>\n"
+"Language-Team: Japanese <ja@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=EUC-JP\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: src/main.cc:108
+msgid "Usage: aria [OPTION]..."
+msgstr "使い方: aria [OPTION]..."
+
+#: src/main.cc:109
+#, fuzzy
+msgid "Yet another download tool"
+msgstr "ダウンロードを"
+
+#. command line options
+#: src/main.cc:112
+msgid "Options:"
+msgstr "オプション:"
+
+#: src/main.cc:113
+msgid "  -g, --get URL                    URL to get"
+msgstr "  -g, --get URL                    URL をダウンロード"
+
+#: src/main.cc:114
+msgid "  -d, --dir SAVEDIR                save directory"
+msgstr "  -d, --dir SAVEDIR                保存先ディレクトリ"
+
+#: src/main.cc:115
+msgid "  -r, --ref REFERER                referer"
+msgstr "  -r, --ref REFERER                リファラー"
+
+#: src/main.cc:116
+msgid "  -u, --url-list FILE              open URL list"
+msgstr "  -u, --url-list FILE              URL リストファイルを開く"
+
+#: src/main.cc:117
+msgid "  -c, --crc-list FILE              open CRC list"
+msgstr "  -c, --crc-list FILE              CRC リストファイルを開く"
+
+#: src/main.cc:118
+msgid "  --basket                         Show basket and iconify Aria"
+msgstr ""
+"  --ls-basket                        バスケットを表示し、Aria を最小化する"
+
+#: src/main.cc:119
+msgid "  -v, --version                    print version information"
+msgstr "  -v, --version                    バージョン情報を表示"
+
+#: src/main.cc:120
+msgid "  -h, --help                       print this help"
+msgstr "  -h, --help                       このヘルプを表示"
+
+#: src/main.cc:121
+msgid "  --initrc                         initialize resource files"
+msgstr "  --initrc                         設定ファイルを初期化"
+
+#: src/main.cc:122
+msgid ""
+"  --geometry WIDTHxHEIGHT+XOFF+YOFF\n"
+"                                   set the size and position of main window"
+msgstr ""
+"  --geometry WIDTHxHEIGHT+XOFF+YOFF\\n                                    メ"
+"インウインドウの位置とサイズを指定する"
+
+#: src/main.cc:123
+msgid ""
+"  --thread-limit-override NUM      if you want more simultaneous downloads..."
+msgstr "  --thread-limit-override NUM      より多くの同時ダウンロード数を指定"
+
+#: src/main.cc:125
+msgid ""
+"Control Options:\n"
+" the following options are effective only when another aria is already "
+"running"
+msgstr ""
+"コントロールオプション:\n"
+" 以下のオプションは Aria がすでに同一ユーザに実行されている場合にのみ有効です"
+
+#: src/main.cc:127
+msgid "  -s, --start                      start all downloads"
+msgstr "  -s, --start                      全てのダウンロードを開始"
+
+#: src/main.cc:128
+msgid "  -p, --stop                       stop all downloads"
+msgstr "  -p, --stop                       全てのダウンロードを停止"
+
+#: src/main.cc:129
+msgid "  -a, --again                      re-download all items"
+msgstr "  -a, --again                      全てのダウンロードをやり直す"
+
+#: src/main.cc:130
+msgid "  -q, --quit                       quit Aria(with no confirmation)"
+msgstr "  -q, --quit                       Aria を終了させる"
+
+#: src/main.cc:131
+msgid "  --list-name                      show the name of the current list"
+msgstr "  --list-name                      現在のリストの名前を表示"
+
+#: src/main.cc:132
+msgid "  --list-prev                      switch to the previous list"
+msgstr "  --list-prev                      前のリストに切替え"
+
+#: src/main.cc:133
+msgid "  --list-next                      switch to the next list"
+msgstr "  --list-next                      次のリストに切替え"
+
+#: src/main.cc:134
+msgid "  --list-delete                    delete the current list"
+msgstr "  --list-delete                    現在のリストを削除"
+
+#: src/main.cc:135
+msgid "  --clear-complete                 clear downloaded items"
+msgstr "  --clear-complete                 ダウンロード済アイテムを削除する"
+
+#: src/main.cc:136
+msgid "  --ls-complete                    show URLs downloaded"
+msgstr "  --ls-complete                    ダウンロード済の URL を表示する"
+
+#: src/main.cc:137
+msgid "  --ls-ready                       show URLs waiting in queue"
+msgstr "  --ls-ready                       待機中の URL を表示する"
+
+#: src/main.cc:138
+msgid "  --ls-error                       show URLs in error"
+msgstr "  --ls-error                       エラーの URL を表示する"
+
+#: src/main.cc:139
+msgid "  --ls-run                         show URLs now downloading"
+msgstr "  --ls-run                         ダウンロード中の URL を表示する"
+
+#: src/main.cc:140
+msgid "  --ls-stop                        show URLs stopped"
+msgstr "  --ls-stop                        停止中の URL を表示する"
+
+#: src/main.cc:141
+msgid "  --ls-lock                        show URLs locked"
+msgstr "  --ls-lock                        ロックされた URL を表示する"
+
+#: src/main.cc:142
+msgid "  --ls-all                         show all URLs in queue"
+msgstr "  --ls-all                         すべての URL を表示する"
+
+#: src/main.cc:148
+msgid "Compiled date: "
+msgstr ""
+
+#: src/main.cc:150
+msgid "Copyright (C) 2000-2002 Tatsuhiro Tsujikawa"
+msgstr ""
+
+#: src/main.cc:152 src/gui_help.cc:149
+msgid ""
+"The part of directory browser is a modified code, the original code was "
+"written by Peter Alm, Mikael Alm, Olle Hallnas, Thomas Nilsson and 4Front "
+"Technologies.\n"
+"The original code is copyrighted by Peter Alm, Mikael Alm, Olle Hallnas, "
+"Thomas Nilsson and 4Front Technologies."
+msgstr ""
+
+#: src/main.cc:154 src/gui_help.cc:153
+msgid ""
+"The part of MD5 checking is a modified code, the original code was written "
+"for GnuPG, copyrighted 1995, 1996, 1998, 1999 Free Software Foundation, Inc."
+msgstr ""
+
+#: src/main.cc:157 src/gui_help.cc:159
+msgid ""
+"This program uses zlib, Copyright (C) 1995-1998 Jean-loup Gailly and Mark "
+"Adler"
+msgstr ""
+
+#: src/main.cc:160 src/gui_help.cc:164
+msgid ""
+"This program uses OpenSSL, Copyright (C) 1995-1998 Eric Young (eay@cryptsoft."
+"com)"
+msgstr ""
+
+#: src/main.cc:244
+msgid "Status (Ready/Error/Downloading/Stop/Complete/Lock)"
+msgstr "状態 (待機/エラー/ダウンロード/停止/完了/ロック)"
+
+#: src/main.cc:245
+msgid "Split?(Yes/No/split Parts)"
+msgstr "分割?(Yes/No/分割された部分)"
+
+#: src/main.cc:263
+msgid "Total "
+msgstr "合計 "
+
+#: src/main.cc:263
+msgid " URLs"
+msgstr " 個の URL"
+
+#: src/main.cc:268
+msgid "Another Aria is not running. This option makes no effect."
+msgstr "他の Aria が起動していません。このオプションは無効です。"
+
+#. read server config file
+#: src/main.cc:747
+msgid "Reading Server Template file..."
+msgstr "サーバーテンプレートを読み込んでいます.."
+
+#: src/main.cc:751
+msgid "Server Template status : good"
+msgstr "成功"
+
+#: src/main.cc:754
+msgid "Server Template status : error"
+msgstr "エラー"
+
+#. read command list file
+#: src/main.cc:758
+msgid "Reading Command list file..."
+msgstr "コマンドリストを読み込んでいます.."
+
+#: src/main.cc:761
+msgid "Command list status : good"
+msgstr "成功"
+
+#: src/main.cc:764
+msgid "Command list status : error"
+msgstr "エラー"
+
+#. read default item option
+#: src/main.cc:769
+msgid "Reading Default item config file..."
+msgstr "デフォルトのアイテム設定を読み込んでいます.."
+
+#: src/main.cc:772
+msgid "Default item config status: error >> using default config"
+msgstr "エラー >> プログラムの初期設定を使います"
+
+#: src/main.cc:881
+msgid "Default item config status: good"
+msgstr "成功"
+
+#. read application setting
+#: src/main.cc:886
+msgid "Reading Application config file..."
+msgstr "アプリケーション設定を読み込んでいます.."
+
+#: src/main.cc:890
+msgid "Application config status: error >> using default config"
+msgstr "エラー >> プログラムの初期設定を使います"
+
+#: src/main.cc:901
+msgid "Application config status: good"
+msgstr "成功"
+
+#: src/main.cc:909
+msgid "URL file read error"
+msgstr "URLリストファイルを読み込み中にエラーが発生しました"
+
+#: src/main.cc:911
+msgid "URL file opened"
+msgstr "URLリストを読み込みました"
+
+#: src/main.cc:915
+msgid "Saved file opened"
+msgstr "保存されていたリストを読み込みました"
+
+#: src/main.cc:939
+msgid "CRC file read error"
+msgstr "CRCファイルの読み込み中にエラーが発生しました"
+
+#: src/main.cc:941
+msgid "CRC file opened"
+msgstr "CRCリストを読み込みました"
+
+#: src/main.cc:947
+msgid "Ready"
+msgstr ""
+
+#: src/download.cc:146 src/RetrieveHTTP2.cc:229 src/RetrieveFTP2.cc:313
+msgid "A part of '"
+msgstr "部分パート '"
+
+#: src/download.cc:146 src/download.cc:154
+msgid "' download complete"
+msgstr "'のダウンロードが完了しました"
+
+#: src/download.cc:150 src/download.cc:377 src/gui_main.cc:371
+#: src/ItemList.cc:413 src/ItemList2.cc:783 src/gui_edit.cc:255
+#: src/ItemOption.cc:2915 src/ListEntry.cc:957 src/HistoryWindow.cc:405
+msgid "<directory>"
+msgstr "<ディレクトリ>"
+
+#: src/download.cc:180
+msgid "Starting split download"
+msgstr "分割ダウンロードを開始します"
+
+#: src/download.cc:195 src/download.cc:290
+msgid "Download stopped"
+msgstr "ダウンロードを中止しました"
+
+#: src/download.cc:244
+msgid "Error occurred while deleting files"
+msgstr "以下のファイル削除中にエラーが発生しました"
+
+#: src/download.cc:255
+msgid "Wait for "
+msgstr "エラーのため "
+
+#: src/download.cc:255
+msgid " seconds"
+msgstr " 秒停止します"
+
+#: src/download.cc:319 src/ItemCell.cc:222 src/RetrieveHTTP.cc:393
+#: src/gui_download.cc:1344
+msgid "Download again"
+msgstr "ダウンロードをやり直す"
+
+#: src/download.cc:379
+msgid "' download aborted"
+msgstr "' のダウンロードを中止します"
+
+#: src/download.cc:469 src/download.cc:484 src/ItemCell.cc:353
+msgid "Executing program: "
+msgstr "以下のプログラムを実行します '"
+
+#: src/download.cc:513
+msgid "Command line is '"
+msgstr "コマンドラインは'"
+
+#: src/download.cc:521
+msgid "Exit status is "
+msgstr "終了ステータスは"
+
+#: src/download.cc:524 src/ItemCell.cc:365
+msgid "Program exited abnormally"
+msgstr "プログラムがあやしい終了の仕方をしました"
+
+#: src/download.cc:530 src/ItemCell.cc:357
+msgid "Good exit status"
+msgstr "正常な終了ステータスです"
+
+#: src/download.cc:532 src/ItemCell.cc:361
+msgid "Bad exit status"
+msgstr "終了ステータスが指定されたものと異なります"
+
+#: src/download.cc:538 src/ItemCell.cc:368
+msgid "Exit status ignored"
+msgstr "終了ステータスは無視します"
+
+#: src/download.cc:562
+msgid "Executing command entry '"
+msgstr "以下のコマンドエントリを実行します '"
+
+#: src/download.cc:630
+msgid "Concatenating split files..."
+msgstr "ファイルを結合しています..."
+
+#: src/download.cc:633
+msgid "Concatenation successful"
+msgstr "ファイル結合に成功"
+
+#: src/download.cc:637
+msgid "Concatenation failed"
+msgstr "ファイル結合に失敗"
+
+#. string strSuminfo = "Downloading: "+itos(suminfo.ret_download())+" Error: "+itos(suminfo.ret_error());
+#: src/gui_main.cc:160
+msgid "Downloading: "
+msgstr "ダウンロード: "
+
+#: src/gui_main.cc:161
+msgid " Error: "
+msgstr " エラー: "
+
+#: src/gui_main.cc:176
+msgid "#List name: "
+msgstr "#リスト名: "
+
+#. 1st page
+#: src/gui_main.cc:503
+msgid "Console"
+msgstr "コンソール"
+
+#. 2nd page
+#: src/gui_main.cc:508
+msgid "not selected"
+msgstr "未選択"
+
+#: src/gui_main.cc:556 src/gui_file.cc:321
+msgid "Quit program"
+msgstr "プログラム終了"
+
+#: src/gui_main.cc:557 src/gui_file.cc:322
+msgid "Are you sure to quit?"
+msgstr "終了していいですか ?"
+
+#: src/gui_main.cc:710 src/gui_main.cc:730 src/ItemOption.cc:1498
+msgid "Limit download speed (in Kbytes/sec) (0.0: unlimited) "
+msgstr "ダウンロード速度制限 (Kbyte/sec) (0.0: 制限しない) "
+
+#: src/crc.cc:193
+msgid "CRC is "
+msgstr "CRCは"
+
+#. crc matched
+#: src/crc.cc:198
+msgid "CRC matched"
+msgstr "CRCが一致しました"
+
+#: src/crc.cc:205
+msgid "Invalid CRC. The specified CRC is "
+msgstr "CRC が一致しませんでした. 指定された CRC は"
+
+#. create ItemCell
+#: src/ItemList.cc:97 src/ItemList.cc:302 src/ItemList.cc:380
+#: src/ItemList2.cc:763 src/ItemCache.cc:58 src/Retrieve.cc:100
+#: src/RetrieveFTP.cc:248 src/RetrieveFTP.cc:343 src/gui_item_new_item.cc:80
+#: src/PasteWindow.cc:466 src/PasteWindow.cc:1005
+msgid "Created"
+msgstr "作成"
+
+#: src/ItemList.cc:418 src/ItemList2.cc:810 src/gui_edit.cc:266
+msgid "unknown"
+msgstr "不明"
+
+#: src/ItemList.cc:443 src/gui_edit.cc:307 src/ListEntry.cc:993
+msgid "READY"
+msgstr "待機中"
+
+#: src/ItemList.cc:445 src/ListEntry.cc:1035
+msgid "STOPPED"
+msgstr "停止"
+
+#: src/ItemList2.cc:381 src/ItemList2.cc:873 src/ItemList2.cc:889
+msgid "Warning: different version number found in file header"
+msgstr "Warning: ヴァージョンナンバーが違います"
+
+#: src/ItemCell.cc:274
+msgid "Unknown protocol"
+msgstr "このプロトコルは使用できません"
+
+#: src/ItemCell.cc:301
+msgid "Ignore CRC error"
+msgstr "CRC エラーを無視する"
+
+#: src/ItemCell.cc:309
+msgid "Checking MD5 checksum"
+msgstr "MD5 チェックサムをチェックしています"
+
+#: src/ItemCell.cc:312
+msgid "Calculated MD5 checksum is "
+msgstr "計算された MD5 チェックサムは "
+
+#: src/ItemCell.cc:314
+msgid "MD5 checking failed"
+msgstr "MD5 チェックに失敗しました"
+
+#: src/ItemCell.cc:316
+msgid "Ignore MD5 error"
+msgstr "CRC/MD5 エラーを無視する"
+
+#: src/ItemCell.cc:321
+msgid "MD5 checking successful"
+msgstr "MD5 チェックに成功しました"
+
+#: src/ItemCell.cc:324 src/gui_download_check.cc:117
+msgid "IO error occurred"
+msgstr "IO エラーが発生しました"
+
+#: src/ItemCell.cc:588
+msgid "Can't resolve host"
+msgstr "ホスト名が解決できませんでした"
+
+#: src/ItemCell.cc:591
+msgid "Socket error"
+msgstr "ソケットのエラーです"
+
+#: src/ItemCell.cc:594
+msgid "Connection refused - "
+msgstr "接続を拒否されました - "
+
+#: src/ItemCell.cc:598
+msgid "Time out"
+msgstr "タイムアウトしました"
+
+#: src/ItemCell.cc:601
+msgid "I/O error - "
+msgstr "I/O エラーです"
+
+#: src/ItemCell.cc:605
+msgid "File I/O error - maybe wrong save location or disk full?"
+msgstr ""
+"File I/O error - ファイル保存場所とディスク容量をチェックしてみてください"
+
+#: src/ItemCell.cc:609
+msgid "Location retrieval failed"
+msgstr "リダイレクト先の取得に失敗しました"
+
+#: src/ItemCell.cc:612
+msgid "Cannot find embedded URL"
+msgstr "URL の取得に失敗しました"
+
+#: src/ItemCell.cc:615
+msgid "FTP server returned negative response"
+msgstr "FTP サーバーが否定的な応答を返しました"
+
+#: src/ItemCell.cc:618
+msgid "Bind error - "
+msgstr "I/O エラーです"
+
+#: src/ItemCell.cc:622
+msgid "Listen error - "
+msgstr "I/O エラーです"
+
+#: src/ItemCell.cc:626
+msgid "Accept error - "
+msgstr "ソケットのエラーです"
+
+#: src/ItemCell.cc:630
+msgid "Send error - "
+msgstr "Send エラーです"
+
+#: src/ItemCell.cc:634
+msgid "Recv error - "
+msgstr "Recv エラーです"
+
+#: src/ItemCell.cc:638
+msgid "General protocol error"
+msgstr "一般プロトコルエラー :P です"
+
+#: src/ItemCell.cc:642
+msgid "Unknown error occurred"
+msgstr "エラーが発生しました"
+
+#: src/ItemCache.cc:97
+msgid "Copied"
+msgstr "コピー"
+
+#: src/Retrieve.cc:111 src/RetrieveFTP.cc:255
+msgid "Partial item added"
+msgstr "分割部分のアイテムを追加しました"
+
+#: src/Retrieve.cc:292
+msgid "Connecting to "
+msgstr "接続しています..."
+
+#: src/Retrieve.cc:312
+msgid "Can't resolve host: "
+msgstr "ホスト名が解決できませんでした: "
+
+#: src/Retrieve.cc:312
+msgid ", reason: "
+msgstr ", その理由: "
+
+#: src/Retrieve.cc:317
+msgid "Resolving complete"
+msgstr "名前解決完了"
+
+#: src/Retrieve.cc:327
+msgid "Canonical name is "
+msgstr "ホスト名は "
+
+#: src/Retrieve.cc:448
+msgid "Connection refused: "
+msgstr "接続を拒否されました: "
+
+#: src/Retrieve.cc:476
+msgid "Connection established"
+msgstr "接続を確立しました"
+
+#. fix this
+#: src/Retrieve.cc:524
+msgid "Unable to truncate the file '"
+msgstr "以下のファイルの切り詰めに失敗しました '"
+
+#: src/Retrieve.cc:524
+msgid "'. Rollback disabled"
+msgstr "'. ロールバックしません"
+
+#: src/Retrieve.cc:552 src/ItemOption.cc:355
+msgid "Failed to make directory '"
+msgstr "次のディレクトリの作成に失敗 '"
+
+#: src/RetrieveHTTP.cc:361
+msgid "UseProxy is not supported yet"
+msgstr "'Use Proxy' はまだサポートされていません"
+
+#: src/RetrieveHTTP.cc:367
+msgid "Content forbidden"
+msgstr "アクセスを権限がありません"
+
+#: src/RetrieveHTTP.cc:371
+msgid "Content not found"
+msgstr "ファイルが見つかりません"
+
+#: src/RetrieveHTTP.cc:390
+msgid "Server returned 416 status. Assume download was completed"
+msgstr ""
+"サーバがステータス 416 を返しました。ダウンロードが完了したとみなします"
+
+#: src/RetrieveHTTP.cc:398
+msgid "Server returned 416 status. This file may be already downloaded"
+msgstr ""
+"サーバがステータス 416 を返しました。すでにダウンロードが完了しているかもしれ"
+"ません"
+
+#: src/RetrieveHTTP.cc:403
+msgid "Access denied"
+msgstr "アクセスを拒否されました"
+
+#: src/RetrieveHTTP.cc:407
+msgid "Unexpected error occurred"
+msgstr "未対応のエラーが発生しました"
+
+#: src/RetrieveHTTP.cc:553
+msgid "Redirection found"
+msgstr "リダイレクションです"
+
+#: src/RetrieveHTTP.cc:603
+msgid "Redirecting to "
+msgstr "リダイレクトします..."
+
+#: src/RetrieveHTTP.cc:606 src/RetrieveHTTP.cc:869 src/RetrieveHTTP.cc:876
+#: src/RetrieveHTTP.cc:880 src/RetrieveHTTP.cc:925 src/RetrieveHTTP.cc:940
+#: src/RetrieveHTTP.cc:946 src/RetrieveHTTP.cc:953 src/RetrieveFTP.cc:1137
+#: src/RetrieveFTP.cc:1147 src/RetrieveFTP.cc:1153 src/RetrieveFTP.cc:1158
+#: src/RetrieveHTTP2.cc:155 src/RetrieveHTTP2.cc:166 src/RetrieveHTTP2.cc:176
+#: src/RetrieveHTTP2.cc:184 src/RetrieveFTP2.cc:254 src/RetrieveFTP2.cc:264
+#: src/RetrieveFTP2.cc:270 src/RetrieveFTP2.cc:275
+msgid "Connection closed"
+msgstr "接続を閉じました"
+
+#. すでにダウンロード済
+#. download has been competed
+#: src/RetrieveHTTP.cc:614 src/RetrieveHTTP.cc:725 src/RetrieveFTP.cc:1037
+#: src/RetrieveFTP2.cc:169
+msgid " is already downloaded"
+msgstr "は既にダウンロードされています"
+
+#. split download is not allowed
+#: src/RetrieveHTTP.cc:702 src/RetrieveHTTP.cc:748 src/RetrieveHTTP.cc:819
+msgid "Resume disabled"
+msgstr "レジュームしません"
+
+#. Assume download was completed
+#: src/RetrieveHTTP.cc:706 src/RetrieveHTTP.cc:751 src/ItemOption.cc:2319
+msgid "Assume download was completed"
+msgstr "ダウンロードが完了したとみなす"
+
+#: src/RetrieveHTTP.cc:716 src/RetrieveHTTP.cc:767 src/RetrieveFTP.cc:1031
+msgid "Download aborted due to the file size limitation"
+msgstr "ファイルサイズの制限により、ダウンロードを中止します"
+
+#. ファイルサイズが異なる
+#. size mismatch
+#: src/RetrieveHTTP.cc:741 src/RetrieveFTP.cc:1047 src/RetrieveHTTP2.cc:129
+#: src/RetrieveFTP2.cc:180
+msgid "Size of local file is larger than remote file's one. Download again"
+msgstr "サイズが合いません. ダウンロードをやり直します"
+
+#. check whether or not remote server suports resume
+#: src/RetrieveHTTP.cc:781
+msgid "Checking whether server supports resuming"
+msgstr "サーバーがレジュームをサポートしているか調べています"
+
+#: src/RetrieveHTTP.cc:820 src/RetrieveHTTP.cc:831 src/RetrieveFTP.cc:1059
+#: src/RetrieveFTP.cc:1071
+msgid "Starting normal download instead"
+msgstr "通常のダウンロードを開始します"
+
+#. OK, ready to split downloading!
+#: src/RetrieveHTTP.cc:823 src/RetrieveFTP.cc:1062
+msgid "Splitting file..."
+msgstr "ファイルを分割しています..."
+
+#: src/RetrieveHTTP.cc:830 src/RetrieveFTP.cc:1070
+msgid "File is too small to be divided"
+msgstr "ファイルサイズが小さすぎて分割できません"
+
+#: src/RetrieveHTTP.cc:1004 src/RetrieveFTP.cc:1424 src/RetrieveHTTP2.cc:222
+#: src/RetrieveFTP2.cc:306
+msgid "This file is locked. Aborting download"
+msgstr "このファイルはロックされています。ダウンロードを中止します"
+
+#: src/RetrieveHTTP.cc:1011 src/RetrieveFTP.cc:1431 src/RetrieveHTTP2.cc:232
+#: src/RetrieveFTP2.cc:322
+msgid "Starting download at "
+msgstr "ダウンロードを"
+
+#: src/RetrieveHTTP.cc:1011 src/RetrieveFTP.cc:1431 src/RetrieveHTTP2.cc:232
+#: src/RetrieveFTP2.cc:324
+msgid " bytes"
+msgstr "バイト目から開始します"
+
+#: src/RetrieveHTTP.cc:1047
+msgid "Retrieving embedded URL"
+msgstr "URL を取得しています"
+
+#: src/RetrieveHTTP.cc:1078
+msgid "Finding hyperlink"
+msgstr "ハイパーリンクを抽出"
+
+#: src/RetrieveHTTP.cc:1090 src/gui_file_find_hyperlink.cc:69
+msgid "Hyperlink retrieval complete"
+msgstr "ハイパーリンクの抽出を完了しました"
+
+#: src/RetrieveHTTP.cc:1100 src/RetrieveFTP.cc:1450 src/RetrieveHTTP2.cc:253
+#: src/RetrieveFTP2.cc:352
+msgid "No match size"
+msgstr "サイズが合いません"
+
+#: src/RetrieveHTTP.cc:1140 src/RetrieveHTTP.cc:1156 src/RetrieveHTTP.cc:1162
+#: src/RetrieveHTTP.cc:1172
+msgid "Failed to uncompress data"
+msgstr "データ伸長に失敗しました"
+
+#. レジューム不可
+#. www server does not support resume
+#: src/RetrieveFTP.cc:105 src/RetrieveFTP.cc:164 src/RetrieveFTP.cc:1058
+#: src/RetrieveHTTP2.cc:135
+msgid "Sorry, cannot resume"
+msgstr "レジュームできません"
+
+#: src/RetrieveFTP.cc:122 src/RetrieveFTP.cc:495 src/RetrieveFTP.cc:519
+msgid "Data connection established"
+msgstr "データ転送用の接続を確立しました"
+
+#: src/RetrieveFTP.cc:269
+msgid "Cannot enter PASV mode"
+msgstr "PASV モードに移行できませんでした"
+
+#: src/RetrieveFTP.cc:383
+msgid "Failed to create symbolic link. Ignored"
+msgstr "シンボリックリンクの作成に失敗しました. 無視します"
+
+#: src/RetrieveFTP.cc:490 src/RetrieveFTP.cc:527 src/RetrieveFTP.cc:939
+msgid "Failed to list files"
+msgstr "ファイルのリスティングに失敗しました"
+
+#. maybe full?
+#: src/RetrieveFTP.cc:648 src/RetrieveFTP.cc:706 src/RetrieveFTP.cc:787
+msgid "Failed to login"
+msgstr "ログインに失敗しました"
+
+#: src/RetrieveFTP.cc:897
+msgid "Specified directory was not found"
+msgstr "指定されたディレクトリが見つかりません"
+
+#: src/RetrieveFTP.cc:915 src/RetrieveFTP2.cc:154
+msgid "MDTM command failed. Anyway, try resuming"
+msgstr "modtime コマンドが失敗しました. とりあえずレジュームします"
+
+#: src/RetrieveFTP.cc:919 src/RetrieveFTP2.cc:158
+msgid ""
+"Modification time of remote file is newer than local file's one. Resume "
+"disabled"
+msgstr ""
+"リモートのファイルの方がローカルのファイルよりも新しいようです. レジュームし"
+"ません"
+
+#. recursive download limit exceeded
+#: src/RetrieveFTP.cc:971
+msgid "Depth of recursion exceeded. This message can be ignored safely"
+msgstr "再帰回数を超えました. このメッセージは無視してもかまいません"
+
+#: src/RetrieveFTP.cc:978
+msgid "Try again assuming as directory"
+msgstr "ディレクトリとみなして再度トライします"
+
+#: src/RetrieveFTP.cc:985
+msgid "Specified directory or file was not found"
+msgstr "指定されたディレクトリまたはファイルが見つかりません"
+
+#: src/RetrieveFTP.cc:1005
+msgid "Download abort due to extension. This message can be ignored safely"
+msgstr ""
+"拡張子のフィルタリングによりダウンロードを中止します. このメッセージは無視し"
+"てもかまいません"
+
+#. send REST command
+#: src/RetrieveFTP.cc:1052
+msgid "Checking whether ftp server supports resuming"
+msgstr "FTPサーバーがレジュームをサポートしているか調べています"
+
+#: src/RetrieveFTP.cc:1108 src/RetrieveFTP2.cc:230
+msgid "An error occurred, but this error can be ignored safely"
+msgstr "エラーが発生しましたが, 無視してもかまいません"
+
+#: src/RetrieveHTTP2.cc:104
+msgid "Redirecting to"
+msgstr "リダイレクトします..."
+
+#. すでにダウンロード済
+#. downloading has been competed
+#: src/RetrieveHTTP2.cc:117
+msgid "' is already downloaded"
+msgstr "' は既にダウンロードされています"
+
+#: src/RetrieveHTTP2.cc:229 src/RetrieveFTP2.cc:314
+msgid ", its index is "
+msgstr ", そのインデックスは "
+
+#: src/RetrieveHTTP2.cc:229 src/RetrieveFTP2.cc:316
+msgid ", its range is from "
+msgstr ", その範囲は "
+
+#: src/RetrieveFTP2.cc:144
+msgid "Specified directory is not found"
+msgstr "指定されたディレクトリが見つかりません"
+
+#: src/gui_download.cc:448
+msgid " item(s) cleared"
+msgstr " 個のアイテムを削除しました"
+
+#: src/gui_download.cc:566
+msgid " item(s) cleared, and its file deleted"
+msgstr " 個のアイテムとそのファイルを削除しました"
+
+#: src/gui_download.cc:585 src/gui_download.cc:1264 src/gui_item.cc:387
+msgid "Clear items"
+msgstr "アイテムを削除"
+
+#: src/gui_download.cc:586 src/gui_download.cc:1265 src/gui_item.cc:388
+msgid "Are you sure to delete these items?"
+msgstr "これらアイテムを削除していいですか ?"
+
+#: src/gui_download.cc:607
+msgid "Clear items and delete their files"
+msgstr "アイテムとそのファイルを削除"
+
+#: src/gui_download.cc:608
+msgid "Are you sure to delete these items and their files?"
+msgstr "これらアイテムをファイルとともに削除していいですか ?"
+
+#: src/gui_download.cc:1201 src/gui_item.cc:371
+msgid " item(s) deleted"
+msgstr "個のアイテムを削除しました"
+
+#: src/gui_download.cc:1286
+msgid "Start"
+msgstr "開始"
+
+#: src/gui_download.cc:1296
+msgid "Stop"
+msgstr "停止"
+
+#. Delete button
+#: src/gui_download.cc:1306 src/HistoryWindow.cc:356
+msgid "Clear"
+msgstr "削除"
+
+#: src/gui_download.cc:1316
+msgid "Clear and delete files"
+msgstr "アイテムとそのファイルを削除"
+
+#: src/gui_download.cc:1324
+msgid "Clear CRC"
+msgstr "CRC を 削除"
+
+#: src/gui_download.cc:1329
+msgid "Clear MD5"
+msgstr "MD5 を削除"
+
+#: src/gui_download.cc:1334
+msgid "Check CRC"
+msgstr "CRC を チェック"
+
+#: src/gui_download.cc:1339
+msgid "Check MD5"
+msgstr "MD5 を チェック"
+
+#: src/gui_download.cc:1357
+msgid "Start all"
+msgstr "全て開始"
+
+#: src/gui_download.cc:1367
+msgid "Stop all"
+msgstr "全て停止"
+
+#: src/gui_download.cc:1377
+msgid "Clear all"
+msgstr "全て削除"
+
+#: src/gui_download.cc:1385
+msgid "Clear all CRC"
+msgstr "すべての CRC を 削除"
+
+#: src/gui_download.cc:1389
+msgid "Clear all MD5"
+msgstr "全ての MD5 を削除"
+
+#: src/gui_download.cc:1397 src/AppOption.cc:1061
+msgid "Start all lists"
+msgstr "全てのリストを開始"
+
+#: src/gui_download.cc:1405
+msgid "Stop all lists"
+msgstr "全てのリストを停止"
+
+#: src/gui_download.cc:1413
+msgid "Clear all lists"
+msgstr "全てのリストで削除"
+
+#: src/gui_download.cc:1423
+msgid "Check downloaded items' CRC"
+msgstr "ダウンロード済アイテムの CRC をチェック"
+
+#: src/gui_download.cc:1428
+msgid "Check downloaded items' MD5"
+msgstr "ダウンロード済アイテムの MD5 をチェック"
+
+#: src/gui_download.cc:1436 src/AppOption.cc:173
+msgid "Download"
+msgstr "ダウンロード"
+
+#: src/gui_download_check.cc:51 src/gui_download_check.cc:59
+msgid "Checking CRC of '"
+msgstr "CRC チェック '"
+
+#: src/gui_download_check.cc:51 src/gui_download_check.cc:98
+msgid "' successful"
+msgstr "' が成功しました"
+
+#: src/gui_download_check.cc:59 src/gui_download_check.cc:105
+msgid "' failed"
+msgstr "' が失敗しました"
+
+#: src/gui_download_check.cc:98 src/gui_download_check.cc:105
+msgid "Checking MD5 of '"
+msgstr "MD5 チェック '"
+
+#: src/gui_download_check.cc:270
+msgid "Check"
+msgstr "チェック"
+
+#: src/gui_download_check.cc:271
+msgid "Checking..."
+msgstr "チェックしています..."
+
+#: src/gui_edit.cc:164
+msgid " item(s) copied"
+msgstr " 個のアイテムをコピーしました"
+
+#: src/gui_edit.cc:211
+msgid " item(s) cut"
+msgstr " 個のアイテムをカットしました"
+
+#. added 2001/3/21
+#: src/gui_edit.cc:241 src/PasteWindow.cc:146
+msgid " item(s) pasted"
+msgstr " 個のアイテムを貼付けました"
+
+#: src/gui_edit.cc:581 src/PasteWindow.cc:549 src/HistoryWindow.cc:212
+msgid "Select all"
+msgstr "すべての選択"
+
+#: src/gui_edit.cc:591 src/PasteWindow.cc:558 src/HistoryWindow.cc:221
+msgid "Invert selection"
+msgstr "選択を反転"
+
+#: src/gui_edit.cc:599 src/PasteWindow.cc:771
+msgid "Paste URL list"
+msgstr "URLリストを貼付け"
+
+#: src/gui_edit.cc:613
+msgid "Paste URL list with numerical expansion"
+msgstr "URL リストを展開して貼付け"
+
+#: src/gui_edit.cc:627
+msgid "Paste CRC list"
+msgstr "CRC リストの貼付け"
+
+#: src/gui_edit.cc:640
+msgid "Paste MD5 list"
+msgstr "MD5 リストを貼付け"
+
+#: src/gui_edit.cc:657
+msgid "Copy selected items"
+msgstr "選択したアイテムをコピー"
+
+#: src/gui_edit.cc:664
+msgid "Cut selected items"
+msgstr "選択したアイテムをカット"
+
+#: src/gui_edit.cc:671
+msgid "Paste items"
+msgstr "アイテムの貼り付け"
+
+#: src/gui_edit.cc:679
+msgid "Search in current list"
+msgstr "現在のリストを検索"
+
+#. Create root menu item
+#: src/gui_edit.cc:688 src/PasteWindow.cc:564 src/HistoryWindow.cc:227
+msgid "Edit"
+msgstr "編集"
+
+#. Search button
+#: src/gui_edit_search.cc:66 src/gui_edit_search.cc:93
+#: src/gui_edit_search.cc:110 src/HistoryWindow.cc:609
+msgid "Search"
+msgstr "検索"
+
+#: src/gui_edit_search.cc:67
+msgid "Search complete"
+msgstr "検索が終了しました"
+
+#. Cancel button
+#: src/gui_edit_search.cc:121 src/gui_file_find_hyperlink.cc:126
+#: src/gui_item_new_item.cc:191 src/gui_list_new_list.cc:118
+#: src/gui_list_rename_list.cc:121 src/ItemOption.cc:683 src/AppOption.cc:225
+#: src/Dialog.cc:191 src/PasteWindow.cc:898
+msgid "Cancel"
+msgstr "キャンセル"
+
+#. label
+#: src/gui_edit_search.cc:136
+msgid "String:"
+msgstr "文字列:"
+
+#: src/gui_file.cc:94
+msgid "Autosave done"
+msgstr "自動保存しました"
+
+#: src/gui_file.cc:354 src/gui_file_open_url.cc:98 src/gui_toolbar.cc:246
+msgid "Open URL list"
+msgstr "URL リストを開く"
+
+#: src/gui_file.cc:364 src/gui_file_open_crc.cc:70
+msgid "Open CRC list"
+msgstr "CRC リストを開く"
+
+#: src/gui_file.cc:372
+msgid "Open MD5 list"
+msgstr "MD5 リストを開く"
+
+#: src/gui_file.cc:384
+msgid "Find hyperlink"
+msgstr "ハイパーリンクを抽出"
+
+#: src/gui_file.cc:395 src/gui_toolbar.cc:230
+msgid "Open saved list"
+msgstr "保存されたリストを開く"
+
+#: src/gui_file.cc:405
+msgid "Save current list"
+msgstr "現在のリストを保存"
+
+#: src/gui_file.cc:417
+msgid "Quit with saving lists"
+msgstr "リストを保存して終了"
+
+#: src/gui_file.cc:425
+msgid "Quit without saving lists"
+msgstr "リスト保存せずに終了"
+
+#. CList を作成する。この例では 2 列を使う
+#: src/gui_file.cc:430 src/ListEntry.cc:610 src/HistoryWindow.cc:275
+msgid "File"
+msgstr "ファイル"
+
+#: src/gui_file_find_hyperlink.cc:55
+msgid "Error occurred while reading HTML file"
+msgstr "HTML ファイルを読み込み中にエラーが発生しました"
+
+#: src/gui_file_find_hyperlink.cc:82 src/gui_file_find_hyperlink.cc:100
+msgid "Find Hyperlink"
+msgstr "ハイパーリンクを抽出"
+
+#. OK button
+#: src/gui_file_find_hyperlink.cc:116 src/ItemOption.cc:672
+#: src/AppOption.cc:213 src/gui_help.cc:191
+msgid "OK"
+msgstr "OK"
+
+#: src/gui_file_open_url.cc:53
+msgid "Error occurred while reading URL file"
+msgstr "URL リストを読み込み中にエラーが発生しました"
+
+#: src/gui_file_open_url.cc:78
+msgid "URL list opened"
+msgstr "URL リストを読み込みました"
+
+#: src/gui_file_open_crc.cc:51
+msgid "Error occurred while reading CRC file"
+msgstr "CRC ファイルを読み込み中にエラーが発生しました"
+
+#: src/gui_file_open_crc.cc:53
+msgid "CRC list opened"
+msgstr "CRC リストを読み込みました"
+
+#: src/gui_file_open_and_save.cc:59
+msgid "Failed to save lists"
+msgstr "ファイルの保存に失敗しました"
+
+#: src/gui_file_open_and_save.cc:61
+msgid "lists saved"
+msgstr "現在のリストを保存しました"
+
+#: src/gui_file_open_and_save.cc:69 src/gui_toolbar.cc:280
+msgid "Save list"
+msgstr "現在のリストを保存"
+
+#: src/gui_file_open_and_save.cc:133
+msgid "Failed to load lists"
+msgstr "ファイルの読み込みに失敗しました"
+
+#: src/gui_file_open_and_save.cc:135
+msgid "Saved list opened"
+msgstr "保存されていたリストを読み込みました"
+
+#.
+#. // 現在のアイテムリストを保存もしくは破棄
+#. if(GTK_CLIST(itemlistwidget)->rows) {// if clist contains any items
+#. // 現在のリストを保存するかどうか尋ねる
+#. AfterOpen = true;
+#. Prompt_save_or_not();
+#. } else {
+#.
+#. AfterOpen = false;
+#: src/gui_file_open_and_save.cc:163
+msgid "Open Saved list"
+msgstr "保存されたリストを開く"
+
+#: src/gui_item_new_item.cc:109
+msgid "item added"
+msgstr "1 個のアイテムを追加しました"
+
+#. Error
+#: src/gui_item_new_item.cc:130 src/gui_list_new_list.cc:49
+#: src/gui_list_rename_list.cc:49 src/ItemOption.cc:327 src/ItemOption.cc:372
+#: src/ItemOption.cc:2325 src/PasteWindow.cc:93 src/PasteWindow.cc:178
+#: src/PasteWindow.cc:210 src/PasteWindow.cc:244 src/PasteWindow.cc:265
+#: src/PasteWindow.cc:295
+msgid "Error"
+msgstr "エラー"
+
+#: src/gui_item_new_item.cc:131 src/ItemOption.cc:406
+msgid "Invalid URL"
+msgstr "URL が不正です"
+
+#: src/gui_item_new_item.cc:155 src/gui_item.cc:457
+msgid "New item"
+msgstr "新規アイテム"
+
+#. Add button
+#: src/gui_item_new_item.cc:172 src/ItemOption.cc:1830 src/ItemOption.cc:2080
+#: src/ItemOption.cc:2133 src/ItemOption.cc:2194 src/ItemOption.cc:2246
+#: src/ItemOption.cc:2525 src/ItemOption.cc:2773
+msgid "Add"
+msgstr "追加"
+
+#. unfold button
+#: src/gui_item_new_item.cc:182
+msgid "Numerical expansion"
+msgstr "展開する"
+
+#: src/gui_list_new_list.cc:50 src/gui_list_rename_list.cc:50
+msgid "The specified name already exists."
+msgstr "指定された名前は既に存在します"
+
+#: src/gui_list_new_list.cc:67
+msgid "New list created"
+msgstr "新規リストを作成しました"
+
+#: src/gui_list_new_list.cc:90 src/gui_list.cc:314 src/ListEntry.cc:215
+#: src/aria.h:75
+msgid "New list"
+msgstr "新規リスト"
+
+#. Ok button
+#: src/gui_list_new_list.cc:107 src/gui_list_rename_list.cc:110
+msgid "Ok"
+msgstr ""
+
+#. label
+#: src/gui_list_new_list.cc:133 src/gui_list_rename_list.cc:136
+msgid "Name:"
+msgstr "名前: "
+
+#: src/gui_list_rename_list.cc:93
+msgid "Rename list"
+msgstr "リストの名前変更"
+
+#: src/gui_list.cc:49
+msgid "1 list deleted"
+msgstr "1 個のリストを削除しました"
+
+#: src/gui_list.cc:57 src/gui_list.cc:322
+msgid "Delete current list"
+msgstr "現在のリストを削除"
+
+#: src/gui_list.cc:58
+msgid "Are you sure to delete the current list?"
+msgstr "現在のリストを削除していいですか ?"
+
+#: src/gui_list.cc:284
+msgid "Ascending"
+msgstr "昇順"
+
+#: src/gui_list.cc:289
+msgid "Descending"
+msgstr "降順"
+
+#: src/gui_list.cc:332
+msgid "Rename current list"
+msgstr "現在のリストの名前を変更"
+
+#: src/gui_list.cc:342
+msgid "Move left"
+msgstr "一つ左へ移動"
+
+#: src/gui_list.cc:350
+msgid "Move right"
+msgstr "一つ右へ移動"
+
+#: src/gui_list.cc:360
+msgid "Previous list"
+msgstr "前のリスト"
+
+#: src/gui_list.cc:368
+msgid "Next list"
+msgstr "次のリスト"
+
+#: src/gui_list.cc:379
+msgid "Sort"
+msgstr "ソート"
+
+#: src/gui_list.cc:385
+msgid "Filename"
+msgstr "ファイル名"
+
+#: src/gui_list.cc:389 src/ItemOption.cc:2090 src/ItemOption.cc:2256
+msgid "Extension"
+msgstr "拡張子"
+
+#: src/gui_list.cc:393
+msgid "Downloaded size"
+msgstr "ダウン済みサイズ"
+
+#: src/gui_list.cc:397
+msgid "Total size"
+msgstr "合計サイズ"
+
+#: src/gui_list.cc:401
+msgid "Progress"
+msgstr "進捗 (%)"
+
+#: src/gui_list.cc:405 src/ListEntry.cc:616
+msgid "Retry"
+msgstr "再試行"
+
+#: src/gui_list.cc:409 src/ItemOption.cc:839
+msgid "Recursive"
+msgstr "再帰"
+
+#: src/gui_list.cc:413 src/ListEntry.cc:618
+msgid "Status"
+msgstr "状態"
+
+#: src/gui_list.cc:417
+msgid "Save dir"
+msgstr "保存ディレクトリ"
+
+#. referer : url
+#: src/gui_list.cc:421 src/ItemOption.cc:719 src/ItemOption.cc:1629
+#: src/PasteWindow.cc:800 src/HistoryWindow.cc:278
+msgid "URL"
+msgstr "URL"
+
+#: src/gui_list.cc:426
+msgid "Shuffle list"
+msgstr "リストをシャッフル"
+
+#: src/gui_list.cc:439
+msgid "List"
+msgstr "リスト"
+
+#: src/gui_item.cc:466
+msgid "Lock"
+msgstr "ロックする"
+
+#: src/gui_item.cc:476
+msgid "Unlock"
+msgstr "ロックを解除する"
+
+#: src/gui_item.cc:488
+msgid "Move item up"
+msgstr "一つ上へ移動"
+
+#: src/gui_item.cc:498
+msgid "Move item down"
+msgstr "一つ下へ移動"
+
+#: src/gui_item.cc:508
+msgid "Move item to top"
+msgstr "一番上へ移動"
+
+#: src/gui_item.cc:516
+msgid "Move item to bottom"
+msgstr "一番下へ移動"
+
+#: src/gui_item.cc:526
+msgid "Lock error items"
+msgstr "エラーのアイテムをロック"
+
+#: src/gui_item.cc:536
+msgid "Clear downloaded item"
+msgstr "ダウンロード済アイテムを削除"
+
+#: src/gui_item.cc:544
+msgid "Clear locked items"
+msgstr "ロックされたアイテムを削除"
+
+#: src/gui_item.cc:549
+msgid "Clear error items"
+msgstr "エラーのアイテムを削除"
+
+#: src/gui_item.cc:554
+msgid "Clear stopped items"
+msgstr "停止中のアイテムを削除"
+
+#: src/gui_item.cc:559
+msgid "Clear ready items"
+msgstr "待機中のアイテムを削除"
+
+#: src/gui_item.cc:564
+msgid "Clear error, stopped and ready items"
+msgstr "エラー, 停止中, 待機中のアイテムを削除"
+
+#: src/gui_item.cc:571
+msgid "Item"
+msgstr "アイテム"
+
+#: src/gui_option.cc:120 src/gui_option.cc:510
+msgid "Clear system log"
+msgstr "システムログのクリア"
+
+#: src/gui_option.cc:121
+msgid "Are you sure to clear system log?"
+msgstr "システムログを削除していいですか ?"
+
+#: src/gui_option.cc:388 src/PasteWindow.cc:579
+msgid "Selected item option"
+msgstr "アイテム設定"
+
+#: src/gui_option.cc:398 src/gui_toolbar.cc:521 src/PasteWindow.cc:587
+msgid "Default item option for current list"
+msgstr "現在のリストのデフォルトのアイテム設定"
+
+#: src/gui_option.cc:408 src/PasteWindow.cc:595
+msgid "Apply default item option"
+msgstr "デフォルトのアイテム設定を適用"
+
+#: src/gui_option.cc:415 src/PasteWindow.cc:603
+msgid "To selected items"
+msgstr "選択したアイテム"
+
+#: src/gui_option.cc:420 src/PasteWindow.cc:608
+msgid "To all items in current list"
+msgstr "現在のリストのすべてのアイテム"
+
+#: src/gui_option.cc:428 src/gui_option.cc:452 src/PasteWindow.cc:616
+#: src/PasteWindow.cc:641
+msgid "All settings"
+msgstr "すべて適用"
+
+#: src/gui_option.cc:436 src/gui_option.cc:460 src/PasteWindow.cc:624
+#: src/PasteWindow.cc:649
+msgid "Ignore save directory"
+msgstr "保存ディレクトリ除く"
+
+#: src/gui_option.cc:444 src/gui_option.cc:468
+msgid "Ignore save directory and recursive settings"
+msgstr "保存ディレクトリと再帰設定除く"
+
+#: src/gui_option.cc:475 src/ItemOption.cc:2871
+msgid "Default item option for new list"
+msgstr "新しいリストのデフォルトのアイテム設定"
+
+#: src/gui_option.cc:483
+msgid "Application settings"
+msgstr "アプリケーション設定"
+
+#: src/gui_option.cc:493
+msgid "Download history"
+msgstr "ダウンロード履歴"
+
+#: src/gui_option.cc:501
+msgid "Toggle basket on/off"
+msgstr "バスケットを表示する/しない"
+
+#. item Option button
+#: src/gui_option.cc:518 src/PasteWindow.cc:738 src/PasteWindow.cc:876
+msgid "Option"
+msgstr "オプション"
+
+#: src/ItemOption.cc:373
+msgid ""
+"Specified directory does not exist.\n"
+"Do you wish to make it now?"
+msgstr ""
+"指定されたディレクトリは存在しません\n"
+"今すぐ作成しますか"
+
+#: src/ItemOption.cc:385
+msgid "Select directory"
+msgstr "保存するディレクトリを選択"
+
+#: src/ItemOption.cc:409
+msgid "Invalid Filename"
+msgstr "不正なファイル名です"
+
+#: src/ItemOption.cc:412
+msgid "Invalid CRC"
+msgstr "CRC が不正です"
+
+#: src/ItemOption.cc:415
+msgid "Invalid MD5"
+msgstr "MD5 が不正です"
+
+#: src/ItemOption.cc:607
+msgid "General"
+msgstr "一般"
+
+#. default button
+#: src/ItemOption.cc:693
+msgid "Default"
+msgstr "デフォルトに戻す"
+
+#: src/ItemOption.cc:725 src/ItemOption.cc:1226 src/ItemOption.cc:1761
+#: src/ItemOption.cc:2455
+msgid "Authentication"
+msgstr "認証"
+
+#: src/ItemOption.cc:731
+msgid "Download 1"
+msgstr "ダウンロード 1"
+
+#: src/ItemOption.cc:737
+msgid "Download 2"
+msgstr "ダウンロード 2"
+
+#: src/ItemOption.cc:743 src/AppOption.cc:194 src/AppOption.cc:299
+msgid "Command"
+msgstr "コマンド"
+
+#: src/ItemOption.cc:767 src/ItemOption.cc:1605
+msgid "Referer"
+msgstr "リファラー"
+
+#: src/ItemOption.cc:773 src/ItemOption.cc:1661
+msgid "Cookie"
+msgstr ""
+
+#: src/ItemOption.cc:779
+msgid "Agent"
+msgstr "エージェント"
+
+#: src/ItemOption.cc:785 src/ItemOption.cc:833 src/ItemOption.cc:1740
+#: src/ItemOption.cc:2433
+msgid "Proxy"
+msgstr "プロキシ"
+
+#: src/ItemOption.cc:791
+msgid "Recursive 1"
+msgstr "再帰 1"
+
+#: src/ItemOption.cc:797
+msgid "Recursive 2"
+msgstr "再帰 2"
+
+#: src/ItemOption.cc:803 src/ItemOption.cc:845
+msgid "Misc"
+msgstr "その他"
+
+#: src/ItemOption.cc:827
+msgid "Mode"
+msgstr "モード"
+
+#: src/ItemOption.cc:1150
+msgid "Save as"
+msgstr "保存ファイル名"
+
+#: src/ItemOption.cc:1159
+msgid "Sync with URL"
+msgstr "URL と同期"
+
+#: src/ItemOption.cc:1195
+msgid "Save directory"
+msgstr "保存ディレクトリ"
+
+#: src/ItemOption.cc:1205
+msgid "select"
+msgstr "選択"
+
+#: src/ItemOption.cc:1238 src/ItemOption.cc:1773 src/ItemOption.cc:2467
+msgid "Use authentication"
+msgstr "認証を使う"
+
+#: src/ItemOption.cc:1248 src/ItemOption.cc:1782 src/ItemOption.cc:2476
+msgid "User name"
+msgstr "ユーザー"
+
+#: src/ItemOption.cc:1263 src/ItemOption.cc:1796 src/ItemOption.cc:2490
+msgid "Password"
+msgstr "パスワード"
+
+#: src/ItemOption.cc:1287
+msgid "Delete item when download completes"
+msgstr "ダウンロードが完了したらアイテムを削除する"
+
+#: src/ItemOption.cc:1292
+msgid "Don't delete item if CRC/MD5 is not set"
+msgstr "CRC/MD5 が設定されていないときは削除しない"
+
+#: src/ItemOption.cc:1297
+msgid "Don't check CRC/MD5"
+msgstr "CRC/MD5 をチェックしない"
+
+#: src/ItemOption.cc:1302
+msgid "Ignore CRC/MD5 error"
+msgstr "CRC/MD5 エラーを無視する"
+
+#: src/ItemOption.cc:1307
+msgid "Use Content-MD5"
+msgstr "Content-MD5 を使用する"
+
+#: src/ItemOption.cc:1312
+msgid "Do not download already existing files"
+msgstr "すでに存在するファイルはダウンロードしない"
+
+#: src/ItemOption.cc:1317
+msgid "Do not redownload if resuming is not available"
+msgstr "レジュームできない場合は再ダウンロードしない"
+
+#: src/ItemOption.cc:1327
+msgid "Time out (sec) "
+msgstr "タイムアウト (秒) "
+
+#: src/ItemOption.cc:1349
+msgid "Retry (-1: unlimited) "
+msgstr "再試行 (-1: 無制限) "
+
+#: src/ItemOption.cc:1389
+msgid "Retry interval (sec) "
+msgstr "再試行間の間隔 (秒) "
+
+#: src/ItemOption.cc:1410
+msgid "Divide file into "
+msgstr "ファイルを分割してダウンロード"
+
+#: src/ItemOption.cc:1431
+msgid "Rollback (bytes) "
+msgstr "ロールバック(バイト)"
+
+#: src/ItemOption.cc:1445
+msgid "Do not download the files less than (bytes) "
+msgstr "以下のサイズ (バイト単位) を下回るファイルはダウンロードしない"
+
+#: src/ItemOption.cc:1468
+msgid "Resume"
+msgstr "レジューム"
+
+#. always resume
+#: src/ItemOption.cc:1481
+msgid "Always resume"
+msgstr "常にレジュームを試みる"
+
+#. use if-modified-since
+#: src/ItemOption.cc:1487
+msgid "Resume if remote contents have not been modified"
+msgstr "コンテンツが変更されていなければレジュームする"
+
+#. no resume
+#: src/ItemOption.cc:1492
+msgid "Do not resume"
+msgstr "レジュームしない"
+
+#: src/ItemOption.cc:1565
+msgid "Execute the following command after download"
+msgstr "ダウンロード終了時に以下のコマンドを実行する"
+
+#: src/ItemOption.cc:1583
+msgid ""
+"Download again if the exit status is not in the following list (delimiter is "
+"',')"
+msgstr ""
+"終了ステータスが以下のリストになければダウンロードし直す (デリミタは ',')"
+
+#. referer : none
+#: src/ItemOption.cc:1624
+msgid "none"
+msgstr "無し"
+
+#: src/ItemOption.cc:1638
+msgid "user defined"
+msgstr "ユーザー定義"
+
+#: src/ItemOption.cc:1668
+msgid "Delete cookie on restart (resume or error)"
+msgstr "再スタート(レジューム、エラー)時に Cookie を削除"
+
+#: src/ItemOption.cc:1672
+msgid "Do not send cookie"
+msgstr "Cookie を送信しない"
+
+#: src/ItemOption.cc:1680
+msgid "Send user defined cookie"
+msgstr "ユーザー定義の Cookie を送信"
+
+#: src/ItemOption.cc:1702
+msgid "User Agent"
+msgstr "ユーザー・エージェント"
+
+#: src/ItemOption.cc:1714
+msgid "Select randomly"
+msgstr "ランダムに選択"
+
+#: src/ItemOption.cc:1755 src/ItemOption.cc:2448
+msgid "Use proxy"
+msgstr "プロキシを使用する"
+
+#. toggle whether use cache or not
+#: src/ItemOption.cc:1809 src/ItemOption.cc:2541
+msgid "Use cache"
+msgstr "キャッシュを使う"
+
+#. label
+#: src/ItemOption.cc:1819 src/ItemOption.cc:2514
+msgid "Server : Port"
+msgstr "サーバー:ポート"
+
+#. delete button
+#: src/ItemOption.cc:1838 src/ItemOption.cc:2533 src/PasteWindow.cc:887
+msgid "Delete"
+msgstr "削除"
+
+#. frame
+#: src/ItemOption.cc:1860 src/ItemOption.cc:2039 src/ItemOption.cc:2691
+msgid "Recursive download"
+msgstr "再帰ダウンロード"
+
+#: src/ItemOption.cc:1886 src/ItemOption.cc:2708
+msgid "Depth of recursion "
+msgstr "再帰の回数 "
+
+#: src/ItemOption.cc:1902
+msgid "With hostname directory"
+msgstr "保存ディレクトリにホスト名を使う"
+
+#: src/ItemOption.cc:1911
+msgid "Convert absolute URLs to relative ones"
+msgstr "絶対 URL を相対 URL へ書き換える"
+
+#: src/ItemOption.cc:1920
+msgid "Force convert"
+msgstr "書き換えを強制"
+
+#: src/ItemOption.cc:1925
+msgid "Delete comments"
+msgstr "コメントを削除"
+
+#: src/ItemOption.cc:1930
+msgid "Delete JavaScript"
+msgstr "JavaScriptを削除"
+
+#: src/ItemOption.cc:1935
+msgid "Delete iframe"
+msgstr "iframe を削除"
+
+#: src/ItemOption.cc:1940
+msgid "No other host"
+msgstr "他のホストへ飛ばない"
+
+#: src/ItemOption.cc:1950 src/ItemOption.cc:2724
+msgid "Do not ascend to parent directory"
+msgstr "親ディレクトリの外には保存しない"
+
+#: src/ItemOption.cc:1955
+msgid "Only relative links"
+msgstr "相対 URL のみを対象にする"
+
+#: src/ItemOption.cc:1961
+msgid "Referer override"
+msgstr "リファラーのオーバーライド"
+
+#: src/ItemOption.cc:1966
+msgid "Follow FTP link"
+msgstr "FTP サイトへのリンクを追う"
+
+#: src/ItemOption.cc:1971
+msgid "Assume download is completed if resuming is not available"
+msgstr "レジュームできない場合はダウンロードが完了したとみなす"
+
+#: src/ItemOption.cc:1976 src/ItemOption.cc:2734
+msgid "Add to paste window"
+msgstr "ペーストウインドウに追加する"
+
+#: src/ItemOption.cc:1988
+msgid "Tags"
+msgstr "タグ"
+
+#: src/ItemOption.cc:2000
+msgid "href"
+msgstr ""
+
+#: src/ItemOption.cc:2005
+msgid "src"
+msgstr ""
+
+#: src/ItemOption.cc:2010
+msgid "background"
+msgstr ""
+
+#: src/ItemOption.cc:2015
+msgid "codebase"
+msgstr ""
+
+#. Parse Target extension clist
+#. frame
+#: src/ItemOption.cc:2058
+msgid "Extensions to parse"
+msgstr "解析するファイル拡張子"
+
+#. Ignore Domain clist
+#. frame
+#: src/ItemOption.cc:2110
+msgid "Domains to ignore"
+msgstr "無視するドメイン名"
+
+#: src/ItemOption.cc:2143
+msgid "Domain"
+msgstr "ドメイン"
+
+#. Download Target extension clist
+#. frame
+#: src/ItemOption.cc:2167 src/ItemOption.cc:2746
+msgid "Patterns to download"
+msgstr "ダウンロードするパターン"
+
+#: src/ItemOption.cc:2181 src/ItemOption.cc:2760
+msgid "Use this filter"
+msgstr "このフィルターを使う"
+
+#: src/ItemOption.cc:2204 src/ItemOption.cc:2783
+msgid "Pattern"
+msgstr "パターン"
+
+#. Ignore Download Target extension clist
+#. frame
+#: src/ItemOption.cc:2223
+msgid "Extensions to ignore"
+msgstr "無視するファイル拡張子"
+
+#: src/ItemOption.cc:2296
+msgid "Retry even if HTTP status is 404"
+msgstr "HTTP ステータスが 404 でも再試行する"
+
+#: src/ItemOption.cc:2301
+msgid "Retry even if HTTP status is 503"
+msgstr "HTTP ステータスが 503 でも再試行する"
+
+#: src/ItemOption.cc:2306
+msgid "HTTP status 416 handling"
+msgstr "HTTP ステータス 416 の取扱"
+
+#. Redownload
+#: src/ItemOption.cc:2330
+msgid "Redownload"
+msgstr "ダウンロードをやり直す"
+
+#: src/ItemOption.cc:2335
+msgid "Do not follow redirection"
+msgstr "リダイレクションを無視する"
+
+#: src/ItemOption.cc:2340
+msgid "Accept compression encodings"
+msgstr "圧縮エンコードを許可する"
+
+#: src/ItemOption.cc:2353
+msgid "Use Accept-Language request header"
+msgstr "Accept-Language リクエストヘッダーを使用する"
+
+#: src/ItemOption.cc:2367
+msgid "HTTP version "
+msgstr "HTTP バージョン"
+
+#: src/ItemOption.cc:2387
+msgid "Name of the file to use as a pre-written HTML"
+msgstr "デフォルトの html ファイル名"
+
+#. index.html
+#: src/ItemOption.cc:2400
+msgid "index.html"
+msgstr ""
+
+#. User defined
+#: src/ItemOption.cc:2410
+msgid "User defined"
+msgstr "ユーザー定義"
+
+#: src/ItemOption.cc:2546
+msgid "Via HTTP proxy"
+msgstr "HTTP プロキシ経由"
+
+#: src/ItemOption.cc:2551
+msgid "Login procedure"
+msgstr "ログイン手順"
+
+#: src/ItemOption.cc:2600
+msgid "FTP mode"
+msgstr "FTP モード"
+
+#: src/ItemOption.cc:2628
+msgid "Retrieve mode"
+msgstr "取得モード"
+
+#: src/ItemOption.cc:2668
+msgid "Don't send QUIT command"
+msgstr "QUIT コマンドを送信しない"
+
+#: src/ItemOption.cc:2673
+msgid "Don't send CWD command, instead use absolute path."
+msgstr "CWD コマンドを使わず、絶対パスを使う"
+
+#: src/ItemOption.cc:2729
+msgid "Retrieve symbolic links as real files"
+msgstr "シンボリックリンクを実際のファイルとみなして取得する"
+
+#: src/ItemOption.cc:2865
+msgid "Selected items option"
+msgstr "選択アイテムのアイテム設定"
+
+#: src/ItemOption.cc:2867
+msgid "Default item option for "
+msgstr "デフォルトのアイテム設定 : "
+
+#: src/ItemOption.cc:2919
+msgid "' option"
+msgstr "' のアイテム設定"
+
+#: src/ItemStatusRec.cc:84
+msgid " item(s) added"
+msgstr " 個のアイテムを追加しました"
+
+#: src/AppOption.cc:33 src/AppOption.cc:34
+msgid "<DEFAULT>"
+msgstr "<デフォルト>"
+
+#: src/AppOption.cc:149
+msgid "Application Option"
+msgstr "アプリケーション設定"
+
+#: src/AppOption.cc:177
+msgid "Confirmation"
+msgstr "確認"
+
+#: src/AppOption.cc:181
+msgid "Display"
+msgstr "表示"
+
+#: src/AppOption.cc:185
+msgid "Basket"
+msgstr "バスケット"
+
+#: src/AppOption.cc:189
+msgid "Timer"
+msgstr "タイマー"
+
+#: src/AppOption.cc:199
+msgid "Server"
+msgstr "サーバー"
+
+#. コマンドリスト更新ボタン
+#: src/AppOption.cc:252 src/AppOption.cc:255 src/AppOption.cc:284
+msgid "Update Command list"
+msgstr "コマンドリストの更新"
+
+#: src/AppOption.cc:253 src/AppOption.cc:348
+msgid "Update successful"
+msgstr "更新成功"
+
+#: src/AppOption.cc:256 src/AppOption.cc:351
+msgid "Update failed"
+msgstr "更新失敗"
+
+#. toggle command list
+#: src/AppOption.cc:278
+msgid "Use Command list"
+msgstr "コマンドリストを使用する"
+
+#. コマンドリストのCList
+#: src/AppOption.cc:293
+msgid "Choose commands to use"
+msgstr "使用するコマンドを選んで下さい"
+
+#: src/AppOption.cc:300 src/AppOption.cc:393
+msgid "Comment"
+msgstr "コメント"
+
+#. server template update button
+#: src/AppOption.cc:347 src/AppOption.cc:350 src/AppOption.cc:378
+msgid "Update Server Template"
+msgstr "サーバーテンプレートの更新"
+
+#. toggle enable/disable Server Template feature
+#: src/AppOption.cc:372
+msgid "Use Server Template"
+msgstr "サーバーテンプレートを使用する"
+
+#. CList for Server Template
+#: src/AppOption.cc:387
+msgid "Choose templates to use"
+msgstr "使用するテンプレートを選んで下さい"
+
+#: src/AppOption.cc:392
+msgid "Template"
+msgstr "テンプレート"
+
+#: src/AppOption.cc:562
+msgid "Display sizes in human readable format (e.g. 1.2K 234.1M 2.2G)"
+msgstr "人間に読みやすいフォーマットでサイズを出力(例: 1.2K 234.1M 2.2G)"
+
+#: src/AppOption.cc:570
+msgid "Status Icon"
+msgstr "ステータス・アイコン"
+
+#: src/AppOption.cc:624
+msgid "Icon set"
+msgstr "アイコンセット"
+
+#: src/AppOption.cc:650 src/AppOption.cc:916
+msgid "Apply"
+msgstr "適用"
+
+#: src/AppOption.cc:757
+msgid "error"
+msgstr "エラー"
+
+#: src/AppOption.cc:758
+msgid "cannot read pixmap file"
+msgstr "pixmap ファイルを読み込めません"
+
+#: src/AppOption.cc:843
+msgid "Bypass paste window"
+msgstr "ペーストウインドウをバイパスする"
+
+#: src/AppOption.cc:849
+msgid "Pixmap on DND Basket"
+msgstr "DND バスケット上の pixmap"
+
+#: src/AppOption.cc:863
+msgid "Preview"
+msgstr "プレビュー"
+
+#: src/AppOption.cc:889
+msgid "Pixmap"
+msgstr ""
+
+#. アイテムを削除するときに確認するかどうか
+#: src/AppOption.cc:940
+msgid "Confirm clear"
+msgstr "アイテム削除のとき確認"
+
+#. confirm delete list
+#: src/AppOption.cc:946
+msgid "Confirm delete list"
+msgstr "リスト削除のとき確認"
+
+#. プログラム終了時に確認するかどうか
+#: src/AppOption.cc:951
+msgid "Confirm exit"
+msgstr "プログラム終了のとき確認"
+
+#. ログクリア時に確認するかどうか
+#: src/AppOption.cc:957
+msgid "Confirm clear system log"
+msgstr "システムログのクリア時に確認"
+
+#: src/AppOption.cc:980
+msgid "Use start timer"
+msgstr "開始タイマーを使う"
+
+#: src/AppOption.cc:984
+msgid "Start (hour : min) "
+msgstr "開始(時:分) "
+
+#: src/AppOption.cc:1023
+msgid "Use stop timer"
+msgstr "停止タイマーを使う"
+
+#: src/AppOption.cc:1027
+msgid "Stop (hour : min) "
+msgstr "停止(時:分) "
+
+#: src/AppOption.cc:1066
+msgid "Do not stop downloads when timer expires"
+msgstr "タイマーが終了してもダウンロードを停止しない"
+
+#: src/AppOption.cc:1107
+msgid "The number of simultaneous downloads for new list "
+msgstr "新しいリストの同時ダウンロード数 "
+
+#. toggle automatic start
+#: src/AppOption.cc:1128
+msgid "Start downloads automatically"
+msgstr "ダウンロードを自動的に開始する"
+
+#. toggle automatic start modifier
+#: src/AppOption.cc:1139
+msgid "Only current list"
+msgstr "現在のリストのみ"
+
+#. force download now (stopping other downloads if necessary)
+#: src/AppOption.cc:1149
+msgid "Force download now (stopping other downloads if necessary)"
+msgstr "今すぐダウンロードを開始 (必要ならば他のダウンロードを停止する)"
+
+#. toggle ignore error item in "Start All" menu
+#: src/AppOption.cc:1155
+msgid "Ignore error'ed items in \"Start All\" menu"
+msgstr "\"すべて開始\"メニューでエラーのアイテムを無視する"
+
+#. ignore list in find hyperlink
+#: src/AppOption.cc:1161
+msgid "Ignore these extensions when finding hyperlink"
+msgstr "ハイパーリンク抽出において以下の拡張子ファイルを無視する"
+
+#. toggle autosave
+#: src/AppOption.cc:1178
+msgid "Autosave (list, history and options) every "
+msgstr "リスト、履歴、オプションの自動保存を使う"
+
+#: src/AppOption.cc:1194
+msgid "minute(s)"
+msgstr "分毎"
+
+#: src/AppOption.cc:1204
+msgid "Max entry of download history"
+msgstr "ダウンロード履歴の最大値"
+
+#: src/AppOption.cc:1227
+msgid "Max value of speed limiter"
+msgstr "スピード制限の最大値"
+
+#: src/AppOption.cc:1253
+msgid "Execute command when:"
+msgstr "以下の場合にコマンドを実行します:"
+
+#: src/AppOption.cc:1262
+msgid "all downloads are stopped or completed"
+msgstr "ダウンロードがすべて停止または終了"
+
+#: src/AppOption.cc:1271
+msgid "timer expires"
+msgstr "タイマーが終了する"
+
+#: src/AppOption.cc:1280
+msgid "Command "
+msgstr "コマンド "
+
+#: src/AppOption.cc:1291
+msgid "Quit Aria when all downloads are over or stopped by timer"
+msgstr "全ダウンロード終了時またはタイマーストップ時に Aria を終了させる"
+
+#: src/ListEntry.cc:609
+msgid "*"
+msgstr ""
+
+#: src/ListEntry.cc:611
+msgid "Downloaded"
+msgstr "ダウン済み"
+
+#: src/ListEntry.cc:612 src/HistoryWindow.cc:276
+msgid "Total"
+msgstr "サイズ"
+
+#: src/ListEntry.cc:613
+msgid "%"
+msgstr ""
+
+#: src/ListEntry.cc:614
+msgid "Speed"
+msgstr "速度"
+
+#: src/ListEntry.cc:615
+msgid "Remaining"
+msgstr "残り時間"
+
+#: src/ListEntry.cc:617
+msgid "Recurse"
+msgstr "再帰"
+
+#: src/ListEntry.cc:621 src/PasteWindow.cc:801 src/HistoryWindow.cc:279
+msgid "Save"
+msgstr "保存場所"
+
+#: src/ListEntry.cc:997
+msgid "DIVIDED"
+msgstr "分割"
+
+#: src/ListEntry.cc:1005
+msgid "READY TO CONCAT"
+msgstr "結合可能"
+
+#: src/ListEntry.cc:1013
+msgid "CRC ERROR"
+msgstr "CRCエラー"
+
+#: src/ListEntry.cc:1020
+msgid "EXEC ERROR"
+msgstr "実行エラー"
+
+#: src/ListEntry.cc:1027
+msgid "DOWNLOAD ERROR"
+msgstr "エラー"
+
+#: src/ListEntry.cc:1042
+msgid "LOCKED"
+msgstr "ロック"
+
+#: src/ListEntry.cc:1051
+msgid "DOWNLOADING"
+msgstr "ダウンロード中"
+
+#: src/ListEntry.cc:1059
+msgid "DOWNLOAD COMPLETE"
+msgstr "ダウンロード完了"
+
+#: src/gui_toolbar.cc:298
+msgid "Paste URL list from clipboard"
+msgstr "URLリストを貼付け"
+
+#: src/gui_toolbar.cc:320
+msgid "Clear item(s)"
+msgstr "選択したアイテムを削除"
+
+#: src/gui_toolbar.cc:336
+msgid "Start downloading selected item(s)"
+msgstr "選択したアイテムのダウンロードを開始"
+
+#: src/gui_toolbar.cc:352
+msgid "Stop downloading selected item(s)"
+msgstr "選択したアイテムのダウンロードを停止"
+
+#: src/gui_toolbar.cc:368
+msgid "Download again selected item(s)"
+msgstr "選択したアイテムを再度ダウンロード"
+
+#: src/gui_toolbar.cc:384
+msgid "Item option"
+msgstr "アイテム設定"
+
+#: src/gui_toolbar.cc:400
+msgid "Lock selected item(s)"
+msgstr "選択したアイテムをロックする"
+
+#: src/gui_toolbar.cc:417
+msgid "Unlock selected item(s)"
+msgstr "選択したアイテムのロックを解除する"
+
+#: src/gui_toolbar.cc:433
+msgid "Move up"
+msgstr "一つ上へ移動"
+
+#: src/gui_toolbar.cc:449
+msgid "Move down"
+msgstr "一つ下へ移動"
+
+#: src/gui_toolbar.cc:470
+msgid "Track download"
+msgstr "ダウンロードを追跡"
+
+#: src/gui_toolbar.cc:489
+msgid "Start downloading all items"
+msgstr "すべてのアイテムのダウンロードを開始"
+
+#: src/gui_toolbar.cc:505
+msgid "Stop downloading all items"
+msgstr "すべてのアイテムのダウンロードを停止"
+
+#: src/gui_toolbar.cc:553
+msgid "Adjust the number of working thread"
+msgstr "現在のタブの同時ダウンロード数を調節する"
+
+#: src/gui_help.cc:44 src/gui_help.cc:214
+msgid "About Aria"
+msgstr "Aria って?"
+
+#: src/gui_help.cc:91
+msgid "Rollout: "
+msgstr "ロールアウト: "
+
+#. gtk_text_insert(GTK_TEXT(text), NULL, NULL, NULL, line.c_str(), -1);
+#. show transraters
+#. line.erase();
+#: src/gui_help.cc:98
+msgid "Translations:"
+msgstr "翻訳:"
+
+#: src/gui_help.cc:99
+msgid "(Czech)"
+msgstr "(チェコ語)"
+
+#: src/gui_help.cc:100
+msgid "(Spanish)"
+msgstr "(スペイン語)"
+
+#: src/gui_help.cc:101 src/gui_help.cc:102
+msgid "(French)"
+msgstr "(フランス語)"
+
+#: src/gui_help.cc:103
+msgid "(German)"
+msgstr "(ドイツ語)"
+
+#: src/gui_help.cc:104
+msgid "(Hungarian)"
+msgstr "(ハンガリー語)"
+
+#: src/gui_help.cc:105
+msgid "(Italian)"
+msgstr "(イタリア語)"
+
+#: src/gui_help.cc:106
+msgid "(Japanese)"
+msgstr "(日本語)"
+
+#: src/gui_help.cc:107
+msgid "(Polish)"
+msgstr "(ポーランド語)"
+
+#: src/gui_help.cc:108
+msgid "(Russian)"
+msgstr "(ロシア語)"
+
+#: src/gui_help.cc:109
+msgid "(Traditional Chinese)"
+msgstr "(中文(繁体字))"
+
+#. gtk_text_insert(GTK_TEXT(text), NULL, NULL, NULL, line.c_str(), -1);
+#. show special thanks
+#. line.erase();
+#: src/gui_help.cc:117
+msgid "Aria Logo:"
+msgstr "Aria のロゴ"
+
+#: src/gui_help.cc:121
+msgid "Special Thanks:"
+msgstr "スペシャル・サンクス:"
+
+#: src/gui_help.cc:127
+msgid "    and all who support Aria"
+msgstr "    そして Aria を支えてくれた全ての人々へ"
+
+#. gtk_text_insert(GTK_TEXT(text), NULL, NULL, NULL, line.c_str(), -1);
+#. GPL issue
+#. line.erase();
+#: src/gui_help.cc:134
+msgid "License:"
+msgstr "ライセンス:"
+
+#: src/gui_help.cc:136
+msgid ""
+"This program is free software; you can redistribute it and/or modify it "
+"under the terms of the GNU General Public License as published by the Free "
+"Software Foundation; either version 2 of the License, or (at your option) "
+"any later version.\n"
+"\n"
+"This program is distributed in the hope that it will be useful, but WITHOUT "
+"ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or "
+"FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for "
+"more details.\n"
+"\n"
+"You should have received a copy of the GNU General Public License along with "
+"this program; if not, write to the Free Software Foundation, Inc., 59 Temple "
+"Place - Suite 330, Boston, MA 02111-1307, USA."
+msgstr ""
+
+#. gtk_text_insert(GTK_TEXT(text), NULL, NULL, NULL, line.c_str(), -1);
+#. show compile information
+#. line.erase();
+#: src/gui_help.cc:172
+msgid "Built on:"
+msgstr "バイナリ情報:"
+
+#: src/gui_help.cc:231
+msgid "Help"
+msgstr "ヘルプ"
+
+#. OK button
+#: src/Dialog.cc:168
+msgid "Yes"
+msgstr "はい"
+
+#. No button
+#: src/Dialog.cc:180
+msgid "No"
+msgstr "いいえ"
+
+#: src/PasteWindow.cc:94 src/PasteWindow.cc:179 src/PasteWindow.cc:211
+#: src/PasteWindow.cc:245 src/PasteWindow.cc:266 src/PasteWindow.cc:296
+msgid "The specified list no longer exists."
+msgstr "指定されたリストは存在しません"
+
+#. create a combobox to allow users to choose the list to drop items
+#: src/PasteWindow.cc:783
+msgid "Paste to "
+msgstr "貼付けリスト "
+
+#. create a toggle button to toggle whether or not downloads should be
+#. started automatically.
+#: src/PasteWindow.cc:794
+msgid "Start downloading when pasted"
+msgstr "貼付け後ダウンロードを開始"
+
+#. Paste button
+#: src/PasteWindow.cc:863 src/HistoryWindow.cc:345
+msgid "Paste"
+msgstr "貼付け"
+
+#: src/HistoryWindow.cc:259
+msgid "History URL list"
+msgstr "ダウンロード履歴"
+
+#: src/HistoryWindow.cc:277
+msgid "Date"
+msgstr "日付"
+
+#. Close button
+#: src/HistoryWindow.cc:366
+msgid "Close"
+msgstr "閉じる"
+
+#: src/HistoryWindow.cc:600
+msgid "Query"
+msgstr "クエリー"
+
+#~ msgid "Execute command when all downloads are over or stopped by timer"
+#~ msgstr "全ダウンロード終了時またはタイマーストップ時にコマンドを実行する"
+
+#~ msgid "Icons"
+#~ msgstr "アイコン"
+
+#~ msgid "error occurred while deleting files"
+#~ msgstr "URL リストを読み込み中にエラーが発生しました"
+
+#~ msgid "Do not download a file if the file with the same name exists"
+#~ msgstr "同名のファイルがすでに存在する場合はダウンロードしない"
+
+#~ msgid "Redownload if HTTP status is 416"
+#~ msgstr "HTTP ステータスが 416 の場合、ダウンロードやり直す"
+
+#~ msgid "CRC check"
+#~ msgstr "CRC をチェック"
+
+#~ msgid "couldn't save"
+#~ msgstr "保存できません"
+
+#~ msgid "Loading saved List failed"
+#~ msgstr "保存されていた URL ファイルの読み込みに失敗しました"
+
+#~ msgid "Retry "
+#~ msgstr "再試行"
+
+#~ msgid " bytes garbage header removed"
+#~ msgstr "バイト取り除きました"
+
+#~ msgid "Clear CRC All"
+#~ msgstr "全ての CRC を削除"
+
+#~ msgid "Start All tab"
+#~ msgstr "全てのタブで開始"
+
+#~ msgid "New tab"
+#~ msgstr "新規タブ"
+
+#~ msgid "Tab"
+#~ msgstr "タブ"
+
+#~ msgid "Apply default item option to selected items"
+#~ msgstr "選択したアイテムにデフォルトのアイテム設定を適用"
+
+#~ msgid "Apply default item option to selected items(except for save dir)"
+#~ msgstr ""
+#~ "選択したアイテムにデフォルトのアイテム設定を適用(保存ディレクトリ除く)"
+
+#~ msgid "Apply default item option to all items"
+#~ msgstr "すべてのアイテムにデフォルトのアイテム設定を適用"
+
+#~ msgid "Apply default item option to all items(except for save dir)"
+#~ msgstr ""
+#~ "すべてのアイテムにデフォルトのアイテム設定を適用(保存ディレクトリ除く)"
+
+#~ msgid "DOWNLOAD1"
+#~ msgstr "ダウンロード1"
+
+#~ msgid "Don't use proxy"
+#~ msgstr "プロキシを使用しない"
+
+#~ msgid "invalid URL"
+#~ msgstr "URL が不正です"
+
+#~ msgid "failed to make directory '"
+#~ msgstr "次のディレクトリの作成に失敗 '"
+
+#~ msgid "download again"
+#~ msgstr "ダウンロードをやり直します"
+
+#~ msgid "ignore CRC error"
+#~ msgstr "CRC エラーを無視する"
+
+#~ msgid ""
+#~ "Apply default item option to selected items(except for save dir and "
+#~ "recursive settings)"
+#~ msgstr ""
+#~ "選択したアイテムにデフォルトのアイテム設定を適用(保存ディレクトリ, 再帰設"
+#~ "定除く)"
+
+#~ msgid ""
+#~ "Apply default item option to all items(except for save dir and recursive "
+#~ "settings)"
+#~ msgstr ""
+#~ "すべてのアイテムにデフォルトのアイテム設定を適用(保存ディレクトリ, 再帰設"
+#~ "定除く)"
+
+#~ msgid "add"
+#~ msgstr "追加"
+
+#~ msgid "USER"
+#~ msgstr "ユーザー"
+
+#~ msgid "PASSWORD"
+#~ msgstr "パスワード"
+
+#~ msgid "delete"
+#~ msgstr "削除"
+
+#~ msgid "Command:"
+#~ msgstr "コマンド:"
+
+#~ msgid "faild to login"
+#~ msgstr "ログインに失敗しました"
+
+#~ msgid "Default Item Option for current tab"
+#~ msgstr "デフォルトのアイテム設定"
+
+#~ msgid "selected item option"
+#~ msgstr "アイテム設定"
+
+#~ msgid "apply default item option to selected items"
+#~ msgstr "選択したアイテムにデフォルトのアイテム設定を適用"
+
+#~ msgid "apply default item option to selected items(except for save dir)"
+#~ msgstr ""
+#~ "選択したアイテムにデフォルトのアイテム設定を適用(保存ディレクトリ除く)"
+
+#~ msgid "apply default item option to all items"
+#~ msgstr "すべてのアイテムにデフォルトのアイテム設定を適用"
+
+#~ msgid "apply default item option to all items(except for save dir)"
+#~ msgstr ""
+#~ "すべてのアイテムにデフォルトのアイテム設定を適用(保存ディレクトリ除く)"
+
+#~ msgid ""
+#~ "the size of local file is larger than that of remote file. Download again"
+#~ msgstr "サイズが合いません. ダウンロードをやり直します"
+
+#~ msgid "paste URL list"
+#~ msgstr "URL リストの貼付け"
+
+#~ msgid "Error occurd while reading html file"
+#~ msgstr "HTML ファイルを読み込み中にエラーが発生しました"
+
+#~ msgid "CANCEL"
+#~ msgstr "キャンセル"
+
+#~ msgid "DOWNLOAD"
+#~ msgstr "ダウンロード"
+
+#~ msgid "CONFORMATION"
+#~ msgstr "確認"
+
+#~ msgid "DISPLAY"
+#~ msgstr "表示"
+
+#~ msgid "TIMER"
+#~ msgstr "タイマー"
+
+#~ msgid "COMMAND"
+#~ msgstr "コマンド"
+
+#~ msgid "SERVER"
+#~ msgstr "サーバー"
+
+#~ msgid "Conform quit program"
+#~ msgstr "プログラム終了のとき確認"
+
+#~ msgid "Decrease the number of working thread"
+#~ msgstr "同時ダウンロード数を減らす"
+
+#~ msgid "Convert \"~\" to \"%7E\""
+#~ msgstr "\"~\" を \"%7E\" に変換する"
+
+#~ msgid "Aria cannot handle redirection to FTP directory. Sorry"
+#~ msgstr "Aria は FTP ディレクトリへのリダイレクションには対応していません"
+
+#~ msgid "Directory"
+#~ msgstr "アイコンセット"
+
+#~ msgid "SERVER TEMPLATE"
+#~ msgstr "サーバーテンプレート"
+
+#~ msgid "Try"
+#~ msgstr "試行"
+
+#~ msgid "Extentions not to download"
+#~ msgstr "ダウンロードしない拡張子"
+
+#~ msgid "how many files download simultaneously(Range:1 to 5) "
+#~ msgstr "同時にダウンロードするファイルの数(範囲:1から5) "
+
+#~ msgid "<no filename>"
+#~ msgstr "<ファイル名なし>"
+
+#~ msgid "file name not specified"
+#~ msgstr "ファイルが指定されていません"
+
+#~ msgid "file not found"
+#~ msgstr "ファイルが見つかりません"
+
+#~ msgid "DOWNLOAD2"
+#~ msgstr "ダウンロード2"
+
+#~ msgid "Start "
+#~ msgstr "開始"
+
+#~ msgid "Stop "
+#~ msgstr "停止"
+
+#~ msgid "Delete All"
+#~ msgstr "全て削除"
+
+#~ msgid "Document root:"
+#~ msgstr "ドキュメントルート"
+
+#~ msgid "' does not exist. Use your home directory instead"
+#~ msgstr "'が存在しません. 代わりにホームディレクトリを使用します"
+
+#~ msgid "'Use Proxy' is not supported yet"
+#~ msgstr "'Use Proxy'はまだサポートされていません"
+
+#~ msgid "select directory"
+#~ msgstr "参照"
+
+#~ msgid "Size"
+#~ msgstr "サイズ"
+
+#~ msgid "save current list?"
+#~ msgstr "現在のリストを保存しますか?"
+
+#~ msgid "Update Server Template file"
+#~ msgstr "Server Templateアップデート"
+
+#~ msgid "Default Option"
+#~ msgstr "デフォルトオプション"
+
+#~ msgid "prompt user when user deletes items"
+#~ msgstr "アイテムを削除する時はユーザーに通知する"
+
+#~ msgid "prompt user when user quits program"
+#~ msgstr "プログラムを終了する時はユーザーに通知する"
+
+#~ msgid "CRC"
+#~ msgstr "CRC"
+
+#~ msgid "don't add file with these extentions"
+#~ msgstr "以下の拡張子を持つファイルは追加しない"
+
+#~ msgid "download from beginning"
+#~ msgstr "最初からダウンロードします"
+
+#~ msgid "invalid directory"
+#~ msgstr "ディレクトリの指定が不正です"
+
+#~ msgid "paste URL list after extraction"
+#~ msgstr "URLリストを展開して貼付け"
+
+#~ msgid "making data connection to "
+#~ msgstr "データ転送用の接続をしています..."
+
+#~ msgid "connecting to"
+#~ msgstr "接続しています..."
+
+#~ msgid "SEND: "
+#~ msgstr "送信: "
+
+#~ msgid "RECV: "
+#~ msgstr "受信: "
+
+#~ msgid "INFO: "
+#~ msgstr "お知らせ: "
+
+#~ msgid "SUCC: "
+#~ msgstr "成功: "
+
+#~ msgid "ERR: "
+#~ msgstr "エラー: "

@@ -1,0 +1,182 @@
+$Id: README,v 1.28 2001/11/04 10:17:59 tujikawa Exp $
+
+Aria - yet another download tool
+
+Copyright (c)2000, 2001 Tatuhiro Tujikawa <tujikawa@rednoah.com>
+
+1. Disclaimer
+-------------
+This program comes with no warranty.
+You must use this program at your own risk.
+
+2. Basic features
+-----------------
+- Download file via HTTP or FTP
+- Tabbed mode
+- Aria can avoid annoying CGI download page(Server Template feature)
+  that usual download softwares cannot handle properly.
+  If you encounter these CGI page, please inform me, then I write
+  Server Template for it as long as I can.
+- Recursive download feature with verious useful options(HTTP and FTP).
+- Drag and Drop support(Mozilla, Galeon, Konqueror, Opera, Netscape).
+  In Mozilla, not only url links, plain texts can be dropped.
+- Aria can execute command when downloads complete.
+- Aria can execute command according to the extention of retrieved file.
+- Simple timer feature.
+- Graphical progress bar.
+- MD5/CRC(both 16bit and 32bit) checking.
+- URL numerical expansion feature(also known as numerical download).
+- HTTP/FTP proxy support.
+- Split download.
+- Simple but very useful menu and options.
+- Cut and Paste support.
+- Cookie support.
+- Very stable.
+
+3. Requirements
+---------------
+C++ compiler(I'm using gcc 2.95.4 and gcc 3.0.2)
+libstdc++
+GTK version 1.2.6 or higher
+Gettext 0.10.35 or higher
+
+4. Compile and install
+----------------------
+Unpack the archive and enter aria source directory,
+	./configure
+	make
+	make install
+
+Since version 0.10.0, you don't need to run mksetup.
+If .aria directory does not exist in your home directory, Aria automatically
+creates it and copies necessary files into it.
+
+If you want to initialize these configuration files, run Aria with "--initrc"
+option.
+
+I recommend to run Aria with "--init" every time you run the new version of
+Aria for the first time.
+(Please make back up copies of your setting files(rc.aria, useragent.aria,
+server.aria, command.aria) if necessary.
+
+5. If you are using galeon,...
+------------------------------
+In galeon setting menu, choose "handler->download".
+In "Program" frame, choose "use command line"(or something like that),
+and enter "aria -g %s" in "Command" entry.
+(If you don't install Aria in search path, you may have to enter full
+path of aria.)
+
+Now, you can download every thing by Aria from galeon.
+
+6. Configuration
+----------------
+If you wish to specify the font manually, edit ~/.aria/rc.aria.
+
+The directory ~/.aria/save/ contains several configuration and save file:
+Download list is saved to list.aria at the end of every session.
+
+default.aria contains default item option for new list.
+
+http_proxy.aria contains HTTP proxy server information. The syntax of this
+file is:
+SERVERNAME[(':'|' ')PORT]
+If PORT is omitted, 8080 is used. The lines starting '#' are a comment.
+
+useragent.aria containes User-Agent definition. You can add your favorite
+User-Agent there. The lines starting '#' are treated as comment lines.
+
+server.aria is a Server Template File. This file defines file retrieving
+procedure for specific web servers. Please read resources/server.aria.template
+and server.aria.
+
+command.aria is a command list that is executed when each download completes.
+Please read resources/command.aria.template.
+
+7. ICON SET
+-----------
+Icon set is a collection of icons that represents download status(1st column
+of download list).
+
+The icon set path is ~/.aria/statusIcon/iconset
+Create a directory under it, then place following xpm files in the directory
+you created:
+  filename     : memo
+=====================================
+  complete.xpm : download complete
+  download.xpm : download in progress
+  lock.xpm     : locked
+  ready.xpm    : ready
+  divide.xpm   : split download
+  error.xpm    : error
+  stop.xpm     : stop
+
+Note that the size of xpm is 30x25.
+
+You can select your own icon set in application settings menu.
+In Display tab, select your favorit icon set, then click "Apply" button.
+The entry name of icon set is the name of the directory you created.
+
+8. pixmap for DND basket
+------------------------
+You can change the pixmap of DND basket.
+Put pixmaps under ~/.aria/basket/pixmap
+
+You can select pixmap in application settings menu.
+In Basket tab, select pixmap, then click "Apply" button.
+The entry name is the filename of pixmap.
+
+Transparent pixmaps are supported.
+
+9. FAQ
+------
+
+I. What is URL list?
+--------------------
+URLs deliminated by '\n' character
+for example:
+	foobar01.jpg
+	foobar02.jpg
+	foobar03.jpg
+
+II. Please tell me the format of CRC/MD5 list
+----------------------------------
+valid format for CRC list is <filename> <CRC> [<filesize>].
+<filesize> can be omissible.
+e.g.
+index.html     7e2a
+download.html  cc34
+
+As for MD5 list,
+<MD5 checksum> <filename>
+
+e.g.
+c6ef4d3efaa05765a2e1823548e5ebba  index.html
+f6144ae398cb959b9385cb8c5fbe474d  download.html
+
+III. What is "paste URL list with numerical expansion" means?
+-------------------------------------------------
+If you copy an phrase "foobar_00-05.jpg", and activate this menu,
+You can get following URLs:
+	foobar_00.jpg
+	foobar_01.jpg
+	foobar_02.jpg
+	foobar_03.jpg
+	foobar_04.jpg
+	foobar_05.jpg
+You can specify alphabet in variable character like "foobar_aa-zz.jpg"
+instead of decimal number. Also, "foobar_[aa-zz].jpg" produces same
+results.
+
+IV. What are the defferences between "Open URL list" and "Find Hyplerlink"?
+--------------------------------------------------------------------------
+If the file you want to read contains just URL list, use "Open URL list".
+If the file is html file, use "Find Hyperlink".
+
+10. Contact
+----------
+E-mail:   tujikawa@rednoah.com
+Web Site: http://aria.rednoah.com/
+
+I realy need your feedbacks. If you notice bugs or something,
+tell me by email or message board at my web page.

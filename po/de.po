@@ -1,0 +1,2387 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2002-12-16 22:05+0900\n"
+"PO-Revision-Date: 2001-10-31 21:18GMT\n"
+"Last-Translator: Hermann J. Beckers <beckers@st-oneline.de>\n"
+"Language-Team: deutsch <de@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=ISO-8859-1\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 0.8\n"
+
+#: src/main.cc:108
+msgid "Usage: aria [OPTION]..."
+msgstr "Aufruf: aria [OPTION]"
+
+#: src/main.cc:109
+msgid "Yet another download tool"
+msgstr "Ein weiteres Download-Programm"
+
+#. command line options
+#: src/main.cc:112
+msgid "Options:"
+msgstr "Optionen:"
+
+#: src/main.cc:113
+msgid "  -g, --get URL                    URL to get"
+msgstr "  -g, --get URL                    abzurufende URL"
+
+#: src/main.cc:114
+msgid "  -d, --dir SAVEDIR                save directory"
+msgstr "  -d, --dir SAVEDIR                Sicherungsverzeichnis"
+
+#: src/main.cc:115
+msgid "  -r, --ref REFERER                referer"
+msgstr "  -r, --ref REFERER                Bezugslink"
+
+#: src/main.cc:116
+msgid "  -u, --url-list FILE              open URL list"
+msgstr "  -u, --url-list FILE              öffne URL-Liste"
+
+#: src/main.cc:117
+msgid "  -c, --crc-list FILE              open CRC list"
+msgstr "  -c, --crc-list FILE              öffne CRC-Liste"
+
+#: src/main.cc:118
+msgid "  --basket                         Show basket and iconify Aria"
+msgstr "  --basket                         Zeige Korb und ikonifiziere Aria"
+
+#: src/main.cc:119
+msgid "  -v, --version                    print version information"
+msgstr "  -v, --version                    zeige Versions-Information"
+
+#: src/main.cc:120
+msgid "  -h, --help                       print this help"
+msgstr "  -h, --help                       zeige diese Hilfe"
+
+#: src/main.cc:121
+msgid "  --initrc                         initialize resource files"
+msgstr "  --initrc                         Ressourcen-Dateien initialisieren"
+
+#: src/main.cc:122
+msgid ""
+"  --geometry WIDTHxHEIGHT+XOFF+YOFF\n"
+"                                   set the size and position of main window"
+msgstr ""
+"  --geometry WIDTHxHEIGHT+XOFF+YOFF\n"
+"                                   Größe und Position des Hauptfensters "
+"setzen"
+
+#: src/main.cc:123
+msgid ""
+"  --thread-limit-override NUM      if you want more simultaneous downloads..."
+msgstr ""
+"  --thread-limit-override NUM      wenn sie mehrere simultane Abrufe "
+"möchten..."
+
+#: src/main.cc:125
+msgid ""
+"Control Options:\n"
+" the following options are effective only when another aria is already "
+"running"
+msgstr ""
+"Kontroll-Optionen:\n"
+" folgende Optionen haben nur Wirkung, wenn bereits eine Aria-Instanz läuft"
+
+#: src/main.cc:127
+msgid "  -s, --start                      start all downloads"
+msgstr "  -s, --start                      startet alle Abrufe"
+
+#: src/main.cc:128
+msgid "  -p, --stop                       stop all downloads"
+msgstr "  -p, --stop                       stoppt alle Abrufe"
+
+#: src/main.cc:129
+msgid "  -a, --again                      re-download all items"
+msgstr "  -a, --again                      alle Einträge erneut abrufen"
+
+#: src/main.cc:130
+msgid "  -q, --quit                       quit Aria(with no confirmation)"
+msgstr "  -q, --quit                       Aria beenden(mit ohne Bestätigung;)"
+
+#: src/main.cc:131
+msgid "  --list-name                      show the name of the current list"
+msgstr "  --list-name                      zeige den Namen der aktuellen Liste"
+
+#: src/main.cc:132
+msgid "  --list-prev                      switch to the previous list"
+msgstr "  --list-prev                      Wechsel zur vorhergehenden Liste"
+
+#: src/main.cc:133
+msgid "  --list-next                      switch to the next list"
+msgstr "  --list-next                      Wechsel zur nächsten Liste"
+
+#: src/main.cc:134
+msgid "  --list-delete                    delete the current list"
+msgstr "  --list-delete                    lösche die aktuelle Liste"
+
+#: src/main.cc:135
+msgid "  --clear-complete                 clear downloaded items"
+msgstr "  --clear-complete                 lösche abgerufene Einträge"
+
+#: src/main.cc:136
+msgid "  --ls-complete                    show URLs downloaded"
+msgstr "  --ls-complete                    zeige abgerufene URLs"
+
+#: src/main.cc:137
+msgid "  --ls-ready                       show URLs waiting in queue"
+msgstr "  --ls-ready                       zeige URLs in Warteschlange"
+
+#: src/main.cc:138
+msgid "  --ls-error                       show URLs in error"
+msgstr "  --ls-error                       zeige URLs im  Fehlerstatus"
+
+#: src/main.cc:139
+msgid "  --ls-run                         show URLs now downloading"
+msgstr "  --ls-run                         zeige z. Zt. abgerufene URLs"
+
+#: src/main.cc:140
+msgid "  --ls-stop                        show URLs stopped"
+msgstr "  --ls-stop                        zeige gestoppte URLs"
+
+#: src/main.cc:141
+msgid "  --ls-lock                        show URLs locked"
+msgstr "  --ls-lock                        zeige gesperrte URLs"
+
+#: src/main.cc:142
+msgid "  --ls-all                         show all URLs in queue"
+msgstr ""
+"  --ls-all                         zeige alle URLs in der Warteschlange"
+
+#: src/main.cc:148
+msgid "Compiled date: "
+msgstr "Kompilations-Datum:"
+
+#: src/main.cc:150
+#, fuzzy
+msgid "Copyright (C) 2000-2002 Tatsuhiro Tsujikawa"
+msgstr "Copyright (C) 2000, 2001 Tatsuhiro Tsujikawa"
+
+#: src/main.cc:152 src/gui_help.cc:149
+msgid ""
+"The part of directory browser is a modified code, the original code was "
+"written by Peter Alm, Mikael Alm, Olle Hallnas, Thomas Nilsson and 4Front "
+"Technologies.\n"
+"The original code is copyrighted by Peter Alm, Mikael Alm, Olle Hallnas, "
+"Thomas Nilsson and 4Front Technologies."
+msgstr ""
+"Der Teil des Verzeichnis-Browsers ist modifizierter Code, der Original-Code "
+"wurde geschrieben von Peter Alm, Mikael Alm, Olle Hallnas, Thomas Nilsson "
+"und 4Front Technologies.\n"
+"Der Original-Code unterliegt dem Copyright von Peter Alm, Mikael Alm, Olle "
+"Hallnas, Thomas Nilsson und 4Front Technologies."
+
+#: src/main.cc:154 src/gui_help.cc:153
+msgid ""
+"The part of MD5 checking is a modified code, the original code was written "
+"for GnuPG, copyrighted 1995, 1996, 1998, 1999 Free Software Foundation, Inc."
+msgstr ""
+"Der Code zur MD5-PRüfung ist ein modifizierter Code, der Original-Code wurde "
+"geschriebenten für GnuPG, copyrighted 1995, 1996, 1998, 1999 Free Software "
+"Foundation, Inc."
+
+#: src/main.cc:157 src/gui_help.cc:159
+msgid ""
+"This program uses zlib, Copyright (C) 1995-1998 Jean-loup Gailly and Mark "
+"Adler"
+msgstr ""
+"Dieses Programm benutzt zlib, Copyright (C) 1995-1998 Jean-loup Gailly and "
+"Mark Adler"
+
+#: src/main.cc:160 src/gui_help.cc:164
+#, fuzzy
+msgid ""
+"This program uses OpenSSL, Copyright (C) 1995-1998 Eric Young (eay@cryptsoft."
+"com)"
+msgstr ""
+"Dieses Programm benutzt zlib, Copyright (C) 1995-1998 Jean-loup Gailly and "
+"Mark Adler"
+
+#: src/main.cc:244
+msgid "Status (Ready/Error/Downloading/Stop/Complete/Lock)"
+msgstr "Status (Bereit/Fehler/Abruf/Stop/komplett/Sperre)"
+
+#: src/main.cc:245
+msgid "Split?(Yes/No/split Parts)"
+msgstr "Aufteilen?(Ja/Nein/Teil-Anzahl)"
+
+#: src/main.cc:263
+msgid "Total "
+msgstr "Insgesamt "
+
+#: src/main.cc:263
+msgid " URLs"
+msgstr " URLs"
+
+#: src/main.cc:268
+msgid "Another Aria is not running. This option makes no effect."
+msgstr "Es läuft keine weitere Aria-Instanz. Diese Option hat keinen Effekt."
+
+#. read server config file
+#: src/main.cc:747
+msgid "Reading Server Template file..."
+msgstr "Lese Server-Muster-Datei.. "
+
+#: src/main.cc:751
+msgid "Server Template status : good"
+msgstr "Server-Muster-Status: gut"
+
+#: src/main.cc:754
+msgid "Server Template status : error"
+msgstr "Server-Muster-Status: Fehler"
+
+#. read command list file
+#: src/main.cc:758
+msgid "Reading Command list file..."
+msgstr "Lese Befehlslisten-Datei..."
+
+#: src/main.cc:761
+msgid "Command list status : good"
+msgstr "Status Befehlslisten-Datei: gut"
+
+#: src/main.cc:764
+msgid "Command list status : error"
+msgstr "Status Befehlslisten-Datei: Fehler"
+
+#. read default item option
+#: src/main.cc:769
+msgid "Reading Default item config file..."
+msgstr "Lese Default-Konfigurations-Datei..."
+
+#: src/main.cc:772
+msgid "Default item config status: error >> using default config"
+msgstr "Default-Konfigurationsdatei: Fehler >> benutze Default-Konfiguration"
+
+#: src/main.cc:881
+msgid "Default item config status: good"
+msgstr "Default-Konfigurations-Datei Status: gut"
+
+#. read application setting
+#: src/main.cc:886
+msgid "Reading Application config file..."
+msgstr "Lese Anwendungskonfigurations-Datei.. "
+
+#: src/main.cc:890
+msgid "Application config status: error >> using default config"
+msgstr ""
+"Anwendungs-Konfiguration-Status: Fehler >> benutze Defaultkonfiguration"
+
+#: src/main.cc:901
+msgid "Application config status: good"
+msgstr "Anwendungskonfiguration Status: gut"
+
+#: src/main.cc:909
+msgid "URL file read error"
+msgstr "URL-Datei: Lesefehler"
+
+#: src/main.cc:911
+msgid "URL file opened"
+msgstr "URL-Datei geöffnet"
+
+#: src/main.cc:915
+msgid "Saved file opened"
+msgstr "Gespeicherte Datei geöffnet"
+
+#: src/main.cc:939
+msgid "CRC file read error"
+msgstr "Prüfsummen-Datei: Lesefehler"
+
+#: src/main.cc:941
+msgid "CRC file opened"
+msgstr "Prüfsummendatei geöffnet"
+
+#: src/main.cc:947
+msgid "Ready"
+msgstr "Bereit"
+
+#: src/download.cc:146 src/RetrieveHTTP2.cc:229 src/RetrieveFTP2.cc:313
+msgid "A part of '"
+msgstr "ist Teil von '"
+
+#: src/download.cc:146 src/download.cc:154
+msgid "' download complete"
+msgstr "Download vollständig"
+
+#: src/download.cc:150 src/download.cc:377 src/gui_main.cc:371
+#: src/ItemList.cc:413 src/ItemList2.cc:783 src/gui_edit.cc:255
+#: src/ItemOption.cc:2915 src/ListEntry.cc:957 src/HistoryWindow.cc:405
+msgid "<directory>"
+msgstr "<Verzeichnis>"
+
+#: src/download.cc:180
+msgid "Starting split download"
+msgstr "starte Teil-Download"
+
+#: src/download.cc:195 src/download.cc:290
+msgid "Download stopped"
+msgstr "Download gestoppt"
+
+#: src/download.cc:244
+msgid "Error occurred while deleting files"
+msgstr "Fehler beim Löschen der Dateien aufgetreten"
+
+#: src/download.cc:255
+msgid "Wait for "
+msgstr "Warte "
+
+#: src/download.cc:255
+msgid " seconds"
+msgstr " Sekunden"
+
+#: src/download.cc:319 src/ItemCell.cc:222 src/RetrieveHTTP.cc:393
+#: src/gui_download.cc:1344
+msgid "Download again"
+msgstr "Erneuter Download"
+
+#: src/download.cc:379
+msgid "' download aborted"
+msgstr "Download abgebrochen"
+
+#: src/download.cc:469 src/download.cc:484 src/ItemCell.cc:353
+msgid "Executing program: "
+msgstr "Ausführung '"
+
+#: src/download.cc:513
+msgid "Command line is '"
+msgstr "Befehlszeile ist '"
+
+#: src/download.cc:521
+msgid "Exit status is "
+msgstr "Returnstatus ist "
+
+#: src/download.cc:524 src/ItemCell.cc:365
+msgid "Program exited abnormally"
+msgstr "Programm abnormal beendet"
+
+#: src/download.cc:530 src/ItemCell.cc:357
+msgid "Good exit status"
+msgstr "Returnstatus ist okay"
+
+#: src/download.cc:532 src/ItemCell.cc:361
+msgid "Bad exit status"
+msgstr "Returnstatus fehlerhaft"
+
+#: src/download.cc:538 src/ItemCell.cc:368
+msgid "Exit status ignored"
+msgstr "Returnstatus ignoriert"
+
+#: src/download.cc:562
+msgid "Executing command entry '"
+msgstr "Ausführung Befehlseintrag '"
+
+#: src/download.cc:630
+msgid "Concatenating split files..."
+msgstr "Verbinde Teil-Dateien..."
+
+#: src/download.cc:633
+msgid "Concatenation successful"
+msgstr "Zusammenfügen erfolgreich"
+
+#: src/download.cc:637
+msgid "Concatenation failed"
+msgstr "Zusammenfügen fehlerhaft"
+
+#. string strSuminfo = "Downloading: "+itos(suminfo.ret_download())+" Error: "+itos(suminfo.ret_error());
+#: src/gui_main.cc:160
+msgid "Downloading: "
+msgstr "Abruf:"
+
+#: src/gui_main.cc:161
+msgid " Error: "
+msgstr "Fehler:"
+
+#: src/gui_main.cc:176
+msgid "#List name: "
+msgstr "#Listenname:"
+
+#. 1st page
+#: src/gui_main.cc:503
+msgid "Console"
+msgstr "Konsole"
+
+#. 2nd page
+#: src/gui_main.cc:508
+msgid "not selected"
+msgstr "nicht ausgewählt"
+
+#: src/gui_main.cc:556 src/gui_file.cc:321
+msgid "Quit program"
+msgstr "Programm beenden"
+
+#: src/gui_main.cc:557 src/gui_file.cc:322
+msgid "Are you sure to quit?"
+msgstr "Wirklich beenden?"
+
+#: src/gui_main.cc:710 src/gui_main.cc:730 src/ItemOption.cc:1498
+msgid "Limit download speed (in Kbytes/sec) (0.0: unlimited) "
+msgstr "Begrenzung Abrufgeschw. (in Kbytes/Sek.) (0.0: unbegrenzt)"
+
+#: src/crc.cc:193
+msgid "CRC is "
+msgstr "CRC ist "
+
+#. crc matched
+#: src/crc.cc:198
+msgid "CRC matched"
+msgstr "CRC ist gleich"
+
+#: src/crc.cc:205
+msgid "Invalid CRC. The specified CRC is "
+msgstr "CRC ungültig. Angegebene CRC ist "
+
+#. create ItemCell
+#: src/ItemList.cc:97 src/ItemList.cc:302 src/ItemList.cc:380
+#: src/ItemList2.cc:763 src/ItemCache.cc:58 src/Retrieve.cc:100
+#: src/RetrieveFTP.cc:248 src/RetrieveFTP.cc:343 src/gui_item_new_item.cc:80
+#: src/PasteWindow.cc:466 src/PasteWindow.cc:1005
+msgid "Created"
+msgstr "Erstellt"
+
+#: src/ItemList.cc:418 src/ItemList2.cc:810 src/gui_edit.cc:266
+msgid "unknown"
+msgstr "unbekannt"
+
+#: src/ItemList.cc:443 src/gui_edit.cc:307 src/ListEntry.cc:993
+msgid "READY"
+msgstr "BEREIT"
+
+#: src/ItemList.cc:445 src/ListEntry.cc:1035
+msgid "STOPPED"
+msgstr "gestoppt"
+
+#: src/ItemList2.cc:381 src/ItemList2.cc:873 src/ItemList2.cc:889
+msgid "Warning: different version number found in file header"
+msgstr "Warnung: inkompatible Versionsnummer in Dateikopf gefunden"
+
+#: src/ItemCell.cc:274
+msgid "Unknown protocol"
+msgstr "unbekanntes Protokoll"
+
+#: src/ItemCell.cc:301
+msgid "Ignore CRC error"
+msgstr "CRC-Fehler ignorieren"
+
+#: src/ItemCell.cc:309
+msgid "Checking MD5 checksum"
+msgstr "Prüfe MD5-Prüfsumme"
+
+#: src/ItemCell.cc:312
+msgid "Calculated MD5 checksum is "
+msgstr "Berechnete MD5-Prüfsumme ist "
+
+#: src/ItemCell.cc:314
+msgid "MD5 checking failed"
+msgstr "MD5-Prüfung nicht erfolgreich"
+
+#: src/ItemCell.cc:316
+msgid "Ignore MD5 error"
+msgstr "MD5-Fehler ignorieren"
+
+#: src/ItemCell.cc:321
+msgid "MD5 checking successful"
+msgstr "MD5-Prüfung erfolgreich"
+
+#: src/ItemCell.cc:324 src/gui_download_check.cc:117
+msgid "IO error occurred"
+msgstr "IO-Fehler ist aufgetreten"
+
+#: src/ItemCell.cc:588
+msgid "Can't resolve host"
+msgstr "kann Host-Namen nicht auflösen"
+
+#: src/ItemCell.cc:591
+msgid "Socket error"
+msgstr "Socket-Fehler"
+
+#: src/ItemCell.cc:594
+msgid "Connection refused - "
+msgstr "Verbindung abgelehnt - "
+
+#: src/ItemCell.cc:598
+msgid "Time out"
+msgstr "Zeitablauf"
+
+#: src/ItemCell.cc:601
+msgid "I/O error - "
+msgstr "I/O-Fehler - "
+
+#: src/ItemCell.cc:605
+msgid "File I/O error - maybe wrong save location or disk full?"
+msgstr "Datei-I/O-Fehler - Platte voll oder falsches Verzeichnis?"
+
+#: src/ItemCell.cc:609
+msgid "Location retrieval failed"
+msgstr "Lokationsabruf erfolglos"
+
+#: src/ItemCell.cc:612
+msgid "Cannot find embedded URL"
+msgstr "kann enthaltene URL nicht finden"
+
+#: src/ItemCell.cc:615
+msgid "FTP server returned negative response"
+msgstr "negative Antwort vom FTP-Server"
+
+#: src/ItemCell.cc:618
+msgid "Bind error - "
+msgstr "Bind-Fehler - "
+
+#: src/ItemCell.cc:622
+msgid "Listen error - "
+msgstr "Fehler bei Listen - "
+
+#: src/ItemCell.cc:626
+msgid "Accept error - "
+msgstr "Fehler bei Accept - "
+
+#: src/ItemCell.cc:630
+msgid "Send error - "
+msgstr "Fehler bei Send - "
+
+#: src/ItemCell.cc:634
+msgid "Recv error - "
+msgstr "Fehler bei recv - "
+
+#: src/ItemCell.cc:638
+msgid "General protocol error"
+msgstr "allgemeiner Protokoll-Fehler"
+
+#: src/ItemCell.cc:642
+msgid "Unknown error occurred"
+msgstr "ein Fehler ist aufgetreten"
+
+#: src/ItemCache.cc:97
+#, fuzzy
+msgid "Copied"
+msgstr "Cookie"
+
+#: src/Retrieve.cc:111 src/RetrieveFTP.cc:255
+msgid "Partial item added"
+msgstr "Teil-Eintrag hinzugefügt"
+
+#: src/Retrieve.cc:292
+msgid "Connecting to "
+msgstr "Verbindung zu "
+
+#: src/Retrieve.cc:312
+msgid "Can't resolve host: "
+msgstr "kann Host-Namen nicht auflösen"
+
+#: src/Retrieve.cc:312
+msgid ", reason: "
+msgstr ", Grund: "
+
+#: src/Retrieve.cc:317
+msgid "Resolving complete"
+msgstr "Auflösung vollständig"
+
+#: src/Retrieve.cc:327
+msgid "Canonical name is "
+msgstr "Kanonischer Name ist "
+
+#: src/Retrieve.cc:448
+msgid "Connection refused: "
+msgstr "Verbindung abgelehnt: "
+
+#: src/Retrieve.cc:476
+msgid "Connection established"
+msgstr "Verbindung aufgebaut"
+
+#. fix this
+#: src/Retrieve.cc:524
+msgid "Unable to truncate the file '"
+msgstr "Kann Datei nicht verkürzen: '"
+
+#: src/Retrieve.cc:524
+msgid "'. Rollback disabled"
+msgstr "'. Zurücksetzen deaktiviert"
+
+#: src/Retrieve.cc:552 src/ItemOption.cc:355
+msgid "Failed to make directory '"
+msgstr "konnte Verzeichnis nicht anlegen '"
+
+#: src/RetrieveHTTP.cc:361
+msgid "UseProxy is not supported yet"
+msgstr "Proxy-Benutzung noch nicht möglich"
+
+#: src/RetrieveHTTP.cc:367
+msgid "Content forbidden"
+msgstr "Inhalt nicht erlaubt"
+
+#: src/RetrieveHTTP.cc:371
+msgid "Content not found"
+msgstr "Inhalt nicht gefunden"
+
+#: src/RetrieveHTTP.cc:390
+msgid "Server returned 416 status. Assume download was completed"
+msgstr "Server gab Status 416 zurück. Vollständiger Abruf wird angenommen."
+
+#: src/RetrieveHTTP.cc:398
+msgid "Server returned 416 status. This file may be already downloaded"
+msgstr "Server gab Status 416 zurück. Diese Datei ist evtl. bereits abgerufen."
+
+#: src/RetrieveHTTP.cc:403
+msgid "Access denied"
+msgstr "Zugriff verweigert"
+
+#: src/RetrieveHTTP.cc:407
+msgid "Unexpected error occurred"
+msgstr "unerwarteter Fehler aufgetreten"
+
+#: src/RetrieveHTTP.cc:553
+msgid "Redirection found"
+msgstr "umgeleitet auf"
+
+#: src/RetrieveHTTP.cc:603
+msgid "Redirecting to "
+msgstr "Umleitung zu "
+
+#: src/RetrieveHTTP.cc:606 src/RetrieveHTTP.cc:869 src/RetrieveHTTP.cc:876
+#: src/RetrieveHTTP.cc:880 src/RetrieveHTTP.cc:925 src/RetrieveHTTP.cc:940
+#: src/RetrieveHTTP.cc:946 src/RetrieveHTTP.cc:953 src/RetrieveFTP.cc:1137
+#: src/RetrieveFTP.cc:1147 src/RetrieveFTP.cc:1153 src/RetrieveFTP.cc:1158
+#: src/RetrieveHTTP2.cc:155 src/RetrieveHTTP2.cc:166 src/RetrieveHTTP2.cc:176
+#: src/RetrieveHTTP2.cc:184 src/RetrieveFTP2.cc:254 src/RetrieveFTP2.cc:264
+#: src/RetrieveFTP2.cc:270 src/RetrieveFTP2.cc:275
+msgid "Connection closed"
+msgstr "Verbindung geschlossen"
+
+#. ¤¹¤Ç¤Ë¥À¥¦¥ó¥í¡¼¥ÉºÑ
+#. download has been competed
+#: src/RetrieveHTTP.cc:614 src/RetrieveHTTP.cc:725 src/RetrieveFTP.cc:1037
+#: src/RetrieveFTP2.cc:169
+msgid " is already downloaded"
+msgstr "ist bereits abgerufen"
+
+#. split download is not allowed
+#: src/RetrieveHTTP.cc:702 src/RetrieveHTTP.cc:748 src/RetrieveHTTP.cc:819
+msgid "Resume disabled"
+msgstr "Wiederaufnahme gesperrt"
+
+#. Assume download was completed
+#: src/RetrieveHTTP.cc:706 src/RetrieveHTTP.cc:751 src/ItemOption.cc:2319
+msgid "Assume download was completed"
+msgstr "vollständiger Abruf wird angenommen"
+
+#: src/RetrieveHTTP.cc:716 src/RetrieveHTTP.cc:767 src/RetrieveFTP.cc:1031
+msgid "Download aborted due to the file size limitation"
+msgstr "Abruf abgebrochen wegen der Dateigrößen-Beschränkung"
+
+#. ¥Õ¥¡¥¤¥ë¥µ¥¤¥º¤¬°Û¤Ê¤ë
+#. size mismatch
+#: src/RetrieveHTTP.cc:741 src/RetrieveFTP.cc:1047 src/RetrieveHTTP2.cc:129
+#: src/RetrieveFTP2.cc:180
+msgid "Size of local file is larger than remote file's one. Download again"
+msgstr "lokale Datei ist größer als ferne Datei. Erneuter Abruf"
+
+#. check whether or not remote server suports resume
+#: src/RetrieveHTTP.cc:781
+msgid "Checking whether server supports resuming"
+msgstr "Prüfe, ob der Server Wiederaufnahme unterstützt"
+
+#: src/RetrieveHTTP.cc:820 src/RetrieveHTTP.cc:831 src/RetrieveFTP.cc:1059
+#: src/RetrieveFTP.cc:1071
+msgid "Starting normal download instead"
+msgstr "Beginne stattdessen normalen Abruf"
+
+#. OK, ready to split downloading!
+#: src/RetrieveHTTP.cc:823 src/RetrieveFTP.cc:1062
+msgid "Splitting file..."
+msgstr "Teile Datei auf..."
+
+#: src/RetrieveHTTP.cc:830 src/RetrieveFTP.cc:1070
+msgid "File is too small to be divided"
+msgstr "Datei zu klein für Aufteilung"
+
+#: src/RetrieveHTTP.cc:1004 src/RetrieveFTP.cc:1424 src/RetrieveHTTP2.cc:222
+#: src/RetrieveFTP2.cc:306
+msgid "This file is locked. Aborting download"
+msgstr "Diese Datei ist gesperrt. Abruf abgebrochen"
+
+#: src/RetrieveHTTP.cc:1011 src/RetrieveFTP.cc:1431 src/RetrieveHTTP2.cc:232
+#: src/RetrieveFTP2.cc:322
+msgid "Starting download at "
+msgstr "starte Abruf ab "
+
+#: src/RetrieveHTTP.cc:1011 src/RetrieveFTP.cc:1431 src/RetrieveHTTP2.cc:232
+#: src/RetrieveFTP2.cc:324
+msgid " bytes"
+msgstr " Bytes"
+
+#: src/RetrieveHTTP.cc:1047
+msgid "Retrieving embedded URL"
+msgstr "Abruf eingebetteter URL"
+
+#: src/RetrieveHTTP.cc:1078
+msgid "Finding hyperlink"
+msgstr "Hyperlink suchen"
+
+#: src/RetrieveHTTP.cc:1090 src/gui_file_find_hyperlink.cc:69
+msgid "Hyperlink retrieval complete"
+msgstr "Hyperlink-Suche beendet"
+
+#: src/RetrieveHTTP.cc:1100 src/RetrieveFTP.cc:1450 src/RetrieveHTTP2.cc:253
+#: src/RetrieveFTP2.cc:352
+msgid "No match size"
+msgstr "keine zutreffende Größe"
+
+#: src/RetrieveHTTP.cc:1140 src/RetrieveHTTP.cc:1156 src/RetrieveHTTP.cc:1162
+#: src/RetrieveHTTP.cc:1172
+msgid "Failed to uncompress data"
+msgstr "Konnte Daten nicht dekomprimieren"
+
+#. ¥ì¥¸¥å¡¼¥àÉÔ²Ä
+#. www server does not support resume
+#: src/RetrieveFTP.cc:105 src/RetrieveFTP.cc:164 src/RetrieveFTP.cc:1058
+#: src/RetrieveHTTP2.cc:135
+msgid "Sorry, cannot resume"
+msgstr "Sorry, Fortsetzen nicht möglich"
+
+#: src/RetrieveFTP.cc:122 src/RetrieveFTP.cc:495 src/RetrieveFTP.cc:519
+msgid "Data connection established"
+msgstr "Daten-Verbindung aufgebaut"
+
+#: src/RetrieveFTP.cc:269
+msgid "Cannot enter PASV mode"
+msgstr "PASV-Modus nicht möglich"
+
+#: src/RetrieveFTP.cc:383
+msgid "Failed to create symbolic link. Ignored"
+msgstr "Konnte symbolischen Link nicht anlegen. Ignoriert"
+
+#: src/RetrieveFTP.cc:490 src/RetrieveFTP.cc:527 src/RetrieveFTP.cc:939
+msgid "Failed to list files"
+msgstr "Dateiauflistung nicht möglich"
+
+#. maybe full?
+#: src/RetrieveFTP.cc:648 src/RetrieveFTP.cc:706 src/RetrieveFTP.cc:787
+msgid "Failed to login"
+msgstr "Login nicht erfolgreich"
+
+#: src/RetrieveFTP.cc:897
+msgid "Specified directory was not found"
+msgstr "kann angegebenes Verzeichnis nicht finden"
+
+#: src/RetrieveFTP.cc:915 src/RetrieveFTP2.cc:154
+msgid "MDTM command failed. Anyway, try resuming"
+msgstr "MDTM-Befehl nicht erfolgreich. Egal, versuche Wiederaufnahme"
+
+#: src/RetrieveFTP.cc:919 src/RetrieveFTP2.cc:158
+msgid ""
+"Modification time of remote file is newer than local file's one. Resume "
+"disabled"
+msgstr ""
+"Modifikationszeit der fernen Datei ist neuer als das der lokalen."
+"Wiederaufnahme deaktiviert."
+
+#. recursive download limit exceeded
+#: src/RetrieveFTP.cc:971
+msgid "Depth of recursion exceeded. This message can be ignored safely"
+msgstr "Rekursionstiefe überschritten. Diese Nachricht kann ignoriert werden."
+
+#: src/RetrieveFTP.cc:978
+msgid "Try again assuming as directory"
+msgstr "Erneuter Versuch als Verzeichnis"
+
+#: src/RetrieveFTP.cc:985
+msgid "Specified directory or file was not found"
+msgstr "kann angegebene/s Datei/Verzeichnis nicht finden"
+
+#: src/RetrieveFTP.cc:1005
+msgid "Download abort due to extension. This message can be ignored safely"
+msgstr ""
+"Abruf wegen der Erweiterung abgebrochen. Diese Nachricht kann getrost "
+"ignoriert werden."
+
+#. send REST command
+#: src/RetrieveFTP.cc:1052
+msgid "Checking whether ftp server supports resuming"
+msgstr "Prüfe, ob der FTP-Server Wiederaufnahme unterstützt"
+
+#: src/RetrieveFTP.cc:1108 src/RetrieveFTP2.cc:230
+msgid "An error occurred, but this error can be ignored safely"
+msgstr "Ein Fehler trat auf, aber dieser Fehler kann getrost ignoriert werden."
+
+#: src/RetrieveHTTP2.cc:104
+msgid "Redirecting to"
+msgstr "umgeleitet auf"
+
+#. ¤¹¤Ç¤Ë¥À¥¦¥ó¥í¡¼¥ÉºÑ
+#. downloading has been competed
+#: src/RetrieveHTTP2.cc:117
+msgid "' is already downloaded"
+msgstr "' ist bereits abgerufen"
+
+#: src/RetrieveHTTP2.cc:229 src/RetrieveFTP2.cc:314
+msgid ", its index is "
+msgstr ", sein Index ist "
+
+#: src/RetrieveHTTP2.cc:229 src/RetrieveFTP2.cc:316
+msgid ", its range is from "
+msgstr ", Bereich ist innerhalb: "
+
+#: src/RetrieveFTP2.cc:144
+msgid "Specified directory is not found"
+msgstr "angegebenes Verzeichnis wurde nicht gefunden"
+
+#: src/gui_download.cc:448
+msgid " item(s) cleared"
+msgstr " Einträge gelöscht"
+
+#: src/gui_download.cc:566
+msgid " item(s) cleared, and its file deleted"
+msgstr " Einträge bereinigt, und die Datei gelöscht."
+
+#: src/gui_download.cc:585 src/gui_download.cc:1264 src/gui_item.cc:387
+msgid "Clear items"
+msgstr "Einträge bereinigen"
+
+#: src/gui_download.cc:586 src/gui_download.cc:1265 src/gui_item.cc:388
+msgid "Are you sure to delete these items?"
+msgstr "Diese Einträge wirklich löschen?"
+
+#: src/gui_download.cc:607
+msgid "Clear items and delete their files"
+msgstr "Bereinige Einträge und lösche die Dateien"
+
+#: src/gui_download.cc:608
+msgid "Are you sure to delete these items and their files?"
+msgstr "Diese Einträge/Dateien wirklich löschen?"
+
+#: src/gui_download.cc:1201 src/gui_item.cc:371
+msgid " item(s) deleted"
+msgstr " Einträge gelöscht"
+
+#: src/gui_download.cc:1286
+msgid "Start"
+msgstr "Start"
+
+#: src/gui_download.cc:1296
+msgid "Stop"
+msgstr "Stopp"
+
+#. Delete button
+#: src/gui_download.cc:1306 src/HistoryWindow.cc:356
+msgid "Clear"
+msgstr "Bereinigen"
+
+#: src/gui_download.cc:1316
+msgid "Clear and delete files"
+msgstr "Bereinige und lösche Dateien"
+
+#: src/gui_download.cc:1324
+msgid "Clear CRC"
+msgstr "Lösche CRC"
+
+#: src/gui_download.cc:1329
+msgid "Clear MD5"
+msgstr "MD5 bereinigen"
+
+#: src/gui_download.cc:1334
+msgid "Check CRC"
+msgstr "Prüfe CRC"
+
+#: src/gui_download.cc:1339
+msgid "Check MD5"
+msgstr "Prüfe MD5"
+
+#: src/gui_download.cc:1357
+msgid "Start all"
+msgstr "Starte alles"
+
+#: src/gui_download.cc:1367
+msgid "Stop all"
+msgstr "Stoppe alles"
+
+#: src/gui_download.cc:1377
+msgid "Clear all"
+msgstr "bereinige alle"
+
+#: src/gui_download.cc:1385
+msgid "Clear all CRC"
+msgstr "Bereinige alle CRC-Summen"
+
+#: src/gui_download.cc:1389
+msgid "Clear all MD5"
+msgstr "bereinige alle MD5"
+
+#: src/gui_download.cc:1397 src/AppOption.cc:1061
+msgid "Start all lists"
+msgstr "Starte alle Listen"
+
+#: src/gui_download.cc:1405
+msgid "Stop all lists"
+msgstr "Stoppe alle Listen"
+
+#: src/gui_download.cc:1413
+msgid "Clear all lists"
+msgstr "bereinige alle Listen"
+
+#: src/gui_download.cc:1423
+msgid "Check downloaded items' CRC"
+msgstr "CRC-PRüfung für abgerufene Einträge"
+
+#: src/gui_download.cc:1428
+msgid "Check downloaded items' MD5"
+msgstr "MD5-PRüfung für abgerufene Einträge"
+
+#: src/gui_download.cc:1436 src/AppOption.cc:173
+msgid "Download"
+msgstr "Download"
+
+#: src/gui_download_check.cc:51 src/gui_download_check.cc:59
+msgid "Checking CRC of '"
+msgstr "CRC-Prüfung für '"
+
+#: src/gui_download_check.cc:51 src/gui_download_check.cc:98
+msgid "' successful"
+msgstr "' erfolgreich"
+
+#: src/gui_download_check.cc:59 src/gui_download_check.cc:105
+msgid "' failed"
+msgstr "' falsch"
+
+#: src/gui_download_check.cc:98 src/gui_download_check.cc:105
+msgid "Checking MD5 of '"
+msgstr "MD5-Prüfung für '"
+
+#: src/gui_download_check.cc:270
+msgid "Check"
+msgstr "Prüfe "
+
+#: src/gui_download_check.cc:271
+msgid "Checking..."
+msgstr "Prüfe ... "
+
+#: src/gui_edit.cc:164
+msgid " item(s) copied"
+msgstr " Einträge kopiert"
+
+#: src/gui_edit.cc:211
+msgid " item(s) cut"
+msgstr " Einträge ausgeschnitten"
+
+#. added 2001/3/21
+#: src/gui_edit.cc:241 src/PasteWindow.cc:146
+msgid " item(s) pasted"
+msgstr " Einträge eingefügt"
+
+#: src/gui_edit.cc:581 src/PasteWindow.cc:549 src/HistoryWindow.cc:212
+msgid "Select all"
+msgstr "alles auswählen"
+
+#: src/gui_edit.cc:591 src/PasteWindow.cc:558 src/HistoryWindow.cc:221
+msgid "Invert selection"
+msgstr "Auswahl invertieren"
+
+#: src/gui_edit.cc:599 src/PasteWindow.cc:771
+msgid "Paste URL list"
+msgstr "URL-Liste einfügen"
+
+#: src/gui_edit.cc:613
+msgid "Paste URL list with numerical expansion"
+msgstr "URL-Liste einfügen (mit Auflösung)"
+
+#: src/gui_edit.cc:627
+msgid "Paste CRC list"
+msgstr "CRC-Liste einfügen"
+
+#: src/gui_edit.cc:640
+msgid "Paste MD5 list"
+msgstr "MD5-Liste einfügen"
+
+#: src/gui_edit.cc:657
+msgid "Copy selected items"
+msgstr "Ausgeählte Einträge kopieren"
+
+#: src/gui_edit.cc:664
+msgid "Cut selected items"
+msgstr "Ausgeählte Einträge ausschneiden"
+
+#: src/gui_edit.cc:671
+msgid "Paste items"
+msgstr "Einträge einfügen"
+
+#: src/gui_edit.cc:679
+msgid "Search in current list"
+msgstr "Suche in aktueller Liste"
+
+#. Create root menu item
+#: src/gui_edit.cc:688 src/PasteWindow.cc:564 src/HistoryWindow.cc:227
+msgid "Edit"
+msgstr "Bearbeiten"
+
+#. Search button
+#: src/gui_edit_search.cc:66 src/gui_edit_search.cc:93
+#: src/gui_edit_search.cc:110 src/HistoryWindow.cc:609
+msgid "Search"
+msgstr "Suche"
+
+#: src/gui_edit_search.cc:67
+msgid "Search complete"
+msgstr "Suche komplett"
+
+#. Cancel button
+#: src/gui_edit_search.cc:121 src/gui_file_find_hyperlink.cc:126
+#: src/gui_item_new_item.cc:191 src/gui_list_new_list.cc:118
+#: src/gui_list_rename_list.cc:121 src/ItemOption.cc:683 src/AppOption.cc:225
+#: src/Dialog.cc:191 src/PasteWindow.cc:898
+msgid "Cancel"
+msgstr "Abbruch"
+
+#. label
+#: src/gui_edit_search.cc:136
+msgid "String:"
+msgstr "Zeichenkette:"
+
+#: src/gui_file.cc:94
+msgid "Autosave done"
+msgstr "Autom. Speicherung ok"
+
+#: src/gui_file.cc:354 src/gui_file_open_url.cc:98 src/gui_toolbar.cc:246
+msgid "Open URL list"
+msgstr "Öffne URL-Liste"
+
+#: src/gui_file.cc:364 src/gui_file_open_crc.cc:70
+msgid "Open CRC list"
+msgstr "Öffne CRC-Liste"
+
+#: src/gui_file.cc:372
+msgid "Open MD5 list"
+msgstr "Öffne MD5-Liste"
+
+#: src/gui_file.cc:384
+msgid "Find hyperlink"
+msgstr "Suche Hyperlink"
+
+#: src/gui_file.cc:395 src/gui_toolbar.cc:230
+msgid "Open saved list"
+msgstr "öffne gespeicherte Liste"
+
+#: src/gui_file.cc:405
+msgid "Save current list"
+msgstr "Speichere aktuelle Liste"
+
+#: src/gui_file.cc:417
+msgid "Quit with saving lists"
+msgstr "Beenden mit Listenspeicherung"
+
+#: src/gui_file.cc:425
+msgid "Quit without saving lists"
+msgstr "Beenden ohne Listenspeicherung"
+
+#. CList ¤òºîÀ®¤¹¤ë¡£¤³¤ÎÎã¤Ç¤Ï 2 Îó¤ò»È¤¦
+#: src/gui_file.cc:430 src/ListEntry.cc:610 src/HistoryWindow.cc:275
+msgid "File"
+msgstr "Datei"
+
+#: src/gui_file_find_hyperlink.cc:55
+msgid "Error occurred while reading HTML file"
+msgstr "Fehler beim Lesen der HTML-Datei"
+
+#: src/gui_file_find_hyperlink.cc:82 src/gui_file_find_hyperlink.cc:100
+msgid "Find Hyperlink"
+msgstr "Suche Hyperlink"
+
+#. OK button
+#: src/gui_file_find_hyperlink.cc:116 src/ItemOption.cc:672
+#: src/AppOption.cc:213 src/gui_help.cc:191
+msgid "OK"
+msgstr "OK"
+
+#: src/gui_file_open_url.cc:53
+msgid "Error occurred while reading URL file"
+msgstr "Fehler beim Lesen der URL-Datei"
+
+#: src/gui_file_open_url.cc:78
+msgid "URL list opened"
+msgstr "URL-Liste geöffnet"
+
+#: src/gui_file_open_crc.cc:51
+msgid "Error occurred while reading CRC file"
+msgstr "Fehler beim Lesen der CRC-Datei"
+
+#: src/gui_file_open_crc.cc:53
+msgid "CRC list opened"
+msgstr "CRC-Datei geöffnet"
+
+#: src/gui_file_open_and_save.cc:59
+msgid "Failed to save lists"
+msgstr "Konnte Listen nicht sichern"
+
+#: src/gui_file_open_and_save.cc:61
+msgid "lists saved"
+msgstr "Listen gespeichert"
+
+#: src/gui_file_open_and_save.cc:69 src/gui_toolbar.cc:280
+msgid "Save list"
+msgstr "Speichere Liste"
+
+#: src/gui_file_open_and_save.cc:133
+msgid "Failed to load lists"
+msgstr "Konnte Listen nicht laden"
+
+#: src/gui_file_open_and_save.cc:135
+msgid "Saved list opened"
+msgstr "gespeicherte Liste geöffnet"
+
+#.
+#. // ¸½ºß¤Î¥¢¥¤¥Æ¥à¥ê¥¹¥È¤òÊÝÂ¸¤â¤·¤¯¤ÏÇË´þ
+#. if(GTK_CLIST(itemlistwidget)->rows) {// if clist contains any items
+#. // ¸½ºß¤Î¥ê¥¹¥È¤òÊÝÂ¸¤¹¤ë¤«¤É¤¦¤«¿Ò¤Í¤ë
+#. AfterOpen = true;
+#. Prompt_save_or_not();
+#. } else {
+#.
+#. AfterOpen = false;
+#: src/gui_file_open_and_save.cc:163
+msgid "Open Saved list"
+msgstr "öffne gespeicherte Liste"
+
+#: src/gui_item_new_item.cc:109
+msgid "item added"
+msgstr "Ein Eintrag hinzugefügt"
+
+#. Error
+#: src/gui_item_new_item.cc:130 src/gui_list_new_list.cc:49
+#: src/gui_list_rename_list.cc:49 src/ItemOption.cc:327 src/ItemOption.cc:372
+#: src/ItemOption.cc:2325 src/PasteWindow.cc:93 src/PasteWindow.cc:178
+#: src/PasteWindow.cc:210 src/PasteWindow.cc:244 src/PasteWindow.cc:265
+#: src/PasteWindow.cc:295
+msgid "Error"
+msgstr "Fehler"
+
+#: src/gui_item_new_item.cc:131 src/ItemOption.cc:406
+msgid "Invalid URL"
+msgstr "URL ungültig"
+
+#: src/gui_item_new_item.cc:155 src/gui_item.cc:457
+msgid "New item"
+msgstr "Neuer Eintrag"
+
+#. Add button
+#: src/gui_item_new_item.cc:172 src/ItemOption.cc:1830 src/ItemOption.cc:2080
+#: src/ItemOption.cc:2133 src/ItemOption.cc:2194 src/ItemOption.cc:2246
+#: src/ItemOption.cc:2525 src/ItemOption.cc:2773
+msgid "Add"
+msgstr "hinzufügen"
+
+#. unfold button
+#: src/gui_item_new_item.cc:182
+msgid "Numerical expansion"
+msgstr "Auflösung"
+
+#: src/gui_list_new_list.cc:50 src/gui_list_rename_list.cc:50
+msgid "The specified name already exists."
+msgstr "Der angegebene Name existiert bereits."
+
+#: src/gui_list_new_list.cc:67
+msgid "New list created"
+msgstr "Neue Liste erstellt"
+
+#: src/gui_list_new_list.cc:90 src/gui_list.cc:314 src/ListEntry.cc:215
+#: src/aria.h:75
+msgid "New list"
+msgstr "Neue Liste"
+
+#. Ok button
+#: src/gui_list_new_list.cc:107 src/gui_list_rename_list.cc:110
+msgid "Ok"
+msgstr "OK"
+
+#. label
+#: src/gui_list_new_list.cc:133 src/gui_list_rename_list.cc:136
+msgid "Name:"
+msgstr "Name:"
+
+#: src/gui_list_rename_list.cc:93
+msgid "Rename list"
+msgstr "Liste umbenennen"
+
+#: src/gui_list.cc:49
+msgid "1 list deleted"
+msgstr "1 Liste gelöscht"
+
+#: src/gui_list.cc:57 src/gui_list.cc:322
+msgid "Delete current list"
+msgstr "Lösche aktuelle Liste"
+
+#: src/gui_list.cc:58
+msgid "Are you sure to delete the current list?"
+msgstr "Möchten Sie die aktuelle Liste wirklich löschen?"
+
+#: src/gui_list.cc:284
+msgid "Ascending"
+msgstr "Aufsteigend"
+
+#: src/gui_list.cc:289
+msgid "Descending"
+msgstr "Absteigend"
+
+#: src/gui_list.cc:332
+msgid "Rename current list"
+msgstr "Aktuelle Liste umbenennen"
+
+#: src/gui_list.cc:342
+msgid "Move left"
+msgstr "nach links"
+
+#: src/gui_list.cc:350
+msgid "Move right"
+msgstr "Nach rechts"
+
+#: src/gui_list.cc:360
+msgid "Previous list"
+msgstr "Vorherige Liste"
+
+#: src/gui_list.cc:368
+msgid "Next list"
+msgstr "Nächste Liste"
+
+#: src/gui_list.cc:379
+msgid "Sort"
+msgstr "Sortierung"
+
+#: src/gui_list.cc:385
+msgid "Filename"
+msgstr "Dateiname"
+
+#: src/gui_list.cc:389 src/ItemOption.cc:2090 src/ItemOption.cc:2256
+msgid "Extension"
+msgstr "Erweiterung"
+
+#: src/gui_list.cc:393
+msgid "Downloaded size"
+msgstr "Abgerufene Größe"
+
+#: src/gui_list.cc:397
+msgid "Total size"
+msgstr "Gesamt-Größe"
+
+#: src/gui_list.cc:401
+msgid "Progress"
+msgstr "Fortschritt"
+
+#: src/gui_list.cc:405 src/ListEntry.cc:616
+msgid "Retry"
+msgstr "Wiederholung"
+
+#: src/gui_list.cc:409 src/ItemOption.cc:839
+msgid "Recursive"
+msgstr "Rekursiv"
+
+#: src/gui_list.cc:413 src/ListEntry.cc:618
+msgid "Status"
+msgstr "Status"
+
+#: src/gui_list.cc:417
+msgid "Save dir"
+msgstr "Speicherungs-Verzeichnis:"
+
+#. referer : url
+#: src/gui_list.cc:421 src/ItemOption.cc:719 src/ItemOption.cc:1629
+#: src/PasteWindow.cc:800 src/HistoryWindow.cc:278
+msgid "URL"
+msgstr "URL"
+
+#: src/gui_list.cc:426
+msgid "Shuffle list"
+msgstr "Liste mischen"
+
+#: src/gui_list.cc:439
+msgid "List"
+msgstr "Liste"
+
+#: src/gui_item.cc:466
+msgid "Lock"
+msgstr "Sperre"
+
+#: src/gui_item.cc:476
+msgid "Unlock"
+msgstr "Sperre aufheben"
+
+#: src/gui_item.cc:488
+msgid "Move item up"
+msgstr "Eintrag hochsetzen"
+
+#: src/gui_item.cc:498
+msgid "Move item down"
+msgstr "Eintrag herabsetzen"
+
+#: src/gui_item.cc:508
+msgid "Move item to top"
+msgstr "Eintrag an Listenanfang"
+
+#: src/gui_item.cc:516
+msgid "Move item to bottom"
+msgstr "Eintrag an Listenende"
+
+#: src/gui_item.cc:526
+msgid "Lock error items"
+msgstr "Sperre fehlerh. Einträge"
+
+#: src/gui_item.cc:536
+msgid "Clear downloaded item"
+msgstr "Bereinige übertragenen Teil"
+
+#: src/gui_item.cc:544
+msgid "Clear locked items"
+msgstr "Bereinige gesperrte Einträge"
+
+#: src/gui_item.cc:549
+msgid "Clear error items"
+msgstr "Bereinige fehlerh. Einträge"
+
+#: src/gui_item.cc:554
+msgid "Clear stopped items"
+msgstr "Bereinige gestoppte Einträge"
+
+#: src/gui_item.cc:559
+msgid "Clear ready items"
+msgstr "Bereinige erledigte Einträge"
+
+#: src/gui_item.cc:564
+msgid "Clear error, stopped and ready items"
+msgstr "Bereinige fehlerh., gestoppte und fertige Einträge"
+
+#: src/gui_item.cc:571
+msgid "Item"
+msgstr "Eintrag"
+
+#: src/gui_option.cc:120 src/gui_option.cc:510
+msgid "Clear system log"
+msgstr "Systemlog löschen"
+
+#: src/gui_option.cc:121
+msgid "Are you sure to clear system log?"
+msgstr "Das Systemlog wirklich löschen?"
+
+#: src/gui_option.cc:388 src/PasteWindow.cc:579
+msgid "Selected item option"
+msgstr "Optionen für ausgewählten Eintrag"
+
+#: src/gui_option.cc:398 src/gui_toolbar.cc:521 src/PasteWindow.cc:587
+msgid "Default item option for current list"
+msgstr "Default-Optionen für aktuelle Liste"
+
+#: src/gui_option.cc:408 src/PasteWindow.cc:595
+msgid "Apply default item option"
+msgstr "Default-Optionen anwenden"
+
+#: src/gui_option.cc:415 src/PasteWindow.cc:603
+msgid "To selected items"
+msgstr "auf ausgewählte Einträge"
+
+#: src/gui_option.cc:420 src/PasteWindow.cc:608
+msgid "To all items in current list"
+msgstr "auf alle Einträge in aktueller Liste"
+
+#: src/gui_option.cc:428 src/gui_option.cc:452 src/PasteWindow.cc:616
+#: src/PasteWindow.cc:641
+msgid "All settings"
+msgstr "Alle Parameter"
+
+#: src/gui_option.cc:436 src/gui_option.cc:460 src/PasteWindow.cc:624
+#: src/PasteWindow.cc:649
+msgid "Ignore save directory"
+msgstr "Speicherungs-Verzeichnis ignorieren"
+
+#: src/gui_option.cc:444 src/gui_option.cc:468
+msgid "Ignore save directory and recursive settings"
+msgstr "Ignoriere Einstellungen für Sicherungsverzeichnis und Rekursion"
+
+#: src/gui_option.cc:475 src/ItemOption.cc:2871
+msgid "Default item option for new list"
+msgstr "Default-Eintrags-Option für neue Liste"
+
+#: src/gui_option.cc:483
+msgid "Application settings"
+msgstr "Anwendungs-Parameter"
+
+#: src/gui_option.cc:493
+msgid "Download history"
+msgstr "Download-Protokoll"
+
+#: src/gui_option.cc:501
+msgid "Toggle basket on/off"
+msgstr "Korb ein-/ausschalten"
+
+#. item Option button
+#: src/gui_option.cc:518 src/PasteWindow.cc:738 src/PasteWindow.cc:876
+msgid "Option"
+msgstr "Option"
+
+#: src/ItemOption.cc:373
+msgid ""
+"Specified directory does not exist.\n"
+"Do you wish to make it now?"
+msgstr ""
+"Angegebenes Verzeichnis existiert nicht.\n"
+"Soll es erstellt werden?"
+
+#: src/ItemOption.cc:385
+msgid "Select directory"
+msgstr "Verzeichnis wählen"
+
+#: src/ItemOption.cc:409
+msgid "Invalid Filename"
+msgstr "Ungültiger Dateiname"
+
+#: src/ItemOption.cc:412
+msgid "Invalid CRC"
+msgstr "CRC ungültig"
+
+#: src/ItemOption.cc:415
+msgid "Invalid MD5"
+msgstr "MD5 ungültig"
+
+#: src/ItemOption.cc:607
+msgid "General"
+msgstr "Allgemein"
+
+#. default button
+#: src/ItemOption.cc:693
+msgid "Default"
+msgstr "Default"
+
+#: src/ItemOption.cc:725 src/ItemOption.cc:1226 src/ItemOption.cc:1761
+#: src/ItemOption.cc:2455
+msgid "Authentication"
+msgstr "Authentifizierung"
+
+#: src/ItemOption.cc:731
+msgid "Download 1"
+msgstr "Download 1"
+
+#: src/ItemOption.cc:737
+msgid "Download 2"
+msgstr "Download 2"
+
+#: src/ItemOption.cc:743 src/AppOption.cc:194 src/AppOption.cc:299
+msgid "Command"
+msgstr "Befehl"
+
+#: src/ItemOption.cc:767 src/ItemOption.cc:1605
+msgid "Referer"
+msgstr "Bezug"
+
+#: src/ItemOption.cc:773 src/ItemOption.cc:1661
+msgid "Cookie"
+msgstr "Cookie"
+
+#: src/ItemOption.cc:779
+msgid "Agent"
+msgstr "Agent"
+
+#: src/ItemOption.cc:785 src/ItemOption.cc:833 src/ItemOption.cc:1740
+#: src/ItemOption.cc:2433
+msgid "Proxy"
+msgstr "Proxy"
+
+#: src/ItemOption.cc:791
+msgid "Recursive 1"
+msgstr "Rekursiv 1"
+
+#: src/ItemOption.cc:797
+msgid "Recursive 2"
+msgstr "Rekursiv 2"
+
+#: src/ItemOption.cc:803 src/ItemOption.cc:845
+msgid "Misc"
+msgstr "Verschiedenes"
+
+#: src/ItemOption.cc:827
+msgid "Mode"
+msgstr "Modus"
+
+#: src/ItemOption.cc:1150
+msgid "Save as"
+msgstr "Speichere als"
+
+#: src/ItemOption.cc:1159
+msgid "Sync with URL"
+msgstr "Mit URL synchronisieren"
+
+#: src/ItemOption.cc:1195
+msgid "Save directory"
+msgstr "Speicherungs-Verzeichnis:"
+
+#: src/ItemOption.cc:1205
+msgid "select"
+msgstr "auswählen"
+
+#: src/ItemOption.cc:1238 src/ItemOption.cc:1773 src/ItemOption.cc:2467
+msgid "Use authentication"
+msgstr "Benutze Authentifizierung"
+
+#: src/ItemOption.cc:1248 src/ItemOption.cc:1782 src/ItemOption.cc:2476
+msgid "User name"
+msgstr "Benutzername"
+
+#: src/ItemOption.cc:1263 src/ItemOption.cc:1796 src/ItemOption.cc:2490
+msgid "Password"
+msgstr "Passwort"
+
+#: src/ItemOption.cc:1287
+msgid "Delete item when download completes"
+msgstr "Eintrag nach erfolgtem Download löschen"
+
+#: src/ItemOption.cc:1292
+msgid "Don't delete item if CRC/MD5 is not set"
+msgstr "Eintrag nicht löschen, wenn CRC/MD5 nicht gesetzt ist"
+
+#: src/ItemOption.cc:1297
+msgid "Don't check CRC/MD5"
+msgstr "CRC/MD5 nicht prüfen"
+
+#: src/ItemOption.cc:1302
+msgid "Ignore CRC/MD5 error"
+msgstr "CRD/MD5-Fehler ignorieren"
+
+#: src/ItemOption.cc:1307
+msgid "Use Content-MD5"
+msgstr "Benutze MD5-Inhalt"
+
+#: src/ItemOption.cc:1312
+msgid "Do not download already existing files"
+msgstr "Bereits vorhandene Dateien nicht abrufen"
+
+#: src/ItemOption.cc:1317
+msgid "Do not redownload if resuming is not available"
+msgstr "Nicht erneut abrufen, wenn keine Wiederaufnahme möglich ist"
+
+#: src/ItemOption.cc:1327
+msgid "Time out (sec) "
+msgstr "Zeitablauf (Sek.)"
+
+#: src/ItemOption.cc:1349
+msgid "Retry (-1: unlimited) "
+msgstr "Wiederholung (-1: unbegrenzt)"
+
+#: src/ItemOption.cc:1389
+msgid "Retry interval (sec) "
+msgstr "Wiederholungs-Intervall (Sek.)"
+
+#: src/ItemOption.cc:1410
+msgid "Divide file into "
+msgstr "Datei aufteilen in "
+
+#: src/ItemOption.cc:1431
+msgid "Rollback (bytes) "
+msgstr "Zurücksetzen (Bytes) "
+
+#: src/ItemOption.cc:1445
+msgid "Do not download the files less than (bytes) "
+msgstr "Keine Dateien abrufen, die kleiner sind als (Bytes) "
+
+#: src/ItemOption.cc:1468
+msgid "Resume"
+msgstr "Wiederaufnahme"
+
+#. always resume
+#: src/ItemOption.cc:1481
+msgid "Always resume"
+msgstr "Immer fortsetzen"
+
+#. use if-modified-since
+#: src/ItemOption.cc:1487
+msgid "Resume if remote contents have not been modified"
+msgstr "fortsetzen, wenn Inhalt nicht geändert wurde"
+
+#. no resume
+#: src/ItemOption.cc:1492
+msgid "Do not resume"
+msgstr "nicht fortsetzen"
+
+#: src/ItemOption.cc:1565
+msgid "Execute the following command after download"
+msgstr "Führe folgenden Befehl aus nach dem Abruf"
+
+#: src/ItemOption.cc:1583
+msgid ""
+"Download again if the exit status is not in the following list (delimiter is "
+"',')"
+msgstr ""
+"Erneuter Abruf, wenn der Exit-Status nicht in der folgenden Liste ist "
+"(Begrenzerist ',')"
+
+#. referer : none
+#: src/ItemOption.cc:1624
+msgid "none"
+msgstr "kein"
+
+#: src/ItemOption.cc:1638
+msgid "user defined"
+msgstr "Benutzerdefiniert"
+
+#: src/ItemOption.cc:1668
+msgid "Delete cookie on restart (resume or error)"
+msgstr "Cookie bei Neustart(Wiederaufnahme/Fehler) löschen"
+
+#: src/ItemOption.cc:1672
+msgid "Do not send cookie"
+msgstr "kein Cookie senden"
+
+#: src/ItemOption.cc:1680
+msgid "Send user defined cookie"
+msgstr "Benutzerdefinierten Cookie senden"
+
+#: src/ItemOption.cc:1702
+msgid "User Agent"
+msgstr "User Agent"
+
+#: src/ItemOption.cc:1714
+msgid "Select randomly"
+msgstr "zufällig auswählen"
+
+#: src/ItemOption.cc:1755 src/ItemOption.cc:2448
+msgid "Use proxy"
+msgstr "Benutze Proxy"
+
+#. toggle whether use cache or not
+#: src/ItemOption.cc:1809 src/ItemOption.cc:2541
+msgid "Use cache"
+msgstr "benutze Cache"
+
+#. label
+#: src/ItemOption.cc:1819 src/ItemOption.cc:2514
+msgid "Server : Port"
+msgstr "Server : Port"
+
+#. delete button
+#: src/ItemOption.cc:1838 src/ItemOption.cc:2533 src/PasteWindow.cc:887
+msgid "Delete"
+msgstr "Löschen"
+
+#. frame
+#: src/ItemOption.cc:1860 src/ItemOption.cc:2039 src/ItemOption.cc:2691
+msgid "Recursive download"
+msgstr "rekursiver Download"
+
+#: src/ItemOption.cc:1886 src/ItemOption.cc:2708
+msgid "Depth of recursion "
+msgstr "Rekursionstiefe:"
+
+#: src/ItemOption.cc:1902
+msgid "With hostname directory"
+msgstr "mit Rechnername als Verzeichnis:"
+
+#: src/ItemOption.cc:1911
+msgid "Convert absolute URLs to relative ones"
+msgstr "absolute URL in relative URL wandeln"
+
+#: src/ItemOption.cc:1920
+msgid "Force convert"
+msgstr "Konvertierung erzwingen"
+
+#: src/ItemOption.cc:1925
+msgid "Delete comments"
+msgstr "Lösche Kommentare"
+
+#: src/ItemOption.cc:1930
+msgid "Delete JavaScript"
+msgstr "Lösche JavaScript"
+
+#: src/ItemOption.cc:1935
+msgid "Delete iframe"
+msgstr "Lösche Rahmen"
+
+#: src/ItemOption.cc:1940
+msgid "No other host"
+msgstr "Kein anderer Rechner"
+
+#: src/ItemOption.cc:1950 src/ItemOption.cc:2724
+msgid "Do not ascend to parent directory"
+msgstr "Nicht ins übergeordnete Verz. wechseln"
+
+#: src/ItemOption.cc:1955
+msgid "Only relative links"
+msgstr "nur relative Links"
+
+#: src/ItemOption.cc:1961
+msgid "Referer override"
+msgstr "Verweislink übergehen"
+
+#: src/ItemOption.cc:1966
+msgid "Follow FTP link"
+msgstr "FTP-Link folgen"
+
+#: src/ItemOption.cc:1971
+msgid "Assume download is completed if resuming is not available"
+msgstr "Abruf als vollständig ansehen, wenn Wiederaufnahme nicht möglich ist"
+
+#: src/ItemOption.cc:1976 src/ItemOption.cc:2734
+msgid "Add to paste window"
+msgstr "Zum Einfüge-Fenster hinzufügen"
+
+#: src/ItemOption.cc:1988
+msgid "Tags"
+msgstr "Markierungen"
+
+#: src/ItemOption.cc:2000
+msgid "href"
+msgstr "href"
+
+#: src/ItemOption.cc:2005
+msgid "src"
+msgstr "src"
+
+#: src/ItemOption.cc:2010
+msgid "background"
+msgstr "Hintergrund"
+
+#: src/ItemOption.cc:2015
+msgid "codebase"
+msgstr "Codebase"
+
+#. Parse Target extension clist
+#. frame
+#: src/ItemOption.cc:2058
+msgid "Extensions to parse"
+msgstr "zu überprüfende Erweiterungen"
+
+#. Ignore Domain clist
+#. frame
+#: src/ItemOption.cc:2110
+msgid "Domains to ignore"
+msgstr "zu ignorierende Domains"
+
+#: src/ItemOption.cc:2143
+msgid "Domain"
+msgstr "Domain"
+
+#. Download Target extension clist
+#. frame
+#: src/ItemOption.cc:2167 src/ItemOption.cc:2746
+msgid "Patterns to download"
+msgstr "Muster für den Abruf"
+
+#: src/ItemOption.cc:2181 src/ItemOption.cc:2760
+msgid "Use this filter"
+msgstr "Benutze diesen Filter"
+
+#: src/ItemOption.cc:2204 src/ItemOption.cc:2783
+msgid "Pattern"
+msgstr "Muster"
+
+#. Ignore Download Target extension clist
+#. frame
+#: src/ItemOption.cc:2223
+msgid "Extensions to ignore"
+msgstr "zu überprüfende Erweiterungen"
+
+#: src/ItemOption.cc:2296
+msgid "Retry even if HTTP status is 404"
+msgstr "Erneut versuchen, auch wenn HTTP-Stats 404 ist"
+
+#: src/ItemOption.cc:2301
+msgid "Retry even if HTTP status is 503"
+msgstr "Erneut versuchen, auch wenn HTTP-Status 503 ist"
+
+#: src/ItemOption.cc:2306
+msgid "HTTP status 416 handling"
+msgstr "Verhalten bei HTTP-Status 416"
+
+#. Redownload
+#: src/ItemOption.cc:2330
+msgid "Redownload"
+msgstr "erneuter Abruf"
+
+#: src/ItemOption.cc:2335
+msgid "Do not follow redirection"
+msgstr "Redirektion nicht folgen"
+
+#: src/ItemOption.cc:2340
+msgid "Accept compression encodings"
+msgstr "Akzeptiere Kompressions-Kodierung"
+
+#: src/ItemOption.cc:2353
+msgid "Use Accept-Language request header"
+msgstr ""
+
+#: src/ItemOption.cc:2367
+msgid "HTTP version "
+msgstr "HTTP-Version"
+
+#: src/ItemOption.cc:2387
+msgid "Name of the file to use as a pre-written HTML"
+msgstr "Dateiname für vorbereitetes HTML"
+
+#. index.html
+#: src/ItemOption.cc:2400
+msgid "index.html"
+msgstr "index.html"
+
+#. User defined
+#: src/ItemOption.cc:2410
+msgid "User defined"
+msgstr "Benutzerdefiniert"
+
+#: src/ItemOption.cc:2546
+msgid "Via HTTP proxy"
+msgstr "Über HTTP-Proxy"
+
+#: src/ItemOption.cc:2551
+msgid "Login procedure"
+msgstr "Anmeldeprozedur"
+
+#: src/ItemOption.cc:2600
+msgid "FTP mode"
+msgstr "FTP-Modus"
+
+#: src/ItemOption.cc:2628
+msgid "Retrieve mode"
+msgstr "Abruf-Modus"
+
+#: src/ItemOption.cc:2668
+msgid "Don't send QUIT command"
+msgstr "Kein QUIT-Kommando senden"
+
+#: src/ItemOption.cc:2673
+msgid "Don't send CWD command, instead use absolute path."
+msgstr ""
+
+#: src/ItemOption.cc:2729
+msgid "Retrieve symbolic links as real files"
+msgstr "Symbolische Links als reale Dateien abrufen"
+
+#: src/ItemOption.cc:2865
+msgid "Selected items option"
+msgstr "Optionen für ausgewählte Einträge"
+
+#: src/ItemOption.cc:2867
+msgid "Default item option for "
+msgstr "Default-Eintrags-Option für"
+
+#: src/ItemOption.cc:2919
+msgid "' option"
+msgstr "'-Option"
+
+#: src/ItemStatusRec.cc:84
+msgid " item(s) added"
+msgstr " Einträge hinzugefügt"
+
+#: src/AppOption.cc:33 src/AppOption.cc:34
+msgid "<DEFAULT>"
+msgstr ""
+
+#: src/AppOption.cc:149
+msgid "Application Option"
+msgstr "Anwendungs-Option"
+
+#: src/AppOption.cc:177
+msgid "Confirmation"
+msgstr "Bestätigung"
+
+#: src/AppOption.cc:181
+msgid "Display"
+msgstr "Anzeige"
+
+#: src/AppOption.cc:185
+msgid "Basket"
+msgstr "Korb"
+
+#: src/AppOption.cc:189
+msgid "Timer"
+msgstr "Zeitgeber"
+
+#: src/AppOption.cc:199
+msgid "Server"
+msgstr "Server"
+
+#. ¥³¥Þ¥ó¥É¥ê¥¹¥È¹¹¿·¥Ü¥¿¥ó
+#: src/AppOption.cc:252 src/AppOption.cc:255 src/AppOption.cc:284
+msgid "Update Command list"
+msgstr "Befehlsliste aktualisieren"
+
+#: src/AppOption.cc:253 src/AppOption.cc:348
+msgid "Update successful"
+msgstr "Aktualisierung erfolgreich"
+
+#: src/AppOption.cc:256 src/AppOption.cc:351
+msgid "Update failed"
+msgstr "' fehlerhaft"
+
+#. toggle command list
+#: src/AppOption.cc:278
+msgid "Use Command list"
+msgstr "Befehlsliste benutzen"
+
+#. ¥³¥Þ¥ó¥É¥ê¥¹¥È¤ÎCList
+#: src/AppOption.cc:293
+msgid "Choose commands to use"
+msgstr "Bitte zu benutzende Befehle auswählen"
+
+#: src/AppOption.cc:300 src/AppOption.cc:393
+msgid "Comment"
+msgstr "Kommentar"
+
+#. server template update button
+#: src/AppOption.cc:347 src/AppOption.cc:350 src/AppOption.cc:378
+msgid "Update Server Template"
+msgstr "Server-Muster aktualisieren"
+
+#. toggle enable/disable Server Template feature
+#: src/AppOption.cc:372
+msgid "Use Server Template"
+msgstr "Server-Muster benutzen"
+
+#. CList for Server Template
+#: src/AppOption.cc:387
+msgid "Choose templates to use"
+msgstr "Bitte Muster auswählen"
+
+#: src/AppOption.cc:392
+msgid "Template"
+msgstr "Muster"
+
+#: src/AppOption.cc:562
+msgid "Display sizes in human readable format (e.g. 1.2K 234.1M 2.2G)"
+msgstr "Größen in lesbarem Format anzeigen (z. B. 1,2K 234,1M 2,2G)"
+
+#: src/AppOption.cc:570
+msgid "Status Icon"
+msgstr "Status-Icon"
+
+#: src/AppOption.cc:624
+msgid "Icon set"
+msgstr "Icon-Menge"
+
+#: src/AppOption.cc:650 src/AppOption.cc:916
+msgid "Apply"
+msgstr "Anwenden"
+
+#: src/AppOption.cc:757
+msgid "error"
+msgstr "Fehler"
+
+#: src/AppOption.cc:758
+msgid "cannot read pixmap file"
+msgstr "Kann pixmap-Datei nicht lesen"
+
+#: src/AppOption.cc:843
+#, fuzzy
+msgid "Bypass paste window"
+msgstr "Zum Einfüge-Fenster hinzufügen"
+
+#: src/AppOption.cc:849
+msgid "Pixmap on DND Basket"
+msgstr "Pixmap im DND-Korb"
+
+#: src/AppOption.cc:863
+msgid "Preview"
+msgstr "Voranzeige"
+
+#: src/AppOption.cc:889
+msgid "Pixmap"
+msgstr "Pixmap"
+
+#. ¥¢¥¤¥Æ¥à¤òºï½ü¤¹¤ë¤È¤­¤Ë³ÎÇ§¤¹¤ë¤«¤É¤¦¤«
+#: src/AppOption.cc:940
+msgid "Confirm clear"
+msgstr "Bestätige Löschung"
+
+#. confirm delete list
+#: src/AppOption.cc:946
+msgid "Confirm delete list"
+msgstr "Listenlöschung bestätigen"
+
+#. ¥×¥í¥°¥é¥à½ªÎ»»þ¤Ë³ÎÇ§¤¹¤ë¤«¤É¤¦¤«
+#: src/AppOption.cc:951
+msgid "Confirm exit"
+msgstr "Ende bestätigen"
+
+#. ¥í¥°¥¯¥ê¥¢»þ¤Ë³ÎÇ§¤¹¤ë¤«¤É¤¦¤«
+#: src/AppOption.cc:957
+msgid "Confirm clear system log"
+msgstr "Systemlog-Löschung bestätigen"
+
+#: src/AppOption.cc:980
+#, fuzzy
+msgid "Use start timer"
+msgstr "Benutze Zeitgeber"
+
+#: src/AppOption.cc:984
+msgid "Start (hour : min) "
+msgstr "Start (Std.:Min.)"
+
+#: src/AppOption.cc:1023
+#, fuzzy
+msgid "Use stop timer"
+msgstr "Benutze Zeitgeber"
+
+#: src/AppOption.cc:1027
+msgid "Stop (hour : min) "
+msgstr "Stopp (Std.:Min.)"
+
+#: src/AppOption.cc:1066
+#, fuzzy
+msgid "Do not stop downloads when timer expires"
+msgstr "Bereits vorhandene Dateien nicht abrufen"
+
+#: src/AppOption.cc:1107
+msgid "The number of simultaneous downloads for new list "
+msgstr "Die Anzahl gleichzeitiger Abrufe für die neue Liste"
+
+#. toggle automatic start
+#: src/AppOption.cc:1128
+msgid "Start downloads automatically"
+msgstr "Donwload automatisch starten"
+
+#. toggle automatic start modifier
+#: src/AppOption.cc:1139
+msgid "Only current list"
+msgstr "Nur aktuelle Liste"
+
+#. force download now (stopping other downloads if necessary)
+#: src/AppOption.cc:1149
+msgid "Force download now (stopping other downloads if necessary)"
+msgstr "Abruf jetzt erzwingen (wenn nötig, andere Abrufe stoppen)"
+
+#. toggle ignore error item in "Start All" menu
+#: src/AppOption.cc:1155
+msgid "Ignore error'ed items in \"Start All\" menu"
+msgstr "Fehlerhafte Einträge in \"Starte alles\"-Menu ignorieren"
+
+#. ignore list in find hyperlink
+#: src/AppOption.cc:1161
+msgid "Ignore these extensions when finding hyperlink"
+msgstr "bei der Hyperlink-Suche zu ignorierende Einträge"
+
+#. toggle autosave
+#: src/AppOption.cc:1178
+msgid "Autosave (list, history and options) every "
+msgstr "Automatische Speicherung für (Liste, Protokoll, Optionen) alle "
+
+#: src/AppOption.cc:1194
+msgid "minute(s)"
+msgstr "Minute(n)"
+
+#: src/AppOption.cc:1204
+msgid "Max entry of download history"
+msgstr "Max. Anzahl für Abruf-Protokoll"
+
+#: src/AppOption.cc:1227
+msgid "Max value of speed limiter"
+msgstr "Maximalwert für Geschwindigkeits-Begrenzer"
+
+#: src/AppOption.cc:1253
+#, fuzzy
+msgid "Execute command when:"
+msgstr "Ausführung Befehlseintrag '"
+
+#: src/AppOption.cc:1262
+#, fuzzy
+msgid "all downloads are stopped or completed"
+msgstr "vollständiger Abruf wird angenommen"
+
+#: src/AppOption.cc:1271
+msgid "timer expires"
+msgstr ""
+
+#: src/AppOption.cc:1280
+msgid "Command "
+msgstr "Befehl "
+
+#: src/AppOption.cc:1291
+msgid "Quit Aria when all downloads are over or stopped by timer"
+msgstr ""
+"Aria beenden, wenn alle Downloads erledigt sind oder durch den Zeitgeber "
+"gestoppt wurden"
+
+#: src/ListEntry.cc:609
+msgid "*"
+msgstr "*"
+
+#: src/ListEntry.cc:611
+msgid "Downloaded"
+msgstr "Abgerufen"
+
+#: src/ListEntry.cc:612 src/HistoryWindow.cc:276
+msgid "Total"
+msgstr "Insgesamt"
+
+#: src/ListEntry.cc:613
+msgid "%"
+msgstr "%"
+
+#: src/ListEntry.cc:614
+msgid "Speed"
+msgstr "Geschwindigkeit"
+
+#: src/ListEntry.cc:615
+msgid "Remaining"
+msgstr "Restzeit"
+
+#: src/ListEntry.cc:617
+msgid "Recurse"
+msgstr "Rekursiv"
+
+#: src/ListEntry.cc:621 src/PasteWindow.cc:801 src/HistoryWindow.cc:279
+msgid "Save"
+msgstr "Speichere"
+
+#: src/ListEntry.cc:997
+msgid "DIVIDED"
+msgstr "geteilt"
+
+#: src/ListEntry.cc:1005
+msgid "READY TO CONCAT"
+msgstr "Bereit für Verbindung"
+
+#: src/ListEntry.cc:1013
+msgid "CRC ERROR"
+msgstr "CRC-Fehler"
+
+#: src/ListEntry.cc:1020
+msgid "EXEC ERROR"
+msgstr "Fehler bei Programmausführung"
+
+#: src/ListEntry.cc:1027
+msgid "DOWNLOAD ERROR"
+msgstr "DOWNLOAD-Fehler"
+
+#: src/ListEntry.cc:1042
+msgid "LOCKED"
+msgstr "gesperrt"
+
+#: src/ListEntry.cc:1051
+msgid "DOWNLOADING"
+msgstr "Abruf aktiv"
+
+#: src/ListEntry.cc:1059
+msgid "DOWNLOAD COMPLETE"
+msgstr "DOWNLOAD VOLLSTÄNDIG"
+
+#: src/gui_toolbar.cc:298
+msgid "Paste URL list from clipboard"
+msgstr "URL-Liste aus Clipboard einfügen"
+
+#: src/gui_toolbar.cc:320
+msgid "Clear item(s)"
+msgstr "Bereinige Einträge"
+
+#: src/gui_toolbar.cc:336
+msgid "Start downloading selected item(s)"
+msgstr "Abruf selektierter Einträge starten"
+
+#: src/gui_toolbar.cc:352
+msgid "Stop downloading selected item(s)"
+msgstr "Abruf selektierter Einträge stoppen"
+
+#: src/gui_toolbar.cc:368
+msgid "Download again selected item(s)"
+msgstr "Selektierte Einträge erneut abrufen"
+
+#: src/gui_toolbar.cc:384
+msgid "Item option"
+msgstr "Eintrags-Option"
+
+#: src/gui_toolbar.cc:400
+msgid "Lock selected item(s)"
+msgstr "Ausgeählte Einträge sperren"
+
+#: src/gui_toolbar.cc:417
+msgid "Unlock selected item(s)"
+msgstr "Selektierte Einträge freigeben"
+
+#: src/gui_toolbar.cc:433
+msgid "Move up"
+msgstr "nach oben"
+
+#: src/gui_toolbar.cc:449
+msgid "Move down"
+msgstr "nach unten"
+
+#: src/gui_toolbar.cc:470
+msgid "Track download"
+msgstr "Abruf verfolgen"
+
+#: src/gui_toolbar.cc:489
+msgid "Start downloading all items"
+msgstr "Abruf aller Einträge beginnen"
+
+#: src/gui_toolbar.cc:505
+msgid "Stop downloading all items"
+msgstr "Abruf aller Einträge stoppen"
+
+#: src/gui_toolbar.cc:553
+msgid "Adjust the number of working thread"
+msgstr "Anzahl der Arbeits-Threads anpassen"
+
+#: src/gui_help.cc:44 src/gui_help.cc:214
+msgid "About Aria"
+msgstr "über Aria"
+
+#: src/gui_help.cc:91
+msgid "Rollout: "
+msgstr "Rollout:"
+
+#. gtk_text_insert(GTK_TEXT(text), NULL, NULL, NULL, line.c_str(), -1);
+#. show transraters
+#. line.erase();
+#: src/gui_help.cc:98
+msgid "Translations:"
+msgstr "Übersetzungen:"
+
+#: src/gui_help.cc:99
+msgid "(Czech)"
+msgstr "(Tschechisch)"
+
+#: src/gui_help.cc:100
+msgid "(Spanish)"
+msgstr "(Spanisch)"
+
+#: src/gui_help.cc:101 src/gui_help.cc:102
+msgid "(French)"
+msgstr "(Französisch)"
+
+#: src/gui_help.cc:103
+msgid "(German)"
+msgstr "(Deutsch)"
+
+#: src/gui_help.cc:104
+#, fuzzy
+msgid "(Hungarian)"
+msgstr "(Russisch)"
+
+#: src/gui_help.cc:105
+#, fuzzy
+msgid "(Italian)"
+msgstr "(Russisch)"
+
+#: src/gui_help.cc:106
+msgid "(Japanese)"
+msgstr "(Japanisch)"
+
+#: src/gui_help.cc:107
+msgid "(Polish)"
+msgstr "(Polnisch)"
+
+#: src/gui_help.cc:108
+msgid "(Russian)"
+msgstr "(Russisch)"
+
+#: src/gui_help.cc:109
+msgid "(Traditional Chinese)"
+msgstr ""
+
+#. gtk_text_insert(GTK_TEXT(text), NULL, NULL, NULL, line.c_str(), -1);
+#. show special thanks
+#. line.erase();
+#: src/gui_help.cc:117
+msgid "Aria Logo:"
+msgstr ""
+
+#: src/gui_help.cc:121
+msgid "Special Thanks:"
+msgstr "Besonderer Dank an:"
+
+#: src/gui_help.cc:127
+msgid "    and all who support Aria"
+msgstr "    und an alle die Aria unterstützen"
+
+#. gtk_text_insert(GTK_TEXT(text), NULL, NULL, NULL, line.c_str(), -1);
+#. GPL issue
+#. line.erase();
+#: src/gui_help.cc:134
+msgid "License:"
+msgstr "Lizenz:"
+
+#: src/gui_help.cc:136
+msgid ""
+"This program is free software; you can redistribute it and/or modify it "
+"under the terms of the GNU General Public License as published by the Free "
+"Software Foundation; either version 2 of the License, or (at your option) "
+"any later version.\n"
+"\n"
+"This program is distributed in the hope that it will be useful, but WITHOUT "
+"ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or "
+"FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for "
+"more details.\n"
+"\n"
+"You should have received a copy of the GNU General Public License along with "
+"this program; if not, write to the Free Software Foundation, Inc., 59 Temple "
+"Place - Suite 330, Boston, MA 02111-1307, USA."
+msgstr ""
+"his program is free software; you can redistribute it and/or modify it under "
+"the terms of the GNU General Public License as published by the Free "
+"Software Foundation; either version 2 of the License, or (at your option) "
+"any later version.\n"
+"\n"
+"This program is distributed in the hope that it will be useful, but WITHOUT "
+"ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or "
+"FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for "
+"more details.\n"
+"\n"
+"You should have received a copy of the GNU General Public License along with "
+"this program; if not, write to the Free Software Foundation, Inc., 59 Temple "
+"Place - Suite 330, Boston, MA 02111-1307, USA."
+
+#. gtk_text_insert(GTK_TEXT(text), NULL, NULL, NULL, line.c_str(), -1);
+#. show compile information
+#. line.erase();
+#: src/gui_help.cc:172
+msgid "Built on:"
+msgstr "erstellt auf:"
+
+#: src/gui_help.cc:231
+msgid "Help"
+msgstr "Hilfe"
+
+#. OK button
+#: src/Dialog.cc:168
+msgid "Yes"
+msgstr "Ja"
+
+#. No button
+#: src/Dialog.cc:180
+msgid "No"
+msgstr "Nein"
+
+#: src/PasteWindow.cc:94 src/PasteWindow.cc:179 src/PasteWindow.cc:211
+#: src/PasteWindow.cc:245 src/PasteWindow.cc:266 src/PasteWindow.cc:296
+msgid "The specified list no longer exists."
+msgstr "Die angegebene Liste existiert nicht mehr."
+
+#. create a combobox to allow users to choose the list to drop items
+#: src/PasteWindow.cc:783
+msgid "Paste to "
+msgstr "Einfügen in"
+
+#. create a toggle button to toggle whether or not downloads should be
+#. started automatically.
+#: src/PasteWindow.cc:794
+msgid "Start downloading when pasted"
+msgstr "Abruf nach Einfügung beginnen"
+
+#. Paste button
+#: src/PasteWindow.cc:863 src/HistoryWindow.cc:345
+msgid "Paste"
+msgstr "Einfügen"
+
+#: src/HistoryWindow.cc:259
+msgid "History URL list"
+msgstr "URL-Liste-Protokoll"
+
+#: src/HistoryWindow.cc:277
+msgid "Date"
+msgstr "Datum"
+
+#. Close button
+#: src/HistoryWindow.cc:366
+msgid "Close"
+msgstr "schließen"
+
+#: src/HistoryWindow.cc:600
+msgid "Query"
+msgstr "Anfrage"
+
+#~ msgid "Execute command when all downloads are over or stopped by timer"
+#~ msgstr ""
+#~ "Befehl ausführen, wenn alle Downloads erledigt sind oder durch den "
+#~ "Zeitgeber gestoppt wurden"

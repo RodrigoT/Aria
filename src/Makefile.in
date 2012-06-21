@@ -1,0 +1,498 @@
+# Makefile.in generated automatically by automake 1.4-p6 from Makefile.am
+
+# Copyright (C) 1994, 1995-8, 1999, 2001 Free Software Foundation, Inc.
+# This Makefile.in is free software; the Free Software Foundation
+# gives unlimited permission to copy and/or distribute it,
+# with or without modifications, as long as this notice is preserved.
+
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY, to the extent permitted by law; without
+# even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+# PARTICULAR PURPOSE.
+
+
+SHELL = @SHELL@
+
+srcdir = @srcdir@
+top_srcdir = @top_srcdir@
+VPATH = @srcdir@
+prefix = @prefix@
+exec_prefix = @exec_prefix@
+
+bindir = @bindir@
+sbindir = @sbindir@
+libexecdir = @libexecdir@
+datadir = @datadir@
+sysconfdir = @sysconfdir@
+sharedstatedir = @sharedstatedir@
+localstatedir = @localstatedir@
+libdir = @libdir@
+infodir = @infodir@
+mandir = @mandir@
+includedir = @includedir@
+oldincludedir = /usr/include
+
+DESTDIR =
+
+pkgdatadir = $(datadir)/@PACKAGE@
+pkglibdir = $(libdir)/@PACKAGE@
+pkgincludedir = $(includedir)/@PACKAGE@
+
+top_builddir = ..
+
+ACLOCAL = @ACLOCAL@
+AUTOCONF = @AUTOCONF@
+AUTOMAKE = @AUTOMAKE@
+AUTOHEADER = @AUTOHEADER@
+
+INSTALL = @INSTALL@
+INSTALL_PROGRAM = @INSTALL_PROGRAM@ $(AM_INSTALL_PROGRAM_FLAGS)
+INSTALL_DATA = @INSTALL_DATA@
+INSTALL_SCRIPT = @INSTALL_SCRIPT@
+transform = @program_transform_name@
+
+NORMAL_INSTALL = :
+PRE_INSTALL = :
+POST_INSTALL = :
+NORMAL_UNINSTALL = :
+PRE_UNINSTALL = :
+POST_UNINSTALL = :
+host_alias = @host_alias@
+host_triplet = @host@
+CATALOGS = @CATALOGS@
+CATOBJEXT = @CATOBJEXT@
+CC = @CC@
+CXX = @CXX@
+CXXCPP = @CXXCPP@
+DATADIRNAME = @DATADIRNAME@
+GENCAT = @GENCAT@
+GLIB_CFLAGS = @GLIB_CFLAGS@
+GLIB_CONFIG = @GLIB_CONFIG@
+GLIB_LIBS = @GLIB_LIBS@
+GMOFILES = @GMOFILES@
+GMSGFMT = @GMSGFMT@
+GTK_CFLAGS = @GTK_CFLAGS@
+GTK_CONFIG = @GTK_CONFIG@
+GTK_LIBS = @GTK_LIBS@
+GT_NO = @GT_NO@
+GT_YES = @GT_YES@
+INCLUDE_LOCALE_H = @INCLUDE_LOCALE_H@
+INSTOBJEXT = @INSTOBJEXT@
+INTLDEPS = @INTLDEPS@
+INTLLIBS = @INTLLIBS@
+INTLOBJS = @INTLOBJS@
+MAINT = @MAINT@
+MAKEINFO = @MAKEINFO@
+MKINSTALLDIRS = @MKINSTALLDIRS@
+MSGFMT = @MSGFMT@
+PACKAGE = @PACKAGE@
+POFILES = @POFILES@
+POSUB = @POSUB@
+PTHREAD_LIBS = @PTHREAD_LIBS@
+RANLIB = @RANLIB@
+USE_INCLUDED_LIBINTL = @USE_INCLUDED_LIBINTL@
+USE_NLS = @USE_NLS@
+VERSION = @VERSION@
+datadir = @datadir@
+l = @l@
+localedir = @localedir@
+
+SUBDIRS = pixmaps
+
+bin_PROGRAMS = aria
+#aria_LDADD +=@GTK_LIBS@ @PTHREAD_LIBS@ @INTLLIBS@
+CXXFLAGS = -O2 -Wall -DLOCALEDIR=\"$(localedir)\" -DDATADIR=\"$(datadir)\" -I$(top_builddir)/intl @GTK_CFLAGS@
+#INCLUDES=@GTK_CFLAGS@
+aria_SOURCES = main.cc initrc.cc download.cc gui_main.cc crc.cc             md5.c md5.h             md5check.cc md5check.h             gui_file.cc             gui_file_open_and_save.cc             gui_file_open_url.cc             gui_file_open_crc.cc             gui_file_open_md5.cc             gui_item.cc             gui_item_new_item.cc             gui_list.cc             gui_list_new_list.cc             gui_list_rename_list.cc             gui_file_find_hyperlink.cc             gui_edit.cc             gui_edit_search.cc             gui_download.cc             gui_download_check.cc             gui_option.cc             gui_popup.cc             gui_help.cc gui_toolbar.cc             gui_utils.cc gui_utils.h             ItemCache.cc ItemCache.h             SumInfo.cc SumInfo.h             ItemStatusSum.cc ItemStatusSum.h             LockList.cc LockList.h             Dialog.cc Dialog.h             FileBrowser.cc FileBrowser.h             PasteWindow.cc PasteWindow.h             HistoryWindow.cc HistoryWindow.h             Basket.cc Basket.h             HTMLparse.cc HTMLparse.h             TimerData.cc TimerData.h             ItemStatusReq.cc ItemStatusReq.h             ItemStatusRec.cc ItemStatusRec.h             CRCList.cc CRCList.h             CtrlSocket.cc CtrlSocket.h             ListEntry.cc ListEntry.h             ListManager.cc ListManager.h             ItemOption.cc ItemOption.h             Options.cc Options.h             ItemList.cc ItemList2.cc ItemList.h             ItemCell.cc ItemCell.h             ItemCellPartial.cc ItemCellPartial.h             Retrieve.cc Retrieve.h             RetrieveHTTP.cc RetrieveHTTP.h             RetrieveHTTP2.cc RetrieveHTTP2.h             RetrieveHTTPS.cc RetrieveHTTPS.h             RetrieveHTTPS2.cc RetrieveHTTPS2.h             RetrieveFTP.cc RetrieveFTP.h             RetrieveFTP2.cc RetrieveFTP2.h             URLcontainer.cc URLcontainer.h             HTTP_Header.cc HTTP_Header.h             HTTPcontainer.cc HTTPcontainer.h             FTPcontainer.cc FTPcontainer.h             ItemLogCell.cc ItemLogCell.h             ItemStatus.cc ItemStatus.h             ItemStatusDynamic.cc ItemStatusDynamic.h             ItemStatusLog.cc ItemStatusLog.h             ItemStatusPartial.cc ItemStatusPartial.h             ThreadSlot.cc ThreadSlot.h             ThreadManager.cc ThreadManager.h             ItemManager.cc ItemManager.h             AppOption.cc AppOption.h             CheckCList.cc             Proxyserver.cc Proxyserver.h             ProxyList.cc ProxyList.h             UseragentList.cc UseragentList.h             Socket.cc Socket.h             SocketPool.cc SocketPool.h             SocketPoolCell.cc SocketPoolCell.h             ServerTemplate.h ServerTemplate.cc             ServerTemplateList.h ServerTemplateList.cc             Command.h Command.cc             CommandList.h CommandList.cc             TagParse.h TagParse.cc             Session.h Session.cc             Cookie.h Cookie.cc             CookieList.h CookieList.cc             dirbrowser.cc             utils.cc utils.h             StringHash.cc StringHash.h             Base64.cc Base64.h             getopt.c getopt1.c getopt.h             aria_mime.h             aria.h
+
+mkinstalldirs = $(SHELL) $(top_srcdir)/mkinstalldirs
+CONFIG_HEADER = ../config.h
+CONFIG_CLEAN_FILES = 
+PROGRAMS =  $(bin_PROGRAMS)
+
+
+DEFS = @DEFS@ -I. -I$(srcdir) -I..
+CPPFLAGS = @CPPFLAGS@
+LDFLAGS = @LDFLAGS@
+LIBS = @LIBS@
+aria_OBJECTS =  main.o initrc.o download.o gui_main.o crc.o md5.o \
+md5check.o gui_file.o gui_file_open_and_save.o gui_file_open_url.o \
+gui_file_open_crc.o gui_file_open_md5.o gui_item.o gui_item_new_item.o \
+gui_list.o gui_list_new_list.o gui_list_rename_list.o \
+gui_file_find_hyperlink.o gui_edit.o gui_edit_search.o gui_download.o \
+gui_download_check.o gui_option.o gui_popup.o gui_help.o gui_toolbar.o \
+gui_utils.o ItemCache.o SumInfo.o ItemStatusSum.o LockList.o Dialog.o \
+FileBrowser.o PasteWindow.o HistoryWindow.o Basket.o HTMLparse.o \
+TimerData.o ItemStatusReq.o ItemStatusRec.o CRCList.o CtrlSocket.o \
+ListEntry.o ListManager.o ItemOption.o Options.o ItemList.o ItemList2.o \
+ItemCell.o ItemCellPartial.o Retrieve.o RetrieveHTTP.o RetrieveHTTP2.o \
+RetrieveHTTPS.o RetrieveHTTPS2.o RetrieveFTP.o RetrieveFTP2.o \
+URLcontainer.o HTTP_Header.o HTTPcontainer.o FTPcontainer.o \
+ItemLogCell.o ItemStatus.o ItemStatusDynamic.o ItemStatusLog.o \
+ItemStatusPartial.o ThreadSlot.o ThreadManager.o ItemManager.o \
+AppOption.o CheckCList.o Proxyserver.o ProxyList.o UseragentList.o \
+Socket.o SocketPool.o SocketPoolCell.o ServerTemplate.o \
+ServerTemplateList.o Command.o CommandList.o TagParse.o Session.o \
+Cookie.o CookieList.o dirbrowser.o utils.o StringHash.o Base64.o \
+getopt.o getopt1.o
+aria_LDADD = $(LDADD)
+aria_DEPENDENCIES = 
+aria_LDFLAGS = 
+CXXCOMPILE = $(CXX) $(DEFS) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS)
+CXXLD = $(CXX)
+CXXLINK = $(CXXLD) $(AM_CXXFLAGS) $(CXXFLAGS) $(LDFLAGS) -o $@
+CFLAGS = @CFLAGS@
+COMPILE = $(CC) $(DEFS) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)
+CCLD = $(CC)
+LINK = $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(LDFLAGS) -o $@
+DIST_COMMON =  Makefile.am Makefile.in
+
+
+DISTFILES = $(DIST_COMMON) $(SOURCES) $(HEADERS) $(TEXINFOS) $(EXTRA_DIST)
+
+TAR = tar
+GZIP_ENV = --best
+DEP_FILES =  .deps/AppOption.P .deps/Base64.P .deps/Basket.P \
+.deps/CRCList.P .deps/CheckCList.P .deps/Command.P .deps/CommandList.P \
+.deps/Cookie.P .deps/CookieList.P .deps/CtrlSocket.P .deps/Dialog.P \
+.deps/FTPcontainer.P .deps/FileBrowser.P .deps/HTMLparse.P \
+.deps/HTTP_Header.P .deps/HTTPcontainer.P .deps/HistoryWindow.P \
+.deps/ItemCache.P .deps/ItemCell.P .deps/ItemCellPartial.P \
+.deps/ItemList.P .deps/ItemList2.P .deps/ItemLogCell.P \
+.deps/ItemManager.P .deps/ItemOption.P .deps/ItemStatus.P \
+.deps/ItemStatusDynamic.P .deps/ItemStatusLog.P \
+.deps/ItemStatusPartial.P .deps/ItemStatusRec.P .deps/ItemStatusReq.P \
+.deps/ItemStatusSum.P .deps/ListEntry.P .deps/ListManager.P \
+.deps/LockList.P .deps/Options.P .deps/PasteWindow.P .deps/ProxyList.P \
+.deps/Proxyserver.P .deps/Retrieve.P .deps/RetrieveFTP.P \
+.deps/RetrieveFTP2.P .deps/RetrieveHTTP.P .deps/RetrieveHTTP2.P \
+.deps/RetrieveHTTPS.P .deps/RetrieveHTTPS2.P .deps/ServerTemplate.P \
+.deps/ServerTemplateList.P .deps/Session.P .deps/Socket.P \
+.deps/SocketPool.P .deps/SocketPoolCell.P .deps/StringHash.P \
+.deps/SumInfo.P .deps/TagParse.P .deps/ThreadManager.P \
+.deps/ThreadSlot.P .deps/TimerData.P .deps/URLcontainer.P \
+.deps/UseragentList.P .deps/crc.P .deps/dirbrowser.P .deps/download.P \
+.deps/getopt.P .deps/getopt1.P .deps/gui_download.P \
+.deps/gui_download_check.P .deps/gui_edit.P .deps/gui_edit_search.P \
+.deps/gui_file.P .deps/gui_file_find_hyperlink.P \
+.deps/gui_file_open_and_save.P .deps/gui_file_open_crc.P \
+.deps/gui_file_open_md5.P .deps/gui_file_open_url.P .deps/gui_help.P \
+.deps/gui_item.P .deps/gui_item_new_item.P .deps/gui_list.P \
+.deps/gui_list_new_list.P .deps/gui_list_rename_list.P .deps/gui_main.P \
+.deps/gui_option.P .deps/gui_popup.P .deps/gui_toolbar.P \
+.deps/gui_utils.P .deps/initrc.P .deps/main.P .deps/md5.P \
+.deps/md5check.P .deps/utils.P
+SOURCES = $(aria_SOURCES)
+OBJECTS = $(aria_OBJECTS)
+
+all: all-redirect
+.SUFFIXES:
+.SUFFIXES: .S .c .cc .o .s
+$(srcdir)/Makefile.in: @MAINTAINER_MODE_TRUE@ Makefile.am $(top_srcdir)/configure.ac $(ACLOCAL_M4) 
+	cd $(top_srcdir) && $(AUTOMAKE) --gnu src/Makefile
+
+Makefile: $(srcdir)/Makefile.in  $(top_builddir)/config.status $(BUILT_SOURCES)
+	cd $(top_builddir) \
+	  && CONFIG_FILES=$(subdir)/$@ CONFIG_HEADERS= $(SHELL) ./config.status
+
+
+mostlyclean-binPROGRAMS:
+
+clean-binPROGRAMS:
+	-test -z "$(bin_PROGRAMS)" || rm -f $(bin_PROGRAMS)
+
+distclean-binPROGRAMS:
+
+maintainer-clean-binPROGRAMS:
+
+install-binPROGRAMS: $(bin_PROGRAMS)
+	@$(NORMAL_INSTALL)
+	$(mkinstalldirs) $(DESTDIR)$(bindir)
+	@list='$(bin_PROGRAMS)'; for p in $$list; do \
+	  if test -f $$p; then \
+	    echo "  $(INSTALL_PROGRAM) $$p $(DESTDIR)$(bindir)/`echo $$p|sed 's/$(EXEEXT)$$//'|sed '$(transform)'|sed 's/$$/$(EXEEXT)/'`"; \
+	     $(INSTALL_PROGRAM) $$p $(DESTDIR)$(bindir)/`echo $$p|sed 's/$(EXEEXT)$$//'|sed '$(transform)'|sed 's/$$/$(EXEEXT)/'`; \
+	  else :; fi; \
+	done
+
+uninstall-binPROGRAMS:
+	@$(NORMAL_UNINSTALL)
+	list='$(bin_PROGRAMS)'; for p in $$list; do \
+	  rm -f $(DESTDIR)$(bindir)/`echo $$p|sed 's/$(EXEEXT)$$//'|sed '$(transform)'|sed 's/$$/$(EXEEXT)/'`; \
+	done
+
+.s.o:
+	$(COMPILE) -c $<
+
+.S.o:
+	$(COMPILE) -c $<
+
+mostlyclean-compile:
+	-rm -f *.o core *.core
+
+clean-compile:
+
+distclean-compile:
+	-rm -f *.tab.c
+
+maintainer-clean-compile:
+
+aria: $(aria_OBJECTS) $(aria_DEPENDENCIES)
+	@rm -f aria
+	$(CXXLINK) $(aria_LDFLAGS) $(aria_OBJECTS) $(aria_LDADD) $(LIBS)
+.cc.o:
+	$(CXXCOMPILE) -c $<
+
+# This directory's subdirectories are mostly independent; you can cd
+# into them and run `make' without going through this Makefile.
+# To change the values of `make' variables: instead of editing Makefiles,
+# (1) if the variable is set in `config.status', edit `config.status'
+#     (which will cause the Makefiles to be regenerated when you run `make');
+# (2) otherwise, pass the desired values on the `make' command line.
+
+@SET_MAKE@
+
+all-recursive install-data-recursive install-exec-recursive \
+installdirs-recursive install-recursive uninstall-recursive  \
+check-recursive installcheck-recursive info-recursive dvi-recursive:
+	@set fnord $(MAKEFLAGS); amf=$$2; \
+	dot_seen=no; \
+	target=`echo $@ | sed s/-recursive//`; \
+	list='$(SUBDIRS)'; for subdir in $$list; do \
+	  echo "Making $$target in $$subdir"; \
+	  if test "$$subdir" = "."; then \
+	    dot_seen=yes; \
+	    local_target="$$target-am"; \
+	  else \
+	    local_target="$$target"; \
+	  fi; \
+	  (cd $$subdir && $(MAKE) $(AM_MAKEFLAGS) $$local_target) \
+	   || case "$$amf" in *=*) exit 1;; *k*) fail=yes;; *) exit 1;; esac; \
+	done; \
+	if test "$$dot_seen" = "no"; then \
+	  $(MAKE) $(AM_MAKEFLAGS) "$$target-am" || exit 1; \
+	fi; test -z "$$fail"
+
+mostlyclean-recursive clean-recursive distclean-recursive \
+maintainer-clean-recursive:
+	@set fnord $(MAKEFLAGS); amf=$$2; \
+	dot_seen=no; \
+	rev=''; list='$(SUBDIRS)'; for subdir in $$list; do \
+	  rev="$$subdir $$rev"; \
+	  test "$$subdir" != "." || dot_seen=yes; \
+	done; \
+	test "$$dot_seen" = "no" && rev=". $$rev"; \
+	target=`echo $@ | sed s/-recursive//`; \
+	for subdir in $$rev; do \
+	  echo "Making $$target in $$subdir"; \
+	  if test "$$subdir" = "."; then \
+	    local_target="$$target-am"; \
+	  else \
+	    local_target="$$target"; \
+	  fi; \
+	  (cd $$subdir && $(MAKE) $(AM_MAKEFLAGS) $$local_target) \
+	   || case "$$amf" in *=*) exit 1;; *k*) fail=yes;; *) exit 1;; esac; \
+	done && test -z "$$fail"
+tags-recursive:
+	list='$(SUBDIRS)'; for subdir in $$list; do \
+	  test "$$subdir" = . || (cd $$subdir && $(MAKE) $(AM_MAKEFLAGS) tags); \
+	done
+
+tags: TAGS
+
+ID: $(HEADERS) $(SOURCES) $(LISP)
+	list='$(SOURCES) $(HEADERS)'; \
+	unique=`for i in $$list; do echo $$i; done | \
+	  awk '    { files[$$0] = 1; } \
+	       END { for (i in files) print i; }'`; \
+	here=`pwd` && cd $(srcdir) \
+	  && mkid -f$$here/ID $$unique $(LISP)
+
+TAGS: tags-recursive $(HEADERS) $(SOURCES)  $(TAGS_DEPENDENCIES) $(LISP)
+	tags=; \
+	here=`pwd`; \
+	list='$(SUBDIRS)'; for subdir in $$list; do \
+   if test "$$subdir" = .; then :; else \
+	    test -f $$subdir/TAGS && tags="$$tags -i $$here/$$subdir/TAGS"; \
+   fi; \
+	done; \
+	list='$(SOURCES) $(HEADERS)'; \
+	unique=`for i in $$list; do echo $$i; done | \
+	  awk '    { files[$$0] = 1; } \
+	       END { for (i in files) print i; }'`; \
+	test -z "$(ETAGS_ARGS)$$unique$(LISP)$$tags" \
+	  || (cd $(srcdir) && etags -o $$here/TAGS $(ETAGS_ARGS) $$tags  $$unique $(LISP))
+
+mostlyclean-tags:
+
+clean-tags:
+
+distclean-tags:
+	-rm -f TAGS ID
+
+maintainer-clean-tags:
+
+distdir = $(top_builddir)/$(PACKAGE)-$(VERSION)/$(subdir)
+
+subdir = src
+
+distdir: $(DISTFILES)
+	here=`cd $(top_builddir) && pwd`; \
+	top_distdir=`cd $(top_distdir) && pwd`; \
+	distdir=`cd $(distdir) && pwd`; \
+	cd $(top_srcdir) \
+	  && $(AUTOMAKE) --include-deps --build-dir=$$here --srcdir-name=$(top_srcdir) --output-dir=$$top_distdir --gnu src/Makefile
+	@for file in $(DISTFILES); do \
+	  d=$(srcdir); \
+	  if test -d $$d/$$file; then \
+	    cp -pr $$d/$$file $(distdir)/$$file; \
+	  else \
+	    test -f $(distdir)/$$file \
+	    || ln $$d/$$file $(distdir)/$$file 2> /dev/null \
+	    || cp -p $$d/$$file $(distdir)/$$file || :; \
+	  fi; \
+	done
+	for subdir in $(SUBDIRS); do \
+	  if test "$$subdir" = .; then :; else \
+	    test -d $(distdir)/$$subdir \
+	    || mkdir $(distdir)/$$subdir \
+	    || exit 1; \
+	    chmod 777 $(distdir)/$$subdir; \
+	    (cd $$subdir && $(MAKE) $(AM_MAKEFLAGS) top_distdir=../$(top_distdir) distdir=../$(distdir)/$$subdir distdir) \
+	      || exit 1; \
+	  fi; \
+	done
+
+DEPS_MAGIC := $(shell mkdir .deps > /dev/null 2>&1 || :)
+
+-include $(DEP_FILES)
+
+mostlyclean-depend:
+
+clean-depend:
+
+distclean-depend:
+	-rm -rf .deps
+
+maintainer-clean-depend:
+
+%.o: %.c
+	@echo '$(COMPILE) -c $<'; \
+	$(COMPILE) -Wp,-MD,.deps/$(*F).pp -c $<
+	@-cp .deps/$(*F).pp .deps/$(*F).P; \
+	tr ' ' '\012' < .deps/$(*F).pp \
+	  | sed -e 's/^\\$$//' -e '/^$$/ d' -e '/:$$/ d' -e 's/$$/ :/' \
+	    >> .deps/$(*F).P; \
+	rm .deps/$(*F).pp
+
+%.lo: %.c
+	@echo '$(LTCOMPILE) -c $<'; \
+	$(LTCOMPILE) -Wp,-MD,.deps/$(*F).pp -c $<
+	@-sed -e 's/^\([^:]*\)\.o[ 	]*:/\1.lo \1.o :/' \
+	  < .deps/$(*F).pp > .deps/$(*F).P; \
+	tr ' ' '\012' < .deps/$(*F).pp \
+	  | sed -e 's/^\\$$//' -e '/^$$/ d' -e '/:$$/ d' -e 's/$$/ :/' \
+	    >> .deps/$(*F).P; \
+	rm -f .deps/$(*F).pp
+
+%.o: %.cc
+	@echo '$(CXXCOMPILE) -c $<'; \
+	$(CXXCOMPILE) -Wp,-MD,.deps/$(*F).pp -c $<
+	@-cp .deps/$(*F).pp .deps/$(*F).P; \
+	tr ' ' '\012' < .deps/$(*F).pp \
+	  | sed -e 's/^\\$$//' -e '/^$$/ d' -e '/:$$/ d' -e 's/$$/ :/' \
+	    >> .deps/$(*F).P; \
+	rm .deps/$(*F).pp
+
+%.lo: %.cc
+	@echo '$(LTCXXCOMPILE) -c $<'; \
+	$(LTCXXCOMPILE) -Wp,-MD,.deps/$(*F).pp -c $<
+	@-sed -e 's/^\([^:]*\)\.o[ 	]*:/\1.lo \1.o :/' \
+	  < .deps/$(*F).pp > .deps/$(*F).P; \
+	tr ' ' '\012' < .deps/$(*F).pp \
+	  | sed -e 's/^\\$$//' -e '/^$$/ d' -e '/:$$/ d' -e 's/$$/ :/' \
+	    >> .deps/$(*F).P; \
+	rm -f .deps/$(*F).pp
+info-am:
+info: info-recursive
+dvi-am:
+dvi: dvi-recursive
+check-am: all-am
+check: check-recursive
+installcheck-am:
+installcheck: installcheck-recursive
+install-exec-am: install-binPROGRAMS
+install-exec: install-exec-recursive
+
+install-data-am:
+install-data: install-data-recursive
+
+install-am: all-am
+	@$(MAKE) $(AM_MAKEFLAGS) install-exec-am install-data-am
+install: install-recursive
+uninstall-am: uninstall-binPROGRAMS
+uninstall: uninstall-recursive
+all-am: Makefile $(PROGRAMS)
+all-redirect: all-recursive
+install-strip:
+	$(MAKE) $(AM_MAKEFLAGS) AM_INSTALL_PROGRAM_FLAGS=-s install
+installdirs: installdirs-recursive
+installdirs-am:
+	$(mkinstalldirs)  $(DESTDIR)$(bindir)
+
+
+mostlyclean-generic:
+
+clean-generic:
+
+distclean-generic:
+	-rm -f Makefile $(CONFIG_CLEAN_FILES)
+	-rm -f config.cache config.log stamp-h stamp-h[0-9]*
+
+maintainer-clean-generic:
+mostlyclean-am:  mostlyclean-binPROGRAMS mostlyclean-compile \
+		mostlyclean-tags mostlyclean-depend mostlyclean-generic
+
+mostlyclean: mostlyclean-recursive
+
+clean-am:  clean-binPROGRAMS clean-compile clean-tags clean-depend \
+		clean-generic mostlyclean-am
+
+clean: clean-recursive
+
+distclean-am:  distclean-binPROGRAMS distclean-compile distclean-tags \
+		distclean-depend distclean-generic clean-am
+
+distclean: distclean-recursive
+
+maintainer-clean-am:  maintainer-clean-binPROGRAMS \
+		maintainer-clean-compile maintainer-clean-tags \
+		maintainer-clean-depend maintainer-clean-generic \
+		distclean-am
+	@echo "This command is intended for maintainers to use;"
+	@echo "it deletes files that may require special tools to rebuild."
+
+maintainer-clean: maintainer-clean-recursive
+
+.PHONY: mostlyclean-binPROGRAMS distclean-binPROGRAMS clean-binPROGRAMS \
+maintainer-clean-binPROGRAMS uninstall-binPROGRAMS install-binPROGRAMS \
+mostlyclean-compile distclean-compile clean-compile \
+maintainer-clean-compile install-data-recursive \
+uninstall-data-recursive install-exec-recursive \
+uninstall-exec-recursive installdirs-recursive uninstalldirs-recursive \
+all-recursive check-recursive installcheck-recursive info-recursive \
+dvi-recursive mostlyclean-recursive distclean-recursive clean-recursive \
+maintainer-clean-recursive tags tags-recursive mostlyclean-tags \
+distclean-tags clean-tags maintainer-clean-tags distdir \
+mostlyclean-depend distclean-depend clean-depend \
+maintainer-clean-depend info-am info dvi-am dvi check check-am \
+installcheck-am installcheck install-exec-am install-exec \
+install-data-am install-data install-am install uninstall-am uninstall \
+all-redirect all-am all installdirs-am installdirs mostlyclean-generic \
+distclean-generic clean-generic maintainer-clean-generic clean \
+mostlyclean distclean maintainer-clean
+
+
+# Tell versions [3.59,3.63) of GNU make to not export all variables.
+# Otherwise a system limit (for SysV at least) may be exceeded.
+.NOEXPORT:

@@ -1,0 +1,2370 @@
+# Czech Aria messages
+# Copyright (C) 2001 Free Software Foundation, Inc.
+# Adam Purkrt <adampurkrt@yahoo.com>
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2002-12-16 22:05+0900\n"
+"PO-Revision-Date: 2002-02-18 22:00+0100\n"
+"Last-Translator: Adam Purkrt <adampurkrt@yahoo.com>\n"
+"Language-Team: none\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=ISO 8859-2\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 0.6\n"
+
+#: src/main.cc:108
+msgid "Usage: aria [OPTION]..."
+msgstr "Pou¾ití: aria [VOLBA]..."
+
+#: src/main.cc:109
+msgid "Yet another download tool"
+msgstr "Je¹tì jiný stahovací nástroj"
+
+#. command line options
+#: src/main.cc:112
+msgid "Options:"
+msgstr "Nastavení"
+
+#: src/main.cc:113
+msgid "  -g, --get URL                    URL to get"
+msgstr "  -g, --get URL                    URL ke sta¾ení"
+
+#: src/main.cc:114
+msgid "  -d, --dir SAVEDIR                save directory"
+msgstr "  -d, --dir ADRESÁØ                adresáø pro ulo¾ení"
+
+#: src/main.cc:115
+msgid "  -r, --ref REFERER                referer"
+msgstr "  -r, --ref VÝCHOZÍ_SOUBOR         výchozí soubor"
+
+#: src/main.cc:116
+msgid "  -u, --url-list FILE              open URL list"
+msgstr "  -u, --url-list SOUBOR            otevøít seznam URL"
+
+#: src/main.cc:117
+msgid "  -c, --crc-list FILE              open CRC list"
+msgstr "  -c, --crc-list SOUBOR            otevøít seznam CRC"
+
+#: src/main.cc:118
+msgid "  --basket                         Show basket and iconify Aria"
+msgstr "  --basket                         ukázat ko¹ a ikonifikovat Ariu"
+
+#: src/main.cc:119
+msgid "  -v, --version                    print version information"
+msgstr "  -v, --version                    vytisknout informaci o verzi"
+
+#: src/main.cc:120
+msgid "  -h, --help                       print this help"
+msgstr "  -h, --help                       vytisknout tuto nápovìdu"
+
+#: src/main.cc:121
+msgid "  --initrc                         initialize resource files"
+msgstr "  --initrc                         inicializovat konfiguraèní soubory"
+
+#: src/main.cc:122
+msgid ""
+"  --geometry WIDTHxHEIGHT+XOFF+YOFF\n"
+"                                   set the size and position of main window"
+msgstr ""
+"  --geometry WIDTHxHEIGHT+XOFF+YOFF\n"
+"                                   nastaví velikost a pozici hlavního okna"
+
+#: src/main.cc:123
+#, fuzzy
+msgid ""
+"  --thread-limit-override NUM      if you want more simultaneous downloads..."
+msgstr "  --thread-limit-override ÈÍSLO      pokud chcete stahovat souèasnì více souborù..."
+
+#: src/main.cc:125
+msgid ""
+"Control Options:\n"
+" the following options are effective only when another aria is already "
+"running"
+msgstr ""
+"Ovládací volby:\n"
+" následující volby jsou funkèní pouze v pøípadì, kdy ji¾ bì¾í jiná aria"
+
+#: src/main.cc:127
+msgid "  -s, --start                      start all downloads"
+msgstr "  -s, --start                      spustit v¹echna stahování"
+
+#: src/main.cc:128
+msgid "  -p, --stop                       stop all downloads"
+msgstr "  -p, --stop                       pozastavit v¹echna stahování"
+
+#: src/main.cc:129
+msgid "  -a, --again                      re-download all items"
+msgstr "  -a, --again                      znovu stáhnout v¹echny polo¾ky"
+
+#: src/main.cc:130
+msgid "  -q, --quit                       quit Aria(with no confirmation)"
+msgstr "  -q, --quit                       ukonèit Ariu (bez potvrzení)"
+
+#: src/main.cc:131
+msgid "  --list-name                      show the name of the current list"
+msgstr "  --list-name                      ukázat jméno nynìj¹ího seznamu"
+
+#: src/main.cc:132
+msgid "  --list-prev                      switch to the previous list"
+msgstr "  --list-prev                      pøepnout do pøedchozího seznamu"
+
+#: src/main.cc:133
+msgid "  --list-next                      switch to the next list"
+msgstr "  --list-next                      pøepnout do následujícího seznamu"
+
+#: src/main.cc:134
+msgid "  --list-delete                    delete the current list"
+msgstr "  --list-delete                    smazat nynìj¹í seznam"
+
+#: src/main.cc:135
+msgid "  --clear-complete                 clear downloaded items"
+msgstr "  --clear-complete                 vymazat sta¾ené polo¾ky"
+
+#: src/main.cc:136
+msgid "  --ls-complete                    show URLs downloaded"
+msgstr "  --ls-complete                    ukázat sta¾ené URL"
+
+#: src/main.cc:137
+msgid "  --ls-ready                       show URLs waiting in queue"
+msgstr "  --ls-ready                       ukázat URL èekající ve frontì"
+
+#: src/main.cc:138
+msgid "  --ls-error                       show URLs in error"
+msgstr "  --ls-error                       ukázat URL s chybou"
+
+#: src/main.cc:139
+msgid "  --ls-run                         show URLs now downloading"
+msgstr "  --ls-run                         ukázat právì stahované URL"
+
+#: src/main.cc:140
+msgid "  --ls-stop                        show URLs stopped"
+msgstr "  --ls-stop                        ukázat pozastavené URL"
+
+#: src/main.cc:141
+msgid "  --ls-lock                        show URLs locked"
+msgstr "  --ls-lock                        ukázat uzamèené URL"
+
+#: src/main.cc:142
+msgid "  --ls-all                         show all URLs in queue"
+msgstr "  --ls-all                         ukázat v¹echny URL ve frontì"
+
+#: src/main.cc:148
+msgid "Compiled date: "
+msgstr "Datum kompilace: "
+
+#: src/main.cc:150
+msgid "Copyright (C) 2000-2002 Tatsuhiro Tsujikawa"
+msgstr ""
+
+#: src/main.cc:152 src/gui_help.cc:149
+msgid ""
+"The part of directory browser is a modified code, the original code was "
+"written by Peter Alm, Mikael Alm, Olle Hallnas, Thomas Nilsson and 4Front "
+"Technologies.\n"
+"The original code is copyrighted by Peter Alm, Mikael Alm, Olle Hallnas, "
+"Thomas Nilsson and 4Front Technologies."
+msgstr ""
+"Zdrojový kód adresáøového prohlí¾eèe je modifikovanou verzí kódu napsaného následujícími autory: Peter Alm, Mikael Alm, Olle Hallnas, Thomas Nilsson a firma 4Front Technologies.\n"
+"Vlastníky autorských práv jsou: Peter Alm, Mikael Alm, Olle Hallnas, Thomas Nilsson a firma 4Front Technologies."
+
+#: src/main.cc:154 src/gui_help.cc:153
+msgid ""
+"The part of MD5 checking is a modified code, the original code was written "
+"for GnuPG, copyrighted 1995, 1996, 1998, 1999 Free Software Foundation, Inc."
+msgstr "Zdrojový kód èásti testující MD5 vznikl modifikací kódu napsaného pro GnuPG, copyright 1995, 1996, 1998, 1999 Nadace pro volný software (Free Software Foundation, Inc.)"
+
+#: src/main.cc:157 src/gui_help.cc:159
+msgid ""
+"This program uses zlib, Copyright (C) 1995-1998 Jean-loup Gailly and Mark "
+"Adler"
+msgstr "Tento program pou¾ívá zlib, Copyright (C) 1995-1998 Jean-loup Gailly a Mark Adler"
+
+#: src/main.cc:160 src/gui_help.cc:164
+msgid ""
+"This program uses OpenSSL, Copyright (C) 1995-1998 Eric Young (eay@cryptsoft."
+"com)"
+msgstr "Tento program pou¾ívá OpenSSL, Copyright (C) 1995-1998 Eric Young (eay@cryptsoft.com)"
+
+#: src/main.cc:244
+msgid "Status (Ready/Error/Downloading/Stop/Complete/Lock)"
+msgstr "Stav (Pøipraveno/Chyba/Stahuji/Pozastaveno/Dokonèeno/Uzamèeno)"
+
+#: src/main.cc:245
+msgid "Split?(Yes/No/split Parts)"
+msgstr "Rozdìlit?(Ano/Ne/rozdìlit Èásti)"
+
+#: src/main.cc:263
+msgid "Total "
+msgstr "Celkem"
+
+#: src/main.cc:263
+msgid " URLs"
+msgstr " URL"
+
+#: src/main.cc:268
+msgid "Another Aria is not running. This option makes no effect."
+msgstr "Jiná Aria nebì¾í. Tato volba nemá ¾ádný efekt."
+
+#. read server config file
+#: src/main.cc:747
+msgid "Reading Server Template file..."
+msgstr "Naèítám soubor serverové ¹ablony..."
+
+#: src/main.cc:751
+msgid "Server Template status : good"
+msgstr "Stav serverové ¹ablony: v poøádku"
+
+#: src/main.cc:754
+msgid "Server Template status : error"
+msgstr "Stav serverové ¹ablony: chyba"
+
+#. read command list file
+#: src/main.cc:758
+msgid "Reading Command list file..."
+msgstr "Naèítám soubor se seznamem pøíkazù..."
+
+#: src/main.cc:761
+msgid "Command list status : good"
+msgstr "Stav seznamu pøíkazù: v poøádku"
+
+#: src/main.cc:764
+msgid "Command list status : error"
+msgstr "Stav seznamu pøíkazù: chyba"
+
+#. read default item option
+#: src/main.cc:769
+msgid "Reading Default item config file..."
+msgstr "Naèítám soubor výchozího nastavení polo¾ky..."
+
+# src/main.cc:516
+#: src/main.cc:772
+msgid "Default item config status: error >> using default config"
+msgstr "Stav výchozího nastavení polo¾ky: chyba >> pou¾ívám výchozí nastavení"
+
+#: src/main.cc:881
+msgid "Default item config status: good"
+msgstr "Stav výchozího nastavení polo¾ky: v poøádku"
+
+#. read application setting
+#: src/main.cc:886
+msgid "Reading Application config file..."
+msgstr "Naèítám soubor nastavení aplikace..."
+
+# src/main.cc:601
+#: src/main.cc:890
+msgid "Application config status: error >> using default config"
+msgstr "Stav nastavení aplikace: chyba >> pou¾ívám výchozí nastavení"
+
+#: src/main.cc:901
+msgid "Application config status: good"
+msgstr "Stav nastavení aplikace: v poøádku"
+
+#: src/main.cc:909
+msgid "URL file read error"
+msgstr "Chyba pøi ètení souboru s URL"
+
+# src/main.cc:624
+#: src/main.cc:911
+msgid "URL file opened"
+msgstr "Soubor s URL otevøen"
+
+#: src/main.cc:915
+msgid "Saved file opened"
+msgstr "Ulo¾ený soubor byl otevøen"
+
+#: src/main.cc:939
+msgid "CRC file read error"
+msgstr "Chyba pøi ètení souboru s CRC"
+
+#: src/main.cc:941
+msgid "CRC file opened"
+msgstr "Soubor s CRC otevøen"
+
+#: src/main.cc:947
+msgid "Ready"
+msgstr "pøipravena"
+
+#: src/download.cc:146 src/RetrieveHTTP2.cc:229 src/RetrieveFTP2.cc:313
+msgid "A part of '"
+msgstr "Èást z '"
+
+#: src/download.cc:146 src/download.cc:154
+msgid "' download complete"
+msgstr "' stahování dokonèeno"
+
+#: src/download.cc:150 src/download.cc:377 src/gui_main.cc:371
+#: src/ItemList.cc:413 src/ItemList2.cc:783 src/gui_edit.cc:255
+#: src/ItemOption.cc:2915 src/ListEntry.cc:957 src/HistoryWindow.cc:405
+msgid "<directory>"
+msgstr "<adresáø>"
+
+#: src/download.cc:180
+msgid "Starting split download"
+msgstr "Spou¹tím rozdìlené stahování"
+
+#: src/download.cc:195 src/download.cc:290
+msgid "Download stopped"
+msgstr "Stahování pozastaveno"
+
+# src/gui_file_open_url.cc:53
+#: src/download.cc:244
+msgid "Error occurred while deleting files"
+msgstr "Chyba pøi mazání souborù"
+
+#: src/download.cc:255
+msgid "Wait for "
+msgstr "Èekám "
+
+#: src/download.cc:255
+msgid " seconds"
+msgstr " sekund"
+
+#: src/download.cc:319 src/ItemCell.cc:222 src/RetrieveHTTP.cc:393
+#: src/gui_download.cc:1344
+msgid "Download again"
+msgstr "Opakovat stahování"
+
+#: src/download.cc:379
+msgid "' download aborted"
+msgstr "' stahování pøeru¹eno"
+
+#: src/download.cc:469 src/download.cc:484 src/ItemCell.cc:353
+msgid "Executing program: "
+msgstr "Spou¹tím program: "
+
+#: src/download.cc:513
+msgid "Command line is '"
+msgstr "Pøíkazová øádka je '"
+
+#: src/download.cc:521
+msgid "Exit status is "
+msgstr "Návratová hodnota je "
+
+#: src/download.cc:524 src/ItemCell.cc:365
+msgid "Program exited abnormally"
+msgstr "Neobvyklé ukonèení programu "
+
+#: src/download.cc:530 src/ItemCell.cc:357
+msgid "Good exit status"
+msgstr "Návratová hodnota v poøádku"
+
+#: src/download.cc:532 src/ItemCell.cc:361
+msgid "Bad exit status"
+msgstr "©patná návratová hodnota"
+
+#: src/download.cc:538 src/ItemCell.cc:368
+msgid "Exit status ignored"
+msgstr "Návratová hodnota ignorována"
+
+#: src/download.cc:562
+msgid "Executing command entry '"
+msgstr "Provádím polo¾ku s pøíkazem '"
+
+#: src/download.cc:630
+msgid "Concatenating split files..."
+msgstr "Skládám dohromady rozdìlené soubory..."
+
+#: src/download.cc:633
+msgid "Concatenation successful"
+msgstr "Úspì¹nì slo¾eno"
+
+#: src/download.cc:637
+msgid "Concatenation failed"
+msgstr "Slo¾ení se nezdaøilo"
+
+#. string strSuminfo = "Downloading: "+itos(suminfo.ret_download())+" Error: "+itos(suminfo.ret_error());
+#: src/gui_main.cc:160
+msgid "Downloading: "
+msgstr "Stahuje se: "
+
+#: src/gui_main.cc:161
+msgid " Error: "
+msgstr " Chyba: "
+
+#: src/gui_main.cc:176
+msgid "#List name: "
+msgstr "#Jméno seznamu: "
+
+#. 1st page
+#: src/gui_main.cc:503
+msgid "Console"
+msgstr "Konzola"
+
+#. 2nd page
+#: src/gui_main.cc:508
+msgid "not selected"
+msgstr "nevybráno"
+
+#: src/gui_main.cc:556 src/gui_file.cc:321
+msgid "Quit program"
+msgstr "Konec programu"
+
+#: src/gui_main.cc:557 src/gui_file.cc:322
+msgid "Are you sure to quit?"
+msgstr "Opravdu chcete program ukonèit?"
+
+#: src/gui_main.cc:710 src/gui_main.cc:730 src/ItemOption.cc:1498
+msgid "Limit download speed (in Kbytes/sec) (0.0: unlimited) "
+msgstr "Maximální rychlost stahování (v KB/sek) (0.0: bez omezení)"
+
+#: src/crc.cc:193
+msgid "CRC is "
+msgstr "CRC je "
+
+#. crc matched
+#: src/crc.cc:198
+msgid "CRC matched"
+msgstr "CRC souhlasí"
+
+#: src/crc.cc:205
+msgid "Invalid CRC. The specified CRC is "
+msgstr "Neplatné CRC. Udané CRC je "
+
+#. create ItemCell
+#: src/ItemList.cc:97 src/ItemList.cc:302 src/ItemList.cc:380
+#: src/ItemList2.cc:763 src/ItemCache.cc:58 src/Retrieve.cc:100
+#: src/RetrieveFTP.cc:248 src/RetrieveFTP.cc:343 src/gui_item_new_item.cc:80
+#: src/PasteWindow.cc:466 src/PasteWindow.cc:1005
+msgid "Created"
+msgstr "Vytvoøeno"
+
+#: src/ItemList.cc:418 src/ItemList2.cc:810 src/gui_edit.cc:266
+msgid "unknown"
+msgstr "neznámé"
+
+#: src/ItemList.cc:443 src/gui_edit.cc:307 src/ListEntry.cc:993
+msgid "READY"
+msgstr "PØIPRAVEN"
+
+#: src/ItemList.cc:445 src/ListEntry.cc:1035
+msgid "STOPPED"
+msgstr "POZASTAVENO"
+
+#: src/ItemList2.cc:381 src/ItemList2.cc:873 src/ItemList2.cc:889
+msgid "Warning: different version number found in file header"
+msgstr "Pozor: v hlavièce souboru nalezeno odli¹né èíslo verze"
+
+#: src/ItemCell.cc:274
+msgid "Unknown protocol"
+msgstr "Neznámý protokol"
+
+#: src/ItemCell.cc:301
+msgid "Ignore CRC error"
+msgstr "Ignorovat chybu CRC"
+
+#: src/ItemCell.cc:309
+msgid "Checking MD5 checksum"
+msgstr "Ovìøuji kontrolní souèet MD5"
+
+#: src/ItemCell.cc:312
+msgid "Calculated MD5 checksum is "
+msgstr "Spoètený kontrolní souèet MD5 je "
+
+#: src/ItemCell.cc:314
+msgid "MD5 checking failed"
+msgstr "Ovìøení pomocí MD5 se nezdaøilo"
+
+#: src/ItemCell.cc:316
+msgid "Ignore MD5 error"
+msgstr "Ignorovat chybu MD5"
+
+#: src/ItemCell.cc:321
+msgid "MD5 checking successful"
+msgstr "Ovìøení pomocí MD5 v poøádku"
+
+#: src/ItemCell.cc:324 src/gui_download_check.cc:117
+msgid "IO error occurred"
+msgstr "Nastala chyba vstupu/výstupu"
+
+#: src/ItemCell.cc:588
+msgid "Can't resolve host"
+msgstr "Nemohu nalézt poèítaè"
+
+#: src/ItemCell.cc:591
+msgid "Socket error"
+msgstr "Chyba soketu"
+
+#: src/ItemCell.cc:594
+msgid "Connection refused - "
+msgstr "Spojení odmítnuto - "
+
+#: src/ItemCell.cc:598
+msgid "Time out"
+msgstr "Není odezva"
+
+#: src/ItemCell.cc:601
+msgid "I/O error - "
+msgstr "I/O chyba - "
+
+#: src/ItemCell.cc:605
+msgid "File I/O error - maybe wrong save location or disk full?"
+msgstr "Chyba I/O souboru - mo¾ná (?) je chybnì zadané místo pro ulo¾ení nebo plný disk."
+
+#: src/ItemCell.cc:609
+msgid "Location retrieval failed"
+msgstr "Pøíjem umístìní se nezdaøil"
+
+#: src/ItemCell.cc:612
+msgid "Cannot find embedded URL"
+msgstr "Nemohu najít vlo¾ené URL"
+
+#: src/ItemCell.cc:615
+msgid "FTP server returned negative response"
+msgstr "FTP server poslal zpìt negativní odpovìï"
+
+#: src/ItemCell.cc:618
+msgid "Bind error - "
+msgstr "Chyba svazování - "
+
+#: src/ItemCell.cc:622
+msgid "Listen error - "
+msgstr "Chyba naslouchání - "
+
+#: src/ItemCell.cc:626
+msgid "Accept error - "
+msgstr "Chyba akceptování - "
+
+#: src/ItemCell.cc:630
+msgid "Send error - "
+msgstr "Chyba posílání - "
+
+#: src/ItemCell.cc:634
+msgid "Recv error - "
+msgstr "Chyba pøíjmu - "
+
+#: src/ItemCell.cc:638
+msgid "General protocol error"
+msgstr "Obecná chyba protokolu"
+
+#: src/ItemCell.cc:642
+msgid "Unknown error occurred"
+msgstr "Nastala neznámá chyba"
+
+#: src/ItemCache.cc:97
+msgid "Copied"
+msgstr "Zkopírováno"
+
+#: src/Retrieve.cc:111 src/RetrieveFTP.cc:255
+msgid "Partial item added"
+msgstr "Èásteèná polo¾ka pøidána"
+
+#: src/Retrieve.cc:292
+msgid "Connecting to "
+msgstr "Pøipojuji se k "
+
+#: src/Retrieve.cc:312
+msgid "Can't resolve host: "
+msgstr "Nemohu nalézt poèítaè: "
+
+#: src/Retrieve.cc:312
+msgid ", reason: "
+msgstr ", dùvod: "
+
+#: src/Retrieve.cc:317
+msgid "Resolving complete"
+msgstr "Hledání dokonèeno"
+
+#: src/Retrieve.cc:327
+msgid "Canonical name is "
+msgstr "Kanonické jméno je "
+
+#: src/Retrieve.cc:448
+msgid "Connection refused: "
+msgstr "Spojení odmítnuto: "
+
+#: src/Retrieve.cc:476
+msgid "Connection established"
+msgstr "Spojení navázáno"
+
+#. fix this
+#: src/Retrieve.cc:524
+msgid "Unable to truncate the file '"
+msgstr "Nemohu zkrátit soubor '"
+
+#: src/Retrieve.cc:524
+msgid "'. Rollback disabled"
+msgstr "'. Pøevinutí zakázáno"
+
+# src/ItemCell.cc:1019 src/ItemOption.cc:231
+#: src/Retrieve.cc:552 src/ItemOption.cc:355
+msgid "Failed to make directory '"
+msgstr "Nepodaøilo se vytvoøit adresáø '"
+
+#: src/RetrieveHTTP.cc:361
+msgid "UseProxy is not supported yet"
+msgstr "Pou¾ití Proxy je¹tì není podporováno"
+
+#: src/RetrieveHTTP.cc:367
+msgid "Content forbidden"
+msgstr "Pøístup k obsahu znemo¾nìn"
+
+#: src/RetrieveHTTP.cc:371
+msgid "Content not found"
+msgstr "Obsah nenalezen"
+
+#: src/RetrieveHTTP.cc:390
+msgid "Server returned 416 status. Assume download was completed"
+msgstr "Server ohlásil stav 416. Z toho usuzuji, ¾e bylo stahování dokonèeno"
+
+#: src/RetrieveHTTP.cc:398
+msgid "Server returned 416 status. This file may be already downloaded"
+msgstr "Server ohlásil stav 416. Tento soubor mù¾e být ji¾ sta¾en"
+
+#: src/RetrieveHTTP.cc:403
+msgid "Access denied"
+msgstr "Pøístup odepøen"
+
+#: src/RetrieveHTTP.cc:407
+msgid "Unexpected error occurred"
+msgstr "Nastala neoèekávaná chyba"
+
+#: src/RetrieveHTTP.cc:553
+msgid "Redirection found"
+msgstr "Nalezeno pøesmìrování"
+
+#: src/RetrieveHTTP.cc:603
+msgid "Redirecting to "
+msgstr "Pøesmìrovávám na "
+
+#: src/RetrieveHTTP.cc:606 src/RetrieveHTTP.cc:869 src/RetrieveHTTP.cc:876
+#: src/RetrieveHTTP.cc:880 src/RetrieveHTTP.cc:925 src/RetrieveHTTP.cc:940
+#: src/RetrieveHTTP.cc:946 src/RetrieveHTTP.cc:953 src/RetrieveFTP.cc:1137
+#: src/RetrieveFTP.cc:1147 src/RetrieveFTP.cc:1153 src/RetrieveFTP.cc:1158
+#: src/RetrieveHTTP2.cc:155 src/RetrieveHTTP2.cc:166 src/RetrieveHTTP2.cc:176
+#: src/RetrieveHTTP2.cc:184 src/RetrieveFTP2.cc:254 src/RetrieveFTP2.cc:264
+#: src/RetrieveFTP2.cc:270 src/RetrieveFTP2.cc:275
+msgid "Connection closed"
+msgstr "Spojení ukonèeno"
+
+#. ¤¹¤Ç¤Ë¥À¥¦¥ó¥í¡¼¥ÉºÑ
+#. download has been competed
+#: src/RetrieveHTTP.cc:614 src/RetrieveHTTP.cc:725 src/RetrieveFTP.cc:1037
+#: src/RetrieveFTP2.cc:169
+msgid " is already downloaded"
+msgstr " je ji¾ sta¾eno"
+
+#. split download is not allowed
+#: src/RetrieveHTTP.cc:702 src/RetrieveHTTP.cc:748 src/RetrieveHTTP.cc:819
+msgid "Resume disabled"
+msgstr "Pokraèování pøenosu zakázáno"
+
+#. Assume download was completed
+#: src/RetrieveHTTP.cc:706 src/RetrieveHTTP.cc:751 src/ItemOption.cc:2319
+msgid "Assume download was completed"
+msgstr "Pøedpokládat, ¾e stahování bylo dokonèeno"
+
+#: src/RetrieveHTTP.cc:716 src/RetrieveHTTP.cc:767 src/RetrieveFTP.cc:1031
+msgid "Download aborted due to the file size limitation"
+msgstr "Stahování pøeru¹eno z dùvodu omezení velikosti souboru"
+
+#. ¥Õ¥¡¥¤¥ë¥µ¥¤¥º¤¬°Û¤Ê¤ë
+#. size mismatch
+#: src/RetrieveHTTP.cc:741 src/RetrieveFTP.cc:1047 src/RetrieveHTTP2.cc:129
+#: src/RetrieveFTP2.cc:180
+msgid "Size of local file is larger than remote file's one. Download again"
+msgstr "Lokální soubor je vìt¹í ne¾ vzdálený. Opakujte stahování"
+
+#. check whether or not remote server suports resume
+#: src/RetrieveHTTP.cc:781
+msgid "Checking whether server supports resuming"
+msgstr "Zji¹»uji, zda server podporuje pokraèování v pøenosu"
+
+#: src/RetrieveHTTP.cc:820 src/RetrieveHTTP.cc:831 src/RetrieveFTP.cc:1059
+#: src/RetrieveFTP.cc:1071
+msgid "Starting normal download instead"
+msgstr "Místo toho zaèínám bì¾né stahování"
+
+#. OK, ready to split downloading!
+#: src/RetrieveHTTP.cc:823 src/RetrieveFTP.cc:1062
+msgid "Splitting file..."
+msgstr "Rozdìluji soubor..."
+
+# src/ItemCell_FTP.cc:769 src/ItemCell_HTTP.cc:644
+#: src/RetrieveHTTP.cc:830 src/RetrieveFTP.cc:1070
+msgid "File is too small to be divided"
+msgstr "Soubor je pøíli¹ malý na to, aby byl rozdìlen"
+
+#: src/RetrieveHTTP.cc:1004 src/RetrieveFTP.cc:1424 src/RetrieveHTTP2.cc:222
+#: src/RetrieveFTP2.cc:306
+msgid "This file is locked. Aborting download"
+msgstr "Tento soubor je zamèen. Ru¹ím stahování"
+
+#: src/RetrieveHTTP.cc:1011 src/RetrieveFTP.cc:1431 src/RetrieveHTTP2.cc:232
+#: src/RetrieveFTP2.cc:322
+msgid "Starting download at "
+msgstr "Zaèínám stahovat na "
+
+#: src/RetrieveHTTP.cc:1011 src/RetrieveFTP.cc:1431 src/RetrieveHTTP2.cc:232
+#: src/RetrieveFTP2.cc:324
+msgid " bytes"
+msgstr " bajtù"
+
+# src/ItemCell_HTTP.cc:798
+#: src/RetrieveHTTP.cc:1047
+msgid "Retrieving embedded URL"
+msgstr "Získávám vlo¾ené URL"
+
+#: src/RetrieveHTTP.cc:1078
+msgid "Finding hyperlink"
+msgstr "Vyhledávám hyperodkaz"
+
+#: src/RetrieveHTTP.cc:1090 src/gui_file_find_hyperlink.cc:69
+msgid "Hyperlink retrieval complete"
+msgstr "Získávání hyperodkazu dokonèeno"
+
+#: src/RetrieveHTTP.cc:1100 src/RetrieveFTP.cc:1450 src/RetrieveHTTP2.cc:253
+#: src/RetrieveFTP2.cc:352
+msgid "No match size"
+msgstr "Nesouhlasí velikost"
+
+#: src/RetrieveHTTP.cc:1140 src/RetrieveHTTP.cc:1156 src/RetrieveHTTP.cc:1162
+#: src/RetrieveHTTP.cc:1172
+msgid "Failed to uncompress data"
+msgstr "Nezdaøilo se rozbalit data"
+
+#. ¥ì¥¸¥å¡¼¥àÉÔ²Ä
+#. www server does not support resume
+#: src/RetrieveFTP.cc:105 src/RetrieveFTP.cc:164 src/RetrieveFTP.cc:1058
+#: src/RetrieveHTTP2.cc:135
+msgid "Sorry, cannot resume"
+msgstr "Bohu¾el, nemohu pokraèovat"
+
+#: src/RetrieveFTP.cc:122 src/RetrieveFTP.cc:495 src/RetrieveFTP.cc:519
+msgid "Data connection established"
+msgstr "Datové spojení navázáno"
+
+#: src/RetrieveFTP.cc:269
+msgid "Cannot enter PASV mode"
+msgstr "Nemohu vstoupit do PASV módu"
+
+#: src/RetrieveFTP.cc:383
+msgid "Failed to create symbolic link. Ignored"
+msgstr "Nepodaøilo se vytvoøit symbolický odkaz. Ignorováno"
+
+#: src/RetrieveFTP.cc:490 src/RetrieveFTP.cc:527 src/RetrieveFTP.cc:939
+msgid "Failed to list files"
+msgstr "Nepodaøilo se vypsat seznam souborù"
+
+#. maybe full?
+#: src/RetrieveFTP.cc:648 src/RetrieveFTP.cc:706 src/RetrieveFTP.cc:787
+msgid "Failed to login"
+msgstr "Nepodaøilo se pøihlásit do systému"
+
+#: src/RetrieveFTP.cc:897
+msgid "Specified directory was not found"
+msgstr "Zadaný adresáø nebyl nalezen"
+
+#: src/RetrieveFTP.cc:915 src/RetrieveFTP2.cc:154
+msgid "MDTM command failed. Anyway, try resuming"
+msgstr "Pøíkaz MDTM se nezdaøil. I tak zkuste pokraèovat"
+
+#: src/RetrieveFTP.cc:919 src/RetrieveFTP2.cc:158
+msgid ""
+"Modification time of remote file is newer than local file's one. Resume "
+"disabled"
+msgstr "Èas poslední zmìny vzdáleného souboru je pozdìj¹í ne¾ lokálního. Pokraèování znemo¾nìno"
+
+#. recursive download limit exceeded
+#: src/RetrieveFTP.cc:971
+msgid "Depth of recursion exceeded. This message can be ignored safely"
+msgstr "Hloubka vnoøení pøekroèena. Tuto zprávu mù¾ete v klidu ignorovat"
+
+#: src/RetrieveFTP.cc:978
+msgid "Try again assuming as directory"
+msgstr "Zkusit znovu, pokládat za adresáø"
+
+# src/ItemCell_FTP.cc:694
+#: src/RetrieveFTP.cc:985
+msgid "Specified directory or file was not found"
+msgstr "Zadaný adresáø nebo soubor nebyl nalezen"
+
+# src/ItemCell_FTP.cc:714
+#: src/RetrieveFTP.cc:1005
+msgid "Download abort due to extension. This message can be ignored safely"
+msgstr "Stahování zru¹eno vzhledem k pøíponì. Tuto zprávu mù¾ete v klidu ignorovat"
+
+#. send REST command
+#: src/RetrieveFTP.cc:1052
+msgid "Checking whether ftp server supports resuming"
+msgstr "Zji¹»uji, zda ftp server podporuje pokraèování"
+
+# src/ItemCell_FTP.cc:811 src/ItemCell_FTP_p.cc:212
+#: src/RetrieveFTP.cc:1108 src/RetrieveFTP2.cc:230
+msgid "An error occurred, but this error can be ignored safely"
+msgstr "Nastala chyba, av¹ak mù¾ete ji klidnì ignorovat"
+
+#: src/RetrieveHTTP2.cc:104
+msgid "Redirecting to"
+msgstr "Pøesmìrovávám na"
+
+#. ¤¹¤Ç¤Ë¥À¥¦¥ó¥í¡¼¥ÉºÑ
+#. downloading has been competed
+#: src/RetrieveHTTP2.cc:117
+msgid "' is already downloaded"
+msgstr "' je ji¾ sta¾eno"
+
+#: src/RetrieveHTTP2.cc:229 src/RetrieveFTP2.cc:314
+msgid ", its index is "
+msgstr ", její index je "
+
+# msgstr ", její èíslo je"
+#: src/RetrieveHTTP2.cc:229 src/RetrieveFTP2.cc:316
+msgid ", its range is from "
+msgstr ", její rozsah je od "
+
+#: src/RetrieveFTP2.cc:144
+msgid "Specified directory is not found"
+msgstr "Zadaný adresáø nebyl nalezen"
+
+#: src/gui_download.cc:448
+msgid " item(s) cleared"
+msgstr " polo¾ek odstranìno"
+
+#: src/gui_download.cc:566
+msgid " item(s) cleared, and its file deleted"
+msgstr " polo¾ek odstranìno a jejich soubory smazány"
+
+#: src/gui_download.cc:585 src/gui_download.cc:1264 src/gui_item.cc:387
+msgid "Clear items"
+msgstr "Odstranit polo¾ky"
+
+#: src/gui_download.cc:586 src/gui_download.cc:1265 src/gui_item.cc:388
+msgid "Are you sure to delete these items?"
+msgstr "Opravdu chcete tyto polo¾ky odstranit?"
+
+#: src/gui_download.cc:607
+msgid "Clear items and delete their files"
+msgstr "Vymazat polo¾ky a smazat jejich soubory"
+
+#: src/gui_download.cc:608
+msgid "Are you sure to delete these items and their files?"
+msgstr "Opravdu chcete odstranit tyto polo¾ky a jejich soubory?"
+
+#: src/gui_download.cc:1201 src/gui_item.cc:371
+msgid " item(s) deleted"
+msgstr " polo¾ek odstranìno"
+
+#: src/gui_download.cc:1286
+msgid "Start"
+msgstr "Spustit"
+
+#: src/gui_download.cc:1296
+msgid "Stop"
+msgstr "Pozastavit"
+
+#. Delete button
+#: src/gui_download.cc:1306 src/HistoryWindow.cc:356
+msgid "Clear"
+msgstr "Odstranit"
+
+#: src/gui_download.cc:1316
+msgid "Clear and delete files"
+msgstr "Odstranit a smazat soubory"
+
+#: src/gui_download.cc:1324
+msgid "Clear CRC"
+msgstr "Smazat CRC"
+
+#: src/gui_download.cc:1329
+msgid "Clear MD5"
+msgstr "Smazat MD5"
+
+#: src/gui_download.cc:1334
+msgid "Check CRC"
+msgstr "Kontrolovat CRC"
+
+#: src/gui_download.cc:1339
+msgid "Check MD5"
+msgstr "Kontrolovat MD5"
+
+#: src/gui_download.cc:1357
+msgid "Start all"
+msgstr "Spustit v¹e"
+
+#: src/gui_download.cc:1367
+msgid "Stop all"
+msgstr "Pozastavit v¹e"
+
+#: src/gui_download.cc:1377
+msgid "Clear all"
+msgstr "Odstranit v¹e"
+
+#: src/gui_download.cc:1385
+msgid "Clear all CRC"
+msgstr "Smazat v¹echny CRC"
+
+#: src/gui_download.cc:1389
+msgid "Clear all MD5"
+msgstr "Smazat v¹echny MD5"
+
+#: src/gui_download.cc:1397 src/AppOption.cc:1061
+msgid "Start all lists"
+msgstr "Spustit v¹echny seznamy"
+
+#: src/gui_download.cc:1405
+msgid "Stop all lists"
+msgstr "Pozastavit v¹echny seznamy"
+
+#: src/gui_download.cc:1413
+msgid "Clear all lists"
+msgstr "Odstranit v¹echny seznamy"
+
+#: src/gui_download.cc:1423
+msgid "Check downloaded items' CRC"
+msgstr "Zkontrolovat CRC u sta¾ených polo¾ek"
+
+#: src/gui_download.cc:1428
+msgid "Check downloaded items' MD5"
+msgstr "Zkontrolovat MD5 u sta¾ených polo¾ek"
+
+#: src/gui_download.cc:1436 src/AppOption.cc:173
+msgid "Download"
+msgstr "Stahování"
+
+# src/gui_download.cc:935
+#: src/gui_download_check.cc:51 src/gui_download_check.cc:59
+msgid "Checking CRC of '"
+msgstr "Kontroluji CRC u '"
+
+#: src/gui_download_check.cc:51 src/gui_download_check.cc:98
+msgid "' successful"
+msgstr "' v poøádku"
+
+#: src/gui_download_check.cc:59 src/gui_download_check.cc:105
+msgid "' failed"
+msgstr "' není v poøádku"
+
+#: src/gui_download_check.cc:98 src/gui_download_check.cc:105
+msgid "Checking MD5 of '"
+msgstr "Kontroluji MD5 u '"
+
+#: src/gui_download_check.cc:270
+msgid "Check"
+msgstr "Kontrolovat"
+
+# src/gui_download.cc:935
+#: src/gui_download_check.cc:271
+msgid "Checking..."
+msgstr "Kontroluji..."
+
+#: src/gui_edit.cc:164
+msgid " item(s) copied"
+msgstr " polo¾ek zkopírováno"
+
+#: src/gui_edit.cc:211
+msgid " item(s) cut"
+msgstr " polo¾ek vyjmuto"
+
+#. added 2001/3/21
+#: src/gui_edit.cc:241 src/PasteWindow.cc:146
+msgid " item(s) pasted"
+msgstr " polo¾ek vlo¾eno"
+
+#: src/gui_edit.cc:581 src/PasteWindow.cc:549 src/HistoryWindow.cc:212
+msgid "Select all"
+msgstr "Oznaèit v¹e"
+
+#: src/gui_edit.cc:591 src/PasteWindow.cc:558 src/HistoryWindow.cc:221
+msgid "Invert selection"
+msgstr "Invertovat výbìr"
+
+#: src/gui_edit.cc:599 src/PasteWindow.cc:771
+msgid "Paste URL list"
+msgstr "Vlo¾it seznam URL"
+
+#: src/gui_edit.cc:613
+msgid "Paste URL list with numerical expansion"
+msgstr "Vlo¾it seznam URL s èíselnou expanzí"
+
+#: src/gui_edit.cc:627
+msgid "Paste CRC list"
+msgstr "Vlo¾it seznam CRC"
+
+#: src/gui_edit.cc:640
+msgid "Paste MD5 list"
+msgstr "Vlo¾it seznam MD5"
+
+#: src/gui_edit.cc:657
+msgid "Copy selected items"
+msgstr "Kopírovat oznaèené polo¾ky"
+
+#: src/gui_edit.cc:664
+msgid "Cut selected items"
+msgstr "Vyjmout oznaèené polo¾ky"
+
+#: src/gui_edit.cc:671
+msgid "Paste items"
+msgstr "Vlo¾it polo¾ky"
+
+#: src/gui_edit.cc:679
+msgid "Search in current list"
+msgstr "Hledat v nynìj¹ím seznamu"
+
+#. Create root menu item
+#: src/gui_edit.cc:688 src/PasteWindow.cc:564 src/HistoryWindow.cc:227
+msgid "Edit"
+msgstr "Úpravy"
+
+#. Search button
+#: src/gui_edit_search.cc:66 src/gui_edit_search.cc:93
+#: src/gui_edit_search.cc:110 src/HistoryWindow.cc:609
+msgid "Search"
+msgstr "Hledat"
+
+#: src/gui_edit_search.cc:67
+msgid "Search complete"
+msgstr "Hledání dokonèeno"
+
+#. Cancel button
+#: src/gui_edit_search.cc:121 src/gui_file_find_hyperlink.cc:126
+#: src/gui_item_new_item.cc:191 src/gui_list_new_list.cc:118
+#: src/gui_list_rename_list.cc:121 src/ItemOption.cc:683 src/AppOption.cc:225
+#: src/Dialog.cc:191 src/PasteWindow.cc:898
+msgid "Cancel"
+msgstr "Zru¹it"
+
+#. label
+#: src/gui_edit_search.cc:136
+msgid "String:"
+msgstr "Øetìzec:"
+
+#: src/gui_file.cc:94
+msgid "Autosave done"
+msgstr "Automatické ukládání dokonèeno"
+
+#: src/gui_file.cc:354 src/gui_file_open_url.cc:98 src/gui_toolbar.cc:246
+msgid "Open URL list"
+msgstr "Otevøít seznam URL"
+
+#: src/gui_file.cc:364 src/gui_file_open_crc.cc:70
+msgid "Open CRC list"
+msgstr "Otevøít seznam CRC"
+
+#: src/gui_file.cc:372
+msgid "Open MD5 list"
+msgstr "Otevøít seznam MD5"
+
+#: src/gui_file.cc:384
+msgid "Find hyperlink"
+msgstr "Najít hyperodkaz"
+
+#: src/gui_file.cc:395 src/gui_toolbar.cc:230
+msgid "Open saved list"
+msgstr "Otevøít ulo¾ený seznam"
+
+#: src/gui_file.cc:405
+msgid "Save current list"
+msgstr "Ulo¾it nynìj¹í seznam"
+
+#: src/gui_file.cc:417
+msgid "Quit with saving lists"
+msgstr "Ukonèit s ulo¾ením seznamu"
+
+#: src/gui_file.cc:425
+msgid "Quit without saving lists"
+msgstr "Ukonèit bez ulo¾ení seznamu"
+
+#. CList ¤òºîÀ®¤¹¤ë¡£¤³¤ÎÎã¤Ç¤Ï 2 Îó¤ò»È¤¦
+#: src/gui_file.cc:430 src/ListEntry.cc:610 src/HistoryWindow.cc:275
+msgid "File"
+msgstr "Soubor"
+
+# src/gui_file_open_url.cc:53
+#: src/gui_file_find_hyperlink.cc:55
+msgid "Error occurred while reading HTML file"
+msgstr "Chyba pøi naèítání HTML souboru"
+
+#: src/gui_file_find_hyperlink.cc:82 src/gui_file_find_hyperlink.cc:100
+msgid "Find Hyperlink"
+msgstr "Najít hyperodkaz"
+
+#. OK button
+#: src/gui_file_find_hyperlink.cc:116 src/ItemOption.cc:672
+#: src/AppOption.cc:213 src/gui_help.cc:191
+msgid "OK"
+msgstr "OK"
+
+# src/gui_file_open_url.cc:53
+#: src/gui_file_open_url.cc:53
+msgid "Error occurred while reading URL file"
+msgstr "Chyba pøi naèítání souboru s URL"
+
+#: src/gui_file_open_url.cc:78
+msgid "URL list opened"
+msgstr "Seznam URL otevøen"
+
+#: src/gui_file_open_crc.cc:51
+msgid "Error occurred while reading CRC file"
+msgstr "Chyba pøi naèítání souboru s CRC"
+
+#: src/gui_file_open_crc.cc:53
+msgid "CRC list opened"
+msgstr "Seznam CRC otevøen"
+
+#: src/gui_file_open_and_save.cc:59
+msgid "Failed to save lists"
+msgstr "Nepodaøilo se ulo¾it seznamy"
+
+#: src/gui_file_open_and_save.cc:61
+msgid "lists saved"
+msgstr "seznamù ulo¾eno"
+
+#: src/gui_file_open_and_save.cc:69 src/gui_toolbar.cc:280
+msgid "Save list"
+msgstr "Ulo¾it seznam"
+
+#: src/gui_file_open_and_save.cc:133
+msgid "Failed to load lists"
+msgstr "Nepodaøilo se naèíst list"
+
+#: src/gui_file_open_and_save.cc:135
+msgid "Saved list opened"
+msgstr "Ulo¾ený seznam otevøen"
+
+#.
+#. // ¸½ºß¤Î¥¢¥¤¥Æ¥à¥ê¥¹¥È¤òÊÝÂ¸¤â¤·¤¯¤ÏÇË´þ
+#. if(GTK_CLIST(itemlistwidget)->rows) {// if clist contains any items
+#. // ¸½ºß¤Î¥ê¥¹¥È¤òÊÝÂ¸¤¹¤ë¤«¤É¤¦¤«¿Ò¤Í¤ë
+#. AfterOpen = true;
+#. Prompt_save_or_not();
+#. } else {
+#.
+#. AfterOpen = false;
+#: src/gui_file_open_and_save.cc:163
+msgid "Open Saved list"
+msgstr "Otevøít ulo¾ený seznam"
+
+#: src/gui_item_new_item.cc:109
+msgid "item added"
+msgstr "polo¾ka pøidána"
+
+#. Error
+#: src/gui_item_new_item.cc:130 src/gui_list_new_list.cc:49
+#: src/gui_list_rename_list.cc:49 src/ItemOption.cc:327 src/ItemOption.cc:372
+#: src/ItemOption.cc:2325 src/PasteWindow.cc:93 src/PasteWindow.cc:178
+#: src/PasteWindow.cc:210 src/PasteWindow.cc:244 src/PasteWindow.cc:265
+#: src/PasteWindow.cc:295
+msgid "Error"
+msgstr "Chyba"
+
+#: src/gui_item_new_item.cc:131 src/ItemOption.cc:406
+msgid "Invalid URL"
+msgstr "Neplatné URL"
+
+#: src/gui_item_new_item.cc:155 src/gui_item.cc:457
+msgid "New item"
+msgstr "Nová polo¾ka"
+
+#. Add button
+#: src/gui_item_new_item.cc:172 src/ItemOption.cc:1830 src/ItemOption.cc:2080
+#: src/ItemOption.cc:2133 src/ItemOption.cc:2194 src/ItemOption.cc:2246
+#: src/ItemOption.cc:2525 src/ItemOption.cc:2773
+msgid "Add"
+msgstr "Pøidat"
+
+#. unfold button
+#: src/gui_item_new_item.cc:182
+msgid "Numerical expansion"
+msgstr "Èíselná expanze"
+
+#: src/gui_list_new_list.cc:50 src/gui_list_rename_list.cc:50
+msgid "The specified name already exists."
+msgstr "Udané jméno ji¾ existuje."
+
+#: src/gui_list_new_list.cc:67
+msgid "New list created"
+msgstr "Vytvoøen nový seznam"
+
+#: src/gui_list_new_list.cc:90 src/gui_list.cc:314 src/ListEntry.cc:215
+#: src/aria.h:75
+msgid "New list"
+msgstr "Nový seznam"
+
+#. Ok button
+#: src/gui_list_new_list.cc:107 src/gui_list_rename_list.cc:110
+msgid "Ok"
+msgstr ""
+
+#. label
+#: src/gui_list_new_list.cc:133 src/gui_list_rename_list.cc:136
+msgid "Name:"
+msgstr "Jméno:"
+
+#: src/gui_list_rename_list.cc:93
+msgid "Rename list"
+msgstr "Pøejmenovat seznam"
+
+#: src/gui_list.cc:49
+msgid "1 list deleted"
+msgstr "1 seznam odstranìn"
+
+#: src/gui_list.cc:57 src/gui_list.cc:322
+msgid "Delete current list"
+msgstr "Odstranit nynìj¹í seznam"
+
+#: src/gui_list.cc:58
+msgid "Are you sure to delete the current list?"
+msgstr "Opravdu chcete odstranit nynìj¹í seznam?"
+
+#: src/gui_list.cc:284
+msgid "Ascending"
+msgstr "Vzestupnì"
+
+#: src/gui_list.cc:289
+msgid "Descending"
+msgstr "Sestupnì"
+
+#: src/gui_list.cc:332
+msgid "Rename current list"
+msgstr "Pøejmenovat nynìj¹í seznam"
+
+#: src/gui_list.cc:342
+msgid "Move left"
+msgstr "Pøesunout doleva"
+
+#: src/gui_list.cc:350
+msgid "Move right"
+msgstr "Pøesunout doprava"
+
+#: src/gui_list.cc:360
+msgid "Previous list"
+msgstr "Pøedchozí seznam"
+
+#: src/gui_list.cc:368
+msgid "Next list"
+msgstr "Dal¹í seznam"
+
+#: src/gui_list.cc:379
+msgid "Sort"
+msgstr "Seøadit"
+
+#: src/gui_list.cc:385
+msgid "Filename"
+msgstr "Jméno souboru"
+
+# src/ItemOption.cc:1674
+#: src/gui_list.cc:389 src/ItemOption.cc:2090 src/ItemOption.cc:2256
+msgid "Extension"
+msgstr "Pøípona"
+
+#: src/gui_list.cc:393
+msgid "Downloaded size"
+msgstr "Sta¾ená velikost"
+
+#: src/gui_list.cc:397
+msgid "Total size"
+msgstr "Celková velikost"
+
+#: src/gui_list.cc:401
+msgid "Progress"
+msgstr "Postup"
+
+#: src/gui_list.cc:405 src/ListEntry.cc:616
+msgid "Retry"
+msgstr "Opakování"
+
+#: src/gui_list.cc:409 src/ItemOption.cc:839
+msgid "Recursive"
+msgstr "Vnoøení"
+
+#: src/gui_list.cc:413 src/ListEntry.cc:618
+msgid "Status"
+msgstr "Stav"
+
+#: src/gui_list.cc:417
+msgid "Save dir"
+msgstr "Ulo¾it do adresáøe"
+
+#. referer : url
+#: src/gui_list.cc:421 src/ItemOption.cc:719 src/ItemOption.cc:1629
+#: src/PasteWindow.cc:800 src/HistoryWindow.cc:278
+msgid "URL"
+msgstr "URL"
+
+#: src/gui_list.cc:426
+msgid "Shuffle list"
+msgstr "Promíchat seznam"
+
+#: src/gui_list.cc:439
+msgid "List"
+msgstr "Seznam"
+
+#: src/gui_item.cc:466
+msgid "Lock"
+msgstr "Uzamknout"
+
+#: src/gui_item.cc:476
+msgid "Unlock"
+msgstr "Odemknout"
+
+#: src/gui_item.cc:488
+msgid "Move item up"
+msgstr "Posunout polo¾ku vý¹e"
+
+#: src/gui_item.cc:498
+msgid "Move item down"
+msgstr "Posunout polo¾ku ní¾e"
+
+#: src/gui_item.cc:508
+msgid "Move item to top"
+msgstr "Pøesunout polo¾ku navrch"
+
+#: src/gui_item.cc:516
+msgid "Move item to bottom"
+msgstr "Pøesunout polo¾ku dospodu"
+
+#: src/gui_item.cc:526
+msgid "Lock error items"
+msgstr "Uzamknout chybné polo¾ky"
+
+#: src/gui_item.cc:536
+msgid "Clear downloaded item"
+msgstr "Odstranit sta¾ené polo¾ky"
+
+#: src/gui_item.cc:544
+msgid "Clear locked items"
+msgstr "Odstranit uzamèené polo¾ky"
+
+#: src/gui_item.cc:549
+msgid "Clear error items"
+msgstr "Odstranit chybné polo¾ky"
+
+#: src/gui_item.cc:554
+msgid "Clear stopped items"
+msgstr "Odstranit pozastavené polo¾ky"
+
+#: src/gui_item.cc:559
+msgid "Clear ready items"
+msgstr "Odstranit pøipravené polo¾ky"
+
+#: src/gui_item.cc:564
+msgid "Clear error, stopped and ready items"
+msgstr "Odstranit chybné, pozastavené a pøipravené polo¾ky"
+
+#: src/gui_item.cc:571
+msgid "Item"
+msgstr "Polo¾ka"
+
+#: src/gui_option.cc:120 src/gui_option.cc:510
+msgid "Clear system log"
+msgstr "Vymazat systémový log"
+
+#: src/gui_option.cc:121
+msgid "Are you sure to clear system log?"
+msgstr "Opravdu chcete vymazat systémový log?"
+
+#: src/gui_option.cc:388 src/PasteWindow.cc:579
+msgid "Selected item option"
+msgstr "Nastavení vybrané polo¾ky"
+
+#: src/gui_option.cc:398 src/gui_toolbar.cc:521 src/PasteWindow.cc:587
+msgid "Default item option for current list"
+msgstr "Výchozí nastavení polo¾ky pro nynìj¹í seznam"
+
+#: src/gui_option.cc:408 src/PasteWindow.cc:595
+msgid "Apply default item option"
+msgstr "Pou¾ít výchozí nastavení polo¾ky"
+
+#: src/gui_option.cc:415 src/PasteWindow.cc:603
+msgid "To selected items"
+msgstr "Na zvolené polo¾ky"
+
+#: src/gui_option.cc:420 src/PasteWindow.cc:608
+msgid "To all items in current list"
+msgstr "Na v¹echny polo¾ky v nynìj¹ím seznamu"
+
+#: src/gui_option.cc:428 src/gui_option.cc:452 src/PasteWindow.cc:616
+#: src/PasteWindow.cc:641
+msgid "All settings"
+msgstr "V¹echna nastavení"
+
+#: src/gui_option.cc:436 src/gui_option.cc:460 src/PasteWindow.cc:624
+#: src/PasteWindow.cc:649
+msgid "Ignore save directory"
+msgstr "Mimo adresáøe pro ukládání"
+
+#: src/gui_option.cc:444 src/gui_option.cc:468
+msgid "Ignore save directory and recursive settings"
+msgstr "Mimo adresáøe pro ukládání a nastavení vnoøení"
+
+#: src/gui_option.cc:475 src/ItemOption.cc:2871
+msgid "Default item option for new list"
+msgstr "Výchozí nastavení polo¾ky"
+
+#: src/gui_option.cc:483
+msgid "Application settings"
+msgstr "Nastavení aplikace"
+
+#: src/gui_option.cc:493
+msgid "Download history"
+msgstr "Historie stahování"
+
+#: src/gui_option.cc:501
+msgid "Toggle basket on/off"
+msgstr "Ko¹ zapnout/vypnout"
+
+#. item Option button
+#: src/gui_option.cc:518 src/PasteWindow.cc:738 src/PasteWindow.cc:876
+msgid "Option"
+msgstr "Nastavení"
+
+#: src/ItemOption.cc:373
+msgid ""
+"Specified directory does not exist.\n"
+"Do you wish to make it now?"
+msgstr ""
+"Zadaný adresáø neexistuje.\n"
+"Chcete jej vytvoøit?"
+
+#: src/ItemOption.cc:385
+msgid "Select directory"
+msgstr "Vyberte adresáø"
+
+#: src/ItemOption.cc:409
+msgid "Invalid Filename"
+msgstr "Neplatné jméno souboru"
+
+#: src/ItemOption.cc:412
+msgid "Invalid CRC"
+msgstr "Neplatné CRC"
+
+#: src/ItemOption.cc:415
+msgid "Invalid MD5"
+msgstr "Neplatné MD5"
+
+#: src/ItemOption.cc:607
+msgid "General"
+msgstr "Obecné"
+
+#. default button
+#: src/ItemOption.cc:693
+msgid "Default"
+msgstr "Výchozí"
+
+#: src/ItemOption.cc:725 src/ItemOption.cc:1226 src/ItemOption.cc:1761
+#: src/ItemOption.cc:2455
+msgid "Authentication"
+msgstr "Autentifikace"
+
+#: src/ItemOption.cc:731
+msgid "Download 1"
+msgstr "Stahování 1"
+
+#: src/ItemOption.cc:737
+msgid "Download 2"
+msgstr "Stahování 2"
+
+#: src/ItemOption.cc:743 src/AppOption.cc:194 src/AppOption.cc:299
+msgid "Command"
+msgstr "Pøíkaz"
+
+#: src/ItemOption.cc:767 src/ItemOption.cc:1605
+msgid "Referer"
+msgstr "Výchozí soubor"
+
+#: src/ItemOption.cc:773 src/ItemOption.cc:1661
+msgid "Cookie"
+msgstr ""
+
+#: src/ItemOption.cc:779
+msgid "Agent"
+msgstr "Agent"
+
+#: src/ItemOption.cc:785 src/ItemOption.cc:833 src/ItemOption.cc:1740
+#: src/ItemOption.cc:2433
+msgid "Proxy"
+msgstr "Proxy"
+
+#: src/ItemOption.cc:791
+msgid "Recursive 1"
+msgstr "Vnoøení 1"
+
+#: src/ItemOption.cc:797
+msgid "Recursive 2"
+msgstr "Vnoøení 2"
+
+#: src/ItemOption.cc:803 src/ItemOption.cc:845
+msgid "Misc"
+msgstr "Rùzné"
+
+#: src/ItemOption.cc:827
+msgid "Mode"
+msgstr "Mód"
+
+#: src/ItemOption.cc:1150
+msgid "Save as"
+msgstr "Ulo¾it jako"
+
+#: src/ItemOption.cc:1159
+msgid "Sync with URL"
+msgstr "Synchronizovat s URL"
+
+#: src/ItemOption.cc:1195
+msgid "Save directory"
+msgstr "Ulo¾it do adresáøe"
+
+#: src/ItemOption.cc:1205
+msgid "select"
+msgstr "Vybrat..."
+
+#: src/ItemOption.cc:1238 src/ItemOption.cc:1773 src/ItemOption.cc:2467
+msgid "Use authentication"
+msgstr "Pou¾ívat autentifikaci"
+
+#: src/ItemOption.cc:1248 src/ItemOption.cc:1782 src/ItemOption.cc:2476
+msgid "User name"
+msgstr "U¾ivatelské jméno"
+
+#: src/ItemOption.cc:1263 src/ItemOption.cc:1796 src/ItemOption.cc:2490
+msgid "Password"
+msgstr "Heslo"
+
+#: src/ItemOption.cc:1287
+msgid "Delete item when download completes"
+msgstr "Odstranit polo¾ku po dokonèení stahování"
+
+#: src/ItemOption.cc:1292
+msgid "Don't delete item if CRC/MD5 is not set"
+msgstr "Neodstranit polo¾ku pokud není nastaveno CRC/MD5"
+
+#: src/ItemOption.cc:1297
+msgid "Don't check CRC/MD5"
+msgstr "Nekontrolovat CRC/MD5"
+
+#: src/ItemOption.cc:1302
+msgid "Ignore CRC/MD5 error"
+msgstr "Ignorovat chybu CRC/MD5"
+
+#: src/ItemOption.cc:1307
+msgid "Use Content-MD5"
+msgstr "Pou¾ívat Content-MD5"
+
+#: src/ItemOption.cc:1312
+msgid "Do not download already existing files"
+msgstr "Nestahovat znovu ji¾ existující soubory"
+
+#: src/ItemOption.cc:1317
+msgid "Do not redownload if resuming is not available"
+msgstr "Nestahovat znovu pokud není mo¾né pokraèovat"
+
+#: src/ItemOption.cc:1327
+msgid "Time out (sec) "
+msgstr "Maximální doba odezvy (sek.) "
+
+#: src/ItemOption.cc:1349
+msgid "Retry (-1: unlimited) "
+msgstr "Poèet opakování (-1: neomezený) "
+
+#: src/ItemOption.cc:1389
+msgid "Retry interval (sec) "
+msgstr "Interval opakování (sek) "
+
+#: src/ItemOption.cc:1410
+msgid "Divide file into "
+msgstr "Rozdìlit soubor na "
+
+#: src/ItemOption.cc:1431
+msgid "Rollback (bytes) "
+msgstr "Pøevinout zpìt o (bajtù):"
+
+#: src/ItemOption.cc:1445
+msgid "Do not download the files less than (bytes) "
+msgstr "Nestahovat soubory men¹í ne¾ (bajtù) "
+
+#: src/ItemOption.cc:1468
+msgid "Resume"
+msgstr "Pokraèování"
+
+#. always resume
+#: src/ItemOption.cc:1481
+msgid "Always resume"
+msgstr "V¾dy pokraèovat"
+
+#. use if-modified-since
+#: src/ItemOption.cc:1487
+msgid "Resume if remote contents have not been modified"
+msgstr "Pokraèovat pokud vzdálený obsah nebyl zmìnìn"
+
+#. no resume
+#: src/ItemOption.cc:1492
+msgid "Do not resume"
+msgstr "Nepokraèovat"
+
+#: src/ItemOption.cc:1565
+msgid "Execute the following command after download"
+msgstr "Provést následující pøíkaz po dokonèení stahování"
+
+#: src/ItemOption.cc:1583
+msgid ""
+"Download again if the exit status is not in the following list (delimiter is "
+"',')"
+msgstr ""
+"Stáhnout znovu pokud návratová hodnota není\n"
+"v následujícím seznamu (oddìlovaèem je ',')"
+
+#. referer : none
+#: src/ItemOption.cc:1624
+msgid "none"
+msgstr "¾ádný"
+
+#: src/ItemOption.cc:1638
+msgid "user defined"
+msgstr "u¾ivatelem zvolený"
+
+#: src/ItemOption.cc:1668
+msgid "Delete cookie on restart (resume or error)"
+msgstr "Smazat cookie pøi restartu (pokraèování èi chyba)"
+
+#: src/ItemOption.cc:1672
+msgid "Do not send cookie"
+msgstr "Neposílat cookie"
+
+#: src/ItemOption.cc:1680
+msgid "Send user defined cookie"
+msgstr "Poslat u¾ivatelem zvolený cookie"
+
+#: src/ItemOption.cc:1702
+msgid "User Agent"
+msgstr "U¾ivatelský Agent"
+
+#: src/ItemOption.cc:1714
+msgid "Select randomly"
+msgstr "Vybírat náhodnì"
+
+#: src/ItemOption.cc:1755 src/ItemOption.cc:2448
+msgid "Use proxy"
+msgstr "Pou¾ívat proxy"
+
+#. toggle whether use cache or not
+#: src/ItemOption.cc:1809 src/ItemOption.cc:2541
+msgid "Use cache"
+msgstr "Pou¾ívat mezipamì»"
+
+#. label
+#: src/ItemOption.cc:1819 src/ItemOption.cc:2514
+msgid "Server : Port"
+msgstr ""
+
+#. delete button
+#: src/ItemOption.cc:1838 src/ItemOption.cc:2533 src/PasteWindow.cc:887
+msgid "Delete"
+msgstr "Odstranit"
+
+#. frame
+#: src/ItemOption.cc:1860 src/ItemOption.cc:2039 src/ItemOption.cc:2691
+msgid "Recursive download"
+msgstr "Vnoøující stahování"
+
+#: src/ItemOption.cc:1886 src/ItemOption.cc:2708
+msgid "Depth of recursion "
+msgstr "Hloubka vnoøení: "
+
+#: src/ItemOption.cc:1902
+msgid "With hostname directory"
+msgstr "Do adresáøe se jménem poèítaèe"
+
+#: src/ItemOption.cc:1911
+msgid "Convert absolute URLs to relative ones"
+msgstr "Pøevádìt URL z absolutních na relativní"
+
+#: src/ItemOption.cc:1920
+msgid "Force convert"
+msgstr "Vynucovat pøevod"
+
+#: src/ItemOption.cc:1925
+msgid "Delete comments"
+msgstr "Odstranit komentáøe"
+
+#: src/ItemOption.cc:1930
+msgid "Delete JavaScript"
+msgstr "Odstranit JavaSkripty"
+
+#: src/ItemOption.cc:1935
+msgid "Delete iframe"
+msgstr "Odstranit iframe"
+
+#: src/ItemOption.cc:1940
+msgid "No other host"
+msgstr "®ádný jiný poèítaè"
+
+#: src/ItemOption.cc:1950 src/ItemOption.cc:2724
+msgid "Do not ascend to parent directory"
+msgstr "Nevstupovat do nadøazeného adresáøe"
+
+#: src/ItemOption.cc:1955
+msgid "Only relative links"
+msgstr "Pouze relativní odkazy"
+
+#: src/ItemOption.cc:1961
+msgid "Referer override"
+msgstr "Vnutit se jako výchozí soubor"
+
+#: src/ItemOption.cc:1966
+msgid "Follow FTP link"
+msgstr "Následovat FTP odkaz"
+
+#: src/ItemOption.cc:1971
+msgid "Assume download is completed if resuming is not available"
+msgstr "Pokládat stahování za dokonèené pokud není mo¾né opakování"
+
+#: src/ItemOption.cc:1976 src/ItemOption.cc:2734
+msgid "Add to paste window"
+msgstr "Pøidávat pomocí vkládacího okna"
+
+#: src/ItemOption.cc:1988
+msgid "Tags"
+msgstr "Znaèky"
+
+#: src/ItemOption.cc:2000
+msgid "href"
+msgstr ""
+
+#: src/ItemOption.cc:2005
+msgid "src"
+msgstr ""
+
+#: src/ItemOption.cc:2010
+msgid "background"
+msgstr ""
+
+#: src/ItemOption.cc:2015
+msgid "codebase"
+msgstr ""
+
+# src/ItemOption.cc:905
+#. Parse Target extension clist
+#. frame
+#: src/ItemOption.cc:2058
+msgid "Extensions to parse"
+msgstr "Zpracovat soubory s pøíponou"
+
+#. Ignore Domain clist
+#. frame
+#: src/ItemOption.cc:2110
+msgid "Domains to ignore"
+msgstr "Ignorovat domény:"
+
+#: src/ItemOption.cc:2143
+msgid "Domain"
+msgstr "Doména"
+
+# src/ItemOption.cc:1014 src/ItemOption.cc:1637
+#. Download Target extension clist
+#. frame
+#: src/ItemOption.cc:2167 src/ItemOption.cc:2746
+msgid "Patterns to download"
+msgstr "Stahovat vzorky"
+
+#: src/ItemOption.cc:2181 src/ItemOption.cc:2760
+msgid "Use this filter"
+msgstr "Pou¾ívat tento filtr"
+
+#: src/ItemOption.cc:2204 src/ItemOption.cc:2783
+msgid "Pattern"
+msgstr "Vzorek"
+
+# src/ItemOption.cc:1070
+#. Ignore Download Target extension clist
+#. frame
+#: src/ItemOption.cc:2223
+msgid "Extensions to ignore"
+msgstr "Ignorovat soubory s pøíponou"
+
+#: src/ItemOption.cc:2296
+msgid "Retry even if HTTP status is 404"
+msgstr "Zkusit znovu i kdy¾ HTTP hlásí 404"
+
+#: src/ItemOption.cc:2301
+msgid "Retry even if HTTP status is 503"
+msgstr "Zkusit znovu i kdy¾ HTTP hlásí 503"
+
+#: src/ItemOption.cc:2306
+msgid "HTTP status 416 handling"
+msgstr "Obsluha HTTP stavu 416"
+
+#. Redownload
+#: src/ItemOption.cc:2330
+msgid "Redownload"
+msgstr "Znovu stáhnout"
+
+#: src/ItemOption.cc:2335
+msgid "Do not follow redirection"
+msgstr "Nenásledovat pøesmìrování"
+
+#: src/ItemOption.cc:2340
+msgid "Accept compression encodings"
+msgstr "Pøijmout kompresní kódování"
+
+#: src/ItemOption.cc:2353
+msgid "Use Accept-Language request header"
+msgstr "Pou¾ít hlavièku po¾adavku Accept-Language"
+
+#: src/ItemOption.cc:2367
+msgid "HTTP version "
+msgstr "verze HTTP "
+
+#: src/ItemOption.cc:2387
+msgid "Name of the file to use as a pre-written HTML"
+msgstr "Soubor, který bude pou¾it jako pøedepsané HTML "
+
+#. index.html
+#: src/ItemOption.cc:2400
+msgid "index.html"
+msgstr ""
+
+#. User defined
+#: src/ItemOption.cc:2410
+msgid "User defined"
+msgstr "U¾ivatelem urèený"
+
+#: src/ItemOption.cc:2546
+msgid "Via HTTP proxy"
+msgstr "Pøes HTTP proxy"
+
+#: src/ItemOption.cc:2551
+msgid "Login procedure"
+msgstr "Postup pøihla¹ování"
+
+#: src/ItemOption.cc:2600
+msgid "FTP mode"
+msgstr "FTP mód"
+
+#: src/ItemOption.cc:2628
+msgid "Retrieve mode"
+msgstr "Mód pøíjmu"
+
+#: src/ItemOption.cc:2668
+msgid "Don't send QUIT command"
+msgstr "Neposílat pøíkaz QUIT"
+
+#: src/ItemOption.cc:2673
+msgid "Don't send CWD command, instead use absolute path."
+msgstr "Neposílat pøíkaz CWD, místo toho pou¾ívat absolutní cestu"
+
+#: src/ItemOption.cc:2729
+msgid "Retrieve symbolic links as real files"
+msgstr "Pøijímat symbolické odkazy jako skuteèné soubory"
+
+#: src/ItemOption.cc:2865
+msgid "Selected items option"
+msgstr "Nastavení vybrané polo¾ky"
+
+#: src/ItemOption.cc:2867
+msgid "Default item option for "
+msgstr "Výchozí nastavení polo¾ky pro "
+
+#: src/ItemOption.cc:2919
+msgid "' option"
+msgstr "' nastavení"
+
+#: src/ItemStatusRec.cc:84
+msgid " item(s) added"
+msgstr " polo¾ek pøidáno"
+
+#: src/AppOption.cc:33 src/AppOption.cc:34
+msgid "<DEFAULT>"
+msgstr "<VÝCHOZÍ>"
+
+#: src/AppOption.cc:149
+msgid "Application Option"
+msgstr "Nastavení aplikace"
+
+#: src/AppOption.cc:177
+msgid "Confirmation"
+msgstr "Potvrzování"
+
+#: src/AppOption.cc:181
+msgid "Display"
+msgstr "Zobrazení"
+
+#: src/AppOption.cc:185
+msgid "Basket"
+msgstr "Ko¹"
+
+#: src/AppOption.cc:189
+msgid "Timer"
+msgstr "Èasovaè"
+
+#: src/AppOption.cc:199
+msgid "Server"
+msgstr "Server"
+
+#. ¥³¥Þ¥ó¥É¥ê¥¹¥È¹¹¿·¥Ü¥¿¥ó
+#: src/AppOption.cc:252 src/AppOption.cc:255 src/AppOption.cc:284
+msgid "Update Command list"
+msgstr "Aktualizovat seznam pøíkazù"
+
+#: src/AppOption.cc:253 src/AppOption.cc:348
+msgid "Update successful"
+msgstr "Aktualizace v poøádku"
+
+#: src/AppOption.cc:256 src/AppOption.cc:351
+msgid "Update failed"
+msgstr "Aktualizace se nezdaøila"
+
+#. toggle command list
+#: src/AppOption.cc:278
+msgid "Use Command list"
+msgstr "Pou¾ívat seznam pøíkazù"
+
+#. ¥³¥Þ¥ó¥É¥ê¥¹¥È¤ÎCList
+#: src/AppOption.cc:293
+msgid "Choose commands to use"
+msgstr "Zvolte pøíkazy, které chcete pou¾ívat:"
+
+#: src/AppOption.cc:300 src/AppOption.cc:393
+msgid "Comment"
+msgstr "Poznámka"
+
+#. server template update button
+#: src/AppOption.cc:347 src/AppOption.cc:350 src/AppOption.cc:378
+msgid "Update Server Template"
+msgstr "Aktualizovat serverovou ¹ablonu"
+
+#. toggle enable/disable Server Template feature
+#: src/AppOption.cc:372
+msgid "Use Server Template"
+msgstr "Pou¾ívat serverovou ¹ablonu"
+
+#. CList for Server Template
+#: src/AppOption.cc:387
+msgid "Choose templates to use"
+msgstr "Zvolte ¹ablony, které chcete pou¾ívat:"
+
+#: src/AppOption.cc:392
+msgid "Template"
+msgstr "©ablona"
+
+#: src/AppOption.cc:562
+msgid "Display sizes in human readable format (e.g. 1.2K 234.1M 2.2G)"
+msgstr "Velikosti zobrazovat v lidsky èitelném fromátu (napø. 1.2K 234.1M 2.2G)"
+
+#: src/AppOption.cc:570
+msgid "Status Icon"
+msgstr "Stavová ikona"
+
+#: src/AppOption.cc:624
+msgid "Icon set"
+msgstr "Sada ikon"
+
+#: src/AppOption.cc:650 src/AppOption.cc:916
+msgid "Apply"
+msgstr "Pou¾ít"
+
+#: src/AppOption.cc:757
+msgid "error"
+msgstr "chyba"
+
+#: src/AppOption.cc:758
+msgid "cannot read pixmap file"
+msgstr "nemohu naèíst soubor ikony"
+
+#: src/AppOption.cc:843
+msgid "Bypass paste window"
+msgstr "Obcházet vkládací okno"
+
+#: src/AppOption.cc:849
+msgid "Pixmap on DND Basket"
+msgstr "Soubor pixelové mapy pro ko¹ táhni-a-pus»"
+
+#: src/AppOption.cc:863
+msgid "Preview"
+msgstr "Náhled"
+
+#: src/AppOption.cc:889
+msgid "Pixmap"
+msgstr "Pixelová mapa"
+
+#. ¥¢¥¤¥Æ¥à¤òºï½ü¤¹¤ë¤È¤­¤Ë³ÎÇ§¤¹¤ë¤«¤É¤¦¤«
+#: src/AppOption.cc:940
+msgid "Confirm clear"
+msgstr "Potvrzovat mazání"
+
+# src/AppOption.cc:633
+#. confirm delete list
+#: src/AppOption.cc:946
+msgid "Confirm delete list"
+msgstr "Potvrzovat odstranìní seznamu"
+
+# src/AppOption.cc:633
+#. ¥×¥í¥°¥é¥à½ªÎ»»þ¤Ë³ÎÇ§¤¹¤ë¤«¤É¤¦¤«
+#: src/AppOption.cc:951
+msgid "Confirm exit"
+msgstr "Potvrzovat ukonèení programu"
+
+#. ¥í¥°¥¯¥ê¥¢»þ¤Ë³ÎÇ§¤¹¤ë¤«¤É¤¦¤«
+#: src/AppOption.cc:957
+msgid "Confirm clear system log"
+msgstr "Potvrzovat vymazání systémového logu"
+
+#: src/AppOption.cc:980
+msgid "Use start timer"
+msgstr "Pou¾ívat èasovaè ke spou¹tìní"
+
+#: src/AppOption.cc:984
+msgid "Start (hour : min) "
+msgstr "Spustit v (hod.:min.)"
+
+#: src/AppOption.cc:1023
+msgid "Use stop timer"
+msgstr "Pou¾ívat èasovaè k pozastavení"
+
+#: src/AppOption.cc:1027
+msgid "Stop (hour : min) "
+msgstr "Pozastavit v (hod.:min.)"
+
+#: src/AppOption.cc:1066
+msgid "Do not stop downloads when timer expires"
+msgstr "Nepozastavovat stahování i kdy¾ vypr¹í èasovaè"
+
+#: src/AppOption.cc:1107
+msgid "The number of simultaneous downloads for new list "
+msgstr "Poèet souèasnì stahovaných souborù pro nový seznam "
+
+#. toggle automatic start
+#: src/AppOption.cc:1128
+msgid "Start downloads automatically"
+msgstr "Automaticky spou¹tìt stahování"
+
+#. toggle automatic start modifier
+#: src/AppOption.cc:1139
+msgid "Only current list"
+msgstr "Pouze nynìj¹í seznam"
+
+#. force download now (stopping other downloads if necessary)
+#: src/AppOption.cc:1149
+msgid "Force download now (stopping other downloads if necessary)"
+msgstr "Vynutit stahování (v pøípadì nutnosti pozastavit ostatní stahování)"
+
+#. toggle ignore error item in "Start All" menu
+#: src/AppOption.cc:1155
+msgid "Ignore error'ed items in \"Start All\" menu"
+msgstr "Ignorovat chybnou polo¾ku pøi pøíkazu \"Spustit v¹e\""
+
+#. ignore list in find hyperlink
+#: src/AppOption.cc:1161
+msgid "Ignore these extensions when finding hyperlink"
+msgstr "Ignorovat následující pøípony pøi hledání hyperodkazu:"
+
+#. toggle autosave
+#: src/AppOption.cc:1178
+msgid "Autosave (list, history and options) every "
+msgstr "Automaticky ukládat seznam, historii a nastavení ka¾dých "
+
+#: src/AppOption.cc:1194
+msgid "minute(s)"
+msgstr "minut"
+
+#: src/AppOption.cc:1204
+msgid "Max entry of download history"
+msgstr "Max. poèet polo¾ek historie stahování"
+
+#: src/AppOption.cc:1227
+msgid "Max value of speed limiter"
+msgstr "Max. hodnota omezení rychlosti"
+
+#: src/AppOption.cc:1253
+msgid "Execute command when:"
+msgstr "Provést pøíkaz pokud:"
+
+#: src/AppOption.cc:1262
+msgid "all downloads are stopped or completed"
+msgstr "ve¹keré stahování je pozastaveno nebo dokonèeno"
+
+#: src/AppOption.cc:1271
+msgid "timer expires"
+msgstr "vypr¹í èas"
+
+#: src/AppOption.cc:1280
+msgid "Command "
+msgstr "Pøíkaz "
+
+#: src/AppOption.cc:1291
+msgid "Quit Aria when all downloads are over or stopped by timer"
+msgstr "Ukonèit Ariu, kdy¾ jsou v¹echna stahování dokonèena nebo pozastavena èasovaèem"
+
+#: src/ListEntry.cc:609
+msgid "*"
+msgstr "*"
+
+#: src/ListEntry.cc:611
+msgid "Downloaded"
+msgstr "Sta¾eno"
+
+#: src/ListEntry.cc:612 src/HistoryWindow.cc:276
+msgid "Total"
+msgstr "Celkem"
+
+#: src/ListEntry.cc:613
+msgid "%"
+msgstr "%"
+
+#: src/ListEntry.cc:614
+msgid "Speed"
+msgstr "Rychlost"
+
+#: src/ListEntry.cc:615
+msgid "Remaining"
+msgstr "Zbývající èas"
+
+#: src/ListEntry.cc:617
+msgid "Recurse"
+msgstr "Vnoøení"
+
+#: src/ListEntry.cc:621 src/PasteWindow.cc:801 src/HistoryWindow.cc:279
+msgid "Save"
+msgstr "Ulo¾it do"
+
+#: src/ListEntry.cc:997
+msgid "DIVIDED"
+msgstr "ROZDÌLEN"
+
+#: src/ListEntry.cc:1005
+msgid "READY TO CONCAT"
+msgstr "PØIPRAVEN NA POSKLÁDÁNÍ"
+
+#: src/ListEntry.cc:1013
+msgid "CRC ERROR"
+msgstr "CHYBA CRC"
+
+#: src/ListEntry.cc:1020
+msgid "EXEC ERROR"
+msgstr "CHYBA PØI PROVÁDÌNÍ PØÍKAZU"
+
+#: src/ListEntry.cc:1027
+msgid "DOWNLOAD ERROR"
+msgstr "CHYBA PØI STAHOVÁNÍ"
+
+#: src/ListEntry.cc:1042
+msgid "LOCKED"
+msgstr "UZAMÈENO"
+
+#: src/ListEntry.cc:1051
+msgid "DOWNLOADING"
+msgstr "STAHUJI"
+
+#: src/ListEntry.cc:1059
+msgid "DOWNLOAD COMPLETE"
+msgstr "STAHOVÁNÍ DOKONÈENO"
+
+#: src/gui_toolbar.cc:298
+msgid "Paste URL list from clipboard"
+msgstr "Vlo¾it seznam URL ze schránky"
+
+#: src/gui_toolbar.cc:320
+msgid "Clear item(s)"
+msgstr "Odstranit oznaèené polo¾ky"
+
+#: src/gui_toolbar.cc:336
+msgid "Start downloading selected item(s)"
+msgstr "Spustit stahování oznaèených polo¾ek"
+
+#: src/gui_toolbar.cc:352
+msgid "Stop downloading selected item(s)"
+msgstr "Pozastavit stahování oznaèených polo¾ek"
+
+#: src/gui_toolbar.cc:368
+msgid "Download again selected item(s)"
+msgstr "Znovu stáhnout oznaèené polo¾ky"
+
+#: src/gui_toolbar.cc:384
+msgid "Item option"
+msgstr "Nastavení polo¾ky"
+
+#: src/gui_toolbar.cc:400
+msgid "Lock selected item(s)"
+msgstr "Uzamknout oznaèené polo¾ky"
+
+#: src/gui_toolbar.cc:417
+msgid "Unlock selected item(s)"
+msgstr "Odemknout oznaèené polo¾ky"
+
+#: src/gui_toolbar.cc:433
+msgid "Move up"
+msgstr "Posunout vý¹"
+
+#: src/gui_toolbar.cc:449
+msgid "Move down"
+msgstr "Posunout ní¾"
+
+#: src/gui_toolbar.cc:470
+msgid "Track download"
+msgstr "Stahování"
+
+#: src/gui_toolbar.cc:489
+msgid "Start downloading all items"
+msgstr "Spustit stahování v¹ech polo¾ek"
+
+#: src/gui_toolbar.cc:505
+msgid "Stop downloading all items"
+msgstr "Pozastavit stahování v¹ech polo¾ek"
+
+#: src/gui_toolbar.cc:553
+msgid "Adjust the number of working thread"
+msgstr "Upravit poèet pracujících vláken"
+
+#: src/gui_help.cc:44 src/gui_help.cc:214
+msgid "About Aria"
+msgstr "O programu Aria"
+
+#: src/gui_help.cc:91
+msgid "Rollout: "
+msgstr "Vydáno: "
+
+#. gtk_text_insert(GTK_TEXT(text), NULL, NULL, NULL, line.c_str(), -1);
+#. show transraters
+#. line.erase();
+#: src/gui_help.cc:98
+msgid "Translations:"
+msgstr "Pøeklady:"
+
+#: src/gui_help.cc:99
+msgid "(Czech)"
+msgstr "(Èe¹tina)"
+
+#: src/gui_help.cc:100
+msgid "(Spanish)"
+msgstr "(©panìl¹tina)"
+
+#: src/gui_help.cc:101 src/gui_help.cc:102
+msgid "(French)"
+msgstr "(Francouz¹tina)"
+
+#: src/gui_help.cc:103
+msgid "(German)"
+msgstr "(Nìmèina)"
+
+#: src/gui_help.cc:104
+msgid "(Hungarian)"
+msgstr "(Maïar¹tina)"
+
+#: src/gui_help.cc:105
+#, fuzzy
+msgid "(Italian)"
+msgstr "(Maïar¹tina)"
+
+#: src/gui_help.cc:106
+msgid "(Japanese)"
+msgstr "(Japon¹tina)"
+
+#: src/gui_help.cc:107
+msgid "(Polish)"
+msgstr "(Pol¹tina)"
+
+#: src/gui_help.cc:108
+msgid "(Russian)"
+msgstr "(Ru¹tina)"
+
+#: src/gui_help.cc:109
+msgid "(Traditional Chinese)"
+msgstr ""
+
+#. gtk_text_insert(GTK_TEXT(text), NULL, NULL, NULL, line.c_str(), -1);
+#. show special thanks
+#. line.erase();
+#: src/gui_help.cc:117
+msgid "Aria Logo:"
+msgstr "Logo programu Aria:"
+
+#: src/gui_help.cc:121
+msgid "Special Thanks:"
+msgstr "Zvlá¹tní podìkování:"
+
+#: src/gui_help.cc:127
+msgid "    and all who support Aria"
+msgstr "    a v¹em, kdo podporují Ariu"
+
+#. gtk_text_insert(GTK_TEXT(text), NULL, NULL, NULL, line.c_str(), -1);
+#. GPL issue
+#. line.erase();
+#: src/gui_help.cc:134
+msgid "License:"
+msgstr "Licence:"
+
+#: src/gui_help.cc:136
+msgid ""
+"This program is free software; you can redistribute it and/or modify it "
+"under the terms of the GNU General Public License as published by the Free "
+"Software Foundation; either version 2 of the License, or (at your option) "
+"any later version.\n"
+"\n"
+"This program is distributed in the hope that it will be useful, but WITHOUT "
+"ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or "
+"FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for "
+"more details.\n"
+"\n"
+"You should have received a copy of the GNU General Public License along with "
+"this program; if not, write to the Free Software Foundation, Inc., 59 Temple "
+"Place - Suite 330, Boston, MA 02111-1307, USA."
+msgstr ""
+"Tento program je volný software; mù¾ete jej dále ¹íøit a/nebo mìnit v souladu s podmínkami GNU Obecné Veøejné Licence, publikované Nadací pro Volný Software (Free Software Foundation); v souladu buï s verzí 2 této Licence nebo (dle Va¹í volby) s kteroukoli pozdìj¹í verzí.\n"
+"\n"
+"Tento program je distribuován ve víøe, ¾e bude u¾iteèný, ale BEZ JAKÉKOLI ZÁRUKY; dokonce bez vyplývající záruky PRODEJNOSTI nebo VHODNOSTI PRO URÈITÝ ÚÈEL. Pøeètìte si GNU Obecnou Veøejnou Licenci pro dal¹í podrobnosti.\n"
+"\n"
+"Kopii GNU Obecné Veøejné Licence byste mìli dostat spolu s tímto programem; pokud ne, napi¹te si o ni na adresu:\n"
+"Free Software Foundation, Inc.\n"
+"59 Temple Place - Suite 330\n"
+"Boston, MA 02111-1307, USA.\n"
+"\n"
+"nebo nav¹tivte stránku http://www.gnu.cz/"
+
+#. gtk_text_insert(GTK_TEXT(text), NULL, NULL, NULL, line.c_str(), -1);
+#. show compile information
+#. line.erase();
+#: src/gui_help.cc:172
+msgid "Built on:"
+msgstr "Zkompilováno na:"
+
+#: src/gui_help.cc:231
+msgid "Help"
+msgstr "Nápovìda"
+
+#. OK button
+#: src/Dialog.cc:168
+msgid "Yes"
+msgstr "Ano"
+
+#. No button
+#: src/Dialog.cc:180
+msgid "No"
+msgstr "Ne"
+
+#: src/PasteWindow.cc:94 src/PasteWindow.cc:179 src/PasteWindow.cc:211
+#: src/PasteWindow.cc:245 src/PasteWindow.cc:266 src/PasteWindow.cc:296
+msgid "The specified list no longer exists."
+msgstr "Udaný seznam ji¾ neexistuje."
+
+#. create a combobox to allow users to choose the list to drop items
+#: src/PasteWindow.cc:783
+msgid "Paste to "
+msgstr "Vlo¾it do "
+
+#. create a toggle button to toggle whether or not downloads should be
+#. started automatically.
+#: src/PasteWindow.cc:794
+msgid "Start downloading when pasted"
+msgstr "Spustit stahování po vlo¾ení"
+
+#. Paste button
+#: src/PasteWindow.cc:863 src/HistoryWindow.cc:345
+msgid "Paste"
+msgstr "Vlo¾it"
+
+#: src/HistoryWindow.cc:259
+msgid "History URL list"
+msgstr "Historie - seznam pou¾itých URL"
+
+#: src/HistoryWindow.cc:277
+msgid "Date"
+msgstr "Datum"
+
+#. Close button
+#: src/HistoryWindow.cc:366
+msgid "Close"
+msgstr "Zavøít"
+
+#: src/HistoryWindow.cc:600
+msgid "Query"
+msgstr "Vyhledat"

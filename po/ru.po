@@ -1,0 +1,3321 @@
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2002-12-16 22:05+0900\n"
+"PO-Revision-Date: 2001-11-01 22:42GMT\n"
+"Last-Translator: Igor V. Youdytsky <Pitcher@newmail.ru>\n"
+"Language-Team: Russian <ru@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=KOI8-R\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 0.9.5\n"
+
+# src/main.cc:85
+#: src/main.cc:108
+msgid "Usage: aria [OPTION]..."
+msgstr "Использование aria [опции]..."
+
+# src/RetrieveFTP.cc:1259 src/RetrieveFTP2.cc:290 src/RetrieveHTTP.cc:775
+# src/RetrieveHTTP2.cc:206
+# src/main.cc:86
+#: src/main.cc:109
+msgid "Yet another download tool"
+msgstr "Еще одно средство закачки"
+
+# src/PasteWindow.cc:573 src/PasteWindow.cc:685 src/gui_option.cc:542
+# src/main.cc:89
+#. command line options
+#: src/main.cc:112
+msgid "Options:"
+msgstr "Настройки"
+
+# src/main.cc:90
+#: src/main.cc:113
+msgid "  -g, --get URL                    URL to get"
+msgstr "  -g, --get URL                    закачать адрес"
+
+# src/main.cc:91
+#: src/main.cc:114
+msgid "  -d, --dir SAVEDIR                save directory"
+msgstr "  -d, --dir SAVEDIR                директория для сохранения"
+
+# src/main.cc:92
+#: src/main.cc:115
+msgid "  -r, --ref REFERER                referer"
+msgstr "  -r, --ref REFERER                ссылка"
+
+# src/main.cc:93
+#: src/main.cc:116
+msgid "  -u, --url-list FILE              open URL list"
+msgstr "  -u, --url-list FILE              открыть список адресов"
+
+# src/main.cc:94
+#: src/main.cc:117
+msgid "  -c, --crc-list FILE              open CRC list"
+msgstr "  -c, --crc-list FILE              открыть CRC списка"
+
+# src/main.cc:114
+#: src/main.cc:118
+msgid "  --basket                         Show basket and iconify Aria"
+msgstr "  --Корзина                       Показать корзину и иконки"
+
+# src/main.cc:95
+#: src/main.cc:119
+msgid "  -v, --version                    print version information"
+msgstr "  -v, --version                    вывести версию"
+
+# src/main.cc:96
+#: src/main.cc:120
+msgid "  -h, --help                       print this help"
+msgstr "  -h, --help                       этот экран помощи"
+
+# src/main.cc:97
+#: src/main.cc:121
+msgid "  --initrc                         initialize resource files"
+msgstr "  --initrc                         инициализовать файл ресурсов"
+
+#: src/main.cc:122
+msgid ""
+"  --geometry WIDTHxHEIGHT+XOFF+YOFF\n"
+"                                   set the size and position of main window"
+msgstr ""
+"  --geometry WIDTHxHEIGHT+XOFF+YOFF\n"
+"                                   установить размер и положение главного "
+"окна"
+
+# src/main.cc:99
+#: src/main.cc:123
+msgid ""
+"  --thread-limit-override NUM      if you want more simultaneous downloads..."
+msgstr "  --thread-limit-override NUM      количество одновременных закачек..."
+
+# src/main.cc:101
+#: src/main.cc:125
+msgid ""
+"Control Options:\n"
+" the following options are effective only when another aria is already "
+"running"
+msgstr ""
+"Опции управления:\n"
+" следующие опции действуют только когда другой процесс программы запущен"
+
+# src/main.cc:103
+#: src/main.cc:127
+msgid "  -s, --start                      start all downloads"
+msgstr "  -s, --start                      запустить все закачки"
+
+# src/main.cc:104
+#: src/main.cc:128
+msgid "  -p, --stop                       stop all downloads"
+msgstr "  -p, --stop                       остановить все закачки"
+
+# src/main.cc:105
+#: src/main.cc:129
+msgid "  -a, --again                      re-download all items"
+msgstr "  -a, --again                      перезакачать все файлы"
+
+# src/main.cc:106
+#: src/main.cc:130
+msgid "  -q, --quit                       quit Aria(with no confirmation)"
+msgstr ""
+"  -q, --quit                       выйти из программы (без подтверждений)"
+
+# src/main.cc:107
+#: src/main.cc:131
+msgid "  --list-name                      show the name of the current list"
+msgstr "  --list-name                      показать имя текущего списка"
+
+# src/main.cc:108
+#: src/main.cc:132
+msgid "  --list-prev                      switch to the previous list"
+msgstr "  --list-prev                      переключиться на предыдущий список"
+
+# src/main.cc:109
+#: src/main.cc:133
+msgid "  --list-next                      switch to the next list"
+msgstr "  --list-next                      переключиться на следующий список"
+
+# src/main.cc:110
+#: src/main.cc:134
+msgid "  --list-delete                    delete the current list"
+msgstr "  --list-delete                    удалить текущий список"
+
+# src/main.cc:111
+#: src/main.cc:135
+msgid "  --clear-complete                 clear downloaded items"
+msgstr "  --clear-complete                 удалить закачаные адреса"
+
+# src/main.cc:112
+#: src/main.cc:136
+msgid "  --ls-complete                    show URLs downloaded"
+msgstr "  --ls-complete                    показать закачанные адреса"
+
+# src/main.cc:113
+#: src/main.cc:137
+msgid "  --ls-ready                       show URLs waiting in queue"
+msgstr "  --ls-ready                       показать адреса в очереди"
+
+# src/main.cc:114
+#: src/main.cc:138
+msgid "  --ls-error                       show URLs in error"
+msgstr "  --ls-error                       показать адреса с ошибками"
+
+# src/main.cc:115
+#: src/main.cc:139
+msgid "  --ls-run                         show URLs now downloading"
+msgstr "  --ls-run                         показать закачиваемые адреса"
+
+# src/main.cc:116
+#: src/main.cc:140
+msgid "  --ls-stop                        show URLs stopped"
+msgstr "  --ls-stop                        показать остановленные адреса"
+
+# src/main.cc:117
+#: src/main.cc:141
+msgid "  --ls-lock                        show URLs locked"
+msgstr "  --ls-lock                        показать заблокированные адреса"
+
+# src/main.cc:118
+#: src/main.cc:142
+msgid "  --ls-all                         show all URLs in queue"
+msgstr "  --ls-all                         показать всю очередь"
+
+# src/main.cc:124
+#: src/main.cc:148
+msgid "Compiled date: "
+msgstr "Дата сборки: "
+
+#: src/main.cc:150
+msgid "Copyright (C) 2000-2002 Tatsuhiro Tsujikawa"
+msgstr ""
+
+#: src/main.cc:152 src/gui_help.cc:149
+msgid ""
+"The part of directory browser is a modified code, the original code was "
+"written by Peter Alm, Mikael Alm, Olle Hallnas, Thomas Nilsson and 4Front "
+"Technologies.\n"
+"The original code is copyrighted by Peter Alm, Mikael Alm, Olle Hallnas, "
+"Thomas Nilsson and 4Front Technologies."
+msgstr ""
+
+#: src/main.cc:154 src/gui_help.cc:153
+msgid ""
+"The part of MD5 checking is a modified code, the original code was written "
+"for GnuPG, copyrighted 1995, 1996, 1998, 1999 Free Software Foundation, Inc."
+msgstr ""
+
+#: src/main.cc:157 src/gui_help.cc:159
+msgid ""
+"This program uses zlib, Copyright (C) 1995-1998 Jean-loup Gailly and Mark "
+"Adler"
+msgstr ""
+
+#: src/main.cc:160 src/gui_help.cc:164
+msgid ""
+"This program uses OpenSSL, Copyright (C) 1995-1998 Eric Young (eay@cryptsoft."
+"com)"
+msgstr ""
+
+# src/main.cc:185
+#: src/main.cc:244
+msgid "Status (Ready/Error/Downloading/Stop/Complete/Lock)"
+msgstr "Статус (Ready/Error/Downloading/Stop/Complete/Lock)"
+
+# src/main.cc:186
+#: src/main.cc:245
+msgid "Split?(Yes/No/split Parts)"
+msgstr "Поменять?(Yes/No/split Parts)"
+
+# src/HistoryWindow.cc:229 src/gui_main.cc:1001
+# src/main.cc:204
+#: src/main.cc:263
+msgid "Total "
+msgstr "Всего "
+
+# src/HistoryWindow.cc:231 src/ItemOption.cc:656 src/ItemOption.cc:1302
+# src/PasteWindow.cc:612
+# src/main.cc:204
+#: src/main.cc:263
+msgid " URLs"
+msgstr " Адреса"
+
+# src/main.cc:209
+#: src/main.cc:268
+msgid "Another Aria is not running. This option makes no effect."
+msgstr "Еще один процесс программы не запущен. Эти опции безрезультатны."
+
+# src/main.cc:515
+# src/main.cc:587
+#. read server config file
+#: src/main.cc:747
+msgid "Reading Server Template file..."
+msgstr "Чтение шаблона настройки Сервера..."
+
+# src/main.cc:518
+# src/main.cc:591
+#: src/main.cc:751
+msgid "Server Template status : good"
+msgstr "Статус настройки Сервера : ОК"
+
+# src/main.cc:520
+# src/main.cc:594
+#: src/main.cc:754
+msgid "Server Template status : error"
+msgstr "Статус настройки Сервера : ошибка"
+
+# src/main.cc:523
+# src/main.cc:598
+#. read command list file
+#: src/main.cc:758
+msgid "Reading Command list file..."
+msgstr "Чтение списка команд..."
+
+# src/main.cc:525
+# src/main.cc:601
+#: src/main.cc:761
+msgid "Command list status : good"
+msgstr "Статус списка команд : ОК"
+
+# src/main.cc:527
+# src/main.cc:604
+#: src/main.cc:764
+msgid "Command list status : error"
+msgstr "Статус списка команд : ошибка"
+
+# src/main.cc:531
+# src/main.cc:609
+#. read default item option
+#: src/main.cc:769
+msgid "Reading Default item config file..."
+msgstr "Чтение настроек по умолчанию для адреса..."
+
+# src/main.cc:533
+# src/main.cc:612
+#: src/main.cc:772
+msgid "Default item config status: error >> using default config"
+msgstr ""
+"Статус настроек адреса по умолчанию: ошибка >> использую обычные настройки"
+
+# src/main.cc:621
+# src/main.cc:703
+#: src/main.cc:881
+msgid "Default item config status: good"
+msgstr "Статус настроек адреса по умолчанию: ОК"
+
+# src/main.cc:625
+# src/main.cc:708
+#. read application setting
+#: src/main.cc:886
+msgid "Reading Application config file..."
+msgstr "Чтение файла настройки программы..."
+
+# src/main.cc:627
+# src/main.cc:710
+#: src/main.cc:890
+msgid "Application config status: error >> using default config"
+msgstr ""
+"Статус настройки программы : ошибка >> использую настройки по умолчанию"
+
+# src/main.cc:636
+# src/main.cc:720
+#: src/main.cc:901
+msgid "Application config status: good"
+msgstr "Статус настройки программы : ОК"
+
+# src/main.cc:642
+# src/main.cc:726
+#: src/main.cc:909
+msgid "URL file read error"
+msgstr "Ошибка чтения файла адреса"
+
+# src/main.cc:644
+# src/main.cc:728
+#: src/main.cc:911
+msgid "URL file opened"
+msgstr "Файл адреса открыт"
+
+# src/main.cc:648
+# src/main.cc:732
+#: src/main.cc:915
+msgid "Saved file opened"
+msgstr "Открыт сохраненный файл"
+
+# src/main.cc:672
+# src/main.cc:756
+#: src/main.cc:939
+msgid "CRC file read error"
+msgstr "Ошибка контрольной суммы"
+
+# src/main.cc:674
+# src/main.cc:758
+#: src/main.cc:941
+msgid "CRC file opened"
+msgstr "Файл контрольной суммы открыт"
+
+# src/gui_main.cc:269
+# src/main.cc:764
+#: src/main.cc:947
+msgid "Ready"
+msgstr "Готово"
+
+# src/RetrieveFTP2.cc:281 src/RetrieveHTTP2.cc:203 src/download.cc:101
+# src/RetrieveFTP2.cc:281 src/RetrieveHTTP2.cc:203 src/download.cc:103
+#: src/download.cc:146 src/RetrieveHTTP2.cc:229 src/RetrieveFTP2.cc:313
+msgid "A part of '"
+msgstr "Часть "
+
+# src/download.cc:101 src/download.cc:109
+# src/download.cc:103 src/download.cc:111
+#: src/download.cc:146 src/download.cc:154
+msgid "' download complete"
+msgstr " загрузка завершена"
+
+# src/HistoryWindow.cc:345 src/ItemList.cc:371 src/ItemList.cc:977
+# src/ItemOption.cc:2390 src/download.cc:105 src/gui_edit.cc:232
+# src/gui_main.cc:230 src/gui_main.cc:568
+# src/HistoryWindow.cc:345 src/ItemList.cc:399 src/ItemList2.cc:672
+# src/ItemOption.cc:2436 src/ListEntry.cc:601 src/download.cc:107
+# src/download.cc:267 src/gui_edit.cc:229 src/gui_main.cc:385
+#: src/download.cc:150 src/download.cc:377 src/gui_main.cc:371
+#: src/ItemList.cc:413 src/ItemList2.cc:783 src/gui_edit.cc:255
+#: src/ItemOption.cc:2915 src/ListEntry.cc:957 src/HistoryWindow.cc:405
+msgid "<directory>"
+msgstr "<Директория>"
+
+# src/download.cc:138
+# src/download.cc:140
+#: src/download.cc:180
+msgid "Starting split download"
+msgstr "Начал множественную загрузку"
+
+# src/download.cc:153 src/download.cc:210
+# src/download.cc:155 src/download.cc:212
+#: src/download.cc:195 src/download.cc:290
+msgid "Download stopped"
+msgstr "Загрузка остановлена"
+
+# src/gui_file_open_url.cc:56
+# src/gui_file_open_url.cc:53
+#: src/download.cc:244
+msgid "Error occurred while deleting files"
+msgstr "Ошибка удаления файлов"
+
+# src/download.cc:183
+# src/download.cc:185
+#: src/download.cc:255
+msgid "Wait for "
+msgstr "Пауза "
+
+# src/AppOption.cc:532
+# src/AppOption.cc:526
+#: src/download.cc:255
+msgid " seconds"
+msgstr " секунд"
+
+# src/ItemCell.cc:210 src/download.cc:235 src/gui_download.cc:1243
+# src/ItemCell.cc:218 src/RetrieveHTTP.cc:336 src/download.cc:237
+# src/gui_download.cc:1114
+#: src/download.cc:319 src/ItemCell.cc:222 src/RetrieveHTTP.cc:393
+#: src/gui_download.cc:1344
+msgid "Download again"
+msgstr "Повторная загрузка"
+
+# src/download.cc:261
+# src/download.cc:269
+#: src/download.cc:379
+msgid "' download aborted"
+msgstr " загрузка прервана"
+
+# src/ItemCell.cc:309 src/download.cc:354
+# src/ItemCell.cc:343 src/download.cc:362
+#: src/download.cc:469 src/download.cc:484 src/ItemCell.cc:353
+msgid "Executing program: "
+msgstr "Выполнение программы: "
+
+# src/download.cc:376
+# src/download.cc:384
+#: src/download.cc:513
+msgid "Command line is '"
+msgstr "Командная строка "
+
+# src/download.cc:384
+# src/download.cc:392
+#: src/download.cc:521
+msgid "Exit status is "
+msgstr "Код возврата "
+
+# src/ItemCell.cc:321 src/download.cc:387
+# src/ItemCell.cc:355 src/download.cc:395
+#: src/download.cc:524 src/ItemCell.cc:365
+msgid "Program exited abnormally"
+msgstr "Аварийное завершение программы"
+
+# src/ItemCell.cc:313 src/download.cc:393
+# src/ItemCell.cc:347 src/download.cc:401
+#: src/download.cc:530 src/ItemCell.cc:357
+msgid "Good exit status"
+msgstr "Нормальное завершение"
+
+# src/ItemCell.cc:317 src/download.cc:395
+# src/ItemCell.cc:351 src/download.cc:403
+#: src/download.cc:532 src/ItemCell.cc:361
+msgid "Bad exit status"
+msgstr "Ненормальное завершение"
+
+# src/ItemCell.cc:324 src/download.cc:401
+# src/ItemCell.cc:358 src/download.cc:409
+#: src/download.cc:538 src/ItemCell.cc:368
+msgid "Exit status ignored"
+msgstr "Игнорирование кода возврата"
+
+# src/download.cc:425
+# src/download.cc:433
+#: src/download.cc:562
+msgid "Executing command entry '"
+msgstr "Выполнение команды "
+
+# src/download.cc:499
+# src/download.cc:504
+#: src/download.cc:630
+msgid "Concatenating split files..."
+msgstr "Объединение частей файлов..."
+
+# src/download.cc:502
+# src/download.cc:507
+#: src/download.cc:633
+msgid "Concatenation successful"
+msgstr "Успешное объединение"
+
+# src/download.cc:506
+# src/download.cc:511
+#: src/download.cc:637
+msgid "Concatenation failed"
+msgstr "Неудачное объединение"
+
+# src/gui_main.cc:365
+# src/gui_main.cc:172
+#. string strSuminfo = "Downloading: "+itos(suminfo.ret_download())+" Error: "+itos(suminfo.ret_error());
+#: src/gui_main.cc:160
+msgid "Downloading: "
+msgstr "Загрузка: "
+
+# src/gui_main.cc:366
+# src/gui_main.cc:173
+#: src/gui_main.cc:161
+msgid " Error: "
+msgstr "Ошибка: "
+
+# src/gui_main.cc:188
+#: src/gui_main.cc:176
+msgid "#List name: "
+msgstr "Имя списка: "
+
+# src/gui_main.cc:875
+# src/gui_main.cc:730
+#. 1st page
+#: src/gui_main.cc:503
+msgid "Console"
+msgstr "Консоль"
+
+# src/gui_main.cc:881
+# src/gui_main.cc:736
+#. 2nd page
+#: src/gui_main.cc:508
+msgid "not selected"
+msgstr "не выбрано"
+
+# src/gui_file.cc:241 src/gui_main.cc:1107
+# src/gui_file.cc:256 src/gui_main.cc:970
+#: src/gui_main.cc:556 src/gui_file.cc:321
+msgid "Quit program"
+msgstr "Выход из программы"
+
+# src/gui_file.cc:242 src/gui_main.cc:1108
+# src/gui_file.cc:257 src/gui_main.cc:971
+#: src/gui_main.cc:557 src/gui_file.cc:322
+msgid "Are you sure to quit?"
+msgstr "Завершить работу?"
+
+# src/ItemOption.cc:1212 src/gui_main.cc:1251 src/gui_main.cc:1270
+# src/ItemOption.cc:1243 src/gui_main.cc:1114 src/gui_main.cc:1133
+#: src/gui_main.cc:710 src/gui_main.cc:730 src/ItemOption.cc:1498
+msgid "Limit download speed (in Kbytes/sec) (0.0: unlimited) "
+msgstr "Ограничение скорости загрузки (Кбайт/сек) (0.0: нет ограничения) "
+
+# src/crc.cc:205
+# src/crc.cc:202
+#: src/crc.cc:193
+msgid "CRC is "
+msgstr "CRC = "
+
+# src/crc.cc:210
+# src/crc.cc:207
+#. crc matched
+#: src/crc.cc:198
+msgid "CRC matched"
+msgstr "CRC совпадает"
+
+# src/crc.cc:217
+# src/crc.cc:214
+#: src/crc.cc:205
+msgid "Invalid CRC. The specified CRC is "
+msgstr "Ошибка CRC.Указанная CRC = "
+
+# src/ItemCache.cc:43 src/ItemList.cc:95 src/ItemList.cc:290
+# src/ItemList.cc:366 src/ItemList2.cc:652 src/PasteWindow.cc:473
+# src/PasteWindow.cc:906 src/Retrieve.cc:97 src/RetrieveFTP.cc:247
+# src/RetrieveFTP.cc:321 src/gui_item_new_item.cc:73
+#. create ItemCell
+#: src/ItemList.cc:97 src/ItemList.cc:302 src/ItemList.cc:380
+#: src/ItemList2.cc:763 src/ItemCache.cc:58 src/Retrieve.cc:100
+#: src/RetrieveFTP.cc:248 src/RetrieveFTP.cc:343 src/gui_item_new_item.cc:80
+#: src/PasteWindow.cc:466 src/PasteWindow.cc:1005
+msgid "Created"
+msgstr "Создан"
+
+# src/ItemList.cc:376 src/ItemList.cc:1014 src/gui_edit.cc:237
+# src/ItemList.cc:404 src/ItemList2.cc:699 src/gui_edit.cc:234
+#: src/ItemList.cc:418 src/ItemList2.cc:810 src/gui_edit.cc:266
+msgid "unknown"
+msgstr "неизвестно"
+
+# src/ItemList.cc:389 src/gui_download.cc:237 src/gui_edit.cc:261
+# src/ItemList.cc:422 src/ListEntry.cc:637 src/gui_edit.cc:264
+#: src/ItemList.cc:443 src/gui_edit.cc:307 src/ListEntry.cc:993
+msgid "READY"
+msgstr "Готово"
+
+# src/gui_download.cc:665 src/gui_download.cc:681 src/gui_main.cc:315
+# src/ListEntry.cc:679
+#: src/ItemList.cc:445 src/ListEntry.cc:1035
+msgid "STOPPED"
+msgstr "Остановлено"
+
+# src/ItemList.cc:668 src/ItemList.cc:1645 src/ItemList.cc:1736
+# src/ItemList2.cc:313 src/ItemList2.cc:757 src/ItemList2.cc:775
+#: src/ItemList2.cc:381 src/ItemList2.cc:873 src/ItemList2.cc:889
+msgid "Warning: different version number found in file header"
+msgstr "Предупреждение: в заголовке найдены разные номера версий"
+
+# src/ItemCell.cc:593
+# src/ItemCell.cc:264
+#: src/ItemCell.cc:274
+msgid "Unknown protocol"
+msgstr "Неизвестный протокол"
+
+# src/ItemCell.cc:279 src/ItemOption.cc:1068
+# src/ItemCell.cc:291
+#: src/ItemCell.cc:301
+msgid "Ignore CRC error"
+msgstr "Игнорировать ошибку CRC"
+
+# src/gui_download.cc:1215
+# src/ItemCell.cc:299
+#: src/ItemCell.cc:309
+msgid "Checking MD5 checksum"
+msgstr "Проверить контрольную сумму MD5"
+
+# src/ItemCell.cc:302
+#: src/ItemCell.cc:312
+msgid "Calculated MD5 checksum is "
+msgstr "Расчетная контрольная сумма MD5 = "
+
+# src/gui_download.cc:733 src/gui_download.cc:742
+# src/ItemCell.cc:304
+#: src/ItemCell.cc:314
+msgid "MD5 checking failed"
+msgstr "Неверная контрольная сумма MD5"
+
+# src/ItemOption.cc:1093
+# src/ItemCell.cc:306
+#: src/ItemCell.cc:316
+msgid "Ignore MD5 error"
+msgstr "Игнорировать ошибки MD5"
+
+# src/download.cc:502
+# src/ItemCell.cc:311
+#: src/ItemCell.cc:321
+msgid "MD5 checking successful"
+msgstr "Успешная проверка MD5"
+
+# src/ItemCell.cc:593
+# src/ItemCell.cc:314 src/gui_download_check.cc:107
+#: src/ItemCell.cc:324 src/gui_download_check.cc:117
+msgid "IO error occurred"
+msgstr "Ошибка ввода/вывода"
+
+# src/ItemCell.cc:539
+# src/ItemCell.cc:575
+#: src/ItemCell.cc:588
+msgid "Can't resolve host"
+msgstr "Невозможно получить адрес хоста"
+
+# src/ItemCell.cc:542
+# src/ItemCell.cc:578
+#: src/ItemCell.cc:591
+msgid "Socket error"
+msgstr "Ошибка сокета"
+
+# src/ItemCell.cc:545
+# src/ItemCell.cc:581
+#: src/ItemCell.cc:594
+msgid "Connection refused - "
+msgstr "В соединении отказано - "
+
+# src/ItemCell.cc:549
+# src/ItemCell.cc:585
+#: src/ItemCell.cc:598
+msgid "Time out"
+msgstr "Пауза"
+
+# src/ItemCell.cc:552
+# src/ItemCell.cc:588
+#: src/ItemCell.cc:601
+msgid "I/O error - "
+msgstr "Ошибка ввода/вывода - "
+
+# src/ItemCell.cc:556
+# src/ItemCell.cc:592
+#: src/ItemCell.cc:605
+msgid "File I/O error - maybe wrong save location or disk full?"
+msgstr "Ошибка ввода/вывода - возможно на диске нет места."
+
+# src/ItemCell.cc:560
+# src/ItemCell.cc:596
+#: src/ItemCell.cc:609
+msgid "Location retrieval failed"
+msgstr "Ошибка получения локального адреса"
+
+# src/ItemCell.cc:563
+# src/ItemCell.cc:599
+#: src/ItemCell.cc:612
+msgid "Cannot find embedded URL"
+msgstr "Невозможно найти данный адрес"
+
+# src/ItemCell.cc:566
+# src/ItemCell.cc:602
+#: src/ItemCell.cc:615
+msgid "FTP server returned negative response"
+msgstr "FTP сервер вернул отрицательный ответ"
+
+# src/ItemCell.cc:569
+# src/ItemCell.cc:605
+#: src/ItemCell.cc:618
+msgid "Bind error - "
+msgstr "Ошибка привязки - "
+
+# src/ItemCell.cc:573
+# src/ItemCell.cc:609
+#: src/ItemCell.cc:622
+msgid "Listen error - "
+msgstr "Ошибка прослушивания - "
+
+# src/ItemCell.cc:577
+# src/ItemCell.cc:613
+#: src/ItemCell.cc:626
+msgid "Accept error - "
+msgstr "Ошибка получения - "
+
+# src/ItemCell.cc:581
+# src/ItemCell.cc:617
+#: src/ItemCell.cc:630
+msgid "Send error - "
+msgstr "Ошибка отправки - "
+
+# src/ItemCell.cc:585
+# src/ItemCell.cc:621
+#: src/ItemCell.cc:634
+msgid "Recv error - "
+msgstr "Ошибка приема - "
+
+# src/ItemCell.cc:589
+# src/ItemCell.cc:625
+#: src/ItemCell.cc:638
+msgid "General protocol error"
+msgstr "Общая ошибка протокола"
+
+# src/ItemCell.cc:593
+# src/ItemCell.cc:629
+#: src/ItemCell.cc:642
+msgid "Unknown error occurred"
+msgstr "Неизвестная ошибка"
+
+# src/ItemOption.cc:708 src/ItemOption.cc:1334
+# src/ItemOption.cc:717 src/ItemOption.cc:1365
+#: src/ItemCache.cc:97
+#, fuzzy
+msgid "Copied"
+msgstr "Cookie"
+
+# src/RetrieveFTP.cc:254
+# src/Retrieve.cc:108 src/RetrieveFTP.cc:254
+#: src/Retrieve.cc:111 src/RetrieveFTP.cc:255
+msgid "Partial item added"
+msgstr "Добавлена частичная загрузка адреса"
+
+# src/Retrieve.cc:297
+#: src/Retrieve.cc:292
+msgid "Connecting to "
+msgstr "Соединяюсь с "
+
+# src/ItemCell.cc:539
+# src/ItemCell.cc:575
+#: src/Retrieve.cc:312
+msgid "Can't resolve host: "
+msgstr "Невозможно получить адрес хоста: "
+
+#: src/Retrieve.cc:312
+msgid ", reason: "
+msgstr ", причина: "
+
+# src/gui_edit_search.cc:61
+# src/gui_edit_search.cc:67
+#: src/Retrieve.cc:317
+msgid "Resolving complete"
+msgstr "Определение завершено"
+
+#: src/Retrieve.cc:327
+msgid "Canonical name is "
+msgstr "Истинное имя "
+
+# src/ItemCell.cc:545
+# src/ItemCell.cc:581
+#: src/Retrieve.cc:448
+msgid "Connection refused: "
+msgstr "В соединении отказано "
+
+# src/Retrieve.cc:344
+#: src/Retrieve.cc:476
+msgid "Connection established"
+msgstr "Соединение установлено"
+
+# src/Retrieve.cc:392
+#. fix this
+#: src/Retrieve.cc:524
+msgid "Unable to truncate the file '"
+msgstr "Не могу объединить файл "
+
+# src/Retrieve.cc:392
+#: src/Retrieve.cc:524
+msgid "'. Rollback disabled"
+msgstr ". Откат выключен"
+
+# src/ItemOption.cc:337
+# src/ItemOption.cc:336 src/Retrieve.cc:419
+#: src/Retrieve.cc:552 src/ItemOption.cc:355
+msgid "Failed to make directory '"
+msgstr "Ошибка создания директории '"
+
+# src/RetrieveHTTP.cc:307
+# src/RetrieveHTTP.cc:308
+#: src/RetrieveHTTP.cc:361
+msgid "UseProxy is not supported yet"
+msgstr "Использование прокси еще не работает"
+
+# src/RetrieveHTTP.cc:313
+# src/RetrieveHTTP.cc:314
+#: src/RetrieveHTTP.cc:367
+msgid "Content forbidden"
+msgstr "Запрет к содержимому"
+
+# src/RetrieveHTTP.cc:317
+# src/RetrieveHTTP.cc:318
+#: src/RetrieveHTTP.cc:371
+msgid "Content not found"
+msgstr "Содержимое не найдено"
+
+# src/RetrieveHTTP.cc:339
+#: src/RetrieveHTTP.cc:390
+msgid "Server returned 416 status. Assume download was completed"
+msgstr "Сервер вернул код 416. Предположительно загрузка завершена"
+
+# src/RetrieveHTTP.cc:339
+#: src/RetrieveHTTP.cc:398
+msgid "Server returned 416 status. This file may be already downloaded"
+msgstr "Сервер вернул код 416. Возможно файл уже загружен"
+
+#: src/RetrieveHTTP.cc:403
+msgid "Access denied"
+msgstr "В доступе отказано"
+
+# src/RetrieveHTTP.cc:333
+# src/RetrieveHTTP.cc:344
+#: src/RetrieveHTTP.cc:407
+msgid "Unexpected error occurred"
+msgstr "Неожиданная ошибка"
+
+# src/RetrieveHTTP2.cc:100
+# src/RetrieveHTTP2.cc:100
+#: src/RetrieveHTTP.cc:553
+msgid "Redirection found"
+msgstr "Найдено перенаправление"
+
+# src/RetrieveHTTP.cc:505
+# src/RetrieveHTTP.cc:542
+#: src/RetrieveHTTP.cc:603
+msgid "Redirecting to "
+msgstr "Перенаправление на "
+
+# src/RetrieveFTP.cc:1083 src/RetrieveFTP2.cc:233 src/RetrieveHTTP.cc:640
+# src/RetrieveHTTP2.cc:145
+# src/RetrieveFTP.cc:1114 src/RetrieveFTP2.cc:233 src/RetrieveHTTP.cc:689
+# src/RetrieveHTTP2.cc:145
+#: src/RetrieveHTTP.cc:606 src/RetrieveHTTP.cc:869 src/RetrieveHTTP.cc:876
+#: src/RetrieveHTTP.cc:880 src/RetrieveHTTP.cc:925 src/RetrieveHTTP.cc:940
+#: src/RetrieveHTTP.cc:946 src/RetrieveHTTP.cc:953 src/RetrieveFTP.cc:1137
+#: src/RetrieveFTP.cc:1147 src/RetrieveFTP.cc:1153 src/RetrieveFTP.cc:1158
+#: src/RetrieveHTTP2.cc:155 src/RetrieveHTTP2.cc:166 src/RetrieveHTTP2.cc:176
+#: src/RetrieveHTTP2.cc:184 src/RetrieveFTP2.cc:254 src/RetrieveFTP2.cc:264
+#: src/RetrieveFTP2.cc:270 src/RetrieveFTP2.cc:275
+msgid "Connection closed"
+msgstr "Соединение закрыто"
+
+# src/RetrieveFTP.cc:1000 src/RetrieveFTP2.cc:166 src/RetrieveHTTP.cc:515
+# src/RetrieveHTTP.cc:546
+# src/RetrieveFTP.cc:1031 src/RetrieveFTP2.cc:166 src/RetrieveHTTP.cc:552
+# src/RetrieveHTTP.cc:592
+#. ╓╧╓г╓к╔ю╔╕╔С╔М║╪╔и╨я
+#. download has been competed
+#: src/RetrieveHTTP.cc:614 src/RetrieveHTTP.cc:725 src/RetrieveFTP.cc:1037
+#: src/RetrieveFTP2.cc:169
+msgid " is already downloaded"
+msgstr " уже закачан"
+
+# src/RetrieveHTTP.cc:539 src/RetrieveHTTP.cc:569 src/RetrieveHTTP.cc:616
+# src/RetrieveHTTP.cc:585 src/RetrieveHTTP.cc:615 src/RetrieveHTTP.cc:665
+#. split download is not allowed
+#: src/RetrieveHTTP.cc:702 src/RetrieveHTTP.cc:748 src/RetrieveHTTP.cc:819
+msgid "Resume disabled"
+msgstr "Докачка выключена"
+
+# src/download.cc:101 src/download.cc:109
+# src/download.cc:103 src/download.cc:111
+#. Assume download was completed
+#: src/RetrieveHTTP.cc:706 src/RetrieveHTTP.cc:751 src/ItemOption.cc:2319
+msgid "Assume download was completed"
+msgstr "Предположительно загрузка завершена"
+
+#: src/RetrieveHTTP.cc:716 src/RetrieveHTTP.cc:767 src/RetrieveFTP.cc:1031
+msgid "Download aborted due to the file size limitation"
+msgstr "Загрузка прервана по причине ограничения размера"
+
+# src/RetrieveFTP.cc:1010 src/RetrieveFTP2.cc:177 src/RetrieveHTTP.cc:562
+# src/RetrieveHTTP2.cc:125
+# src/RetrieveFTP.cc:1041 src/RetrieveFTP2.cc:177 src/RetrieveHTTP.cc:608
+# src/RetrieveHTTP2.cc:125
+#. ╔у╔║╔╓╔К╔╣╔╓╔╨╓╛╟ш╓й╓К
+#. size mismatch
+#: src/RetrieveHTTP.cc:741 src/RetrieveFTP.cc:1047 src/RetrieveHTTP2.cc:129
+#: src/RetrieveFTP2.cc:180
+msgid "Size of local file is larger than remote file's one. Download again"
+msgstr "Размер локального файла больше чем удаленного. Закачайте заново"
+
+# src/RetrieveHTTP.cc:582
+# src/RetrieveHTTP.cc:631
+#. check whether or not remote server suports resume
+#: src/RetrieveHTTP.cc:781
+msgid "Checking whether server supports resuming"
+msgstr "Проверка возможности докачки"
+
+# src/RetrieveFTP.cc:1022 src/RetrieveFTP.cc:1034 src/RetrieveHTTP.cc:617
+# src/RetrieveHTTP.cc:627
+# src/RetrieveFTP.cc:1053 src/RetrieveFTP.cc:1065 src/RetrieveHTTP.cc:666
+# src/RetrieveHTTP.cc:676
+#: src/RetrieveHTTP.cc:820 src/RetrieveHTTP.cc:831 src/RetrieveFTP.cc:1059
+#: src/RetrieveFTP.cc:1071
+msgid "Starting normal download instead"
+msgstr "Загрузка в обычном режиме"
+
+# src/RetrieveFTP.cc:1025 src/RetrieveHTTP.cc:619
+# src/RetrieveFTP.cc:1056 src/RetrieveHTTP.cc:668
+#. OK, ready to split downloading!
+#: src/RetrieveHTTP.cc:823 src/RetrieveFTP.cc:1062
+msgid "Splitting file..."
+msgstr "Разделение файла..."
+
+# src/RetrieveFTP.cc:1033 src/RetrieveHTTP.cc:626
+# src/RetrieveFTP.cc:1064 src/RetrieveHTTP.cc:675
+#: src/RetrieveHTTP.cc:830 src/RetrieveFTP.cc:1070
+msgid "File is too small to be divided"
+msgstr "Слишком маленький файл для деления"
+
+# src/RetrieveFTP.cc:1252 src/RetrieveFTP2.cc:274 src/RetrieveHTTP.cc:768
+# src/RetrieveHTTP2.cc:196
+# src/RetrieveFTP.cc:1287 src/RetrieveFTP2.cc:274 src/RetrieveHTTP.cc:812
+# src/RetrieveHTTP2.cc:196
+#: src/RetrieveHTTP.cc:1004 src/RetrieveFTP.cc:1424 src/RetrieveHTTP2.cc:222
+#: src/RetrieveFTP2.cc:306
+msgid "This file is locked. Aborting download"
+msgstr "Файл заблокирован. Загрузка прекращена"
+
+# src/RetrieveFTP.cc:1259 src/RetrieveFTP2.cc:290 src/RetrieveHTTP.cc:775
+# src/RetrieveHTTP2.cc:206
+# src/RetrieveFTP.cc:1294 src/RetrieveFTP2.cc:290 src/RetrieveHTTP.cc:819
+# src/RetrieveHTTP2.cc:206
+#: src/RetrieveHTTP.cc:1011 src/RetrieveFTP.cc:1431 src/RetrieveHTTP2.cc:232
+#: src/RetrieveFTP2.cc:322
+msgid "Starting download at "
+msgstr "Загрузка с "
+
+# src/RetrieveFTP.cc:1259 src/RetrieveFTP2.cc:292 src/RetrieveHTTP.cc:775
+# src/RetrieveHTTP2.cc:206
+# src/RetrieveFTP.cc:1294 src/RetrieveFTP2.cc:292 src/RetrieveHTTP.cc:819
+# src/RetrieveHTTP2.cc:206
+#: src/RetrieveHTTP.cc:1011 src/RetrieveFTP.cc:1431 src/RetrieveHTTP2.cc:232
+#: src/RetrieveFTP2.cc:324
+msgid " bytes"
+msgstr "байт"
+
+# src/RetrieveHTTP.cc:796
+# src/RetrieveHTTP.cc:841
+#: src/RetrieveHTTP.cc:1047
+msgid "Retrieving embedded URL"
+msgstr "Получение заданного адреса"
+
+# src/RetrieveHTTP.cc:817
+# src/RetrieveHTTP.cc:862
+#: src/RetrieveHTTP.cc:1078
+msgid "Finding hyperlink"
+msgstr "Поиск ссылки"
+
+# src/RetrieveHTTP.cc:820 src/gui_file_find_hyperlink.cc:67
+# src/RetrieveHTTP.cc:865 src/gui_file_find_hyperlink.cc:69
+#: src/RetrieveHTTP.cc:1090 src/gui_file_find_hyperlink.cc:69
+msgid "Hyperlink retrieval complete"
+msgstr "Поиск ссылки завершен"
+
+# src/RetrieveHTTP.cc:833
+# src/RetrieveHTTP.cc:875
+#: src/RetrieveHTTP.cc:1100 src/RetrieveFTP.cc:1450 src/RetrieveHTTP2.cc:253
+#: src/RetrieveFTP2.cc:352
+msgid "No match size"
+msgstr "Неправильный размер"
+
+#: src/RetrieveHTTP.cc:1140 src/RetrieveHTTP.cc:1156 src/RetrieveHTTP.cc:1162
+#: src/RetrieveHTTP.cc:1172
+msgid "Failed to uncompress data"
+msgstr "Неудалось распаковать содержимое"
+
+# src/RetrieveFTP.cc:119 src/RetrieveFTP.cc:170 src/RetrieveFTP.cc:1021
+# src/RetrieveHTTP2.cc:131
+# src/RetrieveFTP.cc:119 src/RetrieveFTP.cc:170 src/RetrieveFTP.cc:1052
+# src/RetrieveHTTP2.cc:131
+#. ╔Л╔╦╔Е║╪╔Юит╡д
+#. www server does not support resume
+#: src/RetrieveFTP.cc:105 src/RetrieveFTP.cc:164 src/RetrieveFTP.cc:1058
+#: src/RetrieveHTTP2.cc:135
+msgid "Sorry, cannot resume"
+msgstr "Докачка не поддерживается"
+
+# src/RetrieveFTP.cc:132 src/RetrieveFTP.cc:466 src/RetrieveFTP.cc:484
+# src/RetrieveFTP.cc:132 src/RetrieveFTP.cc:467 src/RetrieveFTP.cc:485
+#: src/RetrieveFTP.cc:122 src/RetrieveFTP.cc:495 src/RetrieveFTP.cc:519
+msgid "Data connection established"
+msgstr "Соединение установлено"
+
+# src/RetrieveFTP.cc:268
+# src/RetrieveFTP.cc:268
+#: src/RetrieveFTP.cc:269
+msgid "Cannot enter PASV mode"
+msgstr "Не могу войти в PASV режим"
+
+# src/RetrieveFTP.cc:360
+# src/RetrieveFTP.cc:361
+#: src/RetrieveFTP.cc:383
+msgid "Failed to create symbolic link. Ignored"
+msgstr "Ошибка создания символической ссылки. Игнорирование"
+
+# src/RetrieveFTP.cc:461 src/RetrieveFTP.cc:487
+# src/RetrieveFTP.cc:462 src/RetrieveFTP.cc:488
+#: src/RetrieveFTP.cc:490 src/RetrieveFTP.cc:527 src/RetrieveFTP.cc:939
+msgid "Failed to list files"
+msgstr "Ошибка списка файлов"
+
+# src/RetrieveFTP.cc:603 src/RetrieveFTP.cc:661 src/RetrieveFTP.cc:742
+# src/RetrieveFTP.cc:604 src/RetrieveFTP.cc:662 src/RetrieveFTP.cc:743
+#. maybe full?
+#: src/RetrieveFTP.cc:648 src/RetrieveFTP.cc:706 src/RetrieveFTP.cc:787
+msgid "Failed to login"
+msgstr "Ошибка входа"
+
+# src/RetrieveFTP.cc:901
+# src/RetrieveFTP.cc:932
+#: src/RetrieveFTP.cc:897
+msgid "Specified directory was not found"
+msgstr "Указанная директория не найдена"
+
+# src/RetrieveFTP.cc:918 src/RetrieveFTP2.cc:151
+# src/RetrieveFTP.cc:949 src/RetrieveFTP2.cc:151
+#: src/RetrieveFTP.cc:915 src/RetrieveFTP2.cc:154
+msgid "MDTM command failed. Anyway, try resuming"
+msgstr "Неудачная команда MDTM. Пробую докачку в любом случае"
+
+# src/RetrieveFTP.cc:922 src/RetrieveFTP2.cc:155
+# src/RetrieveFTP.cc:953 src/RetrieveFTP2.cc:155
+#: src/RetrieveFTP.cc:919 src/RetrieveFTP2.cc:158
+msgid ""
+"Modification time of remote file is newer than local file's one. Resume "
+"disabled"
+msgstr ""
+"Дата модификации удаленного файла более новая чем у локального. Докачка "
+"выключена"
+
+# src/RetrieveFTP.cc:940
+# src/RetrieveFTP.cc:971
+#. recursive download limit exceeded
+#: src/RetrieveFTP.cc:971
+msgid "Depth of recursion exceeded. This message can be ignored safely"
+msgstr "Достигнут максимальный уровень вложенности."
+
+# src/RetrieveFTP.cc:948
+# src/RetrieveFTP.cc:979
+#: src/RetrieveFTP.cc:978
+msgid "Try again assuming as directory"
+msgstr "Провторно пробую как директорию"
+
+# src/RetrieveFTP.cc:958
+# src/RetrieveFTP.cc:989
+#: src/RetrieveFTP.cc:985
+msgid "Specified directory or file was not found"
+msgstr "Указанный файл или директория не найдены"
+
+# src/RetrieveFTP.cc:978
+# src/RetrieveFTP.cc:1009
+#: src/RetrieveFTP.cc:1005
+msgid "Download abort due to extension. This message can be ignored safely"
+msgstr "Обрыв закачки по причине расширения"
+
+# src/RetrieveFTP.cc:1015
+# src/RetrieveFTP.cc:1046
+#. send REST command
+#: src/RetrieveFTP.cc:1052
+msgid "Checking whether ftp server supports resuming"
+msgstr "Проверка докачки ftp сервера"
+
+# src/RetrieveFTP.cc:1075 src/RetrieveFTP2.cc:226
+# src/RetrieveFTP.cc:1106 src/RetrieveFTP2.cc:226
+#: src/RetrieveFTP.cc:1108 src/RetrieveFTP2.cc:230
+msgid "An error occurred, but this error can be ignored safely"
+msgstr "Возникла ошибка"
+
+# src/RetrieveHTTP2.cc:100
+# src/RetrieveHTTP2.cc:100
+#: src/RetrieveHTTP2.cc:104
+msgid "Redirecting to"
+msgstr "Перенаправление на"
+
+# src/RetrieveHTTP2.cc:113
+# src/RetrieveHTTP2.cc:113
+#. ╓╧╓г╓к╔ю╔╕╔С╔М║╪╔и╨я
+#. downloading has been competed
+#: src/RetrieveHTTP2.cc:117
+msgid "' is already downloaded"
+msgstr " уже загружен"
+
+# src/RetrieveFTP2.cc:282 src/RetrieveHTTP2.cc:203
+# src/RetrieveFTP2.cc:282 src/RetrieveHTTP2.cc:203
+#: src/RetrieveHTTP2.cc:229 src/RetrieveFTP2.cc:314
+msgid ", its index is "
+msgstr ", имеет индекс "
+
+# src/RetrieveFTP2.cc:284 src/RetrieveHTTP2.cc:203
+# src/RetrieveFTP2.cc:284 src/RetrieveHTTP2.cc:203
+#: src/RetrieveHTTP2.cc:229 src/RetrieveFTP2.cc:316
+msgid ", its range is from "
+msgstr ", имеет диапазон с "
+
+# src/RetrieveFTP2.cc:141
+# src/RetrieveFTP2.cc:141
+#: src/RetrieveFTP2.cc:144
+msgid "Specified directory is not found"
+msgstr "Указанная директория не найдена"
+
+# src/gui_download.cc:418
+# src/gui_download.cc:417
+#: src/gui_download.cc:448
+msgid " item(s) cleared"
+msgstr " Адрес(а) очищен(ы)"
+
+#: src/gui_download.cc:566
+msgid " item(s) cleared, and its file deleted"
+msgstr "Адрес(а) очищены и их файлы удалены"
+
+# src/gui_download.cc:442 src/gui_download.cc:1188 src/gui_item.cc:414
+# src/gui_download.cc:441 src/gui_download.cc:1042 src/gui_item.cc:386
+#: src/gui_download.cc:585 src/gui_download.cc:1264 src/gui_item.cc:387
+msgid "Clear items"
+msgstr "Очистить адреса"
+
+# src/gui_download.cc:443 src/gui_download.cc:1189 src/gui_item.cc:415
+# src/gui_download.cc:442 src/gui_download.cc:1043 src/gui_item.cc:387
+#: src/gui_download.cc:586 src/gui_download.cc:1265 src/gui_item.cc:388
+msgid "Are you sure to delete these items?"
+msgstr "Уверены, что хотите удалить эти адрес?"
+
+#: src/gui_download.cc:607
+msgid "Clear items and delete their files"
+msgstr "Очистить адреса и удалить их файлы"
+
+# src/gui_download.cc:443 src/gui_download.cc:1189 src/gui_item.cc:415
+# src/gui_download.cc:442 src/gui_download.cc:1043 src/gui_item.cc:387
+#: src/gui_download.cc:608
+msgid "Are you sure to delete these items and their files?"
+msgstr "Уверены, что хотите удалить адреса и их файлы?"
+
+# src/gui_download.cc:1135 src/gui_item.cc:390
+# src/gui_download.cc:989 src/gui_item.cc:362
+#: src/gui_download.cc:1201 src/gui_item.cc:371
+msgid " item(s) deleted"
+msgstr " Адрес(а) удалены"
+
+# src/gui_download.cc:1210
+# src/gui_download.cc:1064
+#: src/gui_download.cc:1286
+msgid "Start"
+msgstr "Пуск"
+
+# src/gui_download.cc:1218
+# src/gui_download.cc:1074
+#: src/gui_download.cc:1296
+msgid "Stop"
+msgstr "Стоп"
+
+# src/HistoryWindow.cc:299 src/gui_download.cc:1226
+# src/HistoryWindow.cc:299 src/gui_download.cc:1084
+#. Delete button
+#: src/gui_download.cc:1306 src/HistoryWindow.cc:356
+msgid "Clear"
+msgstr "Очистить"
+
+# src/gui_item.cc:578
+# src/gui_item.cc:558
+#: src/gui_download.cc:1316
+msgid "Clear and delete files"
+msgstr "Очистить и удалить файлы"
+
+# src/gui_download.cc:1234
+# src/gui_download.cc:1094
+#: src/gui_download.cc:1324
+msgid "Clear CRC"
+msgstr "Очистить CRC"
+
+# src/gui_download.cc:1205
+# src/gui_download.cc:1099
+#: src/gui_download.cc:1329
+msgid "Clear MD5"
+msgstr "Очистить MD5"
+
+# src/gui_download.cc:1238
+# src/gui_download.cc:1104
+#: src/gui_download.cc:1334
+msgid "Check CRC"
+msgstr "Проверить CRC"
+
+# src/gui_download.cc:1215
+# src/gui_download.cc:1109
+#: src/gui_download.cc:1339
+msgid "Check MD5"
+msgstr "Проверить MD5"
+
+# src/gui_download.cc:1254
+# src/gui_download.cc:1127
+#: src/gui_download.cc:1357
+msgid "Start all"
+msgstr "Пуск для всех"
+
+# src/gui_download.cc:1261
+# src/gui_download.cc:1137
+#: src/gui_download.cc:1367
+msgid "Stop all"
+msgstr "Стоп для всех"
+
+# src/gui_download.cc:1268
+# src/gui_download.cc:1147
+#: src/gui_download.cc:1377
+msgid "Clear all"
+msgstr "Очистить все"
+
+# src/gui_download.cc:1276
+# src/gui_download.cc:1155
+#: src/gui_download.cc:1385
+msgid "Clear all CRC"
+msgstr "Очистить все CRC"
+
+# src/gui_download.cc:1265
+# src/gui_download.cc:1159
+#: src/gui_download.cc:1389
+msgid "Clear all MD5"
+msgstr "Очистить все MD5"
+
+# src/gui_download.cc:1284
+# src/AppOption.cc:750 src/gui_download.cc:1167
+#: src/gui_download.cc:1397 src/AppOption.cc:1061
+msgid "Start all lists"
+msgstr "Пуск всем спискам"
+
+# src/gui_download.cc:1288
+# src/gui_download.cc:1175
+#: src/gui_download.cc:1405
+msgid "Stop all lists"
+msgstr "Стоп всем спискам"
+
+# src/gui_download.cc:1293
+# src/gui_download.cc:1183
+#: src/gui_download.cc:1413
+msgid "Clear all lists"
+msgstr "Очистить все списки"
+
+# src/gui_download.cc:1301
+# src/gui_download.cc:1193
+#: src/gui_download.cc:1423
+msgid "Check downloaded items' CRC"
+msgstr "Проверка CRC загруженных файлов"
+
+# src/gui_download.cc:1304
+# src/gui_download.cc:1198
+#: src/gui_download.cc:1428
+msgid "Check downloaded items' MD5"
+msgstr "Проверка MD5 загруженных файлов"
+
+# src/AppOption.cc:157 src/gui_download.cc:1309
+# src/AppOption.cc:157 src/gui_download.cc:1206
+#: src/gui_download.cc:1436 src/AppOption.cc:173
+msgid "Download"
+msgstr "Загрузка"
+
+# src/gui_download.cc:733 src/gui_download.cc:742
+# src/gui_download_check.cc:52 src/gui_download_check.cc:60
+#: src/gui_download_check.cc:51 src/gui_download_check.cc:59
+msgid "Checking CRC of '"
+msgstr "Проверка контрольной суммы '"
+
+# src/gui_download.cc:733
+# src/gui_download_check.cc:52 src/gui_download_check.cc:94
+#: src/gui_download_check.cc:51 src/gui_download_check.cc:98
+msgid "' successful"
+msgstr " удачно"
+
+# src/gui_download.cc:742
+# src/gui_download_check.cc:60 src/gui_download_check.cc:101
+#: src/gui_download_check.cc:59 src/gui_download_check.cc:105
+msgid "' failed"
+msgstr " неудачно"
+
+# src/gui_download.cc:733 src/gui_download.cc:742
+# src/gui_download_check.cc:94 src/gui_download_check.cc:101
+#: src/gui_download_check.cc:98 src/gui_download_check.cc:105
+msgid "Checking MD5 of '"
+msgstr "Проверка MD5 '"
+
+# src/gui_download.cc:875
+# src/gui_download_check.cc:238
+#: src/gui_download_check.cc:270
+msgid "Check"
+msgstr "Проверка CRC"
+
+# src/gui_download.cc:876
+# src/gui_download_check.cc:239
+#: src/gui_download_check.cc:271
+msgid "Checking..."
+msgstr "Проверяю CRC..."
+
+# src/gui_edit.cc:153
+# src/gui_edit.cc:150
+#: src/gui_edit.cc:164
+msgid " item(s) copied"
+msgstr " Адрес(а) скопирован(ы)"
+
+# src/gui_edit.cc:192
+# src/gui_edit.cc:187
+#: src/gui_edit.cc:211
+msgid " item(s) cut"
+msgstr " Адрес(а) вырезан(ы)"
+
+# src/PasteWindow.cc:124 src/gui_edit.cc:218
+# src/PasteWindow.cc:139 src/gui_edit.cc:215
+#. added 2001/3/21
+#: src/gui_edit.cc:241 src/PasteWindow.cc:146
+msgid " item(s) pasted"
+msgstr " Адрес(а) вставлен(ы)"
+
+# src/gui_edit.cc:493
+# src/gui_edit.cc:567
+#: src/gui_edit.cc:581 src/PasteWindow.cc:549 src/HistoryWindow.cc:212
+msgid "Select all"
+msgstr "Выбрать все"
+
+# src/gui_edit.cc:502
+# src/gui_edit.cc:577
+#: src/gui_edit.cc:591 src/PasteWindow.cc:558 src/HistoryWindow.cc:221
+msgid "Invert selection"
+msgstr "Инвертировать"
+
+# src/PasteWindow.cc:604 src/gui_edit.cc:510
+# src/PasteWindow.cc:698 src/gui_edit.cc:585
+#: src/gui_edit.cc:599 src/PasteWindow.cc:771
+msgid "Paste URL list"
+msgstr "Вставка списка адресов"
+
+# src/gui_edit.cc:522
+# src/gui_edit.cc:599
+#: src/gui_edit.cc:613
+msgid "Paste URL list with numerical expansion"
+msgstr "Встить список адресов с цифрами"
+
+# src/gui_edit.cc:536
+# src/gui_edit.cc:613
+#: src/gui_edit.cc:627
+msgid "Paste CRC list"
+msgstr "Вставка списка CRC"
+
+# src/gui_edit.cc:674
+# src/gui_edit.cc:626
+#: src/gui_edit.cc:640
+msgid "Paste MD5 list"
+msgstr "Вставить список MD5"
+
+# src/gui_edit.cc:552
+# src/gui_edit.cc:643
+#: src/gui_edit.cc:657
+msgid "Copy selected items"
+msgstr "Копировать выбранные адреса"
+
+# src/gui_edit.cc:559
+# src/gui_edit.cc:650
+#: src/gui_edit.cc:664
+msgid "Cut selected items"
+msgstr "Вырезать выбранные адреса"
+
+# src/gui_edit.cc:566
+# src/gui_edit.cc:657
+#: src/gui_edit.cc:671
+msgid "Paste items"
+msgstr "Вставить"
+
+# src/gui_edit.cc:713
+# src/gui_edit.cc:665
+#: src/gui_edit.cc:679
+msgid "Search in current list"
+msgstr "Найти в списке"
+
+# src/gui_edit.cc:583
+# src/gui_edit.cc:674
+#. Create root menu item
+#: src/gui_edit.cc:688 src/PasteWindow.cc:564 src/HistoryWindow.cc:227
+msgid "Edit"
+msgstr "Править"
+
+# src/gui_edit_search.cc:60 src/gui_edit_search.cc:87
+# src/gui_edit_search.cc:104
+# src/gui_edit_search.cc:66 src/gui_edit_search.cc:93
+# src/gui_edit_search.cc:110
+#. Search button
+#: src/gui_edit_search.cc:66 src/gui_edit_search.cc:93
+#: src/gui_edit_search.cc:110 src/HistoryWindow.cc:609
+msgid "Search"
+msgstr "Поиск"
+
+# src/gui_edit_search.cc:61
+# src/gui_edit_search.cc:67
+#: src/gui_edit_search.cc:67
+msgid "Search complete"
+msgstr "Поиск завершен"
+
+# src/AppOption.cc:203 src/ItemOption.cc:622 src/PasteWindow.cc:707
+# src/gui_edit_search.cc:115 src/gui_file_find_hyperlink.cc:125
+# src/gui_item_new_item.cc:179 src/gui_tab_new_tab.cc:103
+# src/gui_tab_rename_tab.cc:104
+# src/AppOption.cc:203 src/Dialog.cc:191 src/ItemOption.cc:627
+# src/PasteWindow.cc:801 src/gui_edit_search.cc:121
+# src/gui_file_find_hyperlink.cc:126 src/gui_item_new_item.cc:190
+# src/gui_list_new_list.cc:103 src/gui_list_rename_list.cc:105
+#. Cancel button
+#: src/gui_edit_search.cc:121 src/gui_file_find_hyperlink.cc:126
+#: src/gui_item_new_item.cc:191 src/gui_list_new_list.cc:118
+#: src/gui_list_rename_list.cc:121 src/ItemOption.cc:683 src/AppOption.cc:225
+#: src/Dialog.cc:191 src/PasteWindow.cc:898
+msgid "Cancel"
+msgstr "Отмена"
+
+# src/gui_edit_search.cc:130
+# src/gui_edit_search.cc:136
+#. label
+#: src/gui_edit_search.cc:136
+msgid "String:"
+msgstr "Строка:"
+
+# src/gui_file.cc:87
+# src/gui_file.cc:91
+#: src/gui_file.cc:94
+msgid "Autosave done"
+msgstr "Автосохранение выполнено"
+
+# src/gui_file.cc:273 src/gui_file_open_url.cc:103 src/gui_toolbar.cc:256
+# src/gui_file.cc:289 src/gui_file_open_url.cc:104 src/gui_toolbar.cc:258
+#: src/gui_file.cc:354 src/gui_file_open_url.cc:98 src/gui_toolbar.cc:246
+msgid "Open URL list"
+msgstr "Открыть список адресов"
+
+# src/gui_file.cc:274 src/gui_file_open_crc.cc:71
+# src/gui_file.cc:299 src/gui_file_open_crc.cc:70
+#: src/gui_file.cc:364 src/gui_file_open_crc.cc:70
+msgid "Open CRC list"
+msgstr "Открыть список CRC"
+
+# src/gui_file.cc:333
+# src/gui_file.cc:307
+#: src/gui_file.cc:372
+msgid "Open MD5 list"
+msgstr "Открыть список MD5"
+
+# src/gui_file.cc:298
+# src/gui_file.cc:319
+#: src/gui_file.cc:384
+msgid "Find hyperlink"
+msgstr "Найти ссылку"
+
+# src/gui_file.cc:276 src/gui_toolbar.cc:240
+# src/gui_file.cc:330 src/gui_toolbar.cc:242
+#: src/gui_file.cc:395 src/gui_toolbar.cc:230
+msgid "Open saved list"
+msgstr "Открыть сохраненный список"
+
+# src/gui_file.cc:277
+# src/gui_file.cc:340
+#: src/gui_file.cc:405
+msgid "Save current list"
+msgstr "Сохранить текущий список"
+
+# src/gui_file.cc:378
+# src/gui_file.cc:352
+#: src/gui_file.cc:417
+msgid "Quit with saving lists"
+msgstr "Выйти с сохранением списков"
+
+# src/gui_file.cc:386
+# src/gui_file.cc:360
+#: src/gui_file.cc:425
+msgid "Quit without saving lists"
+msgstr "Выйти без сохранения списков"
+
+# src/HistoryWindow.cc:228 src/gui_file.cc:380 src/gui_main.cc:999
+# src/HistoryWindow.cc:228 src/ListEntry.cc:284 src/gui_file.cc:365
+# src/gui_main.cc:854
+#. CList ╓Р╨Ню╝╓╧╓К║ё╓Ё╓ннЦ╓г╓о 2 нС╓Р╩х╓╕
+#: src/gui_file.cc:430 src/ListEntry.cc:610 src/HistoryWindow.cc:275
+msgid "File"
+msgstr "Файл"
+
+# src/gui_file_find_hyperlink.cc:59
+# src/gui_file_find_hyperlink.cc:55
+#: src/gui_file_find_hyperlink.cc:55
+msgid "Error occurred while reading HTML file"
+msgstr "Ошибка чтения HTML файла"
+
+# src/gui_file_find_hyperlink.cc:81 src/gui_file_find_hyperlink.cc:99
+# src/gui_file_find_hyperlink.cc:82 src/gui_file_find_hyperlink.cc:100
+#: src/gui_file_find_hyperlink.cc:82 src/gui_file_find_hyperlink.cc:100
+msgid "Find Hyperlink"
+msgstr "Найти гиперссылку"
+
+# src/AppOption.cc:192 src/ItemOption.cc:611
+# src/gui_file_find_hyperlink.cc:115 src/gui_help.cc:154
+# src/AppOption.cc:192 src/ItemOption.cc:616
+# src/gui_file_find_hyperlink.cc:116 src/gui_help.cc:164
+#. OK button
+#: src/gui_file_find_hyperlink.cc:116 src/ItemOption.cc:672
+#: src/AppOption.cc:213 src/gui_help.cc:191
+msgid "OK"
+msgstr "OK"
+
+# src/gui_file_open_url.cc:56
+# src/gui_file_open_url.cc:53
+#: src/gui_file_open_url.cc:53
+msgid "Error occurred while reading URL file"
+msgstr "Ошибка чтения файла адресов"
+
+# src/gui_file_open_url.cc:83
+# src/gui_file_open_url.cc:84
+#: src/gui_file_open_url.cc:78
+msgid "URL list opened"
+msgstr "Файл списка адресов открыт"
+
+# src/gui_file_open_crc.cc:52
+# src/gui_file_open_crc.cc:51
+#: src/gui_file_open_crc.cc:51
+msgid "Error occurred while reading CRC file"
+msgstr "Ошибка чтения CRC файла"
+
+# src/gui_file_open_crc.cc:54
+# src/gui_file_open_crc.cc:53
+#: src/gui_file_open_crc.cc:53
+msgid "CRC list opened"
+msgstr "Список CRC открыт"
+
+# src/RetrieveFTP.cc:461 src/RetrieveFTP.cc:487
+# src/gui_file_open_and_save.cc:58
+#: src/gui_file_open_and_save.cc:59
+msgid "Failed to save lists"
+msgstr "Ошибка сохранения списков"
+
+# src/gui_file_open_and_save.cc:65
+# src/gui_file_open_and_save.cc:60
+#: src/gui_file_open_and_save.cc:61
+msgid "lists saved"
+msgstr "списки сохранены"
+
+# src/gui_file_open_and_save.cc:83 src/gui_toolbar.cc:290
+# src/gui_file_open_and_save.cc:68 src/gui_toolbar.cc:292
+#: src/gui_file_open_and_save.cc:69 src/gui_toolbar.cc:280
+msgid "Save list"
+msgstr "Сохранить список"
+
+# src/RetrieveFTP.cc:461 src/RetrieveFTP.cc:487
+# src/gui_file_open_and_save.cc:132
+#: src/gui_file_open_and_save.cc:133
+msgid "Failed to load lists"
+msgstr "Ошибка загрузки списков"
+
+# src/gui_file_open_and_save.cc:150
+# src/gui_file_open_and_save.cc:134
+#: src/gui_file_open_and_save.cc:135
+msgid "Saved list opened"
+msgstr "Открыт сохраненный список"
+
+# src/gui_file_open_and_save.cc:175
+# src/gui_file_open_and_save.cc:165
+#.
+#. // ╦╫╨ъ╓н╔╒╔╓╔ф╔Ю╔Й╔╧╔х╓Рйщб╦╓Б╓╥╓╞╓огк╢Ч
+#. if(GTK_CLIST(itemlistwidget)->rows) {// if clist contains any items
+#. // ╦╫╨ъ╓н╔Й╔╧╔х╓Рйщб╦╓╧╓К╓╚╓и╓╕╓╚©р╓м╓К
+#. AfterOpen = true;
+#. Prompt_save_or_not();
+#. } else {
+#.
+#. AfterOpen = false;
+#: src/gui_file_open_and_save.cc:163
+msgid "Open Saved list"
+msgstr "Открыть сохраненный список"
+
+# src/gui_item_new_item.cc:98
+# src/gui_item_new_item.cc:108
+#: src/gui_item_new_item.cc:109
+msgid "item added"
+msgstr "добален адрес"
+
+# src/ItemOption.cc:309 src/ItemOption.cc:354 src/gui_item_new_item.cc:118
+# src/ItemOption.cc:308 src/ItemOption.cc:353 src/gui_item_new_item.cc:129
+#. Error
+#: src/gui_item_new_item.cc:130 src/gui_list_new_list.cc:49
+#: src/gui_list_rename_list.cc:49 src/ItemOption.cc:327 src/ItemOption.cc:372
+#: src/ItemOption.cc:2325 src/PasteWindow.cc:93 src/PasteWindow.cc:178
+#: src/PasteWindow.cc:210 src/PasteWindow.cc:244 src/PasteWindow.cc:265
+#: src/PasteWindow.cc:295
+msgid "Error"
+msgstr "Ошибка"
+
+# src/ItemOption.cc:388 src/gui_item_new_item.cc:119
+# src/ItemOption.cc:387 src/gui_item_new_item.cc:130
+#: src/gui_item_new_item.cc:131 src/ItemOption.cc:406
+msgid "Invalid URL"
+msgstr "Неверный адрес"
+
+# src/gui_item.cc:484 src/gui_item_new_item.cc:143
+# src/gui_item.cc:456 src/gui_item_new_item.cc:154
+#: src/gui_item_new_item.cc:155 src/gui_item.cc:457
+msgid "New item"
+msgstr "Новый адрес"
+
+# src/ItemOption.cc:1491 src/ItemOption.cc:1718 src/ItemOption.cc:1771
+# src/ItemOption.cc:1832 src/ItemOption.cc:1884 src/ItemOption.cc:2072
+# src/ItemOption.cc:2309 src/gui_item_new_item.cc:160
+# src/ItemOption.cc:1522 src/ItemOption.cc:1754 src/ItemOption.cc:1807
+# src/ItemOption.cc:1868 src/ItemOption.cc:1920 src/ItemOption.cc:2113
+# src/ItemOption.cc:2351 src/gui_item_new_item.cc:171
+#. Add button
+#: src/gui_item_new_item.cc:172 src/ItemOption.cc:1830 src/ItemOption.cc:2080
+#: src/ItemOption.cc:2133 src/ItemOption.cc:2194 src/ItemOption.cc:2246
+#: src/ItemOption.cc:2525 src/ItemOption.cc:2773
+msgid "Add"
+msgstr "Добавить"
+
+# src/gui_item_new_item.cc:170
+# src/gui_item_new_item.cc:181
+#. unfold button
+#: src/gui_item_new_item.cc:182
+msgid "Numerical expansion"
+msgstr "Числовое выражение"
+
+#: src/gui_list_new_list.cc:50 src/gui_list_rename_list.cc:50
+msgid "The specified name already exists."
+msgstr "Указанное имя уже существует."
+
+# src/gui_tab.cc:95 src/gui_tab_new_tab.cc:75
+# src/gui_list_new_list.cc:53
+#: src/gui_list_new_list.cc:67
+msgid "New list created"
+msgstr "Новый список создан"
+
+# src/gui_tab.cc:95 src/gui_tab_new_tab.cc:75
+# src/ListEntry.cc:67 src/gui_list.cc:131 src/gui_list_new_list.cc:61
+# src/gui_list_new_list.cc:75
+#: src/gui_list_new_list.cc:90 src/gui_list.cc:314 src/ListEntry.cc:215
+#: src/aria.h:75
+msgid "New list"
+msgstr "Новый список"
+
+# src/gui_tab_new_tab.cc:92 src/gui_tab_rename_tab.cc:93
+# src/gui_list_new_list.cc:92 src/gui_list_rename_list.cc:94
+#. Ok button
+#: src/gui_list_new_list.cc:107 src/gui_list_rename_list.cc:110
+msgid "Ok"
+msgstr "Ок"
+
+# src/gui_tab_new_tab.cc:118 src/gui_tab_rename_tab.cc:119
+# src/gui_list_new_list.cc:118 src/gui_list_rename_list.cc:120
+#. label
+#: src/gui_list_new_list.cc:133 src/gui_list_rename_list.cc:136
+msgid "Name:"
+msgstr "Имя:"
+
+# src/gui_tab_rename_tab.cc:76
+# src/gui_list_rename_list.cc:77
+#: src/gui_list_rename_list.cc:93
+msgid "Rename list"
+msgstr "Переименовать список"
+
+# src/gui_download.cc:1135 src/gui_item.cc:390
+# src/gui_list.cc:48
+#: src/gui_list.cc:49
+msgid "1 list deleted"
+msgstr "1 список удален"
+
+# src/gui_tab.cc:103
+# src/gui_list.cc:56 src/gui_list.cc:139
+#: src/gui_list.cc:57 src/gui_list.cc:322
+msgid "Delete current list"
+msgstr "Удалить текщий список"
+
+# src/gui_download.cc:443 src/gui_download.cc:1189 src/gui_item.cc:415
+# src/gui_list.cc:57
+#: src/gui_list.cc:58
+msgid "Are you sure to delete the current list?"
+msgstr "Уверены, что хотите удалить список?"
+
+#: src/gui_list.cc:284
+msgid "Ascending"
+msgstr "Восходящий"
+
+#: src/gui_list.cc:289
+msgid "Descending"
+msgstr "Нисходящий"
+
+# src/gui_tab.cc:113
+# src/gui_list.cc:149
+#: src/gui_list.cc:332
+msgid "Rename current list"
+msgstr "Переименовать текущий список"
+
+# src/gui_tab.cc:120
+# src/gui_list.cc:159
+#: src/gui_list.cc:342
+msgid "Move left"
+msgstr "Переместить влево"
+
+# src/gui_tab.cc:128
+# src/gui_list.cc:167
+#: src/gui_list.cc:350
+msgid "Move right"
+msgstr "Переместить вправо"
+
+# src/gui_tab.cc:138
+# src/gui_list.cc:177
+#: src/gui_list.cc:360
+msgid "Previous list"
+msgstr "Предыдущий список"
+
+# src/gui_tab.cc:146
+# src/gui_list.cc:185
+#: src/gui_list.cc:368
+msgid "Next list"
+msgstr "Следующий список"
+
+# src/gui_download.cc:1210
+# src/gui_download.cc:1064
+#: src/gui_list.cc:379
+msgid "Sort"
+msgstr "Сортировать"
+
+# src/HistoryWindow.cc:228 src/gui_file.cc:380 src/gui_main.cc:999
+# src/HistoryWindow.cc:228 src/ListEntry.cc:284 src/gui_file.cc:365
+# src/gui_main.cc:854
+#: src/gui_list.cc:385
+msgid "Filename"
+msgstr "Имя файла"
+
+# src/ItemOption.cc:1728 src/ItemOption.cc:1842 src/ItemOption.cc:1894
+# src/ItemOption.cc:2319
+# src/ItemOption.cc:1764 src/ItemOption.cc:1878 src/ItemOption.cc:1930
+# src/ItemOption.cc:2361
+#: src/gui_list.cc:389 src/ItemOption.cc:2090 src/ItemOption.cc:2256
+msgid "Extension"
+msgstr "Расширения"
+
+# src/gui_main.cc:1000
+# src/ListEntry.cc:285 src/gui_main.cc:855
+#: src/gui_list.cc:393
+msgid "Downloaded size"
+msgstr "Загружено"
+
+# src/HistoryWindow.cc:229 src/gui_main.cc:1001
+# src/main.cc:204
+#: src/gui_list.cc:397
+msgid "Total size"
+msgstr "Размеру"
+
+#: src/gui_list.cc:401
+msgid "Progress"
+msgstr "Прогресс"
+
+# src/gui_main.cc:1005
+# src/ListEntry.cc:290 src/gui_main.cc:860
+#: src/gui_list.cc:405 src/ListEntry.cc:616
+msgid "Retry"
+msgstr "Заново"
+
+# src/ItemOption.cc:772
+# src/ItemOption.cc:783
+#: src/gui_list.cc:409 src/ItemOption.cc:839
+msgid "Recursive"
+msgstr "Рекурсивно"
+
+# src/gui_main.cc:1007
+# src/ListEntry.cc:292 src/gui_main.cc:862
+#: src/gui_list.cc:413 src/ListEntry.cc:618
+msgid "Status"
+msgstr "Статус"
+
+# src/ItemOption.cc:961
+# src/ItemOption.cc:987
+#: src/gui_list.cc:417
+msgid "Save dir"
+msgstr "Директория для сохранения"
+
+# src/HistoryWindow.cc:231 src/ItemOption.cc:656 src/ItemOption.cc:1302
+# src/PasteWindow.cc:612
+# src/HistoryWindow.cc:231 src/ItemOption.cc:663 src/ItemOption.cc:1333
+# src/PasteWindow.cc:706
+#. referer : url
+#: src/gui_list.cc:421 src/ItemOption.cc:719 src/ItemOption.cc:1629
+#: src/PasteWindow.cc:800 src/HistoryWindow.cc:278
+msgid "URL"
+msgstr "Адрес"
+
+# src/gui_list.cc:221
+# src/gui_list.cc:195
+#: src/gui_list.cc:426
+msgid "Shuffle list"
+msgstr "Переместить списки"
+
+# src/gui_tab.cc:158
+# src/gui_list.cc:208
+#: src/gui_list.cc:439
+msgid "List"
+msgstr "Список"
+
+# src/gui_item.cc:493
+# src/gui_item.cc:465
+#: src/gui_item.cc:466
+msgid "Lock"
+msgstr "Заблокировать"
+
+# src/gui_item.cc:501
+# src/gui_item.cc:475
+#: src/gui_item.cc:476
+msgid "Unlock"
+msgstr "Разблокировать"
+
+# src/gui_item.cc:511
+# src/gui_item.cc:487
+#: src/gui_item.cc:488
+msgid "Move item up"
+msgstr "Переместить адрес вверх"
+
+# src/gui_item.cc:519
+# src/gui_item.cc:497
+#: src/gui_item.cc:498
+msgid "Move item down"
+msgstr "Переместить адрес вниз"
+
+# src/gui_item.cc:527
+# src/gui_item.cc:507
+#: src/gui_item.cc:508
+msgid "Move item to top"
+msgstr "Переместить адрес на верх"
+
+# src/gui_item.cc:535
+# src/gui_item.cc:515
+#: src/gui_item.cc:516
+msgid "Move item to bottom"
+msgstr "Переместить адрес на низ"
+
+# src/gui_item.cc:545
+# src/gui_item.cc:525
+#: src/gui_item.cc:526
+msgid "Lock error items"
+msgstr "Заблокировать адреса с ошибками"
+
+# src/gui_item.cc:555
+# src/gui_item.cc:535
+#: src/gui_item.cc:536
+msgid "Clear downloaded item"
+msgstr "Очистить закаченные адреса"
+
+# src/gui_item.cc:563
+# src/gui_item.cc:543
+#: src/gui_item.cc:544
+msgid "Clear locked items"
+msgstr "Очистить заблокированные адреса"
+
+# src/gui_item.cc:568
+# src/gui_item.cc:548
+#: src/gui_item.cc:549
+msgid "Clear error items"
+msgstr "Очистить адреса с ошибками"
+
+# src/gui_item.cc:573
+# src/gui_item.cc:553
+#: src/gui_item.cc:554
+msgid "Clear stopped items"
+msgstr "Очистить остановленные адреса"
+
+# src/gui_item.cc:578
+# src/gui_item.cc:558
+#: src/gui_item.cc:559
+msgid "Clear ready items"
+msgstr "Очистить готовые адреса"
+
+# src/gui_item.cc:583
+# src/gui_item.cc:563
+#: src/gui_item.cc:564
+msgid "Clear error, stopped and ready items"
+msgstr "Очистить остановленные, готовые и с ошибками"
+
+# src/gui_item.cc:590
+# src/gui_item.cc:570
+#: src/gui_item.cc:571
+msgid "Item"
+msgstr "Адрес"
+
+# src/gui_option.cc:117 src/gui_option.cc:414
+# src/gui_option.cc:115 src/gui_option.cc:466
+#: src/gui_option.cc:120 src/gui_option.cc:510
+msgid "Clear system log"
+msgstr "Очистить системный лог"
+
+# src/gui_option.cc:118
+# src/gui_option.cc:116
+#: src/gui_option.cc:121
+msgid "Are you sure to clear system log?"
+msgstr "Очистить системный лог?"
+
+# src/PasteWindow.cc:492 src/gui_option.cc:368
+# src/PasteWindow.cc:508 src/gui_option.cc:351
+#: src/gui_option.cc:388 src/PasteWindow.cc:579
+msgid "Selected item option"
+msgstr "Настройка текущего адреса"
+
+# src/PasteWindow.cc:511 src/gui_option.cc:380 src/gui_toolbar.cc:531
+# src/PasteWindow.cc:516 src/gui_option.cc:361 src/gui_toolbar.cc:533
+#: src/gui_option.cc:398 src/gui_toolbar.cc:521 src/PasteWindow.cc:587
+msgid "Default item option for current list"
+msgstr "Настройки адреса по умолчанию для текущго списка"
+
+# src/gui_option.cc:388
+# src/PasteWindow.cc:524 src/gui_option.cc:371
+#: src/gui_option.cc:408 src/PasteWindow.cc:595
+msgid "Apply default item option"
+msgstr "Применить настройки адреса по умолчанию"
+
+# src/gui_option.cc:395
+# src/PasteWindow.cc:532 src/gui_option.cc:378
+#: src/gui_option.cc:415 src/PasteWindow.cc:603
+msgid "To selected items"
+msgstr "Выбранным адресам"
+
+# src/gui_option.cc:400
+# src/PasteWindow.cc:537 src/gui_option.cc:383
+#: src/gui_option.cc:420 src/PasteWindow.cc:608
+msgid "To all items in current list"
+msgstr "Всем адресам в текущем списке"
+
+# src/gui_option.cc:408 src/gui_option.cc:432
+# src/PasteWindow.cc:545 src/PasteWindow.cc:570 src/gui_option.cc:391
+# src/gui_option.cc:415
+#: src/gui_option.cc:428 src/gui_option.cc:452 src/PasteWindow.cc:616
+#: src/PasteWindow.cc:641
+msgid "All settings"
+msgstr "Все настройки"
+
+# src/gui_option.cc:440 src/gui_option.cc:416
+# src/PasteWindow.cc:553 src/PasteWindow.cc:578 src/gui_option.cc:399
+# src/gui_option.cc:423
+#: src/gui_option.cc:436 src/gui_option.cc:460 src/PasteWindow.cc:624
+#: src/PasteWindow.cc:649
+msgid "Ignore save directory"
+msgstr "Игнорировать путь для сохранения"
+
+# src/gui_option.cc:424 src/gui_option.cc:448
+# src/gui_option.cc:407 src/gui_option.cc:431
+#: src/gui_option.cc:444 src/gui_option.cc:468
+msgid "Ignore save directory and recursive settings"
+msgstr "Игнорировать путь для сохранения и рекурсивные настройки"
+
+# src/gui_option.cc:455
+# src/gui_option.cc:438
+#: src/gui_option.cc:475 src/ItemOption.cc:2871
+msgid "Default item option for new list"
+msgstr "Настройки по умолчанию для нового списка"
+
+# src/gui_option.cc:463
+# src/gui_option.cc:446
+#: src/gui_option.cc:483
+msgid "Application settings"
+msgstr "Настройки программы"
+
+# src/gui_option.cc:473
+# src/gui_option.cc:456
+#: src/gui_option.cc:493
+msgid "Download history"
+msgstr "История закачки"
+
+#: src/gui_option.cc:501
+msgid "Toggle basket on/off"
+msgstr "Включить/Выключить корзину"
+
+# src/PasteWindow.cc:573 src/PasteWindow.cc:685 src/gui_option.cc:542
+# src/PasteWindow.cc:667 src/PasteWindow.cc:779 src/gui_option.cc:478
+#. item Option button
+#: src/gui_option.cc:518 src/PasteWindow.cc:738 src/PasteWindow.cc:876
+msgid "Option"
+msgstr "Настройки"
+
+# src/ItemOption.cc:355
+# src/ItemOption.cc:354
+#: src/ItemOption.cc:373
+msgid ""
+"Specified directory does not exist.\n"
+"Do you wish to make it now?"
+msgstr ""
+"Указанная директория не существует.\n"
+"Хотите ее создать?"
+
+# src/ItemOption.cc:367
+# src/ItemOption.cc:366
+#: src/ItemOption.cc:385
+msgid "Select directory"
+msgstr "Выбрать директорию"
+
+# src/HistoryWindow.cc:228 src/gui_file.cc:380 src/gui_main.cc:999
+# src/HistoryWindow.cc:228 src/ListEntry.cc:284 src/gui_file.cc:365
+# src/gui_main.cc:854
+#: src/ItemOption.cc:409
+msgid "Invalid Filename"
+msgstr "Неверное имя файла"
+
+# src/ItemOption.cc:391
+# src/ItemOption.cc:390
+#: src/ItemOption.cc:412
+msgid "Invalid CRC"
+msgstr "Неверная CRC"
+
+# src/ItemOption.cc:388 src/gui_item_new_item.cc:119
+# src/ItemOption.cc:393
+#: src/ItemOption.cc:415
+msgid "Invalid MD5"
+msgstr "Неверный MD5"
+
+# src/ItemOption.cc:546
+# src/ItemOption.cc:551
+#: src/ItemOption.cc:607
+msgid "General"
+msgstr "Общие"
+
+# src/ItemOption.cc:632
+# src/ItemOption.cc:637
+#. default button
+#: src/ItemOption.cc:693
+msgid "Default"
+msgstr "По умолчанию"
+
+# src/ItemOption.cc:662 src/ItemOption.cc:992 src/ItemOption.cc:1422
+# src/ItemOption.cc:2002
+# src/ItemOption.cc:669 src/ItemOption.cc:1018 src/ItemOption.cc:1453
+# src/ItemOption.cc:2043
+#: src/ItemOption.cc:725 src/ItemOption.cc:1226 src/ItemOption.cc:1761
+#: src/ItemOption.cc:2455
+msgid "Authentication"
+msgstr "Авторизация"
+
+# src/ItemOption.cc:668
+# src/ItemOption.cc:675
+#: src/ItemOption.cc:731
+msgid "Download 1"
+msgstr "Закачка 1"
+
+# src/ItemOption.cc:674
+# src/ItemOption.cc:681
+#: src/ItemOption.cc:737
+msgid "Download 2"
+msgstr "Закачка 2"
+
+# src/AppOption.cc:174 src/AppOption.cc:271 src/ItemOption.cc:680
+# src/AppOption.cc:174 src/AppOption.cc:271 src/ItemOption.cc:687
+#: src/ItemOption.cc:743 src/AppOption.cc:194 src/AppOption.cc:299
+msgid "Command"
+msgstr "Команда"
+
+# src/ItemOption.cc:702 src/ItemOption.cc:1278
+# src/ItemOption.cc:711 src/ItemOption.cc:1309
+#: src/ItemOption.cc:767 src/ItemOption.cc:1605
+msgid "Referer"
+msgstr "Ссылка"
+
+# src/ItemOption.cc:708 src/ItemOption.cc:1334
+# src/ItemOption.cc:717 src/ItemOption.cc:1365
+#: src/ItemOption.cc:773 src/ItemOption.cc:1661
+msgid "Cookie"
+msgstr "Cookie"
+
+# src/ItemOption.cc:714
+# src/ItemOption.cc:723
+#: src/ItemOption.cc:779
+msgid "Agent"
+msgstr "Агент"
+
+# src/ItemOption.cc:720 src/ItemOption.cc:766 src/ItemOption.cc:1401
+# src/ItemOption.cc:1980
+# src/ItemOption.cc:729 src/ItemOption.cc:777 src/ItemOption.cc:1432
+# src/ItemOption.cc:2021
+#: src/ItemOption.cc:785 src/ItemOption.cc:833 src/ItemOption.cc:1740
+#: src/ItemOption.cc:2433
+msgid "Proxy"
+msgstr "Прокси"
+
+# src/ItemOption.cc:726
+# src/ItemOption.cc:735
+#: src/ItemOption.cc:791
+msgid "Recursive 1"
+msgstr "Рекурсия 1"
+
+# src/ItemOption.cc:732
+# src/ItemOption.cc:741
+#: src/ItemOption.cc:797
+msgid "Recursive 2"
+msgstr "Рекурсия 2"
+
+# src/ItemOption.cc:738 src/ItemOption.cc:778
+# src/ItemOption.cc:747 src/ItemOption.cc:789
+#: src/ItemOption.cc:803 src/ItemOption.cc:845
+msgid "Misc"
+msgstr "Разное"
+
+# src/ItemOption.cc:760
+# src/ItemOption.cc:771
+#: src/ItemOption.cc:827
+msgid "Mode"
+msgstr "Режим"
+
+# src/ItemOption.cc:946
+# src/ItemOption.cc:972
+#: src/ItemOption.cc:1150
+msgid "Save as"
+msgstr "Сохранить как"
+
+#: src/ItemOption.cc:1159
+msgid "Sync with URL"
+msgstr "Синхронизировать с адресом"
+
+# src/ItemOption.cc:961
+# src/ItemOption.cc:987
+#: src/ItemOption.cc:1195
+msgid "Save directory"
+msgstr "Директория для сохранения"
+
+# src/ItemOption.cc:971
+# src/ItemOption.cc:997
+#: src/ItemOption.cc:1205
+msgid "select"
+msgstr "Выбрать"
+
+# src/ItemOption.cc:1004 src/ItemOption.cc:1434 src/ItemOption.cc:2014
+# src/ItemOption.cc:1030 src/ItemOption.cc:1465 src/ItemOption.cc:2055
+#: src/ItemOption.cc:1238 src/ItemOption.cc:1773 src/ItemOption.cc:2467
+msgid "Use authentication"
+msgstr "Использовать авторизацию"
+
+# src/ItemOption.cc:1014 src/ItemOption.cc:1443 src/ItemOption.cc:2023
+# src/ItemOption.cc:1040 src/ItemOption.cc:1474 src/ItemOption.cc:2064
+#: src/ItemOption.cc:1248 src/ItemOption.cc:1782 src/ItemOption.cc:2476
+msgid "User name"
+msgstr "Имя пользователя"
+
+# src/ItemOption.cc:1029 src/ItemOption.cc:1457 src/ItemOption.cc:2037
+# src/ItemOption.cc:1055 src/ItemOption.cc:1488 src/ItemOption.cc:2078
+#: src/ItemOption.cc:1263 src/ItemOption.cc:1796 src/ItemOption.cc:2490
+msgid "Password"
+msgstr "Пароль"
+
+# src/ItemOption.cc:1053
+# src/ItemOption.cc:1079
+#: src/ItemOption.cc:1287
+msgid "Delete item when download completes"
+msgstr "Удалить по окончании загрузки"
+
+# src/ItemOption.cc:1058
+# src/ItemOption.cc:1084
+#: src/ItemOption.cc:1292
+msgid "Don't delete item if CRC/MD5 is not set"
+msgstr "Не удалять если не установлена CRC/MD5"
+
+# src/ItemOption.cc:1063
+# src/ItemOption.cc:1089
+#: src/ItemOption.cc:1297
+msgid "Don't check CRC/MD5"
+msgstr "Не проверять CRC/MD5"
+
+# src/ItemOption.cc:1093
+# src/ItemOption.cc:1094
+#: src/ItemOption.cc:1302
+msgid "Ignore CRC/MD5 error"
+msgstr "Игнорировать ошибки CRC/MD5"
+
+# src/ItemOption.cc:1099
+#: src/ItemOption.cc:1307
+msgid "Use Content-MD5"
+msgstr "Использовать содержимое MD5"
+
+#: src/ItemOption.cc:1312
+msgid "Do not download already existing files"
+msgstr "Не закачивать существующие файлы"
+
+#: src/ItemOption.cc:1317
+msgid "Do not redownload if resuming is not available"
+msgstr "Не перезакачивать если докачка недоступна"
+
+# src/ItemOption.cc:1078
+# src/ItemOption.cc:1109
+#: src/ItemOption.cc:1327
+msgid "Time out (sec) "
+msgstr "Таймаут (Сек.)"
+
+# src/ItemOption.cc:1100
+# src/ItemOption.cc:1131
+#: src/ItemOption.cc:1349
+msgid "Retry (-1: unlimited) "
+msgstr "Повтор (-1: нет ограничения) "
+
+#: src/ItemOption.cc:1389
+msgid "Retry interval (sec) "
+msgstr "Интервал ожидания (с) "
+
+# src/ItemOption.cc:1139
+# src/ItemOption.cc:1170
+#: src/ItemOption.cc:1410
+msgid "Divide file into "
+msgstr "Разделить на "
+
+# src/ItemOption.cc:1160
+# src/ItemOption.cc:1191
+#: src/ItemOption.cc:1431
+msgid "Rollback (bytes) "
+msgstr "Откатить (байт) "
+
+#: src/ItemOption.cc:1445
+msgid "Do not download the files less than (bytes) "
+msgstr "Не закачивать файлы размером меньше (байт) "
+
+# src/ItemOption.cc:1182
+# src/ItemOption.cc:1213
+#: src/ItemOption.cc:1468
+msgid "Resume"
+msgstr "Докачка"
+
+# src/ItemOption.cc:1195
+# src/ItemOption.cc:1226
+#. always resume
+#: src/ItemOption.cc:1481
+msgid "Always resume"
+msgstr "Всегда докачивать"
+
+# src/ItemOption.cc:1201
+# src/ItemOption.cc:1232
+#. use if-modified-since
+#: src/ItemOption.cc:1487
+msgid "Resume if remote contents have not been modified"
+msgstr "Докачивать если содержимое не изменилось"
+
+# src/ItemOption.cc:1206
+# src/ItemOption.cc:1237
+#. no resume
+#: src/ItemOption.cc:1492
+msgid "Do not resume"
+msgstr "Не докачивать"
+
+# src/ItemOption.cc:1248
+# src/ItemOption.cc:1279
+#: src/ItemOption.cc:1565
+msgid "Execute the following command after download"
+msgstr "Выполнить команду после загрузки"
+
+# src/ItemOption.cc:1256
+# src/ItemOption.cc:1287
+#: src/ItemOption.cc:1583
+msgid ""
+"Download again if the exit status is not in the following list (delimiter is "
+"',')"
+msgstr ""
+"Закачать вновь если существующий статус не находится в списке (разделитель "
+"зпт.)"
+
+# src/ItemOption.cc:1297
+# src/ItemOption.cc:1328
+#. referer : none
+#: src/ItemOption.cc:1624
+msgid "none"
+msgstr "нет"
+
+# src/ItemOption.cc:1311
+# src/ItemOption.cc:1342
+#: src/ItemOption.cc:1638
+msgid "user defined"
+msgstr "определенный пользователем"
+
+# src/ItemOption.cc:1341
+# src/ItemOption.cc:1372
+#: src/ItemOption.cc:1668
+msgid "Delete cookie on restart (resume or error)"
+msgstr "Удалить Cookie при рестарте (повторять при ошибке)"
+
+# src/ItemOption.cc:1345
+# src/ItemOption.cc:1376
+#: src/ItemOption.cc:1672
+msgid "Do not send cookie"
+msgstr "Не посылать Cookie"
+
+# src/ItemOption.cc:1311
+# src/ItemOption.cc:1342
+#: src/ItemOption.cc:1680
+msgid "Send user defined cookie"
+msgstr "Посылать Cookie, определенные пользователем"
+
+# src/ItemOption.cc:1363
+# src/ItemOption.cc:1394
+#: src/ItemOption.cc:1702
+msgid "User Agent"
+msgstr "Агент"
+
+# src/ItemOption.cc:1375
+# src/ItemOption.cc:1406
+#: src/ItemOption.cc:1714
+msgid "Select randomly"
+msgstr "Выбрать случайно"
+
+# src/ItemOption.cc:1416 src/ItemOption.cc:1995
+# src/ItemOption.cc:1447 src/ItemOption.cc:2036
+#: src/ItemOption.cc:1755 src/ItemOption.cc:2448
+msgid "Use proxy"
+msgstr "Через прокси"
+
+# src/ItemOption.cc:1470 src/ItemOption.cc:2088
+# src/ItemOption.cc:1501 src/ItemOption.cc:2129
+#. toggle whether use cache or not
+#: src/ItemOption.cc:1809 src/ItemOption.cc:2541
+msgid "Use cache"
+msgstr "Использовать Кэш"
+
+# src/ItemOption.cc:1480 src/ItemOption.cc:2061
+# src/ItemOption.cc:1511 src/ItemOption.cc:2102
+#. label
+#: src/ItemOption.cc:1819 src/ItemOption.cc:2514
+msgid "Server : Port"
+msgstr "Сервер: Порт"
+
+# src/ItemOption.cc:1499 src/ItemOption.cc:2080 src/PasteWindow.cc:696
+# src/ItemOption.cc:1530 src/ItemOption.cc:2121 src/PasteWindow.cc:790
+#. delete button
+#: src/ItemOption.cc:1838 src/ItemOption.cc:2533 src/PasteWindow.cc:887
+msgid "Delete"
+msgstr "Удалить"
+
+# src/ItemOption.cc:1521 src/ItemOption.cc:1677 src/ItemOption.cc:2233
+# src/ItemOption.cc:1552 src/ItemOption.cc:1713 src/ItemOption.cc:2274
+#. frame
+#: src/ItemOption.cc:1860 src/ItemOption.cc:2039 src/ItemOption.cc:2691
+msgid "Recursive download"
+msgstr "Рекурсивная загрузка"
+
+# src/ItemOption.cc:1547 src/ItemOption.cc:2250
+# src/ItemOption.cc:1578 src/ItemOption.cc:2291
+#: src/ItemOption.cc:1886 src/ItemOption.cc:2708
+msgid "Depth of recursion "
+msgstr "Глубина вложенности"
+
+# src/ItemOption.cc:1563
+# src/ItemOption.cc:1594
+#: src/ItemOption.cc:1902
+msgid "With hostname directory"
+msgstr "С директории хоста"
+
+# src/ItemOption.cc:1568
+# src/ItemOption.cc:1599
+#: src/ItemOption.cc:1911
+msgid "Convert absolute URLs to relative ones"
+msgstr "Конвертировать абсолютные адреса в относительные"
+
+# src/ItemOption.cc:1573
+# src/ItemOption.cc:1604
+#: src/ItemOption.cc:1920
+msgid "Force convert"
+msgstr "Конвертировать"
+
+# src/ItemOption.cc:1578
+# src/ItemOption.cc:1609
+#: src/ItemOption.cc:1925
+msgid "Delete comments"
+msgstr "Удалить комментарии"
+
+# src/ItemOption.cc:1583
+# src/ItemOption.cc:1614
+#: src/ItemOption.cc:1930
+msgid "Delete JavaScript"
+msgstr "Удалить JavaScript"
+
+# src/ItemOption.cc:1578
+# src/ItemOption.cc:1619
+#: src/ItemOption.cc:1935
+msgid "Delete iframe"
+msgstr "Удалить комментарии"
+
+# src/ItemOption.cc:1588
+# src/ItemOption.cc:1624
+#: src/ItemOption.cc:1940
+msgid "No other host"
+msgstr "Ни какие другие хосты"
+
+# src/ItemOption.cc:1598 src/ItemOption.cc:2266
+# src/ItemOption.cc:1634 src/ItemOption.cc:2307
+#: src/ItemOption.cc:1950 src/ItemOption.cc:2724
+msgid "Do not ascend to parent directory"
+msgstr "Не подниматься к родительской директории"
+
+# src/ItemOption.cc:1603
+# src/ItemOption.cc:1639
+#: src/ItemOption.cc:1955
+msgid "Only relative links"
+msgstr "Только относительные ссылки"
+
+# src/ItemOption.cc:1609
+# src/ItemOption.cc:1645
+#: src/ItemOption.cc:1961
+msgid "Referer override"
+msgstr "Присвоить"
+
+# src/ItemOption.cc:1614
+# src/ItemOption.cc:1650
+#: src/ItemOption.cc:1966
+msgid "Follow FTP link"
+msgstr "Следовать ссылкам FTP"
+
+# src/download.cc:101 src/download.cc:109
+# src/download.cc:103 src/download.cc:111
+#: src/ItemOption.cc:1971
+msgid "Assume download is completed if resuming is not available"
+msgstr "Полагать, что загрузка завершена если докачка невозможна"
+
+#: src/ItemOption.cc:1976 src/ItemOption.cc:2734
+msgid "Add to paste window"
+msgstr "Добавить в окно"
+
+# src/ItemOption.cc:1626
+# src/ItemOption.cc:1662
+#: src/ItemOption.cc:1988
+msgid "Tags"
+msgstr "Тэги"
+
+# src/ItemOption.cc:1638
+# src/ItemOption.cc:1674
+#: src/ItemOption.cc:2000
+msgid "href"
+msgstr "Гиперссылка"
+
+# src/ItemOption.cc:1643
+# src/ItemOption.cc:1679
+#: src/ItemOption.cc:2005
+msgid "src"
+msgstr "src"
+
+# src/ItemOption.cc:1648
+# src/ItemOption.cc:1684
+#: src/ItemOption.cc:2010
+msgid "background"
+msgstr "Фон"
+
+#: src/ItemOption.cc:2015
+msgid "codebase"
+msgstr "базовый код"
+
+# src/ItemOption.cc:1696
+# src/ItemOption.cc:1732
+#. Parse Target extension clist
+#. frame
+#: src/ItemOption.cc:2058
+msgid "Extensions to parse"
+msgstr "Обработать расширения"
+
+# src/ItemOption.cc:1748
+# src/ItemOption.cc:1784
+#. Ignore Domain clist
+#. frame
+#: src/ItemOption.cc:2110
+msgid "Domains to ignore"
+msgstr "Игнорировать домены"
+
+# src/ItemOption.cc:1781
+# src/ItemOption.cc:1817
+#: src/ItemOption.cc:2143
+msgid "Domain"
+msgstr "Домен"
+
+# src/ItemOption.cc:1805 src/ItemOption.cc:2282
+# src/ItemOption.cc:1841 src/ItemOption.cc:2324
+#. Download Target extension clist
+#. frame
+#: src/ItemOption.cc:2167 src/ItemOption.cc:2746
+msgid "Patterns to download"
+msgstr "Шаблоны загрузки"
+
+# src/ItemOption.cc:1819 src/ItemOption.cc:2296
+# src/ItemOption.cc:1855 src/ItemOption.cc:2338
+#: src/ItemOption.cc:2181 src/ItemOption.cc:2760
+msgid "Use this filter"
+msgstr "Использовать фильтр"
+
+# src/HistoryWindow.cc:288 src/PasteWindow.cc:672
+# src/HistoryWindow.cc:288 src/PasteWindow.cc:766
+#: src/ItemOption.cc:2204 src/ItemOption.cc:2783
+msgid "Pattern"
+msgstr "Шаблон"
+
+# src/ItemOption.cc:1861
+# src/ItemOption.cc:1897
+#. Ignore Download Target extension clist
+#. frame
+#: src/ItemOption.cc:2223
+msgid "Extensions to ignore"
+msgstr "Игнорировать расширения"
+
+# src/ItemOption.cc:1934
+# src/ItemOption.cc:1970
+#: src/ItemOption.cc:2296
+msgid "Retry even if HTTP status is 404"
+msgstr "Пробовать даже если статус HTTP 404"
+
+# src/ItemOption.cc:1939
+# src/ItemOption.cc:1975
+#: src/ItemOption.cc:2301
+msgid "Retry even if HTTP status is 503"
+msgstr "Пробовать даже если статус HTTP 503"
+
+#: src/ItemOption.cc:2306
+msgid "HTTP status 416 handling"
+msgstr "Обработка 416 кода HTTP"
+
+# src/AppOption.cc:157 src/gui_download.cc:1309
+# src/AppOption.cc:157 src/gui_download.cc:1206
+#. Redownload
+#: src/ItemOption.cc:2330
+msgid "Redownload"
+msgstr "Перезагрузка"
+
+# src/ItemOption.cc:1598 src/ItemOption.cc:2266
+# src/ItemOption.cc:1634 src/ItemOption.cc:2307
+#: src/ItemOption.cc:2335
+msgid "Do not follow redirection"
+msgstr "Не следовать по ссылке (редирект)"
+
+#: src/ItemOption.cc:2340
+msgid "Accept compression encodings"
+msgstr "Принимать кодировки сжатия"
+
+#: src/ItemOption.cc:2353
+msgid "Use Accept-Language request header"
+msgstr ""
+
+# src/ItemOption.cc:1948
+# src/ItemOption.cc:1989
+#: src/ItemOption.cc:2367
+msgid "HTTP version "
+msgstr "Версия HTTP "
+
+#: src/ItemOption.cc:2387
+msgid "Name of the file to use as a pre-written HTML"
+msgstr "Имя файла для использования как предопределенный HTML"
+
+#. index.html
+#: src/ItemOption.cc:2400
+msgid "index.html"
+msgstr "index.html"
+
+# src/ItemOption.cc:1311
+# src/ItemOption.cc:1342
+#. User defined
+#: src/ItemOption.cc:2410
+msgid "User defined"
+msgstr "Определенный пользователем"
+
+# src/ItemOption.cc:2093
+# src/ItemOption.cc:2134
+#: src/ItemOption.cc:2546
+msgid "Via HTTP proxy"
+msgstr "Через HTTP прокси"
+
+# src/ItemOption.cc:2098
+# src/ItemOption.cc:2139
+#: src/ItemOption.cc:2551
+msgid "Login procedure"
+msgstr "Процедура входа"
+
+# src/ItemOption.cc:2147
+# src/ItemOption.cc:2188
+#: src/ItemOption.cc:2600
+msgid "FTP mode"
+msgstr "Режим FTP"
+
+# src/ItemOption.cc:2175
+# src/ItemOption.cc:2216
+#: src/ItemOption.cc:2628
+msgid "Retrieve mode"
+msgstr "Режим получения"
+
+# src/ItemOption.cc:2215
+# src/ItemOption.cc:2256
+#: src/ItemOption.cc:2668
+msgid "Don't send QUIT command"
+msgstr "Не посылать команду QUIT"
+
+#: src/ItemOption.cc:2673
+msgid "Don't send CWD command, instead use absolute path."
+msgstr ""
+
+# src/ItemOption.cc:2271
+# src/ItemOption.cc:2312
+#: src/ItemOption.cc:2729
+msgid "Retrieve symbolic links as real files"
+msgstr "Получать символические ссылки как файлы"
+
+# src/PasteWindow.cc:492 src/gui_option.cc:368
+# src/PasteWindow.cc:508 src/gui_option.cc:351
+#: src/ItemOption.cc:2865
+msgid "Selected items option"
+msgstr "Настройка выбранного адреса"
+
+# src/ItemOption.cc:2371
+# src/ItemOption.cc:2414
+#: src/ItemOption.cc:2867
+msgid "Default item option for "
+msgstr "Настройки адреса по умолчанию"
+
+# src/ItemOption.cc:2394
+# src/ItemOption.cc:2440
+#: src/ItemOption.cc:2919
+msgid "' option"
+msgstr "' настройки"
+
+# src/ItemStatusRec.cc:64
+# src/ItemStatusRec.cc:63
+#: src/ItemStatusRec.cc:84
+msgid " item(s) added"
+msgstr " Адрес(ов) добавлен(о)"
+
+#: src/AppOption.cc:33 src/AppOption.cc:34
+msgid "<DEFAULT>"
+msgstr ""
+
+# src/AppOption.cc:135
+# src/AppOption.cc:135
+#: src/AppOption.cc:149
+msgid "Application Option"
+msgstr "Настройки программы"
+
+# src/AppOption.cc:161
+# src/AppOption.cc:161
+#: src/AppOption.cc:177
+msgid "Confirmation"
+msgstr "Подтверждения"
+
+# src/AppOption.cc:165
+# src/AppOption.cc:165
+#: src/AppOption.cc:181
+msgid "Display"
+msgstr "Отображение"
+
+#: src/AppOption.cc:185
+msgid "Basket"
+msgstr "Корзина"
+
+# src/AppOption.cc:169
+# src/AppOption.cc:169
+#: src/AppOption.cc:189
+msgid "Timer"
+msgstr "Таймер"
+
+# src/AppOption.cc:179
+# src/AppOption.cc:179
+#: src/AppOption.cc:199
+msgid "Server"
+msgstr "Сервер:Порт"
+
+# src/AppOption.cc:222 src/AppOption.cc:225 src/AppOption.cc:256
+# src/AppOption.cc:222 src/AppOption.cc:225 src/AppOption.cc:256
+#. ╔Ё╔ч╔С╔и╔Й╔╧╔х╧╧©╥╔э╔©╔С
+#: src/AppOption.cc:252 src/AppOption.cc:255 src/AppOption.cc:284
+msgid "Update Command list"
+msgstr "Обновить список команд"
+
+# src/AppOption.cc:223 src/AppOption.cc:289
+# src/AppOption.cc:223 src/AppOption.cc:289
+#: src/AppOption.cc:253 src/AppOption.cc:348
+msgid "Update successful"
+msgstr "Успешное обновление"
+
+# src/AppOption.cc:226 src/AppOption.cc:292
+# src/AppOption.cc:226 src/AppOption.cc:292
+#: src/AppOption.cc:256 src/AppOption.cc:351
+msgid "Update failed"
+msgstr "Неудачное обновление"
+
+# src/AppOption.cc:250
+# src/AppOption.cc:250
+#. toggle command list
+#: src/AppOption.cc:278
+msgid "Use Command list"
+msgstr "Использовать список команд"
+
+# src/AppOption.cc:265
+# src/AppOption.cc:265
+#. ╔Ё╔ч╔С╔и╔Й╔╧╔х╓нCList
+#: src/AppOption.cc:293
+msgid "Choose commands to use"
+msgstr "Выбирите команды"
+
+# src/AppOption.cc:272 src/AppOption.cc:347
+# src/AppOption.cc:272 src/AppOption.cc:347
+#: src/AppOption.cc:300 src/AppOption.cc:393
+msgid "Comment"
+msgstr "Примечание"
+
+# src/AppOption.cc:288 src/AppOption.cc:291 src/AppOption.cc:331
+# src/AppOption.cc:288 src/AppOption.cc:291 src/AppOption.cc:331
+#. server template update button
+#: src/AppOption.cc:347 src/AppOption.cc:350 src/AppOption.cc:378
+msgid "Update Server Template"
+msgstr "Обновить настройку сервера"
+
+# src/AppOption.cc:325
+# src/AppOption.cc:325
+#. toggle enable/disable Server Template feature
+#: src/AppOption.cc:372
+msgid "Use Server Template"
+msgstr "Использовать настройки сервера"
+
+# src/AppOption.cc:341
+# src/AppOption.cc:341
+#. CList for Server Template
+#: src/AppOption.cc:387
+msgid "Choose templates to use"
+msgstr "Выбрать настройки"
+
+# src/AppOption.cc:346
+# src/AppOption.cc:346
+#: src/AppOption.cc:392
+msgid "Template"
+msgstr "Настройка"
+
+# src/AppOption.cc:524
+# src/AppOption.cc:518
+#: src/AppOption.cc:562
+msgid "Display sizes in human readable format (e.g. 1.2K 234.1M 2.2G)"
+msgstr "Отображать в читабельном формате (1,2K 234,1M 2,2G)"
+
+# src/gui_main.cc:1007
+# src/ListEntry.cc:292 src/gui_main.cc:862
+#: src/AppOption.cc:570
+msgid "Status Icon"
+msgstr "Иконка статуса"
+
+# src/AppOption.cc:597
+# src/AppOption.cc:591
+#: src/AppOption.cc:624
+msgid "Icon set"
+msgstr "Набор иконок"
+
+# src/AppOption.cc:619
+# src/AppOption.cc:613
+#: src/AppOption.cc:650 src/AppOption.cc:916
+msgid "Apply"
+msgstr "Применить"
+
+# src/AppOption.cc:306
+# src/AppOption.cc:306
+#: src/AppOption.cc:757
+msgid "error"
+msgstr "ошибка"
+
+# src/AppOption.cc:307
+# src/AppOption.cc:307
+#: src/AppOption.cc:758
+msgid "cannot read pixmap file"
+msgstr "нет файла иконки"
+
+#: src/AppOption.cc:843
+#, fuzzy
+msgid "Bypass paste window"
+msgstr "Добавить в окно"
+
+#: src/AppOption.cc:849
+msgid "Pixmap on DND Basket"
+msgstr "Иконка на корзину"
+
+#: src/AppOption.cc:863
+msgid "Preview"
+msgstr "Просмотр"
+
+#: src/AppOption.cc:889
+msgid "Pixmap"
+msgstr "Иконка"
+
+# src/AppOption.cc:641
+# src/AppOption.cc:635
+#. ╔╒╔╓╔ф╔Ю╓Р╨О╫Э╓╧╓К╓х╓╜╓кЁнг╖╓╧╓К╓╚╓и╓╕╓╚
+#: src/AppOption.cc:940
+msgid "Confirm clear"
+msgstr "Подвердить очистку"
+
+# src/AppOption.cc:647
+# src/AppOption.cc:641
+#. confirm delete list
+#: src/AppOption.cc:946
+msgid "Confirm delete list"
+msgstr "Подтвердить удаление списка"
+
+# src/AppOption.cc:647
+# src/AppOption.cc:646
+#. ╔в╔М╔╟╔И╔Ю╫╙н╩╩Ч╓кЁнг╖╓╧╓К╓╚╓и╓╕╓╚
+#: src/AppOption.cc:951
+msgid "Confirm exit"
+msgstr "Подтвердить выход"
+
+# src/AppOption.cc:653
+# src/AppOption.cc:652
+#. ╔М╔╟╔╞╔Й╔╒╩Ч╓кЁнг╖╓╧╓К╓╚╓и╓╕╓╚
+#: src/AppOption.cc:957
+msgid "Confirm clear system log"
+msgstr "Подтвердить очистку логов"
+
+# src/AppOption.cc:671
+# src/AppOption.cc:670
+#: src/AppOption.cc:980
+#, fuzzy
+msgid "Use start timer"
+msgstr "Использовать таймер"
+
+# src/AppOption.cc:679
+# src/AppOption.cc:678
+#: src/AppOption.cc:984
+msgid "Start (hour : min) "
+msgstr "Старт (час:мин.)"
+
+# src/AppOption.cc:671
+# src/AppOption.cc:670
+#: src/AppOption.cc:1023
+#, fuzzy
+msgid "Use stop timer"
+msgstr "Использовать таймер"
+
+# src/AppOption.cc:717
+# src/AppOption.cc:716
+#: src/AppOption.cc:1027
+msgid "Stop (hour : min) "
+msgstr "Стоп  (час:мин.)"
+
+#: src/AppOption.cc:1066
+#, fuzzy
+msgid "Do not stop downloads when timer expires"
+msgstr "Не закачивать существующие файлы"
+
+# src/AppOption.cc:770
+# src/AppOption.cc:773
+#: src/AppOption.cc:1107
+msgid "The number of simultaneous downloads for new list "
+msgstr "Количество одновременных закачек нового списка "
+
+# src/AppOption.cc:791
+# src/AppOption.cc:794
+#. toggle automatic start
+#: src/AppOption.cc:1128
+msgid "Start downloads automatically"
+msgstr "Начинать закачку автоматически"
+
+# src/gui_tab.cc:103
+# src/gui_list.cc:56 src/gui_list.cc:139
+#. toggle automatic start modifier
+#: src/AppOption.cc:1139
+msgid "Only current list"
+msgstr "Только текщий список"
+
+#. force download now (stopping other downloads if necessary)
+#: src/AppOption.cc:1149
+msgid "Force download now (stopping other downloads if necessary)"
+msgstr "Форсировать закачку (остановить остальные по необходимости)"
+
+# src/AppOption.cc:798
+# src/AppOption.cc:801
+#. toggle ignore error item in "Start All" menu
+#: src/AppOption.cc:1155
+msgid "Ignore error'ed items in \"Start All\" menu"
+msgstr "Игнорировать ошибки адреса в меню \"Старт для всех\""
+
+# src/AppOption.cc:804
+# src/AppOption.cc:807
+#. ignore list in find hyperlink
+#: src/AppOption.cc:1161
+msgid "Ignore these extensions when finding hyperlink"
+msgstr "Игнорировать расширения при поиске гиперссылки"
+
+# src/AppOption.cc:821
+# src/AppOption.cc:824
+#. toggle autosave
+#: src/AppOption.cc:1178
+msgid "Autosave (list, history and options) every "
+msgstr "Автосохранение"
+
+# src/AppOption.cc:837
+# src/AppOption.cc:840
+#: src/AppOption.cc:1194
+msgid "minute(s)"
+msgstr "Минут(ы)"
+
+# src/gui_option.cc:473
+# src/gui_option.cc:456
+#: src/AppOption.cc:1204
+msgid "Max entry of download history"
+msgstr "Макс. количество записей истории"
+
+#: src/AppOption.cc:1227
+msgid "Max value of speed limiter"
+msgstr "Макс. значение ограничителя скорости"
+
+# src/download.cc:425
+# src/download.cc:433
+#: src/AppOption.cc:1253
+#, fuzzy
+msgid "Execute command when:"
+msgstr "Выполнение команды "
+
+# src/download.cc:101 src/download.cc:109
+# src/download.cc:103 src/download.cc:111
+#: src/AppOption.cc:1262
+#, fuzzy
+msgid "all downloads are stopped or completed"
+msgstr "Предположительно загрузка завершена"
+
+#: src/AppOption.cc:1271
+msgid "timer expires"
+msgstr ""
+
+# src/AppOption.cc:850
+# src/AppOption.cc:853
+#: src/AppOption.cc:1280
+msgid "Command "
+msgstr "Команда "
+
+# src/AppOption.cc:860
+# src/AppOption.cc:863
+#: src/AppOption.cc:1291
+msgid "Quit Aria when all downloads are over or stopped by timer"
+msgstr "Выйти когда все закачки выполнены или остановлены таймером"
+
+# src/gui_main.cc:998
+# src/ListEntry.cc:283 src/gui_main.cc:853
+#: src/ListEntry.cc:609
+msgid "*"
+msgstr "*"
+
+# src/gui_main.cc:1000
+# src/ListEntry.cc:285 src/gui_main.cc:855
+#: src/ListEntry.cc:611
+msgid "Downloaded"
+msgstr "Загружено"
+
+# src/HistoryWindow.cc:229 src/gui_main.cc:1001
+# src/HistoryWindow.cc:229 src/ListEntry.cc:286 src/gui_main.cc:856
+#: src/ListEntry.cc:612 src/HistoryWindow.cc:276
+msgid "Total"
+msgstr "Всего"
+
+# src/gui_main.cc:1002
+# src/ListEntry.cc:287 src/gui_main.cc:857
+#: src/ListEntry.cc:613
+msgid "%"
+msgstr "%"
+
+# src/gui_main.cc:1003
+# src/ListEntry.cc:288 src/gui_main.cc:858
+#: src/ListEntry.cc:614
+msgid "Speed"
+msgstr "Скорость"
+
+# src/gui_main.cc:1004
+# src/ListEntry.cc:289 src/gui_main.cc:859
+#: src/ListEntry.cc:615
+msgid "Remaining"
+msgstr "Осталось"
+
+# src/gui_main.cc:1006
+# src/ListEntry.cc:291 src/gui_main.cc:861
+#: src/ListEntry.cc:617
+msgid "Recurse"
+msgstr "Ссылка"
+
+# src/HistoryWindow.cc:232 src/PasteWindow.cc:613 src/gui_main.cc:1009
+# src/HistoryWindow.cc:232 src/ListEntry.cc:295 src/PasteWindow.cc:707
+# src/gui_main.cc:865
+#: src/ListEntry.cc:621 src/PasteWindow.cc:801 src/HistoryWindow.cc:279
+msgid "Save"
+msgstr "Сохранить"
+
+# src/gui_main.cc:276
+# src/ListEntry.cc:641
+#: src/ListEntry.cc:997
+msgid "DIVIDED"
+msgstr "разделен"
+
+# src/gui_main.cc:285
+# src/ListEntry.cc:649
+#: src/ListEntry.cc:1005
+msgid "READY TO CONCAT"
+msgstr "Готово к объединению"
+
+# src/gui_main.cc:293
+# src/ListEntry.cc:657
+#: src/ListEntry.cc:1013
+msgid "CRC ERROR"
+msgstr "Ошибка контрольной суммы"
+
+# src/gui_main.cc:300
+# src/ListEntry.cc:664
+#: src/ListEntry.cc:1020
+msgid "EXEC ERROR"
+msgstr "Ошибка выполнения"
+
+# src/gui_main.cc:307
+# src/ListEntry.cc:671
+#: src/ListEntry.cc:1027
+msgid "DOWNLOAD ERROR"
+msgstr "Ошибка загрузки"
+
+# src/gui_main.cc:322
+# src/ListEntry.cc:686
+#: src/ListEntry.cc:1042
+msgid "LOCKED"
+msgstr "Заблокировано"
+
+# src/gui_main.cc:331
+# src/ListEntry.cc:695
+#: src/ListEntry.cc:1051
+msgid "DOWNLOADING"
+msgstr "Загрузка"
+
+# src/gui_download.cc:737 src/gui_main.cc:339
+# src/ListEntry.cc:703
+#: src/ListEntry.cc:1059
+msgid "DOWNLOAD COMPLETE"
+msgstr "Загрузка завершена"
+
+# src/gui_toolbar.cc:308
+# src/gui_toolbar.cc:310
+#: src/gui_toolbar.cc:298
+msgid "Paste URL list from clipboard"
+msgstr "Вставить список адресов из буффера"
+
+# src/gui_toolbar.cc:330
+# src/gui_toolbar.cc:332
+#: src/gui_toolbar.cc:320
+msgid "Clear item(s)"
+msgstr "Очистить адрес(а)"
+
+# src/gui_toolbar.cc:346
+# src/gui_toolbar.cc:348
+#: src/gui_toolbar.cc:336
+msgid "Start downloading selected item(s)"
+msgstr "Начать закачку выбранных адресов"
+
+# src/gui_toolbar.cc:362
+# src/gui_toolbar.cc:364
+#: src/gui_toolbar.cc:352
+msgid "Stop downloading selected item(s)"
+msgstr "Прекратить закачку выбранных адресов"
+
+# src/gui_toolbar.cc:378
+# src/gui_toolbar.cc:380
+#: src/gui_toolbar.cc:368
+msgid "Download again selected item(s)"
+msgstr "Продолжить закачку выбранных адресов"
+
+# src/gui_toolbar.cc:394
+# src/gui_toolbar.cc:396
+#: src/gui_toolbar.cc:384
+msgid "Item option"
+msgstr "Настройки адреса"
+
+# src/gui_toolbar.cc:410
+# src/gui_toolbar.cc:412
+#: src/gui_toolbar.cc:400
+msgid "Lock selected item(s)"
+msgstr "Блокировать выбранные адреса"
+
+# src/gui_toolbar.cc:427
+# src/gui_toolbar.cc:429
+#: src/gui_toolbar.cc:417
+msgid "Unlock selected item(s)"
+msgstr "Разблокировать выбранные адреса"
+
+# src/gui_toolbar.cc:443
+# src/gui_toolbar.cc:445
+#: src/gui_toolbar.cc:433
+msgid "Move up"
+msgstr "Вверх"
+
+# src/gui_toolbar.cc:459
+# src/gui_toolbar.cc:461
+#: src/gui_toolbar.cc:449
+msgid "Move down"
+msgstr "Вниз"
+
+# src/gui_toolbar.cc:482
+# src/gui_toolbar.cc:482
+#: src/gui_toolbar.cc:470
+msgid "Track download"
+msgstr "Трассировать"
+
+# src/gui_toolbar.cc:499
+# src/gui_toolbar.cc:501
+#: src/gui_toolbar.cc:489
+msgid "Start downloading all items"
+msgstr "Начать закачку всех"
+
+# src/gui_toolbar.cc:515
+# src/gui_toolbar.cc:517
+#: src/gui_toolbar.cc:505
+msgid "Stop downloading all items"
+msgstr "Прекратить закачку всех"
+
+# src/gui_toolbar.cc:563
+# src/gui_toolbar.cc:565
+#: src/gui_toolbar.cc:553
+msgid "Adjust the number of working thread"
+msgstr "Установить количество рабочих тредов"
+
+# src/gui_help.cc:44 src/gui_help.cc:177
+# src/gui_help.cc:44 src/gui_help.cc:187
+#: src/gui_help.cc:44 src/gui_help.cc:214
+msgid "About Aria"
+msgstr "О программе"
+
+# src/gui_help.cc:91
+#: src/gui_help.cc:91
+msgid "Rollout: "
+msgstr "Откат: "
+
+# src/gui_help.cc:98
+#. gtk_text_insert(GTK_TEXT(text), NULL, NULL, NULL, line.c_str(), -1);
+#. show transraters
+#. line.erase();
+#: src/gui_help.cc:98
+msgid "Translations:"
+msgstr "Перевод:"
+
+# src/gui_help.cc:99
+#: src/gui_help.cc:99
+msgid "(Czech)"
+msgstr ""
+
+#: src/gui_help.cc:100
+msgid "(Spanish)"
+msgstr ""
+
+# src/gui_help.cc:100
+#: src/gui_help.cc:101 src/gui_help.cc:102
+msgid "(French)"
+msgstr ""
+
+# src/gui_help.cc:101
+#: src/gui_help.cc:103
+msgid "(German)"
+msgstr ""
+
+#: src/gui_help.cc:104
+msgid "(Hungarian)"
+msgstr ""
+
+#: src/gui_help.cc:105
+msgid "(Italian)"
+msgstr ""
+
+# src/gui_help.cc:102
+#: src/gui_help.cc:106
+msgid "(Japanese)"
+msgstr ""
+
+#: src/gui_help.cc:107
+msgid "(Polish)"
+msgstr ""
+
+# src/gui_help.cc:103
+#: src/gui_help.cc:108
+msgid "(Russian)"
+msgstr ""
+
+#: src/gui_help.cc:109
+msgid "(Traditional Chinese)"
+msgstr ""
+
+#. gtk_text_insert(GTK_TEXT(text), NULL, NULL, NULL, line.c_str(), -1);
+#. show special thanks
+#. line.erase();
+#: src/gui_help.cc:117
+msgid "Aria Logo:"
+msgstr ""
+
+# src/gui_help.cc:110
+#: src/gui_help.cc:121
+msgid "Special Thanks:"
+msgstr ""
+
+# src/gui_help.cc:116
+#: src/gui_help.cc:127
+msgid "    and all who support Aria"
+msgstr ""
+
+# src/gui_help.cc:123
+#. gtk_text_insert(GTK_TEXT(text), NULL, NULL, NULL, line.c_str(), -1);
+#. GPL issue
+#. line.erase();
+#: src/gui_help.cc:134
+msgid "License:"
+msgstr ""
+
+#: src/gui_help.cc:136
+msgid ""
+"This program is free software; you can redistribute it and/or modify it "
+"under the terms of the GNU General Public License as published by the Free "
+"Software Foundation; either version 2 of the License, or (at your option) "
+"any later version.\n"
+"\n"
+"This program is distributed in the hope that it will be useful, but WITHOUT "
+"ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or "
+"FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for "
+"more details.\n"
+"\n"
+"You should have received a copy of the GNU General Public License along with "
+"this program; if not, write to the Free Software Foundation, Inc., 59 Temple "
+"Place - Suite 330, Boston, MA 02111-1307, USA."
+msgstr ""
+
+# src/gui_help.cc:145
+#. gtk_text_insert(GTK_TEXT(text), NULL, NULL, NULL, line.c_str(), -1);
+#. show compile information
+#. line.erase();
+#: src/gui_help.cc:172
+msgid "Built on:"
+msgstr ""
+
+# src/gui_help.cc:194
+# src/gui_help.cc:204
+#: src/gui_help.cc:231
+msgid "Help"
+msgstr "Помощь"
+
+# src/Dialog.cc:168
+#. OK button
+#: src/Dialog.cc:168
+msgid "Yes"
+msgstr "Да"
+
+# src/Dialog.cc:180
+#. No button
+#: src/Dialog.cc:180
+msgid "No"
+msgstr "Нет"
+
+#: src/PasteWindow.cc:94 src/PasteWindow.cc:179 src/PasteWindow.cc:211
+#: src/PasteWindow.cc:245 src/PasteWindow.cc:266 src/PasteWindow.cc:296
+msgid "The specified list no longer exists."
+msgstr "Указанный список более не существует"
+
+# src/HistoryWindow.cc:288 src/PasteWindow.cc:672
+# src/HistoryWindow.cc:288 src/PasteWindow.cc:766
+#. create a combobox to allow users to choose the list to drop items
+#: src/PasteWindow.cc:783
+msgid "Paste to "
+msgstr "Вставить"
+
+# src/gui_toolbar.cc:499
+# src/gui_toolbar.cc:501
+#. create a toggle button to toggle whether or not downloads should be
+#. started automatically.
+#: src/PasteWindow.cc:794
+msgid "Start downloading when pasted"
+msgstr "Начать закачку после вставки"
+
+# src/HistoryWindow.cc:288 src/PasteWindow.cc:672
+# src/HistoryWindow.cc:288 src/PasteWindow.cc:766
+#. Paste button
+#: src/PasteWindow.cc:863 src/HistoryWindow.cc:345
+msgid "Paste"
+msgstr "Вставить"
+
+# src/HistoryWindow.cc:210
+# src/HistoryWindow.cc:210
+#: src/HistoryWindow.cc:259
+msgid "History URL list"
+msgstr "История списка адресов"
+
+# src/HistoryWindow.cc:230
+# src/HistoryWindow.cc:230
+#: src/HistoryWindow.cc:277
+msgid "Date"
+msgstr "Дата"
+
+# src/HistoryWindow.cc:309
+# src/HistoryWindow.cc:309
+#. Close button
+#: src/HistoryWindow.cc:366
+msgid "Close"
+msgstr "Закрыть"
+
+# src/gui_main.cc:1005
+# src/ListEntry.cc:290 src/gui_main.cc:860
+#: src/HistoryWindow.cc:600
+msgid "Query"
+msgstr "Запрос"
+
+# src/AppOption.cc:843
+# src/AppOption.cc:846
+#~ msgid "Execute command when all downloads are over or stopped by timer"
+#~ msgstr ""
+#~ "Выполнить команду когда все закачки выполнены или остановлены таймером"

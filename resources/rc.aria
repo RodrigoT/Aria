@@ -1,0 +1,20 @@
+/*********************************************
+   rc file for aria
+   $Id: rc.aria,v 1.2 2001/10/01 12:45:06 tujikawa Exp $
+**********************************************/
+
+style "Default"
+{
+  fontset="-*-*-medium-r-normal--12-*-*-*-*-*-*-*, -*-*-medium-r-normal--12-*-*-*-*-*-*-*"
+}
+
+style "text" = "Default"
+{
+  fontset="-*-fixed-medium-r-normal--12-*-*-*-*-*-*-*, -*-fixed-medium-r-normal--12-*-*-*-*-*-*-*"
+}
+widget_class "*GtkText*" style "text"
+widget_class "*GtkEntry*" style "text"
+widget_class "*GtkList*" style "text"
+widget_class "*GtkCList*" style "text"
+widget_class "*GtkWindow*" style "Default"
+widget_class "*GtkDialog*" style "Default"

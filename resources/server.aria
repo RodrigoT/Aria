@@ -1,0 +1,103 @@
+<!--
+ server config file for aria
+
+ WARNING: HTTP protocol Only
+
+ Time-stamp: <01/04/08 19:17:38 tujikawa>
+-->
+
+<!-- fortunecity.com -->
+<server>
+  <identifier>fortunecity.com</identifier>
+  <comment> none </comment>
+  <target-servers>fortunecity.com fortunecity.de</target-servers>
+  <ignore-extensions>.html .htm</ignore-extensions>
+  <sequence>
+    <session>
+      <get>$(protocol)//$(host)$(dir)/index.html</get>
+      <option>nodown</option>
+    </session>
+    <session>
+      <get>$(url)</get>
+      <referer>$(previous_url)</referer>
+    </session>
+  </sequence>
+</server>
+
+<!-- tripod.com -->
+<server>
+  <identifier>tripod.com</identifier>
+  <comment> none </comment>
+  <target-servers>tripod.com</targetservers>
+  <ignore-servers>members.tripod.com</ignore-servers>
+  <ignore-extensions>.jpg .jpeg .htm .html .gif .txt</ignore-extensions>
+  <sequence>
+    <session>
+      <get> $(protocol)//members.$(host, 1, -1)/$(host, 0, 0)$(dir, 1, -1)$(file) </get>
+      <referer> $(protocol)//members.$(host, 1, -1)/$(host, 0, 0)$(dir, 1, -1)$(file) </referer>
+      <option>  nocookie nodown </option>
+    </session>
+    <session>
+      <get> $(retrieved_url) </get>
+      <referer> $(previous_url) </referer>
+    </session>
+  </sequence>
+</server>
+
+<server>
+  <identifier> tripod.com </identifier>
+  <comment> none </comment>
+  <target-servers> members.tripod.com </target-servers>
+  <ignore-extensions> .jpg .jpeg .htm .html .gif .txt </ignore-extensions>
+  <sequence>
+    <session>
+      <get> $(url) </get>
+      <referer> $(url) </referer>
+      <option> nocookie nodown </option>
+    </session>
+    <session>
+      <get> $(retrieved_url) </get>
+      <referer> $(previous_url) </referer>
+    </session>
+  </sequence>
+</server>
+
+<!-- nettaxi.com -->
+<server>
+  <identifier> nettaxi.com </identifier>
+  <comment> none </comment>
+  <target-servers> nettaxi.com </target-servers>
+  <ignore-extensions> .jpg .jpeg .html .htm .gif .txt </ignore-extensions>
+  <sequence>
+    <session>
+      <get> $(protocol)//$(host, 0, 0)8.$(host, 1, -1)/cgi-bin/download.uya?freq=$(dir)$(file) </get>
+      <referer> $(protocol)//$(host, 0, 0)8.$(host, 1, -1)/cgi-bin/download.uya?freq=$(dir)$(file) </referer>
+      <option> nodown </option>
+    </session>
+    <session>
+      <get> $(protocol)//$(host, 0, 0)8.$(host, 1, -1)$(dir)$(file) </get>
+      <referer> $(previous_url) </referer>
+    </session>
+  </sequence>
+</server>
+
+<!--
+ webjump.com
+-->
+<server>
+  <identifier> webjump.com </identifier>
+  <comment> none </comment>
+  <target-servers> webjump.com </target-servers>
+  <ignore-servers> .at.webjump.com </ignore-servers>
+  <sequence>
+    <session>
+      <keylink> $(host, 0, 0)-webjump </keylink>
+      <option> getkeylink </option>
+      <referer> $(url) </referer>
+    </session>
+    <session>
+      <get> $(retrieved_url) </get>
+      <referer> $(previous_url) </referer>
+    </session>
+  </sequence>
+</server>

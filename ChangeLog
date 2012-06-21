@@ -1,0 +1,1234 @@
+2002-12-16  Tatsuhiro Tsujikawa  <tujikawa@rednoah.com>
+
+	* src/download.cc (Send_report): now message is instantly appeard
+	in console text when executing command(in right-click menu)
+
+2002-12-15  Tatsuhiro Tsujikawa  <tujikawa@rednoah.com>
+
+	* src/main.cc (main): apply the patch from Matej Vela's initialization
+	patch.(see Debian Bug report logs - #134394)
+	* src/URLcontainer.cc (Find_URL): now space is not recognized as
+	delimiter when substituting URL from drag'n dropped text.
+	* src/gui_main.cc (Set_speed_scale): fixed the bug that speed limit
+	is not set correctly when items are selected in multiple tabs.
+	* src/Retrieve.cc (Download_data): fixed miscalculation of average
+	speed: long int is not enough to measure it, use unsigned long instead.
+	* src/RetrieveHTTP.cc (Download_data_chunked): fixed miscalculation of
+	average speed: long int is not enough to measure it, use unsigned long
+	instead.
+	* src/RetrieveHTTP.cc (Send_Request): user defined referer and URL
+	referer are URL-encoded.
+	
+2002-10-01  Tatsuhiro Tsujikawa  <tujikawa@rednoah.com>
+
+	* Now Aria can be compiled with gcc-3.0 and 3.2.
+	But with gcc-3.2, it takes long time to write the item and
+	configuration files.
+
+2002-09-30  Tatsuhiro Tsujikawa  <tujikawa@rednoah.com>
+
+	* src/gui_download.cc (Download_stop_sub): delete default parameter
+	4 and 5. These parameter is defined by prototype declaration.
+
+2002-09-19  Tatsuhiro Tsujikawa  <tujikawa@rednoah.com>
+
+	* src/HTMLparse.cc (find_href): fixed the feature "extensions not to
+	download" is not working.
+
+2002-09-07  Tatsuhiro Tsujikawa  <tujikawa@rednoah.com>
+
+	* src/Base64.cc : merged the patch contributed by Emanuele Caratti.
+	It fixes base64 encoding bug.
+	* po/hu.po: updated hu.po file, by Boldizsar Nagy.
+	* po/zh_TW.po: traditional chinese po file added, contributed
+	by hardded.
+	* po/fr.po: updated by Nicolas Boos.
+	* src/RetrieveHTTP.cc, src/RetrieveFTP.cc: now lower size limitation is
+	applied even if total size of file is known to be 0.
+
+2002-04-07  Tatsuhiro Tsujikawa  <tujikawa@rednoah.com>
+
+	* src/gui_file.cc: 
+	fixed the bug that cause segmentation fault when Aria exits.
+
+2002-04-04  Tatsuhiro Tsujikawa  <tujikawa@rednoah.com>
+
+	* src/RetrieveFTP.cc : 
+	fixed the bug in sending "LIST -l" command if no cwd option is enabled
+	* src/FTPcontainer.cc :
+	fixed the bug that cannot get ip address and port if in PASV mode
+	the server returns the address-port string without enclosed with
+	'(' ')'.
+
+2002-04-03  Tatsuhiro Tsujikawa  <tujikawa@rednoah.com>
+
+	* src/Command.cc (Is_reserved): 
+	$(filename) doesn't mean not full path anymore, it means just the
+	file name. I've added 2 new reserved word: $(filepath) and $(url).
+	$(filepath) is what the $(filename) meant, that is the full path
+	to the downloaded file. $(url) is the url of the item.
+
+2002-04-02  Tatsuhiro Tsujikawa  <tujikawa@rednoah.com>
+
+	* po/it.po:
+	added Italian translation, thanks to Giovanni Pardini.
+	* src/gui_file.cc:
+	fixed the timer bug: Assume "Execute command when timer expires"
+	option is enabled. Under this assumption,
+	if "do not stop download when timer expires"
+	option is disabled, when timer expires and there is at least one
+	active download, Aria doesn't execute command.
+	* src/ItemOption.cc:
+	command entry is replaced by text field(though gtk_text is
+	known to be buggy). It's handy to write down shell script.
+	This idea is from Adam Purkrt.
+
+2002-03-19  Tatsuhiro Tsujikawa  <tujikawa@rednoah.com>
+
+	* src/HTMLparse.cc: 
+	added <base href="..."> support
+2002-03-17  Tatsuhiro Tsujikawa  <tujikawa@rednoah.com>
+
+	* src/StringHash.cc:
+	which was introduced to replace STL map with.
+	It made list file reading speed 30% faster.
+	
+2002-02-13  Tatsuhiro Tsujikawa  <tujikawa@rednoah.com>
+
+	* src/RetrieveFTP.cc (Get_response): 
+	rewrite this function
+	* src/AppOption.cc:
+	fixed timer behavior
+	* src/RetrieveFTP.cc:
+	added the option "no CWD"
+	* src/main.cc:
+	added useragent "Mozilla/4.0 (compatible)" at first place in
+	useragent list
+	
+2002-01-20  Tatsuhiro Tsujikawa  <tujikawa@rednoah.com>
+
+	* src/AppOption.cc:
+	replaced "Use timer button" with "Use start timer" and "Use stop
+	timer." If both "Use start timer" and "Use stop timer" are enabled,
+	then stop time is adjusted based on start timer.
+	* src/Socket.cc:
+	add (char *) cast in order to complie gcc2.96
+
+2001-12-25  Tatsuhiro Tsujikawa  <tujikawa@rednoah.com>
+
+	* src/gui_download_check.cc : 
+	fixed the bug that checks all items while the checks of completed items
+	are requested.
+	* src/ItemStatusDynamic.cc :
+	fixed segmentation fault bug: call itemcell->release_Options_Lock()
+	while itemcell has been deleted.
+	
+2001-11-29  Tatsuhiro Tsujikawa  <tujikawa@rednoah.com>
+
+	* src/gui_item_new_item.cc: 
+	new url is now parsed by URLcontainer::Find_URL() firstly.
+	* src/AppOption.cc:
+	Refined "Execute command" timing configulation.
+	
+2001-11-24  Tatsuhiro Tsujikawa  <tujikawa@rednoah.com>
+
+	* src/RetrieveHTTP.cc (Send_Request), Options.cc, ItemOption.cc: 
+	added Accept-Language request field. Adding your mother language to
+	this option may be good for ya? Whatever, I set "ja" there ;)
+	
+	* src/AppOption.cc:
+	now users can determin when the command is executed; these are 2
+	choices: when all downloads are over, or when timer expires.
+	The first case includes the case when the downloads are stopped by
+	timer.
+	
+2001-11-20  Tatsuhiro Tsujikawa  <tujikawa@rednoah.com>
+
+	* src/AppOption.cc : 
+	Added option that bypass paste window when the url is dragged
+	into basket
+	Added option that do not stop download when timer expires.
+	* src/RetrieveHTTPS.cc :
+	Added https protocol support. OpenSSL required.
+
+2001-11-18  Tatsuhiro Tsujikawa  <tujikawa@rednoah.com>
+
+	* src/RetrieveHTTP.cc: 
+	fixed time out bug while getting HTTP header
+	* src/Basket.cc:
+	added focus-out call back function
+
+2001-11-14  Tatsuhiro Tsujikawa  <tujikawa@rednoah.com>
+
+	* src/RetrieveHTTP.cc: 
+	fixed the bug that ignores "save as" field when redirection
+	occurs.
+	* src/RetrieveHTTP.cc:
+	gzip, deflate support enabled again.
+	       
+2001-11-10  Tatsuhiro Tsujikawa  <tujikawa@rednoah.com>
+
+	* src/URLcontainer.cc : 
+	decode URL when parsing URL
+	* src/HistoryWindow.cc :
+	fixed dead lock bug when disk is full and the autosave option
+	is enabled.
+	* src/ItemOption.cc :
+	fixed the bug in option window when multiple items are selected.
+	* src/ListEntry.cc :
+	the height of row of download list is now changeable according to
+	the status icon and font size.
+	* src/Basket.cc :
+	now basket is appears at correct position when dragged to left screen
+	edge.
+	
+2001-11-02  Tatsuhiro Tsujikawa  <tujikawa@rednoah.com>
+
+	* src/ListEntry.cc:
+	fixed bug in setCRCList and setMD5List
+	* src/ItemList.cc:
+	fixed bug in Read_URL_from_file
+	* src/RetrieveHTTP.cc: 
+	gzip, deflate support disabled.
+
+2001-10-20  Tatsuhiro Tsujikawa  <tujikawa@rednoah.com>
+
+	* src/HTMLparse.cc : 
+	now <script type="text/javascript"> can be recognized as javascript.
+	If it includes src atribute, Aria tries to retrieve its file unless
+	"Delete JavaScript" option is enabled.
+
+2001-10-17  Tatsuhiro Tsujikawa  <tujikawa@rednoah.com>
+
+	* src/pixmap/... : 
+	replaced existing toolbar icons with gnome-toolbar icons,
+	asembled by wwp. Thanks wwp.
+	* src/Basket.cc:
+	transparent pixmap support
+	
+2001-10-15  Tatsuhiro Tsujikawa  <tujikawa@rednoah.com>
+
+	* src/ItemStatusRec.cc: 
+	"Add to paste window" option implemented
+	* src/RetrieveHTTP.cc:
+	added "Transfer-Encoding: chunked" support
+	
+2001-10-14  Tatsuhiro Tsujikawa  <tujikawa@rednoah.com>
+
+	* src/RetrieveHTTP.cc: 
+	added compression encoding gzip, deflate support
+	* src/Options.cc:
+	added options: "Add to paste window" in HTTP/FTP recursive download,
+	"Accept compression encodings" in HTTP misc.
+	The former options are not implemented yet.
+
+2001-10-12  Tatsuhiro Tsujikawa  <tujikawa@valkyrie.rednoah.com>
+
+	* src/AppOption.h: 
+	rewrite status icon interface
+	
+2001-10-10  Tatsuhiro Tsujikawa  <tujikawa@valkyrie.rednoah.com>
+
+	* src/Socket.cc: 
+	added socket pool feature, pooling used socket instead of closing it,
+	then reuse it if same domain and same port is requested.
+	* src/SocketPool.cc, src/SocketPoolCell.cc:
+	added for implementation of socket pooling
+	* src/RetrieveHTTP.cc:
+	now Aria exploits HTTP/1.1 "Keep-Alive" feature.
+	* src/RetrieveFTP.cc:
+	using socket pooing and "Don't send QUIT command" option enabled,
+	Aria gets files from FTP without authentication if the socket reused.
+
+2001-10-05  Tatsuhiro Tsujikawa  <tujikawa@valkyrie.rednoah.com>
+
+	* src/AppOption.cc: 
+	added the interface to change the pixmap of DND basket
+
+2001-10-01  Tatsuhiro Tsujikawa  <tujikawa@valkyrie.rednoah.com>
+
+	* src/ItemOption.cc: 
+	fixed the bug that causes segmentation fault when the option dialog
+	is closed.
+	* version 0.10.1test18 release
+
+2001-09-29  Tatsuhiro Tsujikawa  <tujikawa@valkyrie.rednoah.com>
+
+	* src/Retrieve.cc (Make_TCP_connection): 
+	work around for IPv6. getaddrinfo, getnameinfo introduced.
+	* src/Retrieve.cc (Make_directory_if_needed):
+	fixed the dead lock bug, thanks to wwp/
+	
+2001-09-27  Tatsuhiro Tsujikawa  <tujikawa@valkyrie.rednoah.com>
+
+	* src/Socket.cc : 
+	fixed the bug that Aria disappears when it gets SIGPIPE signal.
+
+	* src/RetrieveFTP.cc :
+	now speed limiter works correclty in the login phase.
+
+	* src/Retrieve.cc :
+	now speed limiter works correctly in the connection phase.
+
+	* src/gui_list_new_list.cc :
+	newly added list becomes automatically active.
+	
+2001-09-25  Tatsuhiro Tsujikawa  <tujikawa@valkyrie.rednoah.com>
+
+	* Now Aria can be compiled by gcc-3.0 (version 3.0.2)
+
+2001-09-23  Tatsuhiro Tsujikawa  <tujikawa@valkyrie.rednoah.com>
+
+	* src/Basket.cc (setGeometry): 
+	now the geometry of basket is saved.
+	* src/ItemOption.cc :
+	added the option "User defined" cookie. You can send arbitrary
+	cookie string.
+	* src/ItemOption.cc :
+	added the option "User defined prewritten HTML name".
+	You can specify the pre-written HTML file name, previously
+	this name is fixed to "index.html"
+
+2001-09-21  Tatsuhiro Tsujikawa  <tujikawa@valkyrie.rednoah.com>
+
+	* src/ItemOption.cc : 
+	"Extensions to download" option in HTTP and FTP recursive
+	menu is replaced with "Patterns to download", which allows
+	expressions with wild cards (*, ?).
+	* src/RetrieveHTTP.cc :
+	fixed the bug that do not send cookies even if cookie is
+	available.
+	
+2001-09-15  Tatsuhiro Tsujikawa  <tujikawa@valkyrie.rednoah.com>
+
+	* src/PasteWindow.cc:
+	Now selected list name of  seleciton box is not changed
+	when the name of a list is changed.
+	* src/gui_download.cc:
+	fixed the bug that menu "Clear with file" is enabled
+	even if the list contains no item and no item is selected.
+
+2001-09-14  Tatsuhiro Tsujikawa  <tujikawa@valkyrie.rednoah.com>
+
+	* src/download.cc (Download_error): 
+	ftime() function is replaced by gettimeofday() function,
+	thanks to SASAKI(he made a quick patch).
+	
+2001-09-13  Tatsuhiro Tsujikawa  <tujikawa@valkyrie.rednoah.com>
+
+	* src/gui_list_rename_list.cc (List_rename_list_Ok_callback): 
+	fixed the bug that does not update the name of the list
+	when it is renamed.
+
+2001-09-10  Tatsuhiro Tsujikawa  <tujikawa@valkyrie.rednoah.com>
+
+	* src/download.cc (Download_error): 
+	fixed the bug that cause download interval to get shoten
+	if a user changes its download speed by scale or spin button
+	while the item is between download sessions.
+	
+2001-09-09  Tatsuhiro Tsujikawa  <tujikawa@valkyrie.rednoah.com>
+
+	* src/AppOption.cc:
+	Added the option "Force download now (stopping other downloads
+	if necessary)". Aria stops downloads in reverse order of the list.
+	* src/ListEntry.cc, src/gui_download.cc:
+	Fixed display problem.
+	* src/Basket.cc:
+	Title bar of the DND basket is appeared if you clicking basket
+	with pressing shift key. If the basket is not always-on-top state,
+	use your window managers feature to set it that state.
+
+2001-08-30  Tatsuhiro Tsujikawa  <tujikawa@valkyrie.rednoah.com>
+
+	* src/ItemOption.cc:
+	multiple selection flag is raised correctly if multiple items
+	in paste list is selected and option button(menu) is clicked
+	* src/Basket.cc:
+	iconify main window if main window is not iconified and
+	basket is double-clicked.
+	* src/HistoryWindow.cc: 
+	added search ability
+
+2001-08-29  Tatsuhiro Tsujikawa  <tujikawa@valkyrie.rednoah.com>
+
+	* src/PasteWindow.cc:
+	fixed segmentation fault error when option button is clicked
+	
+2001-08-28  Tatsuhiro Tsujikawa  <tujikawa@valkyrie.rednoah.com>
+
+	* src/initrc.cc:
+	create iconset directory in .aria
+
+2001-08-25  Tatsuhiro Tsujikawa  <tujikawa@valkyrie.rednoah.com>
+
+	* src/HTMLparse.cc (get_css):
+	support the form of ***.css, "***.css", url("***.css")
+	comment line can not be recognized yet.
+	* src/HTTPcontainer.cc :
+	added Content-Location
+	
+2001-08-24  Tatsuhiro Tsujikawa  <tujikawa@valkyrie.rednoah.com>
+
+	* src/main.cc (create_default_parse_target_list):
+	added ".css"
+	* src/HTMLparse.cc:
+	added css parser. The current implementation only supports "url".
+	i.e @import url(something.css)
+	Be ware, I've not tested this feature a lot.
+	* src/RetrieveHTTP.cc:
+	fixed the bug : if the directory name is the url, Aria expects
+	redirection to real url, but sometimes web servers do not send
+	redirection. In this case, Aria assumes the filename of html is
+	"index.html." "index.html" is set to ItemCell by
+	ItemCell::set_Filename() and to URLcontainer by
+	URLcontainer::set_File(), but URLcontainer is cleared each session,
+	(so, filename information is cleared also)
+	but itemcell is not. This makes inconsistency between
+	them, and this prevents to set "index.html" to ItemCell and
+	URLcontainer in the further sessions.
+
+2001-08-20  Tatsuhiro Tsujikawa  <tujikawa@valkyrie.rednoah.com>
+
+	* src/PasteWindow.cc:
+	now paste window is not appeard if it was hided when basket is
+	double-clicked
+	* src/ItemOption.cc:
+	the way of setting option values and showing option window is changed
+
+2001-08-19  Tatsuhiro Tsujikawa  <tujikawa@valkyrie.rednoah.com>
+
+	* src/Basket.cc:
+	always on top on KDE environment
+	main window now raised even if it is iconified.
+	
+	* src/PasteWindow.cc:
+	added the combobox that allow users to choose the list to paste to.
+	added the autostart toggle button, overriding that of application
+	option.
+
+2001-08-14  Tatsuhiro Tsujikawa  <tujikawa@mirage.rednoah.com>
+
+	* src/ItemCache.cc : fixed wrong behavior of pasting items: when
+	a item whose status is one of ERROR, COMPLETE and LOCK, and
+	automatic download option is enabled, Aria starts downloading it,
+	which should not be occurred.
+	* src/gui_main.cc : fixed the window size of console/item log text
+	when no size information is stored in file and command line option
+	regarding the size is specified.
+
+2001-08-12  Tatsuhiro Tsujikawa  <tujikawa@rednoah.com>
+
+	* po/pl.po : Polish language file added, thanks to Przemyslaw Sulek
+	* src/Basket.cc : added dnd basket (experimental)
+	* src/gui_download.cc : added "Clear and delete files" menu, which
+	clear items and also delete their files
+	
+2001-08-07  Tatsuhiro Tsujikawa  <tujikawa@rednoah.com>
+
+	* src/gui_popup.cc (Create_popup_menu): added "Copy selected items" and
+	"Cut selected items" menu item to popup menu.
+
+2001-08-01  Tatsuhiro Tsujikawa  <tujikawa@rednoah.com>
+
+	* src/ItemOption.cc: now if multiple items are selected, option window
+	shows the common option for these. Any changes are applied to all
+	selected items.
+	* src/ItemCache.cc: fixed the bug that cutting/copying work incorrect:
+	item status part now works correctly.
+	
+2001-07-30  Tatsuhiro Tsujikawa  <tujikawa@rednoah.com>
+
+	* src/ItemCache.cc: fixed the bug that cutting/copying work incorrect
+	* src/gui_item.cc: fixed the bug that break the order when cutting or
+	copying the items selected with shift key.
+	
+2001-07-27  Tatsuhiro Tsujikawa  <tujikawa@rednoah.com>
+
+	* src/ThreadManager.cc: thread is now destroyed if there is no
+	item to download. pthread_detach() added to avoid memory leaks.
+
+2001-07-13  Tatsuhiro Tsujikawa  <tujikawa@rednoah.com>
+
+	* src/Options.cc : added the option "Sync with URL"; when this option
+	is turned on, filename entry is automatically filled according to URL
+	entry
+	* src/Options.cc : added the option "Do not download a file if the file
+	with the same name exists" to avoid overwrite accident
+	
+2001-07-04  Tatsuhiro Tsujikawa  <tujikawa@rednoah.com>
+
+	* src/HistoryWindow.cc, src/PasteWindow.cc : added "Edit" menu
+	* src/Options.cc : added the option "Do not follow redirection"
+
+2001-06-30  Tatsuhiro Tsujikawa  <tujikawa@rednoah.com>
+
+	* src/Options.cc : added the option "Retry interval": the interval
+	between retries in second.
+	* src/ItemOption.cc : fixed the bug download filters in HTTP recursive
+	download are not set correctly when "Default" button is pressed.
+
+2001-06-27  Tatsuhiro Tsujikawa  <tujikawa@rednoah.com>
+
+	* src/main.cc : added command line option "--geometry". Users can
+	set the default size for main window. Note that +XOFF+YOFF part of
+	argument is not implemented yet.
+	* src/gui_main.cc : the window size and the position of separator are
+	saved and restored in next run.
+	
+2001-06-25  Tatsuhiro Tsujikawa  <tujikawa@rednoah.com>
+
+	* src/Options.cc : added the option that disallow Aria to redownload
+	files if resuming is not available.
+	* src/Options.cc : added the option that assume download is completed
+	if resuming is not available in HTTP recursive downloads.
+
+2001-06-24  Tatsuhiro Tsujikawa  <tujikawa@rednoah.com>
+
+	* src/ListEntry.cc, src/gui_list.cc : added "Sort" menu
+
+2001-06-21  Tatsuhiro Tsujikawa  <tujikawa@rednoah.com>
+
+	* src/Options.cc : added the option that limits downloads by file size
+	(set the lower limit, then if the file size is less than the limit,
+	abort the download)
+
+2001-06-18  Tatsuhiro Tsujikawa  <tujikawa@rednoah.com>
+
+	* src/gui_edit.cc (Edit_paste_item): fixed the bug in cutting items
+
+2001-06-17  Tatsuhiro Tsujikawa  <tujikawa@rednoah.com>
+
+	* src/RetrieveHTTP.cc : fixed the bug that summary information(Download
+	: X, Error: Y) was not updated when "Clear all" menu was executed
+	* src/Options.cc : added more 416 handling method.
+	* src/ItemList.cc : FI_REDOWNLOAD_416 was discarded. Instead,
+	FI_STATUS_416_HANDLING has been introduced.
+
+2001-06-14  Tatsuhiro Tsujikawa  <tujikawa@rednoah.com>
+
+	* src/ItemList2.cc (Restore_saved_list): the size of each column is
+	stored in the save file
+	* src/gui_list.cc : shuffling time decreased
+	* po/ru.po : added Russian translation. Thanks to Igor V. Youdytsky.
+	
+2001-06-09  Tatsuhiro Tsujikawa  <tujikawa@rednoah.com>
+
+	* src/ListEntry.cc : Set_clist_column__** functions now belong to
+	ListEntry class
+	* src/Options.cc : added "Delete iframe" and "Use Content-MD5" option
+
+2001-06-07  Tatsuhiro Tsujikawa  <tujikawa@rednoah.com>
+
+	* src/Base64.cc: added Base64 decode function
+
+2001-06-04  Tatsuhiro Tsujikawa  <tujikawa@rednoah.com>
+
+	* src/RetrieveHTTP.cc (Get_HTTP_header): added the option that
+	make Aria redownload files when web servers return 416 status code.
+	* src/gui_edit_search.cc : No button is now invisible.
+
+2001-06-03  Tatsuhiro Tsujikawa  <tujikawa@rednoah.com>
+
+	* src/gui_*.cc : added icons to menu items
+	* src/Retrieve.cc : added average speed. Now the remaining time is
+	more accurite than before.
+
+2001-06-02  Tatsuhiro Tsujikawa  <tujikawa@rednoah.com>
+
+	* src/main.cc (main): gtk_init() replaced by gtk_init_check()
+
+2001-05-31  Tatsuhiro Tsujikawa  <tujikawa@rednoah.com>
+
+	* src/ItemOption.cc : speed limit in item option is now 80
+	* src/gui_item.cc : fixed the bug that unlocked items have the status
+	"READY" which should be "STOPPED".
+
+2001-05-26  Tatsuhiro Tsujikawa  <tujikawa@rednoah.com>
+
+	* src/ListEntry.cc : added sorting ability to download list
+	(by filename, size, progress, etc)
+
+2001-05-21  Tatsuhiro Tsujikawa  <tujikawa@rednoah.com>
+
+	* src/ItemList.cc : now prevDlSize is saved in list.aria
+	* src/download.cc : sync bug in Track download fixed(I hope)
+	* src/download.cc, src/ItemOption.cc : you can set unlimited retries
+	by specifying the "Retry" value to -1 in the option window.
+
+2001-05-20  Tatsuhiro Tsujikawa  <tujikawa@rednoah.com>
+
+	* src/gui_popup.cc : added simple right-click menu
+	* src/Retrieve.cc : modified rollback behavior
+
+2001-05-20  Tatsuhiro Tsujikawa  <tujikawa@rednoah.com>
+
+	* src/md5.c : added MD5 checking. The original source code of md5.c
+	and md5.h is a part of GNUPG.
+
+2001-05-14  Tatsuhiro Tsujikawa  <tujikawa@rednoah.com>
+
+	* src/Retrieve.cc (Make_TCP_connection): fixed a bug that download
+	can not be stopped when stop command is issued during establishing
+	connection
+
+2001-05-13  Tatsuhiro Tsujikawa  <tujikawa@rednoah.com>
+
+	* src/ItemCell.cc: added itemlock, used only in the methods of ItemCell
+	class
+	* src/main.cc : added several command line options for list operation
+	* src/ShortCutKey.h : some shortcuts added
+
+2001-05-12  Tatsuhiro Tsujikawa  <tujikawa@rednoah.com>
+
+	* src/gui_list_rename_list.cc (List_rename_list_Ok_callback): 
+	fixed a bug regarding tab renaming.(thanks to wwp for finding the bug)
+
+2001-05-11  Tatsuhiro Tsujikawa  <tujikawa@rednoah.com>
+
+	* The word "Tab" is replaced by "List"
+	* some English corrections (thanks to wwp)
+	
+2001-05-10  Tatsuhiro Tsujikawa  <tujikawa@rednoah.com>
+
+	* src/ListEntry.cc (~ListEntry): fixed a freeze bug when a tab is
+	deleted 
+
+2001-05-09  Tatsuhiro Tsujikawa  <tujikawa@rednoah.com>
+
+	* src/gui_file.cc, src/main.cc: fixed a bug that ftp proxy information
+	does not saved
+	* src/AppOption.cc : added "confirm delete tab" option
+	* examples/* : removed
+	* resources/* : added. This directory includes rc.aria, server.aria,
+	command.aria, useragent.aria. These files is supporsed to be installed
+	into /usr/[local/]share/aria directory.
+	* mksetup, mksetup.debian: removed
+	* src/main.cc, src/initrc.cc: Now Aria automatically creates .aria
+	directory in user's home directory if it does not exists, and copies
+	necessary files into it.
+
+2001-05-06  Tatsuhiro Tsujikawa  <tujikawa@valkyrie>
+
+	* po/fr.po : updated, thanks to wwp
+	* src/PasteWindow.cc : fixed a bug that shows wrong filename in
+	pasting (if a user changes its filename in option screen)
+
+2001-05-05  Tatsuhiro Tsujikawa  <tujikawa@valkyrie>
+
+	* src/URLcontainer.cc : fixed a bug that cause abort when
+	adding new item "ftp://"
+	* src/URLcontainer.cc (Unfold_URL): fixed a bug that show wrong port
+	number
+
+2001-05-05  Tatsuhiro Tsujikawa  <tujikawa@valkyrie>
+
+	* src/Retrieve.cc : ItemCell_HTTP.cc, ItemCell_HTTP_p.cc,
+	ItemCell_FTP.cc ItemCell_FTP_p.cc have been replaced by
+	RetrieveHTTP.cc, RetrieveHTTP2.cc, RetrieveFTP.cc and
+	RetrieveFTP2.cc
+
+2001-05-04  Tatsuhiro Tsujikawa  <tujikawa@centaur>
+
+	* src/gui_edit.cc : added copy/cut/paste items menu
+	
+2001-05-02  Tatsuhiro Tsujikawa  <tujikawa@centaur>
+	
+	* src/gui_edit.cc : added search menu	
+	* src/gui_tab.cc : added rename tab menu
+	* src/gui_tab.cc : added move(repositioning)/switch tab menu
+	* src/ItemOption.cc : enhanced FTP proxy support
+	* src/Options.cc : option menu window re-designed
+	* menu bar re-designed
+	
+2001-04-25  Tatsuhiro Tsujikawa  <tujikawa@>
+
+	* src/pixmaps/{open, url_list, save, paste, trash, config, config_all}
+	.xpm : original icons added
+
+2001-04-24  Tatsuhiro Tsujikawa  <tujikawa@>
+
+	* src/Options.cc : added FTP proxy support(experimental)
+	* src/pixmaps/{start, start_all, stop, stop_all, restart}.xpm :
+	original icons added
+
+2001-04-23  Tatsuhiro Tsujikawa  <tujikawa@>
+
+	* src/gui_file_new_item.cc : added an error dialog
+	* src/SumInfo.cc : sum-up information: the number of active downloads,
+	and the number of the error items
+	* src/gui_option.cc : long option menus "Apply ...." are replaced by
+	"Apply default item option" which consists submenus (totally 6 menu
+	items included)
+	* examples/rc.aria : added "widget_class "*GtkLabel*" style "check""
+	
+2001-04-17  Tatsuhiro Tsujikawa  <tujikawa@>
+
+	* src/Options.cc : added option that excute arbitrary command after
+	each download. MD5 check can be done by this option.
+	* fixed memory leak bug in src/ItemStatusRec.cc and
+	src/ItemStatusPartial.cc
+	
+2001-04-12  Tatsuhiro Tsujikawa  <tujikawa@>
+
+	* src/gui_edit.cc : "unfold" is replaced "numerical expansion",
+	thanks to wwp.
+	* src/AppOption.cc, src/ItemStatusReq.cc : added option that quits
+	program when all active downloads finish
+	* src/gui_edit.cc : added menu "Invert selection"
+
+2001-04-10  Tatsuhiro Tsujikawa  <tujikawa@>
+
+	* src/gui_download.cc : added some menus for tab(start all tab,
+	stop all tab and clear all tab)
+	* src/ListEntry.cc : now, each tab has default item option
+
+2001-04-08  Tatsuhiro Tsujikawa  <tujikawa@>
+
+	* src/ListEntry.cc : added tab mode
+	* Thanks to wwp and Adam Purkrt, English mistakes have been corrected
+
+2001-03-31  Tatsuhiro Tsujikawa  <tujikawa@>
+
+	* src/URLcontainer.cc (Unfold_URL): fixed a bug in numerical download
+
+2001-03-30  Tatsuhiro Tsujikawa  <tujikawa@>
+
+	* src/gui_download.cc (Download_change_speed_sub): fixed a bug in
+	download speed limitter.
+
+2001-03-22  Tatsuhiro Tsujikawa  <tujikawa@aria.ics.es.osaka-u.ac.jp>
+
+	* src/gui_main.cc (Create_speed_limitter): added "download speed
+	limiter"
+
+2001-03-20  Tatsuhiro Tsujikawa  <tujikawa@aria.ics.es.osaka-u.ac.jp>
+
+	* src/Options.cc: added "HTTP/1.1" option(EXPERIMENTAL)
+	* src/ThreadManager.cc: fixed bad thread management bug
+
+2001-03-19  Tatsuhiro Tsujikawa  <tujikawa@>
+
+	* src/AppOption.cc: now users can select icon set in application
+	setting menu.
+	* src/main.cc : added 2 new command line options
+	* src/Options.cc : added option "retry even if HTTP status is 503"
+
+2001-03-18  Tatsuhiro Tsujikawa  <tujikawa@>
+
+	* src/Options.cc : added option "Rollback"
+
+2001-03-17  Tatsuhiro Tsujikawa  <tujikawa@>
+
+	* src/Options.cc : added option "Convert "~" to "%7E""
+
+2001-03-16  Tatsuhiro Tsujikawa  <tujikawa@>
+
+	* src/Session.cc : ServerTemplate enhanced; in each session, users can
+	execute arbitrary command, and examine its exit status.
+	* src/Command.cc : Now command list entry has exit status field.
+	* src/download.cc : fixed exit status handling of external program
+	
+2001-03-14  Tatsuhiro Tsujikawa  <tujikawa@>
+
+	* src/URLcontainer.cc : Thanks to Matthias Babisch, Aria now can
+	handle "http(ftp)://username:passwd@host/..." notation.
+	* src/ItemList.cc : fixed HTTP recursive download bug that recursive
+	downloads do not stop. I'm sorry for this serious bug.
+	* src/Options.cc : added option "retry even if HTTP status is 404"
+	* src/gui_main.cc : replace "Try" column with "Retry" in download list
+	which display retry count(first try is not included)
+
+2001-03-12  Tatsuhiro Tsujikawa  <tujikawa@aria.ics.es.osaka-u.ac.jp>
+
+	* src/HTMLparse.cc : fixed a bug that occured when hyperlink is ""
+
+2001-03-10  Tatsuhiro Tsujikawa  <tujikawa@>
+
+	* src/URLcontainer.cc (Unfold_URL): fix "abort" bug in URL unfolding
+	* src/ItemStatusFTPrec.cc : removed
+	* recursive download related functions rewritten
+
+2001-03-09  Tatsuhiro Tsujikawa  <tujikawa@aria.ics.es.osaka-u.ac.jp>
+
+	* src/Options.cc : one more filter added to HTTP recursive download
+	* now Aria can be built on Solaris out-of-the-box.
+
+2001-03-08  Tatsuhiro Tsujikawa  <tujikawa@aria.ics.es.osaka-u.ac.jp>
+
+	* src/main.cc (Show_usage): command line option "--ls-lock" added
+
+2001-03-07  Tatsuhiro Tsujikawa  <tujikawa@>
+
+	* some modifications for Solaris. Thanks to Chris
+	* src/utils.cc, src/Cookie.cc : timezone related bug fixed
+	* src/gui_main.cc : double click option menu bug fixed
+	
+2001-03-06  Tatsuhiro Tsujikawa  <tujikawa@>
+
+	* src/Socket.cc, src/Cookie.cc : patch by Tsuyoshi Iguchi applied
+
+2001-03-05  Tatsuhiro Tsujikawa  <tujikawa@aria.ics.es.osaka-u.ac.jp>
+
+	* src/Session.cc : MyToken_splitter bug fixed
+	* src/URLcontainer.cc : getkeylink feature enhanced
+	* src/ItemCell_FTP.cc : recursive ftp download feature added
+	* src/ItemStatusFTPrec.cc : recursive ftp download feature added
+	* src/Options.cc : some new options added
+
+2001-02-28  Tatsuhiro Tsujikawa  <tujikawa@aria.ics.es.osaka-u.ac.jp>
+
+	* src/PasteWindow.cc: set modal false. Check duplicate URL on pasting
+	* src/HistoryWindow.cc: set modal false.
+	* 2 patches for freebsd made by Tsuyoshi Iguchi applied
+
+2001-02-27  Tatsuhiro Tsujikawa  <tujikawa@aria.ics.es.osaka-u.ac.jp>
+
+	* src/ItemOption.cc (Create_HTTP1_page): layout for proxy entry has
+	changed
+	* src/CheckCList.cc : scrolled window policy changed
+	* src/HistoryWindow.cc : commas are inserted to size value
+	* po/de.po : German po updated
+	* src/main.cc : command line option has changed. URL must be followed
+	by -g(--get).
+	
+2001-02-26  Tatsuhiro Tsujikawa  <tujikawa@>
+
+	* src/gui_help.cc : added translations and special thanks
+	* src/AppOption.cc : added ability to execute arbitrary command when
+	all downloads are over or stopped by timer
+	* src/TimerData.cc : class for storage of timer data
+
+2001-02-24  Tatsuhiro Tsujikawa  <tujikawa@>
+
+	* src/ItemCell.cc (Get_starting_byte) : a bug fixed 
+	* src/URLcontainer.cc : href parser refined
+
+2001-02-23  Tatsuhiro Tsujikawa  <tujikawa@aria.ics.es.osaka-u.ac.jp>
+
+	* src/URLcontainer.cc : plain text dnd from mozilla added
+	* src/gui_edit.cc : plain text dnd from mozilla added
+	* src/gui_edit.cc : dnd support for Opera, Konqueror added
+
+2001-02-19  Tatsuhiro Tsujikawa  <tujikawa@>
+
+	* src/ja.po : updated
+	* src/PasteWindow.cc : "Option" menu added
+	* src/ItemList.cc : recursive download feature added
+	* src/HTMLparse.cc : parse HTML documents and find hyperlinks
+	* src/ItemStatusRec.cc : messages for recursive download
+	* src/utils.cc : some useful functions for recursive download added
+	* mksetup.debian : mksetup for debian package
+
+2001-02-06  Tatsuhiro Tsujikawa  <tujikawa@aria.ics.es.osaka-u.ac.jp>
+
+	* src/gui_download.cc (Create_download_menu): some delete button added
+	* po/ja.po : updated
+
+2001-02-04    <tujikawa@valkyrie>
+
+	* src/ServerTemplateList.cc src/CommandList.cc: syntax of server
+	template and command list changed. No compatibility with earlier
+	versions
+
+2001-02-03  Tatsuhiro Tsujikawa  <tujikawa@aria.ics.es.osaka-u.ac.jp>
+
+	* src/HistoryWindow.cc (HistoryWindow): download history feature added
+
+2001-02-02  Tatsuhiro Tsujikawa  <tujikawa@aria.ics.es.osaka-u.ac.jp>
+
+	* src/Session.cc : interface of Session object constructor changed
+
+2001-02-01  Tatsuhiro Tsujikawa  <tujikawa@aria.ics.es.osaka-u.ac.jp>
+
+	* src/ItemCell_HTTP.cc: server template macro($(dir),$(host) now has
+	2 additional arguments which delete fist/last n characters of string
+
+2001-01-31  Tatsuhiro Tsujikawa  <tujikawa@aria.ics.es.osaka-u.ac.jp>
+
+	* src/ItemList.cc : now default item option is not saved to download
+	list save file 
+
+	* src/gui_download.cc : lock/unlock button added. If an item is locked,
+	it never start download unless unlocked.
+	* src/gui_file_open_and_save.cc : file browser bug fixed
+	* src/ItemCell.cc : download part code is now in ItemCell class
+	* po/ja.po : japanese po file updated
+
+2001-01-29  Tatsuhiro Tsujikawa  <tujikawa@aria.ics.es.osaka-u.ac.jp>
+
+	* src/ItemOption.cc (Ask_mkdir_dialog): now program can make parent
+	directories as needed when making a store directory
+	* compilation error on RedHat-7.0 system removed
+
+2001-01-28  Tatuhiro Tujikawa  <tujikawa@valkyrie..>
+
+	* src/gui_download.cc : "check crc of downloaded items" menu added
+
+	* src/ItemStatusDynamic.cc : lock vadjustment of download clist when
+	item's deleted or added
+	* src/gui_edit.cc src/gui_main.cc : added DND support
+	* src/gui_download.cc : added "move up", "move down", "move to top",
+	"move to bottom" menu item
+	* src/CommandList.cc src/Command.cc : now Aria can invoke any program
+	after item's download finished. users can specify which program to
+	be invoked according to the file's extentions.
+	* src/ThreadManager.cc : balancing bandwidth feature no longer used
+
+2001-01-27  Tatuhiro Tujikawa  <tujikawa@valkyrie..>
+
+	* src/ThreadManager.cc : balancing bandwidth when more than one
+	downloads are active
+
+2001-01-26  Tatuhiro Tujikawa  <tujikawa@valkyrie..>
+
+	* src/gui_main.cc: added some icons that represent item's status
+
+2001-01-25  Tatsuhiro Tsujikawa  <tujikawa@aria.ics.es.osaka-u.ac.jp>
+
+	* src/gui_main.cc : item is painted according its status
+	* src/gui_main.cc : progress bar added
+	* src/ItemStatusDynamic.cc : bug in switch statement fixed
+	* src/AppOption.cc : size are now presented in human readable form
+	(i.e. 104K 4.5M) by default.
+	
+2001-01-21  Tatuhiro Tujikawa  <tujikawa@valkyrie..>
+
+	* src/Cookie.cc : now program checks cookie expire date(assuming return
+	date is GMT though..)
+	* src/ItemCell_HTTP.cc : 'addhref' option implemented
+	* src/gui_download.cc : crc checking is done by another thread not
+	by main gui thread
+
+2001-01-18  Tatuhiro Tujikawa  <tujikawa@valkyrie..>
+
+	* src/Cookie.cc : added cookie support(very immature though)
+	* src/Session.cc : server configuration level increased
+	* aria.h : maximum retry number is increased to 100
+
+2001-01-15  Tatuhiro Tujikawa  <tujikawa@valkyrie..>
+
+	* src/AppOption.cc : added "conform user when user delets items" and
+	"conform user when user exits program"
+	* src/Dialog.cc : Dialog class added
+	* src/FileBrowser : FileBrowser class added
+
+2001-01-10  Tatsuhiro Tsujikawa  <tujikawa@aria.ics.es.osaka-u.ac.jp>
+
+	* src/gui_main.cc : added "Try", "Save" and "URL" column to download
+	list
+
+2001-01-09  Tatuhiro Tujikawa  <tujikawa@valkyrie..>
+
+	* src/AppOption.cc : added ignore extention list
+	* src/URLcontainer.cc : added query member variable. Now URL query
+	does not encoded.
+
+2001-01-06  Tatsuhiro Tsujikawa  <tujikawa@aria.ics.es.osaka-u.ac.jp>
+
+	* src/URLcontainer.cc : in URL encoding, ignore first '?' when is_query
+	is true
+
+2001-01-06  Tatuhiro Tujikawa  <tujikawa@valkyrie..>
+
+	* src/URLcontainer.cc : URL encode/decode fully implemented
+	* src/ItemOption.cc : "User-Agent" option added
+
+2001-01-04  Tatsuhiro Tsujikawa  <tujikawa@aria.ics.es.osaka-u.ac.jp>
+
+	* src/IndirectPathList.cc : multiple key-link support added
+	* src/gui_edit.cc : added option buttons to paste window
+	
+2001-01-03  Tatsuhiro Tsujikawa  <tujikawa@aria.ics.es.osaka-u.ac.jp>
+
+	* when I tried to download Cmr2.0 demo, I found 3dfiles made new cgi
+	system that prevents any access to their files from outside of
+	their page.
+	It searches referer string, and if it does not match the correct one,
+	then denies access. So, I added 1 line to gateway.aria that enable to
+	download files hosted by 3dfiles. All you have to do is copy your
+	favorite "Download Sites:" link(usually, Walnut Creek or Telepac), and
+	paste into Aria. That's all.
+	
+2001-01-03    <tujikawa@rhapsody.ics.es.osaka-u.ac.jp>
+
+	* now included gettext works correctly 
+	* src/ItemStatus.cc : acording to message type, I prepare 3 classes
+	all derived from ItemStatus class. Each calss has Update() method which
+	updates GUI
+	* src/gui_main.cc : vpaned widget added, thanks to Iwata@KIT
+
+2000-12-31  Tatsuhiro Tsujikawa  <tujikawa@aria.ics.es.osaka-u.ac.jp>
+
+	* config.h.in : fixed included gettext compile error, but gettext
+	does not work properly
+
+2000-12-30  Tatsuhiro Tsujikawa  <tujikawa@aria.ics.es.osaka-u.ac.jp>
+
+	* src/URLcontainer.cc : fixed bug regarding URL unfolding
+	* make some buttons get default focus
+
+2000-12-29  Tatsuhiro Tsujikawa  <tujikawa@aria.ics.es.osaka-u.ac.jp>
+
+	* src/URLcontainer.cc (URL_Encode()): This static member function
+	takes one string type argument, and returns the URL encoded string
+	Currenly, only white space is encoded into "%20"
+	* src/ItemList.cc : menu "Open URL list" has been changed: it just
+	reads URL list, each URL is deliminated by '\n'.
+	* src/ItemList.cc : menu "Find Hyperlink" has been changed: it finds
+	URL which followed by "href=" and, must be quoted by "'" or """
+
+2000-12-28  Tatsuhiro Tsujikawa  <tujikawa@aria.ics.es.osaka-u.ac.jp>
+
+	* src/ItemList.cc : menu "Open URL list" can now find URLs from .html
+	file or plain text
+	* src/gui_edit.cc : menu "Paste URL" can now find URLs from plain text
+	* strstream eliminated
+	* src/gui_file.cc : menu "Find Hyperlink" added. This feature parses
+	html file, and find hyperlink, and adds these to download list.
+	Before you choose file, program asks base URL because almost URLs in
+	hyperlink are imcoplete form(ralative to base URL).
+	
+2000-12-27  Tatsuhiro Tsujikawa  <tujikawa@aria.ics.es.osaka-u.ac.jp>
+
+	* src/main.cc: GNU getopt source included
+	* src/gui_file.cc: menu "New item" added
+	* src/gui_edit.cc: memory leak bug fixed regarding URL paste
+
+2000-12-24  Tatsuhiro Tsujikawa  <tujikawa@aria.ics.es.osaka-u.ac.jp>
+
+	* src/ItemCell.cc : fixed bug in split download
+	* src/main.cc, Makefile.am : added locale directory config(thanks
+	to Iwata at KIT)
+
+2000-12-19  Tatsuhiro Tsujikawa  <tujikawa@aria.ics.es.osaka-u.ac.jp>
+
+	* src/ItemCell_HTTP.cc : program now sets correct referer at URL
+	redirection
+	* po/de.po : added German translation, thanks to Hermann J. Beckers
+
+2000-12-16  Tatsuhiro Tsujikawa  <tujikawa@aria.ics.es.osaka-u.ac.jp>
+
+	* some installation fixes: 'make install' now works correctly
+
+2000-12-06  Tatsuhiro Tsujikawa  <tujikawa@aria.ics.es.osaka-u.ac.jp>
+
+	* src/ItemOption.cc : fixed:"Default" button does not work properly
+	in default item setting window.
+	* src/ItemCell_HTTP.cc src/IndirectPath.cc src/ItemList.cc :
+	The configuration for the servers that need URL retrieval from html
+	is now placed in outer file "server.aria"
+	
+2000-12-05  Tatsuhiro Tsujikawa  <tujikawa@aria.ics.es.osaka-u.ac.jp>
+
+	* src/ItemOption.cc, src/Options.cc, src/ItemCell_HTTP.cc : http
+	authorization implemented
+	* src/Base64.cc : object that encode plain text into Base64
+	
+2000-12-04  Tatsuhiro Tsujikawa  <tujikawa@aria.ics.es.osaka-u.ac.jp>
+
+	* src/ItemOption.cc : 'use cache' option added
+
+2000-12-03  Tatsuhiro Tsujikawa  <tujikawa@aria.ics.es.osaka-u.ac.jp>
+
+	* src/ItemOption.cc : if you specify non-existent store directory
+	in option menu, program prompts you whether you wish to make it.
+
+2000-12-01  Tatsuhiro Tsujikawa  <tujikawa@aria.ics.es.osaka-u.ac.jp>
+
+	* src/ItemList.cc : http proxy list is not now saved to list.aria.
+	It is saved to default.aria only.
+
+2000-11-30  Tatsuhiro Tsujikawa  <tujikawa@aria.ics.es.osaka-u.ac.jp>
+
+	* src/Makefile.am : -O2 -g flags has been removed in order to reduce
+	compilation time and object size.
+	* src/gui_edit.cc : 'Unfolding URL' feature added, very similar to
+	iria's implementation.
+	* version 0.4.0 release
+	
+2000-11-27  Tatsuhiro Tsujikawa  <tujikawa@aria.ics.es.osaka-u.ac.jp>
+
+	* src/ItemOption.cc : using combobox, several proxy servers can be
+	stored in option menu.
+	* src/ProxyList.h src/ProxyList.cc : class for containing the list of
+	proxy servers
+	* src/gui_edit.cc ItemList.cc : CRC paste/input now supports the format
+	"filename CRC"(earlier version only support "filename CRC size"
+	format).
+
+2000-11-24  Tatsuhiro Tsujikawa  <tujikawa@aria.ics.es.osaka-u.ac.jp>
+
+	* src/ItemCell_HTTP.cc: freepages.ugo.com support added
+	* src/ItemOptions.cc src/download.cc: conversion between ftp and http
+	object implemented
+	* src/ItemOptions.cc: some glitches in option menu are removed
+	* src/ItemList.cc src/gui_edit.cc: when the url list are pasted or
+	read, downloads automatically start if there are available idle
+	threads and one more threads are active
+	
+2000-11-15  Tatsuhiro Tsujikawa  <tujikawa@aria.ics.es.osaka-u.ac.jp>
+
+	* src/Options.cc: added anonymous http proxy server support
+
+2000-11-14  Tatsuhiro Tsujikawa  <tujikawa@aria.ics.es.osaka-u.ac.jp>
+
+	* src/gui_main.cc (Row_moved): the results of drug operation in
+	main clist are reflected correctly in download list.
+
+2000-11-10  Tatsuhiro Tsujikawa  <tujikawa@aria.ics.es.osaka-u.ac.jp>
+
+	* src/ItemList.cc: fixed: last line of input file is skipped
+	 It takes less time to read CRC file than before. 
+
+2000-11-06  Tatsuhiro Tsujikawa  <tujikawa@aria.ics.es.osaka-u.ac.jp>
+
+	* all most all of source code are written. I used STL in some parts.
+	but I recognize minor memory leaks are still there.
+	* src/pixmaps/ARIA_LOGO.xpm: old logo are replaced with new one.
+
+2000-10-13  Tatsuhiro Tsujikawa  <tujikawa@aria.ics.es.osaka-u.ac.jp>
+
+	* src/ItemLogCell.cc : added time information to log messages.
+	* src/download.cc, src/ItemCell_Partial.cc, src/ItemCell.cc:
+	concatenation phase of split download has been changed. This time,
+	concatenation method belongs to ItemCell class, not ItemCell_Partial
+	class.
+
+2000-10-11  Tatsuhiro Tsujikawa  <tujikawa@aria.ics.es.osaka-u.ac.jp>
+
+	* v0.2.1-beta release
+	* all source code files: fixed some minor memory-related problem 
+
+2000-10-08  Tatsuhiro Tsujikawa  <tujikawa@aria.ics.es.osaka-u.ac.jp>
+
+	* v0.2.0 release
+	* src/gui_main.cc: download speed indicator added
+
+2000-10-07  Tatsuhiro Tsujikawa  <tujikawa@aria.ics.es.osaka-u.ac.jp>
+
+	* src/ItemOptions.cc, src/ItemCell*.cc: now each new item has own item
+	option when added, using the values of default option.
+	* src/gui_option.cc: "apply default item option to selected items"
+	menu item added
+	
+2000-10-06  Tatsuhiro Tsujikawa  <tujikawa@aria.ics.es.osaka-u.ac.jp>
+
+	* v0.1.4 release
+	* src/gui_*.cc : added access restriction for menu and toolbar buttons 
+	* src/ItemStatus.cc, src/ItemStatus.h : added those files
+	
+2000-10-03  Tatsuhiro Tsujikawa  <tujikawa@aria.ics.es.osaka-u.ac.jp>
+
+	* src/ItemCell.cc, src/ItemCell_Partial.cc : ret_Boss() method deleted
+
+2000-09-29  Tatsuhiro Tsujikawa  <tujikawa@aria.ics.es.osaka-u.ac.jp>
+
+	* v0.1.3 release
+	* src/gui_download.cc: bug fixed: "start selected item" starts download
+	the item in 1st row of clist even if you select other items.
+
+2000-09-27  Tatsuhiro Tsujikawa  <tujikawa@aria.ics.es.osaka-u.ac.jp>
+
+	* src/ItemCell_HTTP.cc: if resuming is not allowed in divide download,
+	automatically start downloading without dividing
+	* src/gui_edit.cc: "CRC paste" item added
+	* src/gui_toolbar.cc: pixmaps for "Open URL list" and "Open CRC list"
+	button has been modified
+	* compile error in intl directory has been fixed
+	
+2000-09-24  Tatuhiro Tujikawa  <tujikawa@valkyrie..>
+
+	* src/gui_help: added help menu and "about aria" dialog
+	* src/ItemCell_HTTP.cc, src/ItemCell_FTP.cc, src/ItemCell_Partial.cc,
+	src/ItemCell_HTTP_p.cc, src/ItemCell_FTP_p.cc: added "divide download"
+	feature
+	* src/gui_toolbar.cc: added "download again" button
+	* src/ItemCell_HTTP.cc: fixed: URL redirection bug
+
+2000-09-21    <tujikawa@aria.ics.es.osaka-u.ac.jp>
+
+	* src/gui_toolbar.cc: toolbar icons are changed: this time, I use
+	TIG3rt Labs' gnome stock pixmaps and some pixmaps in gnome-libs.
+	* src/gui_download.cc: "delete downloaded item" menu added
+	* src/gui_download.cc: some minor bug fixed
+
+2000-09-16    <tujikawa@aria.ics.es.osaka-u.ac.jp>
+
+	* src/HTTPcontainer.cc, src/ItemCell_HTTP.cc: fixed Location field
+	retrieve bug when remote server returns 30x status code.
+
+	* src/crc.cc, src/gui_downlaod.cc: fixed "CRC check" menu bug
+
+2000-09-12    <tujikawa@aria.ics.es.osaka-u.ac.jp>
+
+	* src/gui_toolbar.cc: finaly tool bar has been added
+	* src/pixmaps/*: these pixmaps are taken from KDE toolbar
+	* src/ItemOption.cc: "back to default" button now working correctly.
+	Also, CRC bug in option dialog fixed.
+
+2000-09-11    <tujikawa@aria.ics.es.osaka-u.ac.jp>
+
+	* src/ThreadSlot.h, src/ThreadSlot.c: a new class has been added
+	for better thread management
+	* src/ThreadManager.h, src/ThreadManager: improved thread management
+	* src/dirbrowser.cc: directory selection browser based on XMMS's
+	directory browser.
+	* src/ItemOption.cc: added store directory selection browser
+	
+2000-09-08  tujikawa@aria.ics.es.osaka-u.ac.jp  <tujikawa@aria>
+
+	* src/gui_download.cc: download again bug fixed
+
+Fri Sep  8 20:40:12 JST 2000
+
+	* added: "automatic download" option
+	* modified: ThreadManager code has been modified in order to support
+	            "automatic download"
+	* added: "CRC check" menu
+	* added: now you can save/load download list where you like
+	* fixed: "Broken Pipe" error occured in ItemCell::SEND()
+	
+Tue Sep  5 20:11:09 JST 2000
+
+	* added: FTP authentication
+	* added: option "Store Directory"
+	
+Sun Sep  3 18:02:10 JST 2000
+
+	* added: FTP option page
+	* support: FTP active mode
+
+Fri Sep  1 23:05:23 JST 2000
+
+	* 0.0r1 released
+	* added: option menu added
+	* added: dynamic thread management
+	* modified: 'size' column is now "%d/%d (%d%%)"
+
+Sun Aug 27 23:30:34 JST 2000
+
+	* v0.0rPrototype released
+	* support for FTP(PASV mode, anonymous only)
+	* added: CRC column to itemlistwidget
+	 
+Tue Aug 22 22:54:04 JST
+	
+	* support: pasting URL list(by using X selection)
+	* added: menu  item for deleting all items
+	* added: console text widget
+	
+082000JST
+	* rewrite in C++ but legacy C codes still exist
+        * support for 32bit CRC cheking
+082000JST
+	* support for HTTP
+        * support for Download Gateway of Homestead
+        * support for Proxy Server with no authentication
+	* suuport for 16bit CRC cheking
+        * support for starting and stopping individual item
+        * support for deleting individual item
+	* support for Japanese using GNU gettext
+082000JST
+	* started working with this project, its goal is creating
+	  Linux version 'Ir*a'

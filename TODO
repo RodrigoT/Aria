@@ -1,0 +1,85 @@
+/*/*/*/*/*/*/*/*/*/*/*
+/*TODO file for Aria/*
+/*/*/*/*/*/*/*/*/*/*/*
+Toward Aria 2.0
+	* gtk2.0 port
+2002/12/16
+	* add sort feature to the paste window
+2002/09/10
+	* add the feature renaming file if same file exists
+	* use URL as directory in non-recursive downloads
+	* set the selected item's progress to WM_TITLE(?)
+Tue Dec 25
+        * add value to download tag
+Sat Nov 24
+	* add fancy UI for Accept-Language option(handling language selection
+	and q-value)
+	* add certificate option for SSL(private key file and certificate file)
+Thu Sep 20
+	* fix broken code in "find hyperlink from file" menu, which
+	can find only absolute URLs. This must support relative URLs
+	also.
+Tue Sep 4
+	* check parse algo of list.aria
+	* skin support
+Wed Aug 29
+	* work around for modal window and basket
+Thu Aug 23
+	* validate .css parser
+Wed Aug 22
+	*examin(fix) segfault if autosave is enabled
+Mon Aug 20
+	*add the right click menu to the basket
+Tue Aug 7
+	*add elapsed time column
+	*strange behavior of speed
+Mon Jul 30
+	*fix io exception when writing config file
+Wed Jul 4
+	*add FTP search
+Thu Jun 7
+	*add command line option "--nopaste" that bypass the paste window,
+	and paste to the current download list directly
+Wed Jun 6
+	*enable/disable autoresize for columns' width
+	*filename when / or redirection is requested
+	*Transfer-encoding
+	*Accept-encoding, Content-encoding
+Tue Jun 5
+	*access control of HTTP recursive settings
+	*add POST
+Thu May 24
+	*add "Cache-control: no-cache" request to HTTP download
+Tue May 15
+	*sound event
+	*add <target-extensions> tag to Server Template
+Fri May  4 00:11:06 JST 2001
+	*floating dnd basket
+Tue May  1 15:18:19 JST 2001
+	*add toggle button that change speed limitter's behavior
+	*select all items in history window
+	*open directory in new tab option to FTP recursive download
+	*open new tab with selected items
+Thu Apr 19 23:00:01 JST 2001
+	*remove LF/CR in URL
+	*speed up reading files
+
+	*a simple graph that show the download rate
+	*the ability to personalize the color set
+
+	*resume in split download when remote size is changed
+
+	*add history feature to "new item" menu, and command entry.	
+
+	*add "New List" (or replace ALT-x or just alias?)
+	*better URL file list handling(distinguish binary file and ascii file)
+	*english correction
+
+	*bug that split files are not concatenated automatically.
+	 But this case is rare. If this case happens, just push "start"
+	 button or menu.
+Sat Jan  6 00:57:30 JST 2001
+	*port for FreeBSD(must deal with split download issue)
+	*minimize CPU and memory usage
+	*add right-click menu(popup menu)
+	
