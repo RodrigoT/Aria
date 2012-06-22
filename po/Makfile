@@ -16,7 +16,7 @@ srcdir = .
 top_srcdir = ..
 
 
-prefix = /usr
+prefix = /usr/local
 exec_prefix = ${prefix}
 datadir = $(prefix)/share
 localedir = $(datadir)/locale
@@ -26,17 +26,17 @@ subdir = po
 
 INSTALL = /usr/bin/install -c
 INSTALL_DATA = ${INSTALL} -m 644
-MKINSTALLDIRS = $(top_srcdir)/./mkinstalldirs
+MKINSTALLDIRS = $(top_srcdir)/@MKINSTALLDIRS@
 
 CC = gcc
-GENCAT = 
-GMSGFMT = PATH=../src:$$PATH /usr/bin/msgfmt
+GENCAT = gencat
+GMSGFMT = PATH=../src:$$PATH /usr/bin/gmsgfmt
 MSGFMT = /usr/bin/msgfmt
 XGETTEXT = PATH=../src:$$PATH /usr/bin/xgettext
 MSGMERGE = PATH=../src:$$PATH msgmerge
 
 DEFS = -DHAVE_CONFIG_H
-CFLAGS = -g -O2 -Wall -I/usr/include/gtk-1.2 -I/usr/include/glib-1.2 -I/usr/lib/glib/include -D_REENTRANT -I/usr/X11R6/include
+CFLAGS = -g -O2 -Wall -DGSEAL_ENABLE -pthread -I/usr/include/gtk-3.0 -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/pango-1.0 -I/usr/include/glib-2.0 -I/usr/lib64/glib-2.0/include -I/usr/include/pixman-1 -I/usr/include/freetype2 -I/usr/include/libpng15  
 CPPFLAGS = 
 
 INCLUDES = -I.. -I$(top_srcdir)/intl
@@ -44,54 +44,54 @@ INCLUDES = -I.. -I$(top_srcdir)/intl
 COMPILE = $(CC) -c $(DEFS) $(INCLUDES) $(CPPFLAGS) $(CFLAGS) $(XCFLAGS)
 
 SOURCES = cat-id-tbl.c
-POFILES =  cs.po de.po es.po fr.po hu.po it.po pl.po ru.po ja.po zh_TW.po
-GMOFILES =  cs.gmo de.gmo es.gmo fr.gmo hu.gmo it.gmo pl.gmo ru.gmo ja.gmo zh_TW.gmo
+POFILES = @POFILES@
+GMOFILES = @GMOFILES@
 DISTFILES = ChangeLog Makefile.in.in POTFILES.in $(PACKAGE).pot \
 stamp-cat-id $(POFILES) $(GMOFILES) $(SOURCES)
 
 POTFILES = \
-	../src/main.cc \
-	../src/download.cc \
-	../src/gui_main.cc \
-	../src/crc.cc \
-	../src/ItemList.cc \
-	../src/ItemList2.cc \
-	../src/ItemCell.cc \
-	../src/ItemCellPartial.cc \
-	../src/ItemCache.cc \
-	../src/Retrieve.cc \
-	../src/RetrieveHTTP.cc \
-	../src/RetrieveFTP.cc \
-	../src/RetrieveHTTP2.cc \
-	../src/RetrieveFTP2.cc \
-	../src/gui_download.cc \
-	../src/gui_download_check.cc \
-	../src/gui_edit.cc \
-	../src/gui_edit_search.cc \
-	../src/gui_file.cc \
-	../src/gui_file_find_hyperlink.cc \
-	../src/gui_file_open_url.cc \
-	../src/gui_file_open_crc.cc \
-	../src/gui_file_open_and_save.cc \
-	../src/gui_item_new_item.cc \
-	../src/gui_list_new_list.cc \
-	../src/gui_list_rename_list.cc \
-	../src/gui_list.cc \
-	../src/gui_item.cc \
-	../src/gui_option.cc \
-	../src/ItemOption.cc \
-	../src/ItemStatusDynamic.cc \
-	../src/ItemStatusRec.cc \
-	../src/AppOption.cc \
-	../src/ListEntry.cc \
-	../src/gui_toolbar.cc \
-	../src/gui_help.cc \
-	../src/Dialog.cc \
-	../src/PasteWindow.cc \
-	../src/HistoryWindow.cc \
-	../src/aria.h
+     ../src/main.cc \
+     ../src/download.cc \
+     ../src/gui_main.cc \
+     ../src/crc.cc \
+     ../src/ItemList.cc \
+     ../src/ItemList2.cc \
+     ../src/ItemCell.cc \
+     ../src/ItemCellPartial.cc \
+     ../src/ItemCache.cc \
+     ../src/Retrieve.cc \
+     ../src/RetrieveHTTP.cc \
+     ../src/RetrieveFTP.cc \
+     ../src/RetrieveHTTP2.cc \
+     ../src/RetrieveFTP2.cc \
+     ../src/gui_download.cc \
+     ../src/gui_download_check.cc \
+     ../src/gui_edit.cc \
+     ../src/gui_edit_search.cc \
+     ../src/gui_file.cc \
+     ../src/gui_file_find_hyperlink.cc \
+     ../src/gui_file_open_url.cc \
+     ../src/gui_file_open_crc.cc \
+     ../src/gui_file_open_and_save.cc \
+     ../src/gui_item_new_item.cc \
+     ../src/gui_list_new_list.cc \
+     ../src/gui_list_rename_list.cc \
+     ../src/gui_list.cc \
+     ../src/gui_item.cc \
+     ../src/gui_option.cc \
+     ../src/ItemOption.cc \
+     ../src/ItemStatusDynamic.cc \
+     ../src/ItemStatusRec.cc \
+     ../src/AppOption.cc \
+     ../src/ListEntry.cc \
+     ../src/gui_toolbar.cc \
+     ../src/gui_help.cc \
+     ../src/Dialog.cc \
+     ../src/PasteWindow.cc \
+     ../src/HistoryWindow.cc \
+     ../src/aria.h
 
-CATALOGS =  cs.gmo de.gmo es.gmo fr.gmo hu.gmo it.gmo pl.gmo ru.gmo ja.gmo zh_TW.gmo
+CATALOGS = @CATALOGS@
 CATOBJEXT = .gmo
 INSTOBJEXT = .mo
 

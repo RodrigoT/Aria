@@ -146,12 +146,12 @@ AC_CHECK_FUNCS([gethostbyname gettimeofday getwd inet_ntoa mempcpy memset mkdir 
 
 #Taken from configure.in of gnupg
 #QUOTE START
-GNUPG_CHECK_ENDIAN
+#GNUPG_CHECK_ENDIAN
 
-GNUPG_CHECK_TYPEDEF(byte, HAVE_BYTE_TYPEDEF)
-GNUPG_CHECK_TYPEDEF(ushort, HAVE_USHORT_TYPEDEF)
-GNUPG_CHECK_TYPEDEF(ulong, HAVE_ULONG_TYPEDEF)
-GNUPG_CHECK_TYPEDEF(u32, HAVE_U32_TYPEDEF)
+#GNUPG_CHECK_TYPEDEF(byte, HAVE_BYTE_TYPEDEF)
+#GNUPG_CHECK_TYPEDEF(ushort, HAVE_USHORT_TYPEDEF)
+#GNUPG_CHECK_TYPEDEF(ulong, HAVE_ULONG_TYPEDEF)
+#GNUPG_CHECK_TYPEDEF(u32, HAVE_U32_TYPEDEF)
 
 AC_CHECK_SIZEOF(unsigned short, 2)
 AC_CHECK_SIZEOF(unsigned int, 4)
@@ -177,8 +177,8 @@ AC_SUBST(localedir)
 AC_SUBST(datadir)
 
 #Check glib and gtk+
-AM_PATH_GLIB(1.2.6,,AC_MSG_ERROR([*** GLIB >= 1.2.6 not installed - please install first ***]))
-AM_PATH_GTK(1.2.6,,AC_MSG_ERROR([*** GTK+ >= 1.2.6 not installed - please install first ***]),gthread)
+AM_PATH_GLIB_2_0(2.1.0,,AC_MSG_ERROR([*** GLIB >= 2.1.0 not installed - please install first ***]))
+AM_PATH_GTK_3_0(3.0.0,,AC_MSG_ERROR([*** GTK+ >= 3.0.0 not installed - please install first ***]),gthread)
 GIVEN_CFLAGS=$CFLAGS
 
 #Path to X
