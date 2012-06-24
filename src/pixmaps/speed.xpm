@@ -1,5 +1,5 @@
 /* XPM */
-static char * speed_xpm[] = {
+static const char * speed_xpm[] = {
 "30 25 18 1",
 " 	c None",
 ".	c #FFFF00",

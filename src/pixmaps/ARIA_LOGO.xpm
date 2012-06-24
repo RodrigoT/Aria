@@ -1,5 +1,5 @@
 /* XPM */
-static char * ARIA_LOGO_xpm[] = {
+static const char * ARIA_LOGO_xpm[] = {
 "400 100 270 2",
 "  	c None",
 ". 	c #E0C3C0",

@@ -1,5 +1,5 @@
 /* XPM */
-static char * progress0_xpm[] = {
+static const char * progress0_xpm[] = {
 "50 30 52 1",
 "       c None",
 ".      c #350303",
@@ -83,7 +83,7 @@ static char * progress0_xpm[] = {
 "mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm",
 "mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm",
 "mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm"};
-static char * progress1_xpm[] = {
+static const char * progress1_xpm[] = {
 "50 30 52 1",
 "       c None",
 ".      c #350303",
@@ -167,7 +167,7 @@ static char * progress1_xpm[] = {
 ".mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm",
 ".mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm",
 ".mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm"};
-static char * progress2_xpm[] = {
+static const char * progress2_xpm[] = {
 "50 30 52 1",
 "       c None",
 ".      c #350303",
@@ -251,7 +251,7 @@ static char * progress2_xpm[] = {
 ".+mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm",
 ".+mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm",
 ".+mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm"};
-static char * progress3_xpm[] = {
+static const char * progress3_xpm[] = {
 "50 30 52 1",
 "       c None",
 ".      c #350303",
@@ -335,7 +335,7 @@ static char * progress3_xpm[] = {
 ".+@mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm",
 ".+@mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm",
 ".+@mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm"};
-static char * progress4_xpm[] = {
+static const char * progress4_xpm[] = {
 "50 30 52 1",
 "       c None",
 ".      c #350303",
@@ -419,7 +419,7 @@ static char * progress4_xpm[] = {
 ".+@#mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm",
 ".+@#mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm",
 ".+@#mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm"};
-static char * progress5_xpm[] = {
+static const char * progress5_xpm[] = {
 "50 30 52 1",
 "       c None",
 ".      c #350303",
@@ -503,7 +503,7 @@ static char * progress5_xpm[] = {
 ".+@#$mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm",
 ".+@#$mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm",
 ".+@#$mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm"};
-static char * progress6_xpm[] = {
+static const char * progress6_xpm[] = {
 "50 30 52 1",
 "       c None",
 ".      c #350303",
@@ -587,7 +587,7 @@ static char * progress6_xpm[] = {
 ".+@#$%mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm",
 ".+@#$%mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm",
 ".+@#$%mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm"};
-static char * progress7_xpm[] = {
+static const char * progress7_xpm[] = {
 "50 30 52 1",
 "       c None",
 ".      c #350303",
@@ -671,7 +671,7 @@ static char * progress7_xpm[] = {
 ".+@#$%&mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm",
 ".+@#$%&mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm",
 ".+@#$%&mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm"};
-static char * progress8_xpm[] = {
+static const char * progress8_xpm[] = {
 "50 30 52 1",
 "       c None",
 ".      c #350303",
@@ -755,7 +755,7 @@ static char * progress8_xpm[] = {
 ".+@#$%&*mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm",
 ".+@#$%&*mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm",
 ".+@#$%&*mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm"};
-static char * progress9_xpm[] = {
+static const char * progress9_xpm[] = {
 "50 30 52 1",
 "       c None",
 ".      c #350303",
@@ -839,7 +839,7 @@ static char * progress9_xpm[] = {
 ".+@#$%&*=mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm",
 ".+@#$%&*=mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm",
 ".+@#$%&*=mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm"};
-static char * progress10_xpm[] = {
+static const char * progress10_xpm[] = {
 "50 30 52 1",
 "       c None",
 ".      c #350303",
@@ -923,7 +923,7 @@ static char * progress10_xpm[] = {
 ".+@#$%&*=-mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm",
 ".+@#$%&*=-mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm",
 ".+@#$%&*=-mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm"};
-static char * progress11_xpm[] = {
+static const char * progress11_xpm[] = {
 "50 30 52 1",
 "       c None",
 ".      c #350303",
@@ -1007,7 +1007,7 @@ static char * progress11_xpm[] = {
 ".+@#$%&*=-;mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm",
 ".+@#$%&*=-;mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm",
 ".+@#$%&*=-;mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm"};
-static char * progress12_xpm[] = {
+static const char * progress12_xpm[] = {
 "50 30 52 1",
 "       c None",
 ".      c #350303",
@@ -1091,7 +1091,7 @@ static char * progress12_xpm[] = {
 ".+@#$%&*=-;>mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm",
 ".+@#$%&*=-;>mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm",
 ".+@#$%&*=-;>mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm"};
-static char * progress13_xpm[] = {
+static const char * progress13_xpm[] = {
 "50 30 52 1",
 "       c None",
 ".      c #350303",
@@ -1175,7 +1175,7 @@ static char * progress13_xpm[] = {
 ".+@#$%&*=-;>,mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm",
 ".+@#$%&*=-;>,mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm",
 ".+@#$%&*=-;>,mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm"};
-static char * progress14_xpm[] = {
+static const char * progress14_xpm[] = {
 "50 30 52 1",
 "       c None",
 ".      c #350303",
@@ -1259,7 +1259,7 @@ static char * progress14_xpm[] = {
 ".+@#$%&*=-;>,'mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm",
 ".+@#$%&*=-;>,'mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm",
 ".+@#$%&*=-;>,'mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm"};
-static char * progress15_xpm[] = {
+static const char * progress15_xpm[] = {
 "50 30 52 1",
 "       c None",
 ".      c #350303",
@@ -1343,7 +1343,7 @@ static char * progress15_xpm[] = {
 ".+@#$%&*=-;>,')mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm",
 ".+@#$%&*=-;>,')mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm",
 ".+@#$%&*=-;>,')mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm"};
-static char * progress16_xpm[] = {
+static const char * progress16_xpm[] = {
 "50 30 52 1",
 "       c None",
 ".      c #350303",
@@ -1427,7 +1427,7 @@ static char * progress16_xpm[] = {
 ".+@#$%&*=-;>,')!mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm",
 ".+@#$%&*=-;>,')!mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm",
 ".+@#$%&*=-;>,')!mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm"};
-static char * progress17_xpm[] = {
+static const char * progress17_xpm[] = {
 "50 30 52 1",
 "       c None",
 ".      c #350303",
@@ -1511,7 +1511,7 @@ static char * progress17_xpm[] = {
 ".+@#$%&*=-;>,')!~mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm",
 ".+@#$%&*=-;>,')!~mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm",
 ".+@#$%&*=-;>,')!~mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm"};
-static char * progress18_xpm[] = {
+static const char * progress18_xpm[] = {
 "50 30 52 1",
 "       c None",
 ".      c #350303",
@@ -1595,7 +1595,7 @@ static char * progress18_xpm[] = {
 ".+@#$%&*=-;>,')!~{mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm",
 ".+@#$%&*=-;>,')!~{mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm",
 ".+@#$%&*=-;>,')!~{mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm"};
-static char * progress19_xpm[] = {
+static const char * progress19_xpm[] = {
 "50 30 52 1",
 "       c None",
 ".      c #350303",
@@ -1679,7 +1679,7 @@ static char * progress19_xpm[] = {
 ".+@#$%&*=-;>,')!~{]mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm",
 ".+@#$%&*=-;>,')!~{]mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm",
 ".+@#$%&*=-;>,')!~{]mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm"};
-static char * progress20_xpm[] = {
+static const char * progress20_xpm[] = {
 "50 30 52 1",
 "       c None",
 ".      c #350303",
@@ -1763,7 +1763,7 @@ static char * progress20_xpm[] = {
 ".+@#$%&*=-;>,')!~{]^mmmmmmmmmmmmmmmmmmmmmmmmmmmmmm",
 ".+@#$%&*=-;>,')!~{]^mmmmmmmmmmmmmmmmmmmmmmmmmmmmmm",
 ".+@#$%&*=-;>,')!~{]^mmmmmmmmmmmmmmmmmmmmmmmmmmmmmm"};
-static char * progress21_xpm[] = {
+static const char * progress21_xpm[] = {
 "50 30 52 1",
 "       c None",
 ".      c #350303",
@@ -1847,7 +1847,7 @@ static char * progress21_xpm[] = {
 ".+@#$%&*=-;>,')!~{]^/mmmmmmmmmmmmmmmmmmmmmmmmmmmmm",
 ".+@#$%&*=-;>,')!~{]^/mmmmmmmmmmmmmmmmmmmmmmmmmmmmm",
 ".+@#$%&*=-;>,')!~{]^/mmmmmmmmmmmmmmmmmmmmmmmmmmmmm"};
-static char * progress22_xpm[] = {
+static const char * progress22_xpm[] = {
 "50 30 52 1",
 "       c None",
 ".      c #350303",
@@ -1931,7 +1931,7 @@ static char * progress22_xpm[] = {
 ".+@#$%&*=-;>,')!~{]^/(mmmmmmmmmmmmmmmmmmmmmmmmmmmm",
 ".+@#$%&*=-;>,')!~{]^/(mmmmmmmmmmmmmmmmmmmmmmmmmmmm",
 ".+@#$%&*=-;>,')!~{]^/(mmmmmmmmmmmmmmmmmmmmmmmmmmmm"};
-static char * progress23_xpm[] = {
+static const char * progress23_xpm[] = {
 "50 30 52 1",
 "       c None",
 ".      c #350303",
@@ -2015,7 +2015,7 @@ static char * progress23_xpm[] = {
 ".+@#$%&*=-;>,')!~{]^/(_mmmmmmmmmmmmmmmmmmmmmmmmmmm",
 ".+@#$%&*=-;>,')!~{]^/(_mmmmmmmmmmmmmmmmmmmmmmmmmmm",
 ".+@#$%&*=-;>,')!~{]^/(_mmmmmmmmmmmmmmmmmmmmmmmmmmm"};
-static char * progress24_xpm[] = {
+static const char * progress24_xpm[] = {
 "50 30 52 1",
 "       c None",
 ".      c #350303",
@@ -2099,7 +2099,7 @@ static char * progress24_xpm[] = {
 ".+@#$%&*=-;>,')!~{]^/(_:mmmmmmmmmmmmmmmmmmmmmmmmmm",
 ".+@#$%&*=-;>,')!~{]^/(_:mmmmmmmmmmmmmmmmmmmmmmmmmm",
 ".+@#$%&*=-;>,')!~{]^/(_:mmmmmmmmmmmmmmmmmmmmmmmmmm"};
-static char * progress25_xpm[] = {
+static const char * progress25_xpm[] = {
 "50 30 52 1",
 "       c None",
 ".      c #350303",
@@ -2183,7 +2183,7 @@ static char * progress25_xpm[] = {
 ".+@#$%&*=-;>,')!~{]^/(_:<mmmmmmmmmmmmmmmmmmmmmmmmm",
 ".+@#$%&*=-;>,')!~{]^/(_:<mmmmmmmmmmmmmmmmmmmmmmmmm",
 ".+@#$%&*=-;>,')!~{]^/(_:<mmmmmmmmmmmmmmmmmmmmmmmmm"};
-static char * progress26_xpm[] = {
+static const char * progress26_xpm[] = {
 "50 30 52 1",
 "       c None",
 ".      c #350303",
@@ -2267,7 +2267,7 @@ static char * progress26_xpm[] = {
 ".+@#$%&*=-;>,')!~{]^/(_:<[mmmmmmmmmmmmmmmmmmmmmmmm",
 ".+@#$%&*=-;>,')!~{]^/(_:<[mmmmmmmmmmmmmmmmmmmmmmmm",
 ".+@#$%&*=-;>,')!~{]^/(_:<[mmmmmmmmmmmmmmmmmmmmmmmm"};
-static char * progress27_xpm[] = {
+static const char * progress27_xpm[] = {
 "50 30 52 1",
 "       c None",
 ".      c #350303",
@@ -2351,7 +2351,7 @@ static char * progress27_xpm[] = {
 ".+@#$%&*=-;>,')!~{]^/(_:<[}mmmmmmmmmmmmmmmmmmmmmmm",
 ".+@#$%&*=-;>,')!~{]^/(_:<[}mmmmmmmmmmmmmmmmmmmmmmm",
 ".+@#$%&*=-;>,')!~{]^/(_:<[}mmmmmmmmmmmmmmmmmmmmmmm"};
-static char * progress28_xpm[] = {
+static const char * progress28_xpm[] = {
 "50 30 52 1",
 "       c None",
 ".      c #350303",
@@ -2435,7 +2435,7 @@ static char * progress28_xpm[] = {
 ".+@#$%&*=-;>,')!~{]^/(_:<[}|mmmmmmmmmmmmmmmmmmmmmm",
 ".+@#$%&*=-;>,')!~{]^/(_:<[}|mmmmmmmmmmmmmmmmmmmmmm",
 ".+@#$%&*=-;>,')!~{]^/(_:<[}|mmmmmmmmmmmmmmmmmmmmmm"};
-static char * progress29_xpm[] = {
+static const char * progress29_xpm[] = {
 "50 30 52 1",
 "       c None",
 ".      c #350303",
@@ -2519,7 +2519,7 @@ static char * progress29_xpm[] = {
 ".+@#$%&*=-;>,')!~{]^/(_:<[}|1mmmmmmmmmmmmmmmmmmmmm",
 ".+@#$%&*=-;>,')!~{]^/(_:<[}|1mmmmmmmmmmmmmmmmmmmmm",
 ".+@#$%&*=-;>,')!~{]^/(_:<[}|1mmmmmmmmmmmmmmmmmmmmm"};
-static char * progress30_xpm[] = {
+static const char * progress30_xpm[] = {
 "50 30 52 1",
 "       c None",
 ".      c #350303",
@@ -2603,7 +2603,7 @@ static char * progress30_xpm[] = {
 ".+@#$%&*=-;>,')!~{]^/(_:<[}|11mmmmmmmmmmmmmmmmmmmm",
 ".+@#$%&*=-;>,')!~{]^/(_:<[}|11mmmmmmmmmmmmmmmmmmmm",
 ".+@#$%&*=-;>,')!~{]^/(_:<[}|11mmmmmmmmmmmmmmmmmmmm"};
-static char * progress31_xpm[] = {
+static const char * progress31_xpm[] = {
 "50 30 52 1",
 "       c None",
 ".      c #350303",
@@ -2687,7 +2687,7 @@ static char * progress31_xpm[] = {
 ".+@#$%&*=-;>,')!~{]^/(_:<[}|112mmmmmmmmmmmmmmmmmmm",
 ".+@#$%&*=-;>,')!~{]^/(_:<[}|112mmmmmmmmmmmmmmmmmmm",
 ".+@#$%&*=-;>,')!~{]^/(_:<[}|112mmmmmmmmmmmmmmmmmmm"};
-static char * progress32_xpm[] = {
+static const char * progress32_xpm[] = {
 "50 30 52 1",
 "       c None",
 ".      c #350303",
@@ -2771,7 +2771,7 @@ static char * progress32_xpm[] = {
 ".+@#$%&*=-;>,')!~{]^/(_:<[}|1123mmmmmmmmmmmmmmmmmm",
 ".+@#$%&*=-;>,')!~{]^/(_:<[}|1123mmmmmmmmmmmmmmmmmm",
 ".+@#$%&*=-;>,')!~{]^/(_:<[}|1123mmmmmmmmmmmmmmmmmm"};
-static char * progress33_xpm[] = {
+static const char * progress33_xpm[] = {
 "50 30 52 1",
 "       c None",
 ".      c #350303",
@@ -2855,7 +2855,7 @@ static char * progress33_xpm[] = {
 ".+@#$%&*=-;>,')!~{]^/(_:<[}|11234mmmmmmmmmmmmmmmmm",
 ".+@#$%&*=-;>,')!~{]^/(_:<[}|11234mmmmmmmmmmmmmmmmm",
 ".+@#$%&*=-;>,')!~{]^/(_:<[}|11234mmmmmmmmmmmmmmmmm"};
-static char * progress34_xpm[] = {
+static const char * progress34_xpm[] = {
 "50 30 52 1",
 "       c None",
 ".      c #350303",
@@ -2939,7 +2939,7 @@ static char * progress34_xpm[] = {
 ".+@#$%&*=-;>,')!~{]^/(_:<[}|112345mmmmmmmmmmmmmmmm",
 ".+@#$%&*=-;>,')!~{]^/(_:<[}|112345mmmmmmmmmmmmmmmm",
 ".+@#$%&*=-;>,')!~{]^/(_:<[}|112345mmmmmmmmmmmmmmmm"};
-static char * progress35_xpm[] = {
+static const char * progress35_xpm[] = {
 "50 30 52 1",
 "       c None",
 ".      c #350303",
@@ -3023,7 +3023,7 @@ static char * progress35_xpm[] = {
 ".+@#$%&*=-;>,')!~{]^/(_:<[}|1123456mmmmmmmmmmmmmmm",
 ".+@#$%&*=-;>,')!~{]^/(_:<[}|1123456mmmmmmmmmmmmmmm",
 ".+@#$%&*=-;>,')!~{]^/(_:<[}|1123456mmmmmmmmmmmmmmm"};
-static char * progress36_xpm[] = {
+static const char * progress36_xpm[] = {
 "50 30 52 1",
 "       c None",
 ".      c #350303",
@@ -3107,7 +3107,7 @@ static char * progress36_xpm[] = {
 ".+@#$%&*=-;>,')!~{]^/(_:<[}|11234567mmmmmmmmmmmmmm",
 ".+@#$%&*=-;>,')!~{]^/(_:<[}|11234567mmmmmmmmmmmmmm",
 ".+@#$%&*=-;>,')!~{]^/(_:<[}|11234567mmmmmmmmmmmmmm"};
-static char * progress37_xpm[] = {
+static const char * progress37_xpm[] = {
 "50 30 52 1",
 "       c None",
 ".      c #350303",
@@ -3191,7 +3191,7 @@ static char * progress37_xpm[] = {
 ".+@#$%&*=-;>,')!~{]^/(_:<[}|112345678mmmmmmmmmmmmm",
 ".+@#$%&*=-;>,')!~{]^/(_:<[}|112345678mmmmmmmmmmmmm",
 ".+@#$%&*=-;>,')!~{]^/(_:<[}|112345678mmmmmmmmmmmmm"};
-static char * progress38_xpm[] = {
+static const char * progress38_xpm[] = {
 "50 30 52 1",
 "       c None",
 ".      c #350303",
@@ -3275,7 +3275,7 @@ static char * progress38_xpm[] = {
 ".+@#$%&*=-;>,')!~{]^/(_:<[}|1123456789mmmmmmmmmmmm",
 ".+@#$%&*=-;>,')!~{]^/(_:<[}|1123456789mmmmmmmmmmmm",
 ".+@#$%&*=-;>,')!~{]^/(_:<[}|1123456789mmmmmmmmmmmm"};
-static char * progress39_xpm[] = {
+static const char * progress39_xpm[] = {
 "50 30 52 1",
 "       c None",
 ".      c #350303",
@@ -3359,7 +3359,7 @@ static char * progress39_xpm[] = {
 ".+@#$%&*=-;>,')!~{]^/(_:<[}|11234567890mmmmmmmmmmm",
 ".+@#$%&*=-;>,')!~{]^/(_:<[}|11234567890mmmmmmmmmmm",
 ".+@#$%&*=-;>,')!~{]^/(_:<[}|11234567890mmmmmmmmmmm"};
-static char * progress40_xpm[] = {
+static const char * progress40_xpm[] = {
 "50 30 52 1",
 "       c None",
 ".      c #350303",
@@ -3443,7 +3443,7 @@ static char * progress40_xpm[] = {
 ".+@#$%&*=-;>,')!~{]^/(_:<[}|11234567890ammmmmmmmmm",
 ".+@#$%&*=-;>,')!~{]^/(_:<[}|11234567890ammmmmmmmmm",
 ".+@#$%&*=-;>,')!~{]^/(_:<[}|11234567890ammmmmmmmmm"};
-static char * progress41_xpm[] = {
+static const char * progress41_xpm[] = {
 "50 30 52 1",
 "       c None",
 ".      c #350303",
@@ -3527,7 +3527,7 @@ static char * progress41_xpm[] = {
 ".+@#$%&*=-;>,')!~{]^/(_:<[}|11234567890abmmmmmmmmm",
 ".+@#$%&*=-;>,')!~{]^/(_:<[}|11234567890abmmmmmmmmm",
 ".+@#$%&*=-;>,')!~{]^/(_:<[}|11234567890abmmmmmmmmm"};
-static char * progress42_xpm[] = {
+static const char * progress42_xpm[] = {
 "50 30 52 1",
 "       c None",
 ".      c #350303",
@@ -3611,7 +3611,7 @@ static char * progress42_xpm[] = {
 ".+@#$%&*=-;>,')!~{]^/(_:<[}|11234567890abcmmmmmmmm",
 ".+@#$%&*=-;>,')!~{]^/(_:<[}|11234567890abcmmmmmmmm",
 ".+@#$%&*=-;>,')!~{]^/(_:<[}|11234567890abcmmmmmmmm"};
-static char * progress43_xpm[] = {
+static const char * progress43_xpm[] = {
 "50 30 52 1",
 "       c None",
 ".      c #350303",
@@ -3695,7 +3695,7 @@ static char * progress43_xpm[] = {
 ".+@#$%&*=-;>,')!~{]^/(_:<[}|11234567890abcdmmmmmmm",
 ".+@#$%&*=-;>,')!~{]^/(_:<[}|11234567890abcdmmmmmmm",
 ".+@#$%&*=-;>,')!~{]^/(_:<[}|11234567890abcdmmmmmmm"};
-static char * progress44_xpm[] = {
+static const char * progress44_xpm[] = {
 "50 30 52 1",
 "       c None",
 ".      c #350303",
@@ -3779,7 +3779,7 @@ static char * progress44_xpm[] = {
 ".+@#$%&*=-;>,')!~{]^/(_:<[}|11234567890abcdemmmmmm",
 ".+@#$%&*=-;>,')!~{]^/(_:<[}|11234567890abcdemmmmmm",
 ".+@#$%&*=-;>,')!~{]^/(_:<[}|11234567890abcdemmmmmm"};
-static char * progress45_xpm[] = {
+static const char * progress45_xpm[] = {
 "50 30 52 1",
 "       c None",
 ".      c #350303",
@@ -3863,7 +3863,7 @@ static char * progress45_xpm[] = {
 ".+@#$%&*=-;>,')!~{]^/(_:<[}|11234567890abcdefmmmmm",
 ".+@#$%&*=-;>,')!~{]^/(_:<[}|11234567890abcdefmmmmm",
 ".+@#$%&*=-;>,')!~{]^/(_:<[}|11234567890abcdefmmmmm"};
-static char * progress46_xpm[] = {
+static const char * progress46_xpm[] = {
 "50 30 52 1",
 "       c None",
 ".      c #350303",
@@ -3947,7 +3947,7 @@ static char * progress46_xpm[] = {
 ".+@#$%&*=-;>,')!~{]^/(_:<[}|11234567890abcdefgmmmm",
 ".+@#$%&*=-;>,')!~{]^/(_:<[}|11234567890abcdefgmmmm",
 ".+@#$%&*=-;>,')!~{]^/(_:<[}|11234567890abcdefgmmmm"};
-static char * progress47_xpm[] = {
+static const char * progress47_xpm[] = {
 "50 30 52 1",
 "       c None",
 ".      c #350303",
@@ -4031,7 +4031,7 @@ static char * progress47_xpm[] = {
 ".+@#$%&*=-;>,')!~{]^/(_:<[}|11234567890abcdefghmmm",
 ".+@#$%&*=-;>,')!~{]^/(_:<[}|11234567890abcdefghmmm",
 ".+@#$%&*=-;>,')!~{]^/(_:<[}|11234567890abcdefghmmm"};
-static char * progress48_xpm[] = {
+static const char * progress48_xpm[] = {
 "50 30 52 1",
 "       c None",
 ".      c #350303",
@@ -4115,7 +4115,7 @@ static char * progress48_xpm[] = {
 ".+@#$%&*=-;>,')!~{]^/(_:<[}|11234567890abcdefghimm",
 ".+@#$%&*=-;>,')!~{]^/(_:<[}|11234567890abcdefghimm",
 ".+@#$%&*=-;>,')!~{]^/(_:<[}|11234567890abcdefghimm"};
-static char * progress49_xpm[] = {
+static const char * progress49_xpm[] = {
 "50 30 52 1",
 "       c None",
 ".      c #350303",
@@ -4199,7 +4199,7 @@ static char * progress49_xpm[] = {
 ".+@#$%&*=-;>,')!~{]^/(_:<[}|11234567890abcdefghijm",
 ".+@#$%&*=-;>,')!~{]^/(_:<[}|11234567890abcdefghijm",
 ".+@#$%&*=-;>,')!~{]^/(_:<[}|11234567890abcdefghijm"};
-static char * progress50_xpm[] = {
+static const char * progress50_xpm[] = {
 "50 30 52 1",
 "       c None",
 ".      c #350303",

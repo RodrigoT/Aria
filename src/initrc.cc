@@ -24,6 +24,7 @@
 #include <errno.h>
 #include <sys/stat.h>
 #include <unistd.h>
+#include <cstdlib>
 #include "aria.h"
 #include "utils.h"
 

@@ -1,5 +1,5 @@
 /* XPM */
-static char * error_xpm[] = {
+static const char * error_xpm[] = {
 "17 14 51 1",
 " 	c None",
 ".	c #FF3232",

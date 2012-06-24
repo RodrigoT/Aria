@@ -1,5 +1,5 @@
 /* XPM */
-static char * complete_xpm[] = {
+static const char * complete_xpm[] = {
 "17 14 63 1",
 " 	c None",
 ".	c #183AE2",

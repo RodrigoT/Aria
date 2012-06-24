@@ -19,7 +19,7 @@
 
 // $Id: gui_popup.cc,v 1.14 2002/04/03 13:33:52 tujikawa Exp $
 
-#include <iostream.h>
+#include <iostream>
 #include "aria.h"
 #include "gui_utils.h"
 

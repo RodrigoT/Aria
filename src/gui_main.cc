@@ -566,7 +566,7 @@ gboolean File_quit_main(GtkWidget *w, gpointer data)
 
 static void Create_progress_bar()
 {
-  char **a[51];
+  const char **a[51];
 
   a[0] = progress0_xpm;
 

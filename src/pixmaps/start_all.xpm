@@ -1,5 +1,5 @@
 /* XPM */
-static char * start_all_xpm[] = {
+static const char * start_all_xpm[] = {
 "23 23 43 1",
 " 	c None",
 ".	c #323232",

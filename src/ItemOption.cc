@@ -52,7 +52,7 @@ static string current_store_dir;
 static string temp_storedir;
 static Dialog *edialog = NULL;
 //static float speed_value = 0.0;
-static char *http_version_string[] = {
+static const char *http_version_string[] = {
   "1.0",
   "1.1"
 };

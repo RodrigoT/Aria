@@ -20,6 +20,7 @@
 // $Id: md5check.cc,v 1.5 2001/10/20 08:56:18 tujikawa Exp $
 
 #include "md5check.h"
+#include <cstring>
 
 // calculates md5 checksum of the file and returns hex string
 string md5_check(const string& filename)

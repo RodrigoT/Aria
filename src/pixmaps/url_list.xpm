@@ -1,5 +1,5 @@
 /* XPM */
-static char * url_list_xpm[] = {
+static const char * url_list_xpm[] = {
 "23 23 196 2",
 "  	c None",
 ". 	c #DBDA4D",

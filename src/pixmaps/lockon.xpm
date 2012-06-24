@@ -1,5 +1,5 @@
 /* XPM */
-static char * lockon_xpm[] = {
+static const char * lockon_xpm[] = {
 "23 23 97 2",
 "  	c None",
 ". 	c #6A6A6A",

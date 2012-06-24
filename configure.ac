@@ -178,7 +178,7 @@ AC_SUBST(datadir)
 
 #Check glib and gtk+
 AM_PATH_GLIB_2_0(2.1.0,,AC_MSG_ERROR([*** GLIB >= 2.1.0 not installed - please install first ***]))
-AM_PATH_GTK_3_0(3.0.0,,AC_MSG_ERROR([*** GTK+ >= 3.0.0 not installed - please install first ***]),gthread)
+AM_PATH_GTK_2_0(2.0.0,,AC_MSG_ERROR([*** GTK+ >= 2.0.0 not installed - please install first ***]),gthread)
 GIVEN_CFLAGS=$CFLAGS
 
 #Path to X

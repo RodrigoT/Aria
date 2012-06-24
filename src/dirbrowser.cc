@@ -31,7 +31,7 @@
 
 #include "aria.h"
 
-static char *folder[] =
+static const char *folder[] =
 {
 	"16 16 8 1",
 	" 	c None",
@@ -60,7 +60,7 @@ static char *folder[] =
 	"                "};
 
 /* XPM */
-static char *ofolder[] =
+static const char *ofolder[] =
 {
 	"16 16 12 1",
 	" 	c None",

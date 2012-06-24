@@ -19,7 +19,7 @@
 
 // $Id: gui_file.cc,v 1.45 2002/09/30 13:29:46 tujikawa Exp $
 
-#include <fstream.h>
+#include <fstream>
 #include <stdlib.h>
 #include <unistd.h>
 #include <sys/time.h>

@@ -1,5 +1,5 @@
 /* XPM */
-static char * divide_xpm[] = {
+static const char * divide_xpm[] = {
 "17 14 57 1",
 " 	c None",
 ".	c #F931F9",
