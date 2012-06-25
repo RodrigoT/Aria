@@ -481,7 +481,7 @@ bool HistoryWindow::readFile(const string& filename)
 
   if(infile.bad()) return false;
   int count = 0;
-  while(!infile.eof() && count < maxHistory) {
+  while(infile.good() && count < maxHistory) {
     string line;
     getline(infile, line, '\n');
     if(line.size()) {

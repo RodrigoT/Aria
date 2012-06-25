@@ -36,7 +36,7 @@ GtkWidget *GTK_create_menu_item_with_icon(GtkWidget *menu,
 					  GtkWidget *toplevel,
 					  GtkAccelGroup *accel_group,
 					  unsigned int accel_key,
-					  unsigned int accel_mods);
+					  GdkModifierType accel_mods);
 
 GtkWidget *GTK_create_menu_item_with_icon(GtkWidget *menu,
 					  char *label,

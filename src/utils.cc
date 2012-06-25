@@ -51,17 +51,17 @@ string Remove_white(string nword)
 string Token_splitter(string& line, const char *delimitors)
 {
   string token;
-  unsigned int start_pos = line.find_first_not_of(" \t");
+  size_t start_pos = line.find_first_not_of(" \t");
   if(start_pos == string::npos) {
     line.erase();
     return token;
   }
-  unsigned int end_pos = line.find_first_of(delimitors, start_pos);
+  size_t end_pos = line.find_first_of(delimitors, start_pos);
   if(end_pos == string::npos) {
     end_pos = line.size();
   }
   token = line.substr(start_pos, end_pos-start_pos);
-  unsigned int erase_pos = line.find_first_not_of(delimitors, end_pos+1);
+  size_t erase_pos = line.find_first_not_of(delimitors, end_pos+1);
   if(erase_pos == string::npos) {
     line.erase();
   } else {

@@ -839,7 +839,7 @@ bool restore_gui_info(const string& filename,
   if(infile.bad()) return false;
   
   if(infile.eof()) return false;
-  while(!infile.eof()) {
+  while(infile.good()) {
     string line;
     getline(infile, line, '\n');
     string key = Token_splitter(line, " \t");

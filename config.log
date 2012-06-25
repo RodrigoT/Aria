@@ -264,7 +264,7 @@ configure: failed program was:
 | #define ARIA_VERSION "Aria - version 1.0.0"
 | #define DATE_ROLLOUT "16 Dec 2002"
 | #define D_MACHINE_COMPILED "Linux 3.3.8-gentoo x86_64"
-| #define D_DATE_COMPILED "Sat Jun 23 19:11:35 CEST 2012"
+| #define D_DATE_COMPILED "Mon Jun 25 20:00:20 CEST 2012"
 | #define HAVE_ZLIB 1
 | #define HAVE_OPENSSL 1
 | #define HAVE_DIRENT_H 1
@@ -290,7 +290,7 @@ configure: failed program was:
 | #define ARIA_VERSION "Aria - version 1.0.0"
 | #define DATE_ROLLOUT "16 Dec 2002"
 | #define D_MACHINE_COMPILED "Linux 3.3.8-gentoo x86_64"
-| #define D_DATE_COMPILED "Sat Jun 23 19:11:35 CEST 2012"
+| #define D_DATE_COMPILED "Mon Jun 25 20:00:20 CEST 2012"
 | #define HAVE_ZLIB 1
 | #define HAVE_OPENSSL 1
 | #define HAVE_DIRENT_H 1
@@ -460,7 +460,7 @@ configure: failed program was:
 | #define ARIA_VERSION "Aria - version 1.0.0"
 | #define DATE_ROLLOUT "16 Dec 2002"
 | #define D_MACHINE_COMPILED "Linux 3.3.8-gentoo x86_64"
-| #define D_DATE_COMPILED "Sat Jun 23 19:11:35 CEST 2012"
+| #define D_DATE_COMPILED "Mon Jun 25 20:00:20 CEST 2012"
 | #define HAVE_ZLIB 1
 | #define HAVE_OPENSSL 1
 | #define HAVE_DIRENT_H 1
@@ -556,7 +556,7 @@ configure: failed program was:
 | #define ARIA_VERSION "Aria - version 1.0.0"
 | #define DATE_ROLLOUT "16 Dec 2002"
 | #define D_MACHINE_COMPILED "Linux 3.3.8-gentoo x86_64"
-| #define D_DATE_COMPILED "Sat Jun 23 19:11:35 CEST 2012"
+| #define D_DATE_COMPILED "Mon Jun 25 20:00:20 CEST 2012"
 | #define HAVE_ZLIB 1
 | #define HAVE_OPENSSL 1
 | #define HAVE_DIRENT_H 1
@@ -644,7 +644,7 @@ configure: failed program was:
 | #define ARIA_VERSION "Aria - version 1.0.0"
 | #define DATE_ROLLOUT "16 Dec 2002"
 | #define D_MACHINE_COMPILED "Linux 3.3.8-gentoo x86_64"
-| #define D_DATE_COMPILED "Sat Jun 23 19:11:35 CEST 2012"
+| #define D_DATE_COMPILED "Mon Jun 25 20:00:20 CEST 2012"
 | #define HAVE_ZLIB 1
 | #define HAVE_OPENSSL 1
 | #define HAVE_DIRENT_H 1
@@ -725,7 +725,7 @@ configure: failed program was:
 | #define ARIA_VERSION "Aria - version 1.0.0"
 | #define DATE_ROLLOUT "16 Dec 2002"
 | #define D_MACHINE_COMPILED "Linux 3.3.8-gentoo x86_64"
-| #define D_DATE_COMPILED "Sat Jun 23 19:11:35 CEST 2012"
+| #define D_DATE_COMPILED "Mon Jun 25 20:00:20 CEST 2012"
 | #define HAVE_ZLIB 1
 | #define HAVE_OPENSSL 1
 | #define HAVE_DIRENT_H 1
@@ -828,7 +828,7 @@ configure: failed program was:
 | #define ARIA_VERSION "Aria - version 1.0.0"
 | #define DATE_ROLLOUT "16 Dec 2002"
 | #define D_MACHINE_COMPILED "Linux 3.3.8-gentoo x86_64"
-| #define D_DATE_COMPILED "Sat Jun 23 19:11:35 CEST 2012"
+| #define D_DATE_COMPILED "Mon Jun 25 20:00:20 CEST 2012"
 | #define HAVE_ZLIB 1
 | #define HAVE_OPENSSL 1
 | #define HAVE_DIRENT_H 1
@@ -910,7 +910,7 @@ configure:7026: $? = 0
 configure:7026: result: yes
 configure:7026: checking for getwd
 configure:7026: gcc -o conftest -g -O2 -Wall   conftest.c  -lstdc++ -lz -lcrypto -lssl -lresolv >&5
-/tmp/cckcRnJ3.o: In function `main':
+/tmp/ccXlqzwz.o: In function `main':
 /home/rodrigo/prog/aria-1.0.0/conftest.c:92: warning: the `getwd' function is dangerous and should not be used.
 configure:7026: $? = 0
 configure:7026: result: yes
@@ -1059,7 +1059,7 @@ configure: failed program was:
 | #define ARIA_VERSION "Aria - version 1.0.0"
 | #define DATE_ROLLOUT "16 Dec 2002"
 | #define D_MACHINE_COMPILED "Linux 3.3.8-gentoo x86_64"
-| #define D_DATE_COMPILED "Sat Jun 23 19:11:35 CEST 2012"
+| #define D_DATE_COMPILED "Mon Jun 25 20:00:20 CEST 2012"
 | #define HAVE_ZLIB 1
 | #define HAVE_OPENSSL 1
 | #define HAVE_DIRENT_H 1
@@ -1181,7 +1181,7 @@ configure: failed program was:
 | #define ARIA_VERSION "Aria - version 1.0.0"
 | #define DATE_ROLLOUT "16 Dec 2002"
 | #define D_MACHINE_COMPILED "Linux 3.3.8-gentoo x86_64"
-| #define D_DATE_COMPILED "Sat Jun 23 19:11:35 CEST 2012"
+| #define D_DATE_COMPILED "Mon Jun 25 20:00:20 CEST 2012"
 | #define HAVE_ZLIB 1
 | #define HAVE_OPENSSL 1
 | #define HAVE_DIRENT_H 1
@@ -1286,7 +1286,7 @@ configure:8417: gcc -o conftest -g -O2 -Wall   conftest.c  -lstdc++ -lz -lcrypto
 conftest.c: In function 'main':
 conftest.c:91:1: warning: null argument where non-null required (argument 1)
 conftest.c:92:12: warning: null argument where non-null required (argument 1)
-/tmp/ccNXWPno.o: In function `main':
+/tmp/ccnN1uOU.o: In function `main':
 /home/rodrigo/prog/aria-1.0.0/conftest.c:92: undefined reference to `pthread_mutexattr_init'
 collect2: ld returned 1 exit status
 configure:8417: $? = 1
@@ -1303,7 +1303,7 @@ configure: failed program was:
 | #define ARIA_VERSION "Aria - version 1.0.0"
 | #define DATE_ROLLOUT "16 Dec 2002"
 | #define D_MACHINE_COMPILED "Linux 3.3.8-gentoo x86_64"
-| #define D_DATE_COMPILED "Sat Jun 23 19:11:35 CEST 2012"
+| #define D_DATE_COMPILED "Mon Jun 25 20:00:20 CEST 2012"
 | #define HAVE_ZLIB 1
 | #define HAVE_OPENSSL 1
 | #define HAVE_DIRENT_H 1
@@ -1412,7 +1412,7 @@ configure: failed program was:
 | #define ARIA_VERSION "Aria - version 1.0.0"
 | #define DATE_ROLLOUT "16 Dec 2002"
 | #define D_MACHINE_COMPILED "Linux 3.3.8-gentoo x86_64"
-| #define D_DATE_COMPILED "Sat Jun 23 19:11:35 CEST 2012"
+| #define D_DATE_COMPILED "Mon Jun 25 20:00:20 CEST 2012"
 | #define HAVE_ZLIB 1
 | #define HAVE_OPENSSL 1
 | #define HAVE_DIRENT_H 1
@@ -1688,7 +1688,7 @@ configure: failed program was:
 | #define ARIA_VERSION "Aria - version 1.0.0"
 | #define DATE_ROLLOUT "16 Dec 2002"
 | #define D_MACHINE_COMPILED "Linux 3.3.8-gentoo x86_64"
-| #define D_DATE_COMPILED "Sat Jun 23 19:11:35 CEST 2012"
+| #define D_DATE_COMPILED "Mon Jun 25 20:00:20 CEST 2012"
 | #define HAVE_ZLIB 1
 | #define HAVE_OPENSSL 1
 | #define HAVE_DIRENT_H 1
@@ -1829,7 +1829,7 @@ configure: failed program was:
 | #define ARIA_VERSION "Aria - version 1.0.0"
 | #define DATE_ROLLOUT "16 Dec 2002"
 | #define D_MACHINE_COMPILED "Linux 3.3.8-gentoo x86_64"
-| #define D_DATE_COMPILED "Sat Jun 23 19:11:35 CEST 2012"
+| #define D_DATE_COMPILED "Mon Jun 25 20:00:20 CEST 2012"
 | #define HAVE_ZLIB 1
 | #define HAVE_OPENSSL 1
 | #define HAVE_DIRENT_H 1
@@ -1972,7 +1972,7 @@ configure: failed program was:
 | #define ARIA_VERSION "Aria - version 1.0.0"
 | #define DATE_ROLLOUT "16 Dec 2002"
 | #define D_MACHINE_COMPILED "Linux 3.3.8-gentoo x86_64"
-| #define D_DATE_COMPILED "Sat Jun 23 19:11:35 CEST 2012"
+| #define D_DATE_COMPILED "Mon Jun 25 20:00:20 CEST 2012"
 | #define HAVE_ZLIB 1
 | #define HAVE_OPENSSL 1
 | #define HAVE_DIRENT_H 1
@@ -2211,7 +2211,7 @@ configure: failed program was:
 | #define ARIA_VERSION "Aria - version 1.0.0"
 | #define DATE_ROLLOUT "16 Dec 2002"
 | #define D_MACHINE_COMPILED "Linux 3.3.8-gentoo x86_64"
-| #define D_DATE_COMPILED "Sat Jun 23 19:11:35 CEST 2012"
+| #define D_DATE_COMPILED "Mon Jun 25 20:00:20 CEST 2012"
 | #define HAVE_ZLIB 1
 | #define HAVE_OPENSSL 1
 | #define HAVE_DIRENT_H 1
@@ -2373,7 +2373,7 @@ configure: failed program was:
 | #define ARIA_VERSION "Aria - version 1.0.0"
 | #define DATE_ROLLOUT "16 Dec 2002"
 | #define D_MACHINE_COMPILED "Linux 3.3.8-gentoo x86_64"
-| #define D_DATE_COMPILED "Sat Jun 23 19:11:35 CEST 2012"
+| #define D_DATE_COMPILED "Mon Jun 25 20:00:20 CEST 2012"
 | #define HAVE_ZLIB 1
 | #define HAVE_OPENSSL 1
 | #define HAVE_DIRENT_H 1
@@ -2558,7 +2558,7 @@ configure:12335: result: yes (version 2.30.3)
 configure:12423: checking for pkg-config
 configure:12454: result: /usr/bin/pkg-config
 configure:12476: checking for GTK+ - version >= 2.0.0
-configure:12586: gcc -o conftest -g -O2 -Wall -pthread -I/usr/include/gtk-2.0 -I/usr/lib64/gtk-2.0/include -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/pango-1.0 -I/usr/include/glib-2.0 -I/usr/lib64/glib-2.0/include -I/usr/include/pixman-1 -I/usr/include/freetype2 -I/usr/include/libpng15     conftest.c -pthread -lgtk-x11-2.0 -lgdk-x11-2.0 -latk-1.0 -lgio-2.0 -lpangoft2-1.0 -lpangocairo-1.0 -lgdk_pixbuf-2.0 -lcairo -lpango-1.0 -lfreetype -lfontconfig -lgobject-2.0 -lgmodule-2.0 -lgthread-2.0 -lrt -lglib-2.0    -lstdc++ -lz -lcrypto -lssl -lresolv >&5
+configure:12586: gcc -o conftest -g -O2 -Wall -pthread -I/usr/include/gtk-2.0 -I/usr/lib64/gtk-2.0/include -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/pango-1.0 -I/usr/include/glib-2.0 -I/usr/lib64/glib-2.0/include -I/usr/include/pixman-1 -I/usr/include/freetype2 -I/usr/include/libpng15 -I/usr/include/libdrm     conftest.c -pthread -lgtk-x11-2.0 -lgdk-x11-2.0 -latk-1.0 -lgio-2.0 -lpangoft2-1.0 -lpangocairo-1.0 -lgdk_pixbuf-2.0 -lcairo -lpango-1.0 -lfreetype -lfontconfig -lgobject-2.0 -lgmodule-2.0 -lgthread-2.0 -lrt -lglib-2.0    -lstdc++ -lz -lcrypto -lssl -lresolv >&5
 configure:12586: $? = 0
 configure:12586: ./conftest
 configure:12586: $? = 0
@@ -2572,11 +2572,11 @@ configure:12856: result: libraries , headers
 configure:12867: checking for pthread.h
 configure:12867: result: yes
 configure:12878: checking for pthread_attr_init in -lpthread
-configure:12903: gcc -o conftest -g -O2 -Wall -pthread -I/usr/include/gtk-2.0 -I/usr/lib64/gtk-2.0/include -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/pango-1.0 -I/usr/include/glib-2.0 -I/usr/lib64/glib-2.0/include -I/usr/include/pixman-1 -I/usr/include/freetype2 -I/usr/include/libpng15     conftest.c -lpthread   -lstdc++ -lz -lcrypto -lssl -lresolv -pthread -lgtk-x11-2.0 -lgdk-x11-2.0 -latk-1.0 -lgio-2.0 -lpangoft2-1.0 -lpangocairo-1.0 -lgdk_pixbuf-2.0 -lcairo -lpango-1.0 -lfreetype -lfontconfig -lgobject-2.0 -lgmodule-2.0 -lgthread-2.0 -lrt -lglib-2.0   >&5
+configure:12903: gcc -o conftest -g -O2 -Wall -pthread -I/usr/include/gtk-2.0 -I/usr/lib64/gtk-2.0/include -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/pango-1.0 -I/usr/include/glib-2.0 -I/usr/lib64/glib-2.0/include -I/usr/include/pixman-1 -I/usr/include/freetype2 -I/usr/include/libpng15 -I/usr/include/libdrm     conftest.c -lpthread   -lstdc++ -lz -lcrypto -lssl -lresolv -pthread -lgtk-x11-2.0 -lgdk-x11-2.0 -latk-1.0 -lgio-2.0 -lpangoft2-1.0 -lpangocairo-1.0 -lgdk_pixbuf-2.0 -lcairo -lpango-1.0 -lfreetype -lfontconfig -lgobject-2.0 -lgmodule-2.0 -lgthread-2.0 -lrt -lglib-2.0   >&5
 configure:12903: $? = 0
 configure:12912: result: yes
 configure:13057: checking whether the Xlib is thread-safe
-configure:13074: gcc -o conftest -g -O2 -Wall -pthread -I/usr/include/gtk-2.0 -I/usr/lib64/gtk-2.0/include -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/pango-1.0 -I/usr/include/glib-2.0 -I/usr/lib64/glib-2.0/include -I/usr/include/pixman-1 -I/usr/include/freetype2 -I/usr/include/libpng15     conftest.c  -lstdc++ -lz -lcrypto -lssl -lresolv -pthread -lgtk-x11-2.0 -lgdk-x11-2.0 -latk-1.0 -lgio-2.0 -lpangoft2-1.0 -lpangocairo-1.0 -lgdk_pixbuf-2.0 -lcairo -lpango-1.0 -lfreetype -lfontconfig -lgobject-2.0 -lgmodule-2.0 -lgthread-2.0 -lrt -lglib-2.0   >&5
+configure:13074: gcc -o conftest -g -O2 -Wall -pthread -I/usr/include/gtk-2.0 -I/usr/lib64/gtk-2.0/include -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/pango-1.0 -I/usr/include/glib-2.0 -I/usr/lib64/glib-2.0/include -I/usr/include/pixman-1 -I/usr/include/freetype2 -I/usr/include/libpng15 -I/usr/include/libdrm     conftest.c  -lstdc++ -lz -lcrypto -lssl -lresolv -pthread -lgtk-x11-2.0 -lgdk-x11-2.0 -latk-1.0 -lgio-2.0 -lpangoft2-1.0 -lpangocairo-1.0 -lgdk_pixbuf-2.0 -lcairo -lpango-1.0 -lfreetype -lfontconfig -lgobject-2.0 -lgmodule-2.0 -lgthread-2.0 -lrt -lglib-2.0   >&5
 conftest.c: In function 'main':
 conftest.c:154:4: warning: implicit declaration of function 'exit'
 conftest.c:154:4: warning: incompatible implicit declaration of built-in function 'exit'
@@ -2601,21 +2601,21 @@ generated by GNU Autoconf 2.68.  Invocation command line was
 
 on asusrod
 
-config.status:1088: creating Makefile
-config.status:1196: WARNING:  'Makefile.in' seems to ignore the --datarootdir setting
-config.status:1088: creating src/Makefile
-config.status:1196: WARNING:  'src/Makefile.in' seems to ignore the --datarootdir setting
-config.status:1088: creating src/pixmaps/Makefile
-config.status:1196: WARNING:  'src/pixmaps/Makefile.in' seems to ignore the --datarootdir setting
-config.status:1088: creating intl/Makefile
-config.status:1196: WARNING:  'intl/Makefile.in' seems to ignore the --datarootdir setting
-config.status:1088: creating po/Makefile.in
-config.status:1088: creating resources/Makefile
-config.status:1196: WARNING:  'resources/Makefile.in' seems to ignore the --datarootdir setting
-config.status:1088: creating config.h
-config.status:1317: executing depfiles commands
-config.status:1317: executing po-directories commands
-config.status:1317: executing default commands
+config.status:1089: creating Makefile
+config.status:1197: WARNING:  'Makefile.in' seems to ignore the --datarootdir setting
+config.status:1089: creating src/Makefile
+config.status:1197: WARNING:  'src/Makefile.in' seems to ignore the --datarootdir setting
+config.status:1089: creating src/pixmaps/Makefile
+config.status:1197: WARNING:  'src/pixmaps/Makefile.in' seems to ignore the --datarootdir setting
+config.status:1089: creating intl/Makefile
+config.status:1197: WARNING:  'intl/Makefile.in' seems to ignore the --datarootdir setting
+config.status:1089: creating po/Makefile.in
+config.status:1089: creating resources/Makefile
+config.status:1197: WARNING:  'resources/Makefile.in' seems to ignore the --datarootdir setting
+config.status:1089: creating config.h
+config.status:1318: executing depfiles commands
+config.status:1318: executing po-directories commands
+config.status:1318: executing default commands
 configure:14690: 
 configure:14692: Configulation Summary
 configure:14694:   Install path:          /usr/local
@@ -2849,7 +2849,7 @@ BUILD_INCLUDED_LIBINTL='no'
 CATOBJEXT='.gmo'
 CC='gcc'
 CCDEPMODE='depmode=gcc3'
-CFLAGS='-g -O2 -Wall -pthread -I/usr/include/gtk-2.0 -I/usr/lib64/gtk-2.0/include -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/pango-1.0 -I/usr/include/glib-2.0 -I/usr/lib64/glib-2.0/include -I/usr/include/pixman-1 -I/usr/include/freetype2 -I/usr/include/libpng15  '
+CFLAGS='-g -O2 -Wall -pthread -I/usr/include/gtk-2.0 -I/usr/lib64/gtk-2.0/include -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/pango-1.0 -I/usr/include/glib-2.0 -I/usr/lib64/glib-2.0/include -I/usr/include/pixman-1 -I/usr/include/freetype2 -I/usr/include/libpng15 -I/usr/include/libdrm  '
 CFLAG_VISIBILITY='-fvisibility=hidden'
 CPP='gcc -E'
 CPPFLAGS=''
@@ -2878,7 +2878,7 @@ GMSGFMT='/usr/bin/gmsgfmt'
 GMSGFMT_015='/usr/bin/gmsgfmt'
 GOBJECT_QUERY='gobject-query'
 GREP='/bin/grep'
-GTK_CFLAGS='-pthread -I/usr/include/gtk-2.0 -I/usr/lib64/gtk-2.0/include -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/pango-1.0 -I/usr/include/glib-2.0 -I/usr/lib64/glib-2.0/include -I/usr/include/pixman-1 -I/usr/include/freetype2 -I/usr/include/libpng15  '
+GTK_CFLAGS='-pthread -I/usr/include/gtk-2.0 -I/usr/lib64/gtk-2.0/include -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/pango-1.0 -I/usr/include/glib-2.0 -I/usr/lib64/glib-2.0/include -I/usr/include/pixman-1 -I/usr/include/freetype2 -I/usr/include/libpng15 -I/usr/include/libdrm  '
 GTK_LIBS='-pthread -lgtk-x11-2.0 -lgdk-x11-2.0 -latk-1.0 -lgio-2.0 -lpangoft2-1.0 -lpangocairo-1.0 -lgdk_pixbuf-2.0 -lcairo -lpango-1.0 -lfreetype -lfontconfig -lgobject-2.0 -lgmodule-2.0 -lgthread-2.0 -lrt -lglib-2.0  '
 HAVE_ASPRINTF='1'
 HAVE_NEWLOCALE='1'
@@ -3017,7 +3017,7 @@ target_alias=''
 #define ARIA_VERSION "Aria - version 1.0.0"
 #define DATE_ROLLOUT "16 Dec 2002"
 #define D_MACHINE_COMPILED "Linux 3.3.8-gentoo x86_64"
-#define D_DATE_COMPILED "Sat Jun 23 19:11:35 CEST 2012"
+#define D_DATE_COMPILED "Mon Jun 25 20:00:20 CEST 2012"
 #define HAVE_ZLIB 1
 #define HAVE_OPENSSL 1
 #define HAVE_DIRENT_H 1
@@ -3171,29 +3171,8 @@ generated by GNU Autoconf 2.68.  Invocation command line was
 
 on asusrod
 
-config.status:1088: creating config.h
-config.status:1269: config.h is unchanged
-config.status:1317: executing depfiles commands
-config.status:1317: executing po-directories commands
-config.status:1317: executing default commands
-
-## ---------------------- ##
-## Running config.status. ##
-## ---------------------- ##
-
-This file was extended by aria config.status 1.0.0, which was
-generated by GNU Autoconf 2.68.  Invocation command line was
-
-  CONFIG_FILES    = Makefile
-  CONFIG_HEADERS  = 
-  CONFIG_LINKS    = 
-  CONFIG_COMMANDS = 
-  $ ./config.status 
-
-on asusrod
-
-config.status:1088: creating Makefile
-config.status:1196: WARNING:  'Makefile.in' seems to ignore the --datarootdir setting
-config.status:1317: executing depfiles commands
-config.status:1317: executing po-directories commands
-config.status:1317: executing default commands
+config.status:1089: creating config.h
+config.status:1270: config.h is unchanged
+config.status:1318: executing depfiles commands
+config.status:1318: executing po-directories commands
+config.status:1318: executing default commands

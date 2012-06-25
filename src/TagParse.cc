@@ -34,7 +34,7 @@ string get_next_tag(ifstream& infile)
 	    if(endwith(tag, "--")) {
 	      break;
 	    }
-	    if(infile.eof()) {
+	    if(!infile.good()) {
 	      throw TAGPARSE_UCOM_EOF;
 	    }
 	  }
@@ -43,7 +43,7 @@ string get_next_tag(ifstream& infile)
 	break;
       }
     }
-    if(infile.eof()) {
+    if(!infile.good()) {
       throw TAGPARSE_GETTAG_EOF;
     }
 

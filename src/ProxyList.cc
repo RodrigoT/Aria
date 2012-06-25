@@ -132,7 +132,7 @@ bool ProxyList::Read_proxy_list(const string& file_proxy_list)
   ifstream infile(file_proxy_list.c_str(), ios::in);//ios::skipws|ios::in);
   if(infile.bad() || infile.eof()) return false;
 
-  while(!infile.eof()) {
+  while(infile.good()) {
     string line;
     getline(infile, line, '\n');
     if(infile.bad()) return false;

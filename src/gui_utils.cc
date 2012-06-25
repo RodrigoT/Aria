@@ -173,7 +173,7 @@ GtkWidget *GTK_create_menu_item_with_icon(GtkWidget *menu,
 					  const char **xpmData,
 					  GtkWidget *toplevel)
 {
-  return GTK_create_menu_item_with_icon(menu, label, func, data, xpmData, toplevel, NULL, 0, 0);
+  return GTK_create_menu_item_with_icon(menu, label, func, data, xpmData, toplevel, NULL, 0, (GdkModifierType)0);
 }
 
 GtkWidget *GTK_create_menu_item_with_icon(GtkWidget *menu,
@@ -184,7 +184,7 @@ GtkWidget *GTK_create_menu_item_with_icon(GtkWidget *menu,
 					  unsigned int accel_key,
 					  unsigned int accel_mods)
 {
-  return GTK_create_menu_item_with_icon(menu, label, func, data, NULL, NULL, accel_group, accel_key, accel_mods);
+  return GTK_create_menu_item_with_icon(menu, label, func, data, NULL, NULL, accel_group, accel_key, (GdkModifierType)accel_mods);
 }
 
 GtkWidget *GTK_create_menu_item_with_icon(GtkWidget *menu,
@@ -192,7 +192,7 @@ GtkWidget *GTK_create_menu_item_with_icon(GtkWidget *menu,
 					  GtkSignalFunc func,
 					  gpointer data)
 {
-  return GTK_create_menu_item_with_icon(menu, label, func, data, NULL, NULL, NULL, 0, 0);
+  return GTK_create_menu_item_with_icon(menu, label, func, data, NULL, NULL, NULL, 0, (GdkModifierType)0);
 }
 
 GtkWidget *GTK_create_menu_separator(GtkWidget *menu)

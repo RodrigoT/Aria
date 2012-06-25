@@ -54,7 +54,7 @@ bool UseragentList::Read_useragent_list(const string& file_useragent_list)
   ifstream infile(file_useragent_list.c_str(), ios::in);//ios::skipws|ios::in);
   if(infile.bad() || infile.eof()) return false;
 
-  while(!infile.eof()) {
+  while(infile.good()) {
     string line;
     getline(infile, line, '\n');
     if(infile.bad()) return false;
