@@ -70,7 +70,7 @@ public:
   ItemCell *ret_Boss();
 
   void WriteSplitInfo(const string& filename);
-  ItemCell::DownloadStatusType ItemCellPartial::Download_Main();
+  ItemCell::DownloadStatusType Download_Main();
 
   SplitStatusType SplitNumberChanged(const string& filename);
 };

@@ -71,13 +71,12 @@ static gboolean Help_about(GtkWidget *w, GtkWidget *top_level)
 		     scrolled_window, TRUE, TRUE, 5);
 
   // create text widget and write some information into it
-  GtkWidget *text = gtk_text_new (NULL, NULL);
+  GtkWidget *text = gtk_text_view_new ();
   gtk_widget_set_usize(text, 350, 130);
   gtk_widget_show(text);
   // テキスト入力を不可にする
-  gtk_text_set_editable (GTK_TEXT(text), FALSE);
-  gtk_text_set_line_wrap(GTK_TEXT(text), TRUE);
-  gtk_text_set_word_wrap(GTK_TEXT(text), TRUE);
+  gtk_text_view_set_editable (GTK_TEXT_VIEW(text), FALSE);
+  gtk_text_view_set_wrap_mode(GTK_TEXT_VIEW(text), GTK_WRAP_WORD_CHAR);
 
   // テキストウィジェットの表示
   gtk_container_add(GTK_CONTAINER(scrolled_window), text);
@@ -178,7 +177,9 @@ static gboolean Help_about(GtkWidget *w, GtkWidget *top_level)
   line += "Gtk+ version: "+itos(gtk_major_version)+"."+itos(gtk_minor_version)+"."+itos(gtk_micro_version)+"\n";
 
   // show text
-  gtk_text_insert(GTK_TEXT(text), NULL, NULL, NULL, line.c_str(), -1);
+  GtkTextIter lastpos;
+  gtk_text_buffer_get_iter_at_offset(gtk_text_view_get_buffer(GTK_TEXT_VIEW(text)), &lastpos, -1);
+  gtk_text_buffer_insert(gtk_text_view_get_buffer(GTK_TEXT_VIEW(text)), &lastpos, line.c_str(), -1);
 
   //// action area
   GtkWidget *bbox = gtk_hbutton_box_new();

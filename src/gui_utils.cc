@@ -20,6 +20,7 @@
 // $Id: gui_utils.cc,v 1.5 2001/10/12 16:47:39 tujikawa Exp $
 
 #include "gui_utils.h"
+#include <stdlib.h>
 
 bool Create_pixmap_from_file(GdkPixmap **pixmap_ptr,
 			     GdkBitmap **bitmap_ptr,
@@ -91,11 +92,11 @@ GtkWidget *GTK_create_menu_item_with_icon(GtkWidget *menu,
 					  char *label,
 					  GtkSignalFunc func,
 					  gpointer func_data,
-					  char **xpmData,
+					  const char **xpmData,
 					  GtkWidget *toplevel,
 					  GtkAccelGroup *accel_group,
 					  unsigned int accel_key,
-					  unsigned int accel_mods)
+					  GdkModifierType accel_mods)
 {
   int spacerWidth = 5;
 
@@ -110,7 +111,7 @@ GtkWidget *GTK_create_menu_item_with_icon(GtkWidget *menu,
     GdkPixmap *pixmap = gdk_pixmap_create_from_xpm_d(toplevel->window,
 						     &bitmap,
 						     &toplevel->style->bg[GTK_STATE_NORMAL],
-						     xpmData);
+						     const_cast<char**>(xpmData));
     
     GtkWidget *icon = gtk_pixmap_new(pixmap, bitmap);
     gtk_widget_show(icon);
@@ -169,7 +170,7 @@ GtkWidget *GTK_create_menu_item_with_icon(GtkWidget *menu,
 					  char *label,
 					  GtkSignalFunc func,
 					  gpointer data,
-					  char **xpmData,
+					  const char **xpmData,
 					  GtkWidget *toplevel)
 {
   return GTK_create_menu_item_with_icon(menu, label, func, data, xpmData, toplevel, NULL, 0, 0);

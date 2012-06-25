@@ -38,10 +38,10 @@ extern void Show_download_log(GtkWidget *dl_clist, int rowindex);
 //  }
 
 static void Page_switched(GtkNotebook *notebook,
-			  GtkNotebookPage *page,
+			  GtkWidget *page,
 			  int page_num,
 			  gpointer user_data) {
-  ListEntry *listentry = (ListEntry *)gtk_object_get_user_data(GTK_OBJECT(page->child));
+  ListEntry *listentry = (ListEntry *)gtk_object_get_user_data(GTK_OBJECT(page));
 
   Toolbar_set_thread_spin(listentry->getThreadLimit());
 

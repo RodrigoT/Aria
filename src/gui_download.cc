@@ -128,19 +128,22 @@ void Download_set_sensitive__list_not_empty()
 }
 
 // backup current selection list
-static void Backup_selection_list(GtkWidget *clist, list<int>& selection_temp)
+static void Backup_selection_list(GtkWidget *clist, list<GtkTreePath*>& selection_temp)
 {
-  for(GList* node = GTK_CLIST(clist)->selection; node != NULL; node = g_list_next(node)) {
-    selection_temp.push_back((int)node->data);
+  GtkTreeModel *model = gtk_tree_view_get_model(GTK_TREE_VIEW(clist));
+  for(GList* node = gtk_tree_selection_get_selected_rows(gtk_tree_view_get_selection(GTK_TREE_VIEW(clist)), &model); 
+  	node != NULL; 
+	node = g_list_next(node)) {
+    selection_temp.push_back((GtkTreePath*)node->data);
   }
 }
 
 // restore selection list
-static void Restore_selection_list(GtkWidget *clist, const list<int>& selection_temp)
+static void Restore_selection_list(GtkWidget *clist, const list<GtkTreePath*>& selection_temp)
 {
-  list<int>::const_iterator sl_itr;
+  list<GtkTreePath*>::const_iterator sl_itr;
   for(sl_itr = selection_temp.begin(); sl_itr != selection_temp.end(); ++sl_itr) {
-    gtk_clist_select_row(GTK_CLIST(clist), *sl_itr, 0);
+    gtk_tree_selection_select_path(gtk_tree_view_get_selection(GTK_TREE_VIEW(clist)), *sl_itr);
   }
 }
 
@@ -968,7 +971,7 @@ static gboolean Download_clear_md5_all(GtkWidget *w, gpointer data)
 //
 static void Download_start_all_sub(ListEntry *listentry)
 {
-  list<int> selection_temp;
+  list<GtkTreePath*> selection_temp;
   Backup_selection_list(listentry->ret_Dl_clist(), selection_temp);
 
   gtk_clist_select_all(GTK_CLIST(listentry->ret_Dl_clist()));
@@ -1040,7 +1043,7 @@ gboolean Download_start_all_list(GtkWidget *w, gpointer data)
 static void Download_download_again_all_sub(ListEntry *listentry)
 {
   //gtk_clist_freeze(GTK_CLIST(listentry->ret_Dl_clist()));
-  list<int> selection_temp;
+  list<GtkTreePath*> selection_temp;
   Backup_selection_list(listentry->ret_Dl_clist(), selection_temp);
 
   gtk_clist_select_all(GTK_CLIST(listentry->ret_Dl_clist()));
@@ -1106,7 +1109,7 @@ gboolean Download_download_again_all_list(GtkWidget* w, gpointer data)
 void Download_stop_all_sub(ListEntry *listentry, bool timerFlag)
 {
   //gtk_clist_freeze(GTK_CLIST(listentry->ret_Dl_clist()));
-  list<int> selection_temp;
+  list<GtkTreePath*> selection_temp;
   Backup_selection_list(listentry->ret_Dl_clist(), selection_temp);
 
   gtk_clist_select_all(GTK_CLIST(listentry->ret_Dl_clist()));

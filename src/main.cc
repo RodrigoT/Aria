@@ -330,7 +330,8 @@ int main(int argc, char **argv)
   };
 
   // open pipe
-  pipe(g_pipetogui);
+  if ( pipe(g_pipetogui) != 0)
+	  return 99;
   //cerr << socketpair(PF_UNIX, SOCK_STREAM, 0, g_pipetogui) << endl;
 
   // process gtk-specific arguments

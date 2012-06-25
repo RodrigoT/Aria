@@ -289,8 +289,8 @@ void Add_new_item_to_downloadlist(ItemCell *itemcell, ListEntry *listentry)
     n_rec = itemcell->ret_Options().ret_FTP_recurse_count();
   }
   clist_item[COL_REC] = g_strdup_printf("%d", n_rec);
-  clist_item[COL_SPEED] = "";
-  clist_item[COL_RTIME] = "";
+  clist_item[COL_SPEED] = g_strdup("");
+  clist_item[COL_RTIME] = g_strdup("");
   string crc_string;
   switch(itemcell->ret_CRC_Type()) {
   case ItemCell::CRC_16:

@@ -1037,7 +1037,7 @@ void ItemOption::speedSpinChanged() {
   //speed_value = adj->value;
   gtk_range_set_adjustment(GTK_RANGE(speed_scale), GTK_ADJUSTMENT(adj));
 
-  gtk_range_slider_update(GTK_RANGE(speed_scale));
+  //gtk_range_slider_update(GTK_RANGE(speed_scale));
   //adj = gtk_range_get_adjustment(GTK_RANGE(speed_scale));
   //gtk_signal_emit_by_name(GTK_OBJECT(speed_scale), "button-release-event");
   //speedScaleButtonReleaseEvent();
@@ -1566,10 +1566,9 @@ GtkWidget *ItemOption::Create_General_Command_page()
     gtk_widget_show(use_command_toggle);
     gtk_box_pack_start(GTK_BOX(vbox), use_command_toggle, FALSE, FALSE, 0);
 
-    command_entry = gtk_text_new(NULL, NULL);//gtk_entry_new();
-    gtk_text_set_editable(GTK_TEXT(command_entry), TRUE);
-    gtk_text_set_line_wrap(GTK_TEXT(command_entry), TRUE);
-    gtk_text_set_word_wrap(GTK_TEXT(command_entry), TRUE);
+    command_entry = gtk_text_view_new();//gtk_entry_new();
+    gtk_text_view_set_editable(GTK_TEXT_VIEW(command_entry), TRUE);
+	gtk_text_view_set_wrap_mode(GTK_TEXT_VIEW(command_entry), GTK_WRAP_WORD_CHAR);
     gtk_widget_show(command_entry);
 
     GtkWidget* scrolledWindow = gtk_scrolled_window_new(NULL, NULL);

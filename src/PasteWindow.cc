@@ -746,11 +746,11 @@ GtkWidget *PasteWindow::Create_menu_bar(GtkWidget *window)
   GtkAccelGroup *accel_group;
 
   GtkWidget *menu_bar = gtk_menu_bar_new();
-  gtk_menu_bar_set_shadow_type(GTK_MENU_BAR(menu_bar), GTK_SHADOW_ETCHED_OUT);
+//  gtk_menu_bar_set_shadow_type(GTK_MENU_BAR(menu_bar), GTK_SHADOW_ETCHED_OUT);
   gtk_widget_show(menu_bar);
 
   accel_group = gtk_accel_group_new();
-  gtk_accel_group_attach(accel_group, GTK_OBJECT(window));
+  gtk_window_add_accel_group(GTK_WINDOW(window), accel_group);
 
   //Create_file_menu(window, menu_bar, accel_group);
   Create_edit_menu(window, menu_bar, accel_group);

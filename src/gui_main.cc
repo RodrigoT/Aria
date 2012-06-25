@@ -325,25 +325,25 @@ static GdkColor Get_color(MessageType reporttype)
 //  }
 
 // メニューバーの作成
-static GtkWidget *Create_menu_bar(GtkWidget  *window)
+static GtkWidget *Create_menu_bar(GtkWindow  *window)
 {
   GtkAccelGroup *accel_group;
   GtkWidget *menu_bar;
 
   menu_bar = gtk_menu_bar_new();
-  gtk_menu_bar_set_shadow_type(GTK_MENU_BAR(menu_bar), GTK_SHADOW_ETCHED_IN);
+//  gtk_menu_bar_set_shadow_type(GTK_MENU_BAR(menu_bar), GTK_SHADOW_ETCHED_IN);
   gtk_widget_show(menu_bar);
 
   accel_group = gtk_accel_group_new();
-  gtk_accel_group_attach(accel_group, GTK_OBJECT(window));
+  gtk_window_add_accel_group(window, accel_group);
 
-  Create_file_menu(window, menu_bar, accel_group);
-  Create_edit_menu(window, menu_bar, accel_group);
-  Create_item_menu(window, menu_bar, accel_group);
-  Create_list_menu(window, menu_bar, accel_group);
-  Create_download_menu(window, menu_bar, accel_group);
-  Create_option_menu(window, menu_bar, accel_group);
-  Create_help_menu(window, menu_bar, accel_group);
+  Create_file_menu(GTK_WIDGET(window), menu_bar, accel_group);
+  Create_edit_menu(GTK_WIDGET(window), menu_bar, accel_group);
+  Create_item_menu(GTK_WIDGET(window), menu_bar, accel_group);
+  Create_list_menu(GTK_WIDGET(window), menu_bar, accel_group);
+  Create_download_menu(GTK_WIDGET(window), menu_bar, accel_group);
+  Create_option_menu(GTK_WIDGET(window), menu_bar, accel_group);
+  Create_help_menu(GTK_WIDGET(window), menu_bar, accel_group);
   return(menu_bar);
 }
 
@@ -356,8 +356,8 @@ void Adjust_speed_scale(int max) {
   adj->upper = (float)max;
 
   gtk_range_set_adjustment(GTK_RANGE(sg_speedScale), GTK_ADJUSTMENT(adj));
-  gtk_range_clear_background(GTK_RANGE(sg_speedScale));
-  gtk_range_draw_background(GTK_RANGE(sg_speedScale));
+//  gtk_range_clear_background(GTK_RANGE(sg_speedScale));
+//  gtk_range_draw_background(GTK_RANGE(sg_speedScale));
 }
 
 void Show_download_log(GtkWidget *dl_clist, int rowindex)
@@ -376,25 +376,25 @@ void Show_download_log(GtkWidget *dl_clist, int rowindex)
 				  sg_itemLogPage,
 				  line.c_str());
 
-  gtk_text_freeze(GTK_TEXT(g_text));
-  gtk_text_set_point(GTK_TEXT(g_text), gtk_text_get_length(GTK_TEXT(g_text)));
-  gtk_text_backward_delete(GTK_TEXT(g_text), gtk_text_get_length(GTK_TEXT(g_text)));
-  gtk_text_set_point(GTK_TEXT(g_text), gtk_text_get_length(GTK_TEXT(g_text)));
-  gtk_text_thaw(GTK_TEXT(g_text));
+  gtk_text_buffer_set_text(gtk_text_view_get_buffer(GTK_TEXT_VIEW(g_text)),"",0);
 
   // acquire lock
   itemcell->get_Log_Lock();
   ItemLogList::const_iterator itemlog_itr;
-  gtk_text_freeze(GTK_TEXT(g_text));
+  //gtk_text_freeze(GTK_TEXT(g_text));
   for(itemlog_itr = itemcell->ret_Log_list().begin(); itemlog_itr != itemcell->ret_Log_list().end(); ++itemlog_itr) {
     GdkColor color = Get_color(itemlog_itr->ret_Logtype());
-    gtk_text_insert(GTK_TEXT(g_text), NULL, &color, NULL, itemlog_itr->ret_Log().c_str(), -1);
+    //gtk_text_insert(GTK_TEXT(g_text), NULL, &color, NULL, itemlog_itr->ret_Log().c_str(), -1);
+	//TODO: colores
+	GtkTextIter lastpos;
+	gtk_text_buffer_get_iter_at_offset(gtk_text_view_get_buffer(GTK_TEXT_VIEW(g_text)), &lastpos, -1);
+	gtk_text_buffer_insert(gtk_text_view_get_buffer(GTK_TEXT_VIEW(g_text)), &lastpos, itemlog_itr->ret_Log().c_str(),-1);
     if(itemlog_itr->ret_Log().at(itemlog_itr->ret_Log().size()-1) != '\n') {
-      gtk_text_insert(GTK_TEXT(g_text), NULL, &color, NULL, "\n", -1);
+      gtk_text_buffer_insert(gtk_text_view_get_buffer(GTK_TEXT_VIEW(g_text)), &lastpos, "\n", -1);
     }
   }
-  gtk_text_thaw(GTK_TEXT(g_text));
-  gtk_adjustment_set_value(GTK_TEXT(g_text)->vadj, GTK_TEXT(g_text)->vadj->upper+GTK_TEXT(g_text)->vadj->page_size);
+  //gtk_text_thaw(GTK_TEXT(g_text));
+  //gtk_adjustment_set_value(GTK_TEXT_VIEW(g_text)->vadj, GTK_TEXT_VIEW(g_text)->vadj->upper+GTK_TEXT_VIEW(g_text)->vadj->page_size);
   // release lock
   itemcell->release_Log_Lock();
 }
@@ -402,7 +402,7 @@ void Show_download_log(GtkWidget *dl_clist, int rowindex)
 // コンソールに文字列logを追加
 void Append_text(const ItemLogCell& itemlogcell, GtkWidget *text)
 {
-  unsigned int insertionpoint = gtk_text_get_length(GTK_TEXT(text));
+/*  unsigned int insertionpoint = gtk_text_get_length(GTK_TEXT(text));
   gtk_text_set_point(GTK_TEXT(text), insertionpoint);
   GdkColor color = Get_color(itemlogcell.ret_Logtype());
   bool scroll_to_end = false;
@@ -411,16 +411,21 @@ void Append_text(const ItemLogCell& itemlogcell, GtkWidget *text)
   }
   gtk_text_freeze(GTK_TEXT(text));
   const string& log = itemlogcell.ret_Log();
-  gtk_text_insert(GTK_TEXT(text), NULL, &color, NULL, log.c_str(), -1);
+  gtk_text_insert(GTK_TEXT(text), NULL, &color, NULL, log.c_str(), -1);*/
   /*
   if(log.at(log.size()-1) != '\n') {
     gtk_text_insert(GTK_TEXT(text), NULL, &color, NULL, "\n", -1);
   }
   */
-  gtk_text_thaw (GTK_TEXT (text));
+  /*gtk_text_thaw (GTK_TEXT (text));
   if(scroll_to_end) {
     gtk_adjustment_set_value(GTK_TEXT(text)->vadj, GTK_TEXT(text)->vadj->upper);
-  }
+  }*/
+  //TODO: colors and scroll
+  const string& log = itemlogcell.ret_Log();
+  GtkTextIter lastpos;
+  gtk_text_buffer_get_iter_at_offset(gtk_text_view_get_buffer(GTK_TEXT_VIEW(text)), &lastpos, -1);
+  gtk_text_buffer_insert(gtk_text_view_get_buffer(GTK_TEXT_VIEW(text)), &lastpos, log.c_str(), -1);
 }
 
 // g_pipetogui[0]に書き込まれたデータを読み込み,GUIに反映させる
@@ -431,7 +436,8 @@ static void Update_gui(void* w, int dummy_int, GdkInputCondition dummy_cond)
 
   list<int> fdslist;
   if(socket.is_readready(0, fdslist) > 0) {
-    read(g_pipetogui[0], &statusreport, sizeof(StatusReport));
+    if (!read(g_pipetogui[0], &statusreport, sizeof(StatusReport)))
+		return;
     // if the message is from gui thread, then mutex_p of statusreport
     // must be 0(NULL) pointer
     if(statusreport.mutex_p == 0) {
@@ -465,9 +471,9 @@ static GtkWidget* Create_text_view_frame(GtkWidget* textWidget)
   gtk_widget_show(scrolledWindow);
 
   // テキスト入力を不可にする
-  gtk_text_set_editable(GTK_TEXT(textWidget), FALSE);
-  gtk_text_set_line_wrap(GTK_TEXT(textWidget), TRUE);
-  gtk_text_set_word_wrap(GTK_TEXT(textWidget), TRUE);
+  gtk_text_view_set_editable(GTK_TEXT_VIEW(textWidget), FALSE);
+  gtk_text_view_set_wrap_mode(GTK_TEXT_VIEW(textWidget), GTK_WRAP_WORD_CHAR);
+  //gtk_text_view_set_word_wrap(GTK_TEXT_VIEW(textWidget), TRUE);
   // track text viewpoint
   //gtk_text_set_adjustments(GTK_TEXT(text), NULL, NULL);
   // テキストウィジェットの表示
@@ -480,14 +486,14 @@ static GtkWidget* Create_text_view_frame(GtkWidget* textWidget)
 // create item download log text view
 static GtkWidget* Create_item_log_text()
 {
-  g_text = gtk_text_new(NULL, NULL);
+  g_text = gtk_text_view_new();
   return(Create_text_view_frame(g_text));
 }
 
 // create system log text view
 static GtkWidget* Create_console_log_text()
 {
-  g_consoleText = gtk_text_new(NULL, NULL);
+  g_consoleText = gtk_text_view_new();
   return(Create_text_view_frame(g_consoleText));
 }
 
@@ -677,8 +683,8 @@ void Set_speed_scale(GtkWidget *dl_clist, int rowindex)
 				   NULL);
 				   
   gtk_range_set_adjustment(GTK_RANGE(sg_speedScale), GTK_ADJUSTMENT(adj));
-  gtk_range_clear_background(GTK_RANGE(sg_speedScale));
-  gtk_range_draw_background(GTK_RANGE(sg_speedScale));
+//  gtk_range_clear_background(GTK_RANGE(sg_speedScale));
+//  gtk_range_draw_background(GTK_RANGE(sg_speedScale));
 
   gtk_spin_button_set_value(GTK_SPIN_BUTTON(sg_speedScaleSpin), adj->value);
 
@@ -983,7 +989,7 @@ GtkWidget *GUI_main(int main_width, int main_height, int main_x, int main_y)
   gtk_widget_show(vbox);
   
   // create menu bar
-  gtk_box_pack_start(GTK_BOX(vbox), Create_menu_bar(window), FALSE, TRUE, 0);
+  gtk_box_pack_start(GTK_BOX(vbox), Create_menu_bar(GTK_WINDOW(window)), FALSE, TRUE, 0);
 
   // create tool bar
   GtkWidget *handlebox = gtk_handle_box_new ();
@@ -994,8 +1000,8 @@ GtkWidget *GUI_main(int main_width, int main_height, int main_x, int main_y)
   // create sg_vpaned widget
   sg_vpaned = gtk_vpaned_new();
   gtk_container_add(GTK_CONTAINER(vbox), sg_vpaned);
-  gtk_paned_set_handle_size(GTK_PANED(sg_vpaned), 10);
-  gtk_paned_set_gutter_size(GTK_PANED(sg_vpaned), 12);
+  //gtk_paned_set_handle_size(GTK_PANED(sg_vpaned), 10);
+  //gtk_paned_set_gutter_size(GTK_PANED(sg_vpaned), 12);
   gtk_paned_set_position(GTK_PANED(sg_vpaned), paned_pos);
   gtk_widget_show(sg_vpaned);
 

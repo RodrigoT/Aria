@@ -104,11 +104,12 @@ static gboolean Option_clear_syslog(GtkWidget *w, gpointer data)
   g_cDialog->hide();
   //pthread_mutex_lock(&itemlistlock); //mod 2001/4/11
   g_consoleItem->Clear_log();
-  gtk_text_freeze(GTK_TEXT(g_consoleText));
+  /*gtk_text_freeze(GTK_TEXT(g_consoleText));
   unsigned int length = gtk_text_get_length(GTK_TEXT(g_consoleText));
   gtk_text_set_point(GTK_TEXT(g_consoleText), length);
   gtk_text_backward_delete(GTK_TEXT(g_consoleText), length);
-  gtk_text_thaw(GTK_TEXT(g_consoleText));
+  gtk_text_thaw(GTK_TEXT(g_consoleText));*/
+  gtk_text_buffer_set_text( gtk_text_view_get_buffer(GTK_TEXT_VIEW(w)), "", 0);
   //pthread_mutex_unlock(&itemlistlock); //mod 2001/4/11
   return TRUE;
 }

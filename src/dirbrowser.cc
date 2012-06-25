@@ -245,7 +245,7 @@ GtkWidget *create_dir_browser(const gchar * title, const gchar * current_path, G
 	gboolean leaf;
 	bool node_found = false;
 
-	window = gtk_window_new(GTK_WINDOW_DIALOG);
+	window = gtk_window_new(GTK_WINDOW_POPUP);
 	gtk_window_set_title(GTK_WINDOW(window), title);
 	gtk_container_border_width(GTK_CONTAINER(window), 10);
 
@@ -261,8 +261,8 @@ GtkWidget *create_dir_browser(const gchar * title, const gchar * current_path, G
 	gtk_widget_realize(window);
 	if (!folder_pixmap)
 	{
-		folder_pixmap = gdk_pixmap_create_from_xpm_d(window->window, &folder_mask, NULL, folder);
-		ofolder_pixmap = gdk_pixmap_create_from_xpm_d(window->window, &ofolder_mask, NULL, ofolder);
+		folder_pixmap = gdk_pixmap_create_from_xpm_d(window->window, &folder_mask, NULL, const_cast<char**>(folder));
+		ofolder_pixmap = gdk_pixmap_create_from_xpm_d(window->window, &ofolder_mask, NULL, const_cast<char**>(ofolder));
 	}
 
 	tree = gtk_ctree_new(1, 0);

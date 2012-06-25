@@ -432,7 +432,7 @@ AppOption::createStatusIcon(const string& dirname)
     createStatusIconDefault();
     retval = true;
   } else {
-    char *home_dir = g_get_home_dir();
+    const char *home_dir = g_get_home_dir();
     string baseDir = home_dir;
     baseDir += "/.aria"ICONSET_PATH+dirname+'/';
     if(Create_pixmap_from_file(&statusIcon[ICON_COMPLETE], &statusIconMask[ICON_COMPLETE], baseDir+"complete.xpm", option_window) &&
@@ -470,12 +470,12 @@ void
 AppOption::statusIconApplyButton_clicked()
 {
   //if(GTK_CLIST(clist)->selection == NULL) return TRUE;
-  char *dirname;
+  const char *dirname;
   int row = GPOINTER_TO_INT(GTK_CLIST(statusIconDirList)->selection->data);
   if(row == 0) {
     dirname = "";
   } else {
-    gtk_clist_get_text(GTK_CLIST(statusIconDirList), row, 0, &dirname);
+    gtk_clist_get_text(GTK_CLIST(statusIconDirList), row, 0, const_cast<char**>(&dirname));
   }
   statusIconDir = dirname;
   g_listManager->setStatusIcon(statusIcon, statusIconMask);
@@ -502,11 +502,11 @@ AppOption::statusIconDirList_selectRow(int row,
 				       int column,
 				       GdkEventButton *event)
 {
-   char *dirname;
+   const char *dirname;
    if(row == 0) {
      dirname = "";
    } else {
-     gtk_clist_get_text(GTK_CLIST(statusIconDirList), row, 0, &dirname);
+     gtk_clist_get_text(GTK_CLIST(statusIconDirList), row, 0, const_cast<char**>(&dirname));
    }
 
   switch(event->button) {
@@ -779,7 +779,7 @@ AppOption::createBasketPixmapFromFile(const string& filename)
     }
     return true;
   } else {
-    char *homeDir = g_get_home_dir();
+    const char *homeDir = g_get_home_dir();
     string filepath = homeDir;
     filepath += "/.aria"BASKET_PIXMAP_PATH+filename;
     if(Create_pixmap_from_file(&basketPixmapTemp, &basketBitmapTemp,
@@ -1494,7 +1494,7 @@ void AppOption::setDirEntryToCList(GtkCList *clist, const string& dirPath) {
 
 void AppOption::updateStatusIconDirList()
 {
-  char *homeDir = g_get_home_dir();
+  const char *homeDir = g_get_home_dir();
   string baseDir = homeDir;
   baseDir += "/.aria"ICONSET_PATH;
 
@@ -1503,7 +1503,7 @@ void AppOption::updateStatusIconDirList()
 
 void AppOption::updateBasketPixmapFileList()
 {
-  char *homeDir = g_get_home_dir();
+  const char *homeDir = g_get_home_dir();
   string baseDir = homeDir;
   baseDir += "/.aria"BASKET_PIXMAP_PATH;
 

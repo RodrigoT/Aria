@@ -212,18 +212,19 @@ GtkWidget *Create_toolbar(GtkWidget *toplevel)
    GdkBitmap * mask;
    GtkWidget * iconw;
 
-  GtkWidget *toolbar = gtk_toolbar_new(GTK_ORIENTATION_HORIZONTAL,
-				       GTK_TOOLBAR_ICONS);
+  //GtkWidget *toolbar = gtk_toolbar_new(GTK_ORIENTATION_HORIZONTAL,
+//				       GTK_TOOLBAR_ICONS);
+  GtkWidget *toolbar = gtk_toolbar_new();
   gtk_widget_show(toolbar);
   gtk_container_set_border_width(GTK_CONTAINER(toolbar), 5);
-  gtk_toolbar_set_space_size(GTK_TOOLBAR(toolbar), 2);
+//  gtk_toolbar_set_space_size(GTK_TOOLBAR(toolbar), 2);
 
   // open saved list
   {
     icon = gdk_pixmap_create_from_xpm_d(toplevel->window,
 					&mask,
 					&toplevel->style->white,
-					open_xpm);
+					const_cast<char**>(open_xpm));
     iconw = gtk_pixmap_new(icon, mask);
     open_saved_button = gtk_toolbar_append_item(GTK_TOOLBAR(toolbar),
 						"List",
@@ -239,7 +240,7 @@ GtkWidget *Create_toolbar(GtkWidget *toplevel)
     icon = gdk_pixmap_create_from_xpm_d(toplevel->window,
 					&mask,
 					&toplevel->style->white,
-					url_list_xpm);
+					const_cast<char**>(url_list_xpm));
     iconw = gtk_pixmap_new(icon, mask);
     open_url_button = gtk_toolbar_append_item(GTK_TOOLBAR(toolbar),
 					      "URL",
@@ -273,7 +274,7 @@ GtkWidget *Create_toolbar(GtkWidget *toplevel)
     icon = gdk_pixmap_create_from_xpm_d(toplevel->window,
 					&mask,
 					&toplevel->style->white,
-					save_xpm);
+					const_cast<char**>(save_xpm));
     iconw = gtk_pixmap_new(icon, mask);
     save_button = gtk_toolbar_append_item(GTK_TOOLBAR(toolbar),
 					  "List",
@@ -291,7 +292,7 @@ GtkWidget *Create_toolbar(GtkWidget *toplevel)
     icon = gdk_pixmap_create_from_xpm_d(toplevel->window,
 					&mask,
 					&toplevel->style->white,
-					paste_xpm);
+					const_cast<char**>(paste_xpm));
     iconw = gtk_pixmap_new(icon, mask);
     paste_url_button = gtk_toolbar_append_item(GTK_TOOLBAR(toolbar),
 					       "Paste URL list",
@@ -313,7 +314,7 @@ GtkWidget *Create_toolbar(GtkWidget *toplevel)
     icon = gdk_pixmap_create_from_xpm_d(toplevel->window,
 					&mask,
 					&toplevel->style->white,
-					trash_xpm);
+					const_cast<char**>(trash_xpm));
     iconw = gtk_pixmap_new(icon, mask);
     delete_button = gtk_toolbar_append_item(GTK_TOOLBAR(toolbar),
 					    "Del",
@@ -329,7 +330,7 @@ GtkWidget *Create_toolbar(GtkWidget *toplevel)
     icon = gdk_pixmap_create_from_xpm_d(toplevel->window,
 					&mask,
 					&toplevel->style->white,
-					start_xpm);
+					const_cast<char**>(start_xpm));
     iconw = gtk_pixmap_new(icon, mask);
     start_button = gtk_toolbar_append_item(GTK_TOOLBAR(toolbar),
 					   "Start",
@@ -345,7 +346,7 @@ GtkWidget *Create_toolbar(GtkWidget *toplevel)
     icon = gdk_pixmap_create_from_xpm_d(toplevel->window,
 					&mask,
 					&toplevel->style->white,
-					pause_xpm);
+					const_cast<char**>(pause_xpm));
     iconw = gtk_pixmap_new(icon, mask);
     stop_button = gtk_toolbar_append_item(GTK_TOOLBAR(toolbar),
 					  "Stop",
@@ -361,7 +362,7 @@ GtkWidget *Create_toolbar(GtkWidget *toplevel)
     icon = gdk_pixmap_create_from_xpm_d(toplevel->window,
 					&mask,
 					&toplevel->style->white,
-					restart_xpm);
+					const_cast<char**>(restart_xpm));
     iconw = gtk_pixmap_new(icon, mask);
     start_again_button = gtk_toolbar_append_item(GTK_TOOLBAR(toolbar),
 						 "Again",
@@ -377,7 +378,7 @@ GtkWidget *Create_toolbar(GtkWidget *toplevel)
     icon = gdk_pixmap_create_from_xpm_d(toplevel->window,
 					&mask,
 					&toplevel->style->white,
-					config_xpm);
+					const_cast<char**>(config_xpm));
     iconw = gtk_pixmap_new(icon, mask);
     pref_button = gtk_toolbar_append_item(GTK_TOOLBAR(toolbar),
 					  "Option",
@@ -393,7 +394,7 @@ GtkWidget *Create_toolbar(GtkWidget *toplevel)
     icon = gdk_pixmap_create_from_xpm_d(toplevel->window,
 					&mask,
 					&toplevel->style->white,
-					lockon_xpm);
+					const_cast<char**>(lockon_xpm));
     iconw = gtk_pixmap_new(icon, mask);
     lock_button = gtk_toolbar_append_item(GTK_TOOLBAR(toolbar),
 					  "Lock",
@@ -410,7 +411,7 @@ GtkWidget *Create_toolbar(GtkWidget *toplevel)
     icon = gdk_pixmap_create_from_xpm_d(toplevel->window,
 					&mask,
 					&toplevel->style->white,
-					unlock_xpm);
+					const_cast<char**>(unlock_xpm));
     iconw = gtk_pixmap_new(icon, mask);
     unlock_button = gtk_toolbar_append_item(GTK_TOOLBAR(toolbar),
 					    "Unlock",
@@ -426,7 +427,7 @@ GtkWidget *Create_toolbar(GtkWidget *toplevel)
     icon = gdk_pixmap_create_from_xpm_d(toplevel->window,
 					&mask,
 					&toplevel->style->white,
-					moveup_xpm);
+					const_cast<char**>(moveup_xpm));
     iconw = gtk_pixmap_new(icon, mask);
     moveup_button = gtk_toolbar_append_item(GTK_TOOLBAR(toolbar),
 					    "MoveUp",
@@ -442,7 +443,7 @@ GtkWidget *Create_toolbar(GtkWidget *toplevel)
     icon = gdk_pixmap_create_from_xpm_d(toplevel->window,
 					&mask,
 					&toplevel->style->white,
-					movedown_xpm);
+					const_cast<char**>(movedown_xpm));
     iconw = gtk_pixmap_new(icon, mask);
     movedown_button = gtk_toolbar_append_item(GTK_TOOLBAR(toolbar),
 					    "MoveDown",
@@ -459,7 +460,7 @@ GtkWidget *Create_toolbar(GtkWidget *toplevel)
     icon = gdk_pixmap_create_from_xpm_d(toplevel->window,
 					&mask,
 					&toplevel->style->white,
-					track_xpm);
+					const_cast<char**>(track_xpm));
     iconw = gtk_pixmap_new(icon, mask);
     track_toggle_button = NULL;
 
@@ -482,7 +483,7 @@ GtkWidget *Create_toolbar(GtkWidget *toplevel)
     icon = gdk_pixmap_create_from_xpm_d(toplevel->window,
 					&mask,
 					&toplevel->style->white,
-					start_all_xpm);
+					const_cast<char**>(start_all_xpm));
     iconw = gtk_pixmap_new(icon, mask);
     start_all_button = gtk_toolbar_append_item(GTK_TOOLBAR(toolbar),
 					       "Start all",
@@ -498,7 +499,7 @@ GtkWidget *Create_toolbar(GtkWidget *toplevel)
     icon = gdk_pixmap_create_from_xpm_d(toplevel->window,
 					&mask,
 					&toplevel->style->white,
-					pause_all_xpm);
+					const_cast<char**>(pause_all_xpm));
     iconw = gtk_pixmap_new(icon, mask);
     stop_all_button = gtk_toolbar_append_item(GTK_TOOLBAR(toolbar),
 					      "Stop",
@@ -514,7 +515,7 @@ GtkWidget *Create_toolbar(GtkWidget *toplevel)
     icon = gdk_pixmap_create_from_xpm_d(toplevel->window,
 					&mask,
 					&toplevel->style->white,
-					config_all_xpm);
+					const_cast<char**>(config_all_xpm));
     iconw = gtk_pixmap_new(icon, mask);
     pref_default_button = gtk_toolbar_append_item(GTK_TOOLBAR(toolbar),
 						  "Option default",

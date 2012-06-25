@@ -888,10 +888,10 @@ void ListEntry::setStatusIcon(GdkPixmap *pixmaps[], GdkBitmap *bitmaps[]) {
   GtkWidget *pixmap = gtk_pixmap_new(*pixmaps, *bitmaps);
   int height = pixmap->requisition.height;
   GtkStyle *style = gtk_widget_get_style(dl_clist);
-  int fontHeight = gdk_char_height(style->font, 'A');
-  if(height < fontHeight) {
-    height = fontHeight;
-  }
+  //int fontHeight = gdk_char_height(style->font, 'A');
+//  if(height < fontHeight) {
+//    height = fontHeight;
+//  }
 
   gtk_clist_set_row_height(GTK_CLIST(dl_clist),height);
   delete pixmap;
