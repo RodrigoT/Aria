@@ -894,7 +894,7 @@ void ListEntry::setStatusIcon(GdkPixmap *pixmaps[], GdkBitmap *bitmaps[]) {
 //  }
 
   gtk_clist_set_row_height(GTK_CLIST(dl_clist),height);
-  delete pixmap;
+  //delete pixmap;
   gtk_clist_thaw(GTK_CLIST(dl_clist));
   pthread_mutex_unlock(&dl_clist_lock);
 }
