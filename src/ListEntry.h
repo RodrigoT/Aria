@@ -35,7 +35,9 @@ private:
   ThreadManager *thread_manager;
   ItemManager *item_manager;
   
-  GtkWidget *dl_clist;
+  GtkListStore *dl_model;
+  GtkWidget *dl_table;
+  std::vector<ItemCell* > items;
   string name;
   int n_thread;
 

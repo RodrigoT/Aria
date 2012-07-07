@@ -228,6 +228,7 @@ int CtrlSocket::Select2()
     if(data) delete [] data;
     close(fd);
   }
+  return 0;
 }
 
 void CtrlSocket::Read_message() 
