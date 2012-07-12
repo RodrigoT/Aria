@@ -277,20 +277,21 @@ void Basket::getGeometry(int& x, int& y)
   y = geometry.y;
 }
 
-void Basket::setPixmap(GdkPixmap *basketPixmap, GdkBitmap *basketBitmap)
+void Basket::setPixmap(GdkPixbuf *basketPixmap, GdkBitmap *basketBitmap)
 {
   if(basketPixmap != NULL &&
      basketBitmap != NULL) {
     if(pixmap == NULL) {
       gtk_widget_hide(label);
-      pixmap = gtk_pixmap_new(basketPixmap, basketBitmap);
+//      pixmap = gtk_pixmap_new(basketPixmap, basketBitmap);
+	  pixmap = gtk_image_new_from_pixbuf(basketPixmap);
       gtk_box_pack_start(GTK_BOX(basketVBox), pixmap, FALSE, FALSE, 0);
       gtk_widget_shape_combine_mask(window, basketBitmap, 0, 0);
       gtk_widget_show(pixmap);
     } else {
       gtk_widget_hide(pixmap);
       gtk_widget_destroy(pixmap);
-      pixmap = gtk_pixmap_new(basketPixmap, basketBitmap);
+      pixmap = gtk_image_new_from_pixbuf(basketPixmap);
       gtk_box_pack_start(GTK_BOX(basketVBox), pixmap, FALSE, FALSE, 0);
       gtk_widget_shape_combine_mask(window, basketBitmap, 0, 0);
       gtk_widget_show(pixmap);

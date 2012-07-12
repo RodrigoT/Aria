@@ -735,18 +735,19 @@ bool ItemList::Save_current_list(const string& filename)
     }
 
     list_out << "%Columns-Size:";
-    GtkCListColumn *column = GTK_CLIST(listentry->ret_Dl_clist())->column;
+    GList *column = gtk_tree_view_get_columns(GTK_TREE_VIEW(listentry->ret_Dl_clist()));
     for(int index = 0; index < TOTALCOL; ++index) {
-      list_out << ' ' << column->width;
-      ++column;
+      list_out << ' ' << gtk_tree_view_column_get_width(GTK_TREE_VIEW_COLUMN(column->data));
+      column = g_list_next(column);
     }
     list_out << '\n';
+	g_list_free(column);
 
     //const list<int>& download_list = listentry->getItemManager()->ret_id_list();
     //for(list<int>::const_iterator id_itr = download_list.begin(); id_itr != download_list.end(); ++id_itr) {
-    for(int rowindex = 0; rowindex < GTK_CLIST(listentry->ret_Dl_clist())->rows; ++rowindex) {
+    for(size_t rowindex = 0; rowindex < listentry->getRowCount(); ++rowindex) {
       //ItemCell *itemcell = listentry->getItemManager()->ret_itemaddr(*id_itr);
-      ItemCell *itemcell = (ItemCell *)gtk_clist_get_row_data(GTK_CLIST(listentry->ret_Dl_clist()), rowindex);
+      ItemCell *itemcell = listentry->getItemCellByRow(rowindex);
       if(itemcell->Is_Partial()) continue;
       const Options& options = itemcell->ret_Options_opt();
       list_out << "%Begin_Item" << '\n';

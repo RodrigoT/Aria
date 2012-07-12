@@ -313,25 +313,25 @@ GtkWidget *AppOption::Create_COMMANDLIST_page()
 void
 AppOption::createStatusIconDefault()
 {
-  GtkStyle *style = gtk_widget_get_style(option_window);
+//  GtkStyle *style = gtk_widget_get_style(option_window);
 
   for(int i = 0; i < ICON_TOTAL; ++i) {
     if(statusIcon[i] != NULL) gdk_pixmap_unref(statusIcon[i]);
     if(statusIconMask[i] != NULL) gdk_bitmap_unref(statusIconMask[i]);
   }
-  statusIcon[ICON_DOWNLOAD] = gdk_pixmap_create_from_xpm_d(option_window->window, &statusIconMask[ICON_DOWNLOAD], &style->bg[GTK_STATE_NORMAL], (char **)download_xpm);
+  statusIcon[ICON_DOWNLOAD] = gdk_pixbuf_new_from_xpm_data((const char **)download_xpm);
 
-  statusIcon[ICON_READY] = gdk_pixmap_create_from_xpm_d(option_window->window, &statusIconMask[ICON_READY], &style->bg[GTK_STATE_NORMAL], (char **)ready_xpm);
+  statusIcon[ICON_READY] = gdk_pixbuf_new_from_xpm_data((const char **)ready_xpm);
 
-  statusIcon[ICON_COMPLETE] = gdk_pixmap_create_from_xpm_d(option_window->window, &statusIconMask[ICON_COMPLETE], &style->bg[GTK_STATE_NORMAL], (char **)complete_xpm);
+  statusIcon[ICON_COMPLETE] = gdk_pixbuf_new_from_xpm_data((const char **)complete_xpm);
 
-  statusIcon[ICON_STOP] = gdk_pixmap_create_from_xpm_d(option_window->window, &statusIconMask[ICON_STOP], &style->bg[GTK_STATE_NORMAL], (char **)stop_xpm);
+  statusIcon[ICON_STOP] = gdk_pixbuf_new_from_xpm_data((const char **)stop_xpm);
 
-  statusIcon[ICON_DIVIDE] = gdk_pixmap_create_from_xpm_d(option_window->window, &statusIconMask[ICON_DIVIDE], &style->bg[GTK_STATE_NORMAL], (char **)divide_xpm);
+  statusIcon[ICON_DIVIDE] = gdk_pixbuf_new_from_xpm_data((const char **)divide_xpm);
 
-  statusIcon[ICON_ERROR] = gdk_pixmap_create_from_xpm_d(option_window->window, &statusIconMask[ICON_ERROR], &style->bg[GTK_STATE_NORMAL], (char **)error_xpm);
+  statusIcon[ICON_ERROR] = gdk_pixbuf_new_from_xpm_data((const char **)error_xpm);
 
-  statusIcon[ICON_LOCK] = gdk_pixmap_create_from_xpm_d(option_window->window, &statusIconMask[ICON_LOCK], &style->bg[GTK_STATE_NORMAL], (char **)lock_xpm);
+  statusIcon[ICON_LOCK] = gdk_pixbuf_new_from_xpm_data((const char **)lock_xpm);
 }
 
 static void
@@ -406,11 +406,11 @@ void
 AppOption::setStatusIconPreview()
 {
   for(int index = 0; index < ICON_TOTAL; ++index) {
-    gtk_clist_set_pixmap(GTK_CLIST(statusIconPreviewList),
+    /*gtk_clist_set_pixmap(GTK_CLIST(statusIconPreviewList),
 			 0,
 			 index,
 			 statusIcon[index],
-			 statusIconMask[index]);
+			 statusIconMask[index]);*///TODO:
   }
 }
 
@@ -806,8 +806,7 @@ AppOption::setBasketPixmapPreview()
   if(basketPixmapPreview == NULL) {
     if(basketPixmapTemp != NULL &&
        basketBitmapTemp != NULL) {
-      basketPixmapPreview = gtk_pixmap_new(basketPixmapTemp,
-					   basketBitmapTemp);
+      basketPixmapPreview = gtk_image_new_from_pixbuf(basketPixmapTemp);
       gtk_box_pack_start(GTK_BOX(basketPixmapPreviewVBox), basketPixmapPreview,
 			 FALSE, FALSE, 0);
       gtk_widget_show(basketPixmapPreview);
@@ -816,9 +815,8 @@ AppOption::setBasketPixmapPreview()
     if(basketPixmapTemp != NULL &&
        basketBitmapTemp != NULL) {
       gtk_widget_hide(basketPixmapPreview);      
-      gtk_pixmap_set(GTK_PIXMAP(basketPixmapPreview),
-		     basketPixmapTemp,
-		     basketBitmapTemp);
+      gtk_image_set_from_pixbuf(GTK_IMAGE(basketPixmapPreview),
+		     basketPixmapTemp);
       gtk_widget_show(basketPixmapPreview);
     } else {
       gtk_widget_hide(basketPixmapPreview);

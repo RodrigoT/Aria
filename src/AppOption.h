@@ -89,7 +89,7 @@ private:
   GtkWidget *statusIconPreviewList;
 
   GtkWidget *statusIconApplyButton;
-  GdkPixmap *statusIcon[ICON_TOTAL];
+  GdkPixbuf *statusIcon[ICON_TOTAL];
   GdkBitmap *statusIconMask[ICON_TOTAL];
 
   // pixmap for DND basket
@@ -98,7 +98,7 @@ private:
   GtkWidget *basketPixmapPreview; // GtkPixmap for preview
   GtkWidget *basketPixmapPreviewVBox; // GtkVBox that contains basketPixmapPreview
   GtkWidget *basketPixmapApplyButton; // "Apply" button
-  GdkPixmap *basketPixmapTemp;
+  GdkPixbuf *basketPixmapTemp;
   GdkBitmap *basketBitmapTemp;
 
   bool directPastingFromBasket;

@@ -70,7 +70,7 @@ void Setup_dnd(GtkWidget *toplevel, void (*Signal_Func)(GtkWidget  *w,
 
 int findNearestSelectedRow(GtkWidget *clist, unsigned int row_current);
 
-bool Create_pixmap_from_file(GdkPixmap **pixmap_ptr,
+bool Create_pixmap_from_file(GdkPixbuf **pixmap_ptr,
 			     GdkBitmap **bitmap_ptr,
 			     const string& filepath,
 			     GtkWidget *styleWidget);

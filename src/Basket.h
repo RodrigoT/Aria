@@ -54,7 +54,7 @@ public:
 
   void setGeometry(int x, int y);
   void getGeometry(int& x, int& y);
-  void setPixmap(GdkPixmap *basketPixmap, GdkBitmap *basketBitmap);
+  void setPixmap(GdkPixbuf *basketPixmap, GdkBitmap *basketBitmap);
   void show(); // show basket window
   void hide(); // hide basket window
   bool isVisible();

@@ -107,7 +107,7 @@ void PasteWindow::paste() {
     return;
   }
 
-  int maxrow = GTK_CLIST(listentry->ret_Dl_clist())->rows;
+  //int maxrow = listentry->getRowCount();
 
   int count = 0;// added 2001/3/21
   // add to main download list
@@ -135,10 +135,10 @@ void PasteWindow::paste() {
     listentry->Send_start_signal();
   }
 
-  gtk_clist_moveto(GTK_CLIST(listentry->ret_Dl_clist()),
+  /*gtk_clist_moveto(GTK_CLIST(listentry->ret_Dl_clist()),
 		   maxrow,
 		   0,
-		   0.0, 0.0);
+		   0.0, 0.0);*/
 
   listentry->release_Dl_clist_lock();
 

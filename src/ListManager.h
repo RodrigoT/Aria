@@ -32,7 +32,7 @@ class ListManager
 private:
   list<ListEntry*> listentry_list;
   GtkWidget *baseNotebook;
-  GdkPixmap *statusIcon[ICON_TOTAL];
+  GdkPixbuf *statusIcon[ICON_TOTAL];
   GdkBitmap *statusIconMask[ICON_TOTAL];
 public:
   ListManager();
@@ -65,6 +65,6 @@ public:
 
   void Move_sub(ListMoveType mvtype);
   void Swap(int page_num1, int page_num2);
-  void setStatusIcon(GdkPixmap *pixmap[], GdkBitmap *bitmap[]);
+  void setStatusIcon(GdkPixbuf *pixmap[], GdkBitmap *bitmap[]);
 };
 #endif // _LISTMANAGER_H_

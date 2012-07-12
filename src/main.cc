@@ -925,7 +925,7 @@ int main(int argc, char **argv)
   }
 
   ListEntry *listEntry = g_listManager->ret_Current_listentry();//nth_listentry(0);
-  if(GTK_CLIST(listEntry->ret_Dl_clist())->rows > 0) {
+  if(listEntry->getRowCount() > 0) {
     Set_sensitive__list_not_empty();// fix this
   } 
   Toolbar_set_thread_spin(listEntry->getThreadLimit());

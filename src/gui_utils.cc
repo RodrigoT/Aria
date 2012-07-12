@@ -22,24 +22,24 @@
 #include "gui_utils.h"
 #include <stdlib.h>
 
-bool Create_pixmap_from_file(GdkPixmap **pixmap_ptr,
+bool Create_pixmap_from_file(GdkPixbuf **pixmap_ptr,
 			     GdkBitmap **bitmap_ptr,
 			     const string& filepath,
 			     GtkWidget *widget)
 {
   if(*pixmap_ptr != NULL) {
-    gdk_pixmap_unref(*pixmap_ptr);
+    g_object_unref(*pixmap_ptr);
     *pixmap_ptr = NULL;
   }
 
   if(*bitmap_ptr != NULL) {
-    gdk_bitmap_unref(*bitmap_ptr);
+    g_object_unref(*bitmap_ptr);
     *bitmap_ptr = NULL;
   }
   
-  GtkStyle *style = gtk_widget_get_style(widget);
+//  GtkStyle *style = gtk_widget_get_style(widget);
 
-  *pixmap_ptr = gdk_pixmap_create_from_xpm(widget->window, bitmap_ptr, &style->bg[GTK_STATE_NORMAL], filepath.c_str());
+  *pixmap_ptr = gdk_pixbuf_new_from_file(filepath.c_str(), NULL);
   if(*pixmap_ptr) {
     return true;
   } else {

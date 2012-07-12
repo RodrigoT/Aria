@@ -22,6 +22,8 @@
 #include "ListEntry.h"
 #include "ItemOption.h"
 
+#include <iostream>
+
 extern void dragged_to_download_list(GtkWidget *, GdkDragContext *, int, int, GtkSelectionData *, unsigned int, unsigned int);
 extern void Set_sensitive__no_item_selected();
 extern void Set_sensitive__items_selected();
@@ -628,8 +630,27 @@ void ListEntry::Create_dl_clist()
 
 	//create dl_clist(CLIST) with TOTALCOL columns
 	//dl_clist = gtk_clist_new_with_titles(TOTALCOL, titles);
-	dl_model = gtk_list_store_new(TOTALCOL);
-	dl_table = gtk_tree_view_new();
+	dl_model = gtk_list_store_new(TOTALCOL, GDK_TYPE_PIXBUF, G_TYPE_STRING, G_TYPE_INT, G_TYPE_INT, GDK_TYPE_PIXBUF,
+		G_TYPE_STRING, G_TYPE_STRING, G_TYPE_INT, G_TYPE_INT, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING, 
+		G_TYPE_STRING, G_TYPE_STRING);
+	dl_table = gtk_tree_view_new_with_model(GTK_TREE_MODEL(dl_model));
+
+	for (size_t i = 0; i < TOTALCOL; ++i)
+	{
+		GtkTreeViewColumn *col = gtk_tree_view_column_new();
+		gtk_tree_view_append_column(GTK_TREE_VIEW(dl_table), col);
+		gtk_tree_view_column_set_title( col, titles[i]);
+		if (i != 0 && i != 4)
+		{
+			GtkCellRenderer *renderer = gtk_cell_renderer_text_new();
+			gtk_tree_view_column_pack_start(col, renderer, TRUE);
+			gtk_tree_view_column_add_attribute(col, renderer, "text", i);//set renderer att text as value to update from model
+		} else {
+			GtkCellRenderer *renderer = gtk_cell_renderer_pixbuf_new();
+			gtk_tree_view_column_pack_start(col, renderer, TRUE);
+			gtk_tree_view_column_add_attribute(col, renderer, "pixbuf", i);//set renderer att text as value to update from model
+		}
+	}
 
 	//gtk_object_set_user_data(GTK_OBJECT(dl_clist), (void *)this);
 
@@ -817,11 +838,13 @@ GtkWidget *ListEntry::ret_Dl_clist()
 int ListEntry::Append_dl_item(char *clist_item[], ItemCell *itemcell)
 {
 	items.push_back(itemcell);
+	GtkTreeIter   iter;	
+	gtk_list_store_append(dl_model, &iter);
 	//int rowindex = gtk_clist_append(GTK_CLIST(dl_clist), clist_item);
 	//gtk_clist_set_row_data(GTK_CLIST(dl_clist), rowindex, itemcell);
 	item_manager->regist_item_back(itemcell);
 
-	return items.size();
+	return items.size()-1;
 }
 
 int ListEntry::Insert_dl_item(char *clist_item[], ItemCell *itemcell, ItemCell *itemcell_base)
@@ -883,7 +906,7 @@ ItemCell *ListEntry::Get_next_item()
 }
 
 // 状態アイコンをセットする
-void ListEntry::setStatusIcon(GdkPixmap *pixmaps[], GdkBitmap *bitmaps[]) {
+void ListEntry::setStatusIcon(GdkPixbuf *pixmaps[], GdkBitmap *bitmaps[]) {
 	pthread_mutex_lock(&dl_clist_lock);
 	for(int index = 0; index < ICON_TOTAL; ++index) {
 		statusIcon[index] = pixmaps[index];
@@ -936,7 +959,7 @@ void ListEntry::Set_clist_column__crc(int rowindex, const string& crc_string)
 {
 	GtkTreeIter iter;
 	gtk_tree_model_iter_nth_child (GTK_TREE_MODEL(dl_model), &iter, NULL, rowindex);
-	gtk_list_store_set (dl_model, &iter, COL_CRC, crc_string.c_str());
+	gtk_list_store_set (dl_model, &iter, COL_CRC, crc_string.c_str(), -1);
 //	gtk_clist_set_text(GTK_CLIST(dl_clist), rowindex, COL_CRC, crc_string.c_str());
 }
 
@@ -944,7 +967,7 @@ void ListEntry::Set_clist_column__md5(int rowindex, const string& md5String)
 {
 	GtkTreeIter iter;
 	gtk_tree_model_iter_nth_child (GTK_TREE_MODEL(dl_model), &iter, NULL, rowindex);
-	gtk_list_store_set (dl_model, &iter, COL_MD5, md5String.c_str());
+	gtk_list_store_set (dl_model, &iter, COL_MD5, md5String.c_str(), -1);
 //	gtk_clist_set_text(GTK_CLIST(dl_clist), rowindex, COL_MD5, md5String.c_str());
 }
 
@@ -952,7 +975,7 @@ void ListEntry::Set_clist_column__cursize(int rowindex, const string& size_strin
 {
 	GtkTreeIter iter;
 	gtk_tree_model_iter_nth_child (GTK_TREE_MODEL(dl_model), &iter, NULL, rowindex);
-	gtk_list_store_set (dl_model, &iter, COL_CURSIZE, size_string.c_str());
+	gtk_list_store_set (dl_model, &iter, COL_CURSIZE, size_string.c_str(), -1);
 //	gtk_clist_set_text(GTK_CLIST(dl_clist), rowindex, COL_CURSIZE, size_string.c_str());
 }
 
@@ -960,7 +983,7 @@ void ListEntry::Set_clist_column__totsize(int rowindex, const string& size_strin
 {
 	GtkTreeIter iter;
 	gtk_tree_model_iter_nth_child (GTK_TREE_MODEL(dl_model), &iter, NULL, rowindex);
-	gtk_list_store_set (dl_model, &iter, COL_TOTSIZE, size_string.c_str());
+	gtk_list_store_set (dl_model, &iter, COL_TOTSIZE, size_string.c_str(), -1);
 //	gtk_clist_set_text(GTK_CLIST(dl_clist), rowindex, COL_TOTSIZE, size_string.c_str());
 }
 
@@ -972,7 +995,8 @@ void ListEntry::Set_clist_column__progress(int rowindex, int progress)
 	}
 	GtkTreeIter iter;
 	gtk_tree_model_iter_nth_child (GTK_TREE_MODEL(dl_model), &iter, NULL, rowindex);
-	gtk_list_store_set (dl_model, &iter, COL_PROGRESS, sg_progressBar[index], sg_progressBarMask[index]);
+//	gtk_list_store_set (dl_model, &iter, 0, sg_progressBar[0], -1);
+	gtk_list_store_set (dl_model, &iter, COL_PROGRESS, sg_progressBar[index], -1);
 //	gtk_clist_set_pixmap(GTK_CLIST(dl_clist), rowindex, COL_PROGRESS, sg_progressBar[index], sg_progressBarMask[index]);
 }
 
@@ -986,7 +1010,7 @@ void ListEntry::Set_clist_column__filename(int rowindex, const string& filename)
 	}
 	GtkTreeIter iter;
 	gtk_tree_model_iter_nth_child (GTK_TREE_MODEL(dl_model), &iter, NULL, rowindex);
-	gtk_list_store_set (dl_model, &iter, COL_FILENAME, fix.c_str());
+	gtk_list_store_set (dl_model, &iter, COL_FILENAME, fix.c_str(), -1);
 //	gtk_clist_set_text(GTK_CLIST(dl_clist), rowindex, COL_FILENAME, fix.c_str());
 }
 
@@ -994,7 +1018,7 @@ void ListEntry::Set_clist_column__speed(int rowindex, const string& speed_string
 {
 	GtkTreeIter iter;
 	gtk_tree_model_iter_nth_child (GTK_TREE_MODEL(dl_model), &iter, NULL, rowindex);
-	gtk_list_store_set (dl_model, &iter, COL_SPEED, speed_string.c_str());
+	gtk_list_store_set (dl_model, &iter, COL_SPEED, speed_string.c_str(), -1);
 //	gtk_clist_set_text(GTK_CLIST(dl_clist), rowindex, COL_SPEED, speed_string.c_str());
 }
 
@@ -1002,7 +1026,7 @@ void ListEntry::Set_clist_column__rtime(int rowindex, const string& rtime_string
 {
 	GtkTreeIter iter;
 	gtk_tree_model_iter_nth_child (GTK_TREE_MODEL(dl_model), &iter, NULL, rowindex);
-	gtk_list_store_set (dl_model, &iter, COL_RTIME, rtime_string.c_str());
+	gtk_list_store_set (dl_model, &iter, COL_RTIME, rtime_string.c_str(), -1);
 //	gtk_clist_set_text(GTK_CLIST(dl_clist), rowindex, COL_RTIME, rtime_string.c_str());
 }
 
@@ -1010,7 +1034,7 @@ void ListEntry::Set_clist_column__rec(int rowindex, const string& rec_string)
 {
 	GtkTreeIter iter;
 	gtk_tree_model_iter_nth_child (GTK_TREE_MODEL(dl_model), &iter, NULL, rowindex);
-	gtk_list_store_set (dl_model, &iter, COL_REC, rec_string.c_str());
+	gtk_list_store_set (dl_model, &iter, COL_REC, rec_string.c_str(), -1);
 	//gtk_clist_set_text(GTK_CLIST(dl_clist), rowindex, COL_REC, rec_string.c_str());
 }
 
@@ -1018,73 +1042,71 @@ void ListEntry::Set_clist_column__status(int rowindex, const string& status_stri
 {
 	GtkTreeIter iter;
 	gtk_tree_model_iter_nth_child (GTK_TREE_MODEL(dl_model), &iter, NULL, rowindex);
-	gtk_list_store_set (dl_model, &iter, COL_STATUS, status_string.c_str());
+	gtk_list_store_set (dl_model, &iter, COL_STATUS, status_string.c_str(), -1);
 	//gtk_clist_set_text(GTK_CLIST(dl_clist), rowindex, COL_STATUS, status_string.c_str());
 }
 
 void ListEntry::Set_clist_column__icon(int rowindex, ItemCell::ItemStatusType status)
 {
 	GtkTreeIter iter;
-	gtk_tree_model_iter_nth_child (GTK_TREE_MODEL(dl_model), &iter, NULL, rowindex);
+	bool validiter = gtk_tree_model_iter_nth_child (GTK_TREE_MODEL(dl_model), &iter, NULL, rowindex);
 	switch(status) {
 	case ItemCell::ITEM_READY:
 	case ItemCell::ITEM_READY_AGAIN:
 	case ItemCell::ITEM_INUSE:
 	case ItemCell::ITEM_INUSE_AGAIN:
 		//case ITEM_INUSE_CONCAT:
-		gtk_list_store_set (dl_model, &iter, COL_ICON, statusIcon[ICON_READY], statusIconMask[ICON_READY]);
-		gtk_list_store_set (dl_model, &iter, COL_STATUS, _("READY"));
+		gtk_list_store_set (dl_model, &iter, COL_ICON, statusIcon[ICON_READY], -1);//, statusIconMask[ICON_READY]);
+		gtk_list_store_set (dl_model, &iter, COL_STATUS, _("READY"), -1);
 		break;
 	case ItemCell::ITEM_DOWNLOAD_PARTIAL:
-		gtk_list_store_set (dl_model, &iter, COL_ICON, statusIcon[ICON_DIVIDE], statusIconMask[ICON_DIVIDE]);
-	GtkTreeIter iter;
-	gtk_tree_model_iter_nth_child (GTK_TREE_MODEL(dl_model), &iter, NULL, rowindex);
-		gtk_list_store_set (dl_model, &iter, COL_STATUS, _("DIVIDED"));
+		gtk_list_store_set (dl_model, &iter, COL_ICON, statusIcon[ICON_DIVIDE], -1);
+		gtk_list_store_set (dl_model, &iter, COL_STATUS, _("DIVIDED"), -1);
 		break;
 	case ItemCell::ITEM_READY_CONCAT:
 	case ItemCell::ITEM_INUSE_CONCAT:
 		//icon_divide = gdk_pixmap_ref(icon_divide);// added 2001/3/8
 		//icon_divide_mask = gdk_bitmap_ref(icon_divide_mask);
 
-		gtk_list_store_set (dl_model, &iter, COL_ICON, statusIcon[ICON_DIVIDE], statusIconMask[ICON_DIVIDE]);
-		gtk_list_store_set (dl_model, &iter, COL_STATUS, _("READY TO CONCAT"));
+		gtk_list_store_set (dl_model, &iter, COL_ICON, statusIcon[ICON_DIVIDE], -1);
+		gtk_list_store_set (dl_model, &iter, COL_STATUS, _("READY TO CONCAT"), -1);
 		break;
 
 	case ItemCell::ITEM_CRCERROR:
 		//icon_error = gdk_pixmap_ref(icon_error);// added 2001/3/8
 		//icon_error_mask = gdk_bitmap_ref(icon_error_mask);
 
-		gtk_list_store_set (dl_model, &iter, COL_ICON, statusIcon[ICON_ERROR], statusIconMask[ICON_ERROR]);
-		gtk_list_store_set (dl_model, &iter, COL_STATUS, _("CRC ERROR"));
+		gtk_list_store_set (dl_model, &iter, COL_ICON, statusIcon[ICON_ERROR], -1);
+		gtk_list_store_set (dl_model, &iter, COL_STATUS, _("CRC ERROR"), -1);
 		break;
 	case ItemCell::ITEM_EXECERROR:
 		//icon_error = gdk_pixmap_ref(icon_error);// added 2001/3/8
 		//icon_error_mask = gdk_bitmap_ref(icon_error_mask);
 
-		gtk_list_store_set (dl_model, &iter, COL_ICON, statusIcon[ICON_ERROR], statusIconMask[ICON_ERROR]);
-		gtk_list_store_set (dl_model, &iter, COL_STATUS, _("EXEC ERROR"));
+		gtk_list_store_set (dl_model, &iter, COL_ICON, statusIcon[ICON_ERROR], -1);
+		gtk_list_store_set (dl_model, &iter, COL_STATUS, _("EXEC ERROR"), -1);
 		break;
 	case ItemCell::ITEM_ERROR:
 		//icon_error = gdk_pixmap_ref(icon_error);// added 2001/3/8
 		//icon_error_mask = gdk_bitmap_ref(icon_error_mask);
 
-		gtk_list_store_set (dl_model, &iter, COL_ICON, statusIcon[ICON_ERROR], statusIconMask[ICON_ERROR]);
-		gtk_list_store_set (dl_model, &iter, COL_STATUS, _("DOWNLOAD ERROR"));
+		gtk_list_store_set (dl_model, &iter, COL_ICON, statusIcon[ICON_ERROR], -1);
+		gtk_list_store_set (dl_model, &iter, COL_STATUS, _("DOWNLOAD ERROR"), -1);
 		break;
 
 	case ItemCell::ITEM_STOP:
 		//icon_stop = gdk_pixmap_ref(icon_stop);// added 2001/3/8
 		//icon_stop_mask = gdk_bitmap_ref(icon_stop_mask);
 
-		gtk_list_store_set (dl_model, &iter, COL_ICON, statusIcon[ICON_STOP], statusIconMask[ICON_STOP]);
-		gtk_list_store_set (dl_model, &iter, COL_STATUS, _("STOPPED"));
+		gtk_list_store_set (dl_model, &iter, COL_ICON, statusIcon[ICON_STOP], -1);
+		gtk_list_store_set (dl_model, &iter, COL_STATUS, _("STOPPED"), -1);
 		break;
 	case ItemCell::ITEM_LOCK:
 		//icon_lock = gdk_pixmap_ref(icon_lock);// added 2001/3/8
 		//icon_lock_mask = gdk_bitmap_ref(icon_lock_mask);
 
-		gtk_list_store_set (dl_model, &iter, COL_ICON, statusIcon[ICON_LOCK], statusIconMask[ICON_LOCK]);
-		gtk_list_store_set (dl_model, &iter, COL_STATUS, _("LOCKED"));
+		gtk_list_store_set (dl_model, &iter, COL_ICON, statusIcon[ICON_LOCK], -1);
+		gtk_list_store_set (dl_model, &iter, COL_STATUS, _("LOCKED"), -1);
 		break;
 	case ItemCell::ITEM_DOWNLOAD:
 	case ItemCell::ITEM_DOWNLOAD_AGAIN:
@@ -1092,16 +1114,16 @@ void ListEntry::Set_clist_column__icon(int rowindex, ItemCell::ItemStatusType st
 		//icon_download = gdk_pixmap_ref(icon_download);// added 2001/3/8
 		//icon_download_mask = gdk_bitmap_ref(icon_download_mask);
 
-		gtk_list_store_set (dl_model, &iter, COL_ICON, statusIcon[ICON_DOWNLOAD], statusIconMask[ICON_DOWNLOAD]);
-		gtk_list_store_set (dl_model, &iter, COL_STATUS, _("DOWNLOADING"));
+		gtk_list_store_set (dl_model, &iter, COL_ICON, statusIcon[ICON_DOWNLOAD], -1);
+		gtk_list_store_set (dl_model, &iter, COL_STATUS, _("DOWNLOADING"), -1);
 		break;
 
 	case ItemCell::ITEM_COMPLETE:
 		//icon_complete = gdk_pixmap_ref(icon_complete);// added 2001/3/8
 		//icon_complete_mask = gdk_bitmap_ref(icon_complete_mask);
 
-		gtk_list_store_set (dl_model, &iter, COL_ICON, statusIcon[ICON_COMPLETE], statusIconMask[ICON_COMPLETE]);
-		gtk_list_store_set (dl_model, &iter, COL_STATUS, _("DOWNLOAD COMPLETE"));
+		gtk_list_store_set (dl_model, &iter, COL_ICON, statusIcon[ICON_COMPLETE], -1);
+		gtk_list_store_set (dl_model, &iter, COL_STATUS, _("DOWNLOAD COMPLETE"), -1);
 		break;
 	default:
 		break;
@@ -1118,21 +1140,21 @@ void ListEntry::Set_clist_column__try(int rowindex, int currentCount, int maxCou
 	}
 	GtkTreeIter iter;
 	gtk_tree_model_iter_nth_child (GTK_TREE_MODEL(dl_model), &iter, NULL, rowindex);
-	gtk_list_store_set (dl_model, &iter, COL_RETRY, try_string.c_str());
+	gtk_list_store_set (dl_model, &iter, COL_RETRY, try_string.c_str(), -1);
 }
 
 void ListEntry::Set_clist_column__url(int rowindex, const string& url_string)
 {
 	GtkTreeIter iter;
 	gtk_tree_model_iter_nth_child (GTK_TREE_MODEL(dl_model), &iter, NULL, rowindex);
-	gtk_list_store_set (dl_model, &iter, COL_URL, url_string.c_str());
+	gtk_list_store_set (dl_model, &iter, COL_URL, url_string.c_str(), -1);
 }
 
 void ListEntry::Set_clist_column__save(int rowindex, const string& save_string)
 {
 	GtkTreeIter iter;
 	gtk_tree_model_iter_nth_child (GTK_TREE_MODEL(dl_model), &iter, NULL, rowindex);
-	gtk_list_store_set (dl_model, &iter, COL_SAVE, save_string.c_str());
+	gtk_list_store_set (dl_model, &iter, COL_SAVE, save_string.c_str(), -1);
 }
 
 // deletes matched items. unmatched items are returned

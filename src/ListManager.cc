@@ -45,7 +45,7 @@ static void Page_switched(GtkNotebook *notebook,
 
   Toolbar_set_thread_spin(listentry->getThreadLimit());
 
-  if(GTK_CLIST(listentry->ret_Dl_clist())->rows == 0) {
+  if( listentry->getRowCount() == 0) {
     // no item
     Set_sensitive__list_empty();
     Set_sensitive__no_item_selected();
@@ -285,7 +285,7 @@ ListEntry *ListManager::getListEntryByName(string name) {
 }
 
 void
-ListManager::setStatusIcon(GdkPixmap *pixmaps[], GdkBitmap *bitmaps[])
+ListManager::setStatusIcon(GdkPixbuf *pixmaps[], GdkBitmap *bitmaps[])
 {
   for(int index = 0; index < ICON_TOTAL; ++index) {
     statusIcon[index] = pixmaps[index];

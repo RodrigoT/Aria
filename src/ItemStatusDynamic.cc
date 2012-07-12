@@ -72,7 +72,7 @@ void ItemStatusDynamic::Update()
 
   listentry->get_Dl_clist_lock();
 
-  int rowindex = gtk_clist_find_row_from_data(GTK_CLIST(listentry->ret_Dl_clist()), itemcell);
+  size_t rowindex = listentry->getRowForCell(itemcell);
 
   if(update_flag & ItemStatusDynamic::name_col) {
     if(itemcell->Is_Partial()) {

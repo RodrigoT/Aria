@@ -48,8 +48,8 @@ list<string> URLcontainer::Unfold_URL(const string& src_url)
   URLcontainer urlcon;
   list<string> url_list;
   if(!urlcon.Parse_URL(src_url)) return url_list;
-  unsigned int h_pos;
-  unsigned int lbr_pos;
+  std::size_t h_pos;
+  std::size_t lbr_pos;
   string start, end;
   string body, tail;
   int rank_start, rank_end;
@@ -69,14 +69,14 @@ list<string> URLcontainer::Unfold_URL(const string& src_url)
 	  //return src_url;//""
 	  throw NONUM;
 	}
-	unsigned int var_end_pos = src_file.find('.', h_pos);
+	std::size_t var_end_pos = src_file.find('.', h_pos);
 	if(var_end_pos == string::npos) {
 	  var_end_pos = src_file.size();
 	}
 	
 	rank_end = var_end_pos-h_pos-1;
 	rank_start = rank_end;
-	if(rank_end == 0 || h_pos-1 < (unsigned int)rank_end) throw NONUM;//return src_url;//""
+	if(rank_end == 0 || h_pos-1 < (std::size_t)rank_end) throw NONUM;//return src_url;//""
 	
 	start = src_file.substr(h_pos-rank_start, rank_start);//cerr << start << endl;
 	end = src_file.substr(h_pos+1, rank_end);//cerr << end << endl;
@@ -87,7 +87,7 @@ list<string> URLcontainer::Unfold_URL(const string& src_url)
 	if((h_pos = src_file.find('-', lbr_pos)) == string::npos) {
 	  throw NONUM;//return "";
 	}
-	unsigned int rbr_pos = src_file.rfind(']');
+	std::size_t rbr_pos = src_file.rfind(']');
 	if(rbr_pos == string::npos || rbr_pos < lbr_pos) throw NONUM;//return "";
 	//rank = h_pos-lbr_pos-1;
 	rank_end = rbr_pos-h_pos-1;
@@ -163,7 +163,7 @@ string URLcontainer::Find_HREF(string& text, string base_url)
   // fix this. Only absolute URLs can be retrieved currently.
   // This feature must support relative URLs.
   string url;
-  unsigned int p_pos;
+  std::size_t p_pos;
   bool quote_flag = false;
   if((p_pos = text.find("http://")) != string::npos ||
 #ifdef HAVE_OPENSSL
@@ -173,7 +173,7 @@ string URLcontainer::Find_HREF(string& text, string base_url)
     if(p_pos > 0 && (text.at(p_pos-1) == '"' || text.at(p_pos-1) == '\'')) {
       quote_flag = true;
     }
-    unsigned int delim_pos;
+    std::size_t delim_pos;
     if(quote_flag) {
       delim_pos = text.find_first_of("\t\n\"<", p_pos);
     } else {
@@ -193,7 +193,7 @@ string URLcontainer::Find_HREF(string& text, string base_url)
 
   if(url.size() && !startwith(url, "mailto:") & !startwith(url, "telnet:")) {
     if(url.at(0) == '/' && !base_url.empty() && base_url.at(base_url.size()-1) == '/') {
-      unsigned int slash_pos = url.find_first_not_of("/");
+      std::size_t slash_pos = url.find_first_not_of("/");
       if(slash_pos == string::npos) slash_pos = url.size();
       url.erase(0, slash_pos);
     } else if(url.at(0) != '/' && !base_url.empty() && base_url.at(base_url.size()-1) != '/') {
@@ -215,20 +215,20 @@ string URLcontainer::Find_HREF(string& text, string base_url)
 /*
 string URLcontainer::Find_HREF_strict(string& text, string base_url)
 {
-  unsigned int href_pos;
+  std::size_t href_pos;
   string url;
   if((href_pos = text.find("HREF=")) != string::npos ||
      (href_pos = text.find("href=")) != string::npos ||
      (href_pos = text.find("SRC=")) != string::npos ||
      (href_pos = text.find("src=")) != string::npos) {
-    unsigned int lq_pos;
+    std::size_t lq_pos;
     if((lq_pos = text.find('"', href_pos)) == string::npos &&
        (lq_pos = text.find('\'', href_pos)) == string::npos) {
       text.erase();
       return "";
     }
 
-    unsigned int rq_pos;
+    std::size_t rq_pos;
     if((rq_pos = text.find('"', lq_pos+1)) == string::npos &&
        (rq_pos = text.find('\'', lq_pos+1)) == string::npos) {
       text.erase();
@@ -240,7 +240,7 @@ string URLcontainer::Find_HREF_strict(string& text, string base_url)
     text.erase(0, rq_pos+1);
     if(url.size() && url.substr(0, 7) != "mailto:") {
       if(url.at(0) == '/' && !base_url.empty() && base_url.at(base_url.size()-1) == '/') {
-	unsigned int slash_pos = url.find_first_not_of("/");
+	std::size_t slash_pos = url.find_first_not_of("/");
 	if(slash_pos == string::npos) slash_pos = url.size();
 	url.erase(0, slash_pos);
       } else if(url.at(0) != '/' && !base_url.empty() && base_url.at(base_url.size()-1) != '/') {
@@ -262,7 +262,7 @@ string URLcontainer::Find_HREF_strict(string& text, string base_url)
 
 string URLcontainer::Find_URL(string& text, bool ws_quark)
 {
-  unsigned int p_pos;
+  std::size_t p_pos;
   string url;
 
   if((p_pos = text.find("http://")) != string::npos
@@ -270,7 +270,7 @@ string URLcontainer::Find_URL(string& text, bool ws_quark)
      || (p_pos = text.find("https://")) != string::npos
 #endif // HAVE_OPENSSL
      ||(p_pos = text.find("ftp://")) != string::npos) {
-    unsigned int delim_pos;
+    std::size_t delim_pos;
     if(!ws_quark) {
       // "'\"<" is removed,??
       if((delim_pos = text.find_first_of("\t\r\n", p_pos)) == string::npos) {
@@ -278,7 +278,7 @@ string URLcontainer::Find_URL(string& text, bool ws_quark)
       }
       // space is not now recognized as a delimiter.
       /*
-      unsigned int np_pos;
+      std::size_t np_pos;
       if((np_pos = text.substr(p_pos+1, delim_pos-p_pos-1).find("ftp://")) != string::npos ||
 #ifdef HAVE_OPENSSL
 	 (np_pos = text.substr(p_pos+1, delim_pos-p_pos-1).find("https://")) != string::npos ||
@@ -406,7 +406,7 @@ bool URLcontainer::Evaluate_javascript(ifstream& infile,
   while(!end_flag) {
     string line = "";
     getline(infile, line, ';');
-    unsigned int t_pos;
+    std::size_t t_pos;
     if((t_pos = line.find(target)) != string::npos)  {
       unsigned f_pos = line.find('\'', t_pos)+1;
       unsigned e_pos = line.find('\'', f_pos);
@@ -432,8 +432,8 @@ bool URLcontainer::Examine_keylinks(const string& line,
 				    const list<string>& keylink_list,
 				    const URLcontainer& urlcon)
 {
-  unsigned int href_pos;
-  unsigned int eq_pos = 0;
+  std::size_t href_pos;
+  std::size_t eq_pos = 0;
   bool flag = true;
   string url;
   try {
@@ -458,7 +458,7 @@ bool URLcontainer::Examine_keylinks(const string& line,
     }
     if(flag) throw URLCON_URLNOTFOUND;
 
-    unsigned int url_start = line.find_first_not_of(" \t\r\n", eq_pos+1);
+    std::size_t url_start = line.find_first_not_of(" \t\r\n", eq_pos+1);
     if(url_start == string::npos) {
       throw URLCON_URLNOTFOUND;
     }
@@ -474,7 +474,7 @@ bool URLcontainer::Examine_keylinks(const string& line,
     if(line.at(url_start) == '\\') {
       url_start += 2;
     }
-    unsigned int url_end;
+    std::size_t url_end;
     if(quoted_flag) {
       url_end = line.find_first_of("'\">", url_start);
     } else {
@@ -490,7 +490,7 @@ bool URLcontainer::Examine_keylinks(const string& line,
 
     // fix this
     string href = replaceSubstring(removeCtrlChar(Remove_white(line.substr(url_start, url_end-url_start))), "&amp;", "&");
-    unsigned int slash_pos = href.find('#');
+    std::size_t slash_pos = href.find('#');
     if(slash_pos != string::npos) {
       href.erase(slash_pos);
     }
@@ -528,7 +528,7 @@ bool URLcontainer::Examine_keylinks(const string& line,
     case URLCON_URLFOUND:
       for(list<string>::const_iterator itr = keylink_list.begin();
 	  itr != keylink_list.end(); ++itr) {
-  	unsigned int pointer = url.find(*itr);
+  	std::size_t pointer = url.find(*itr);
   	if(pointer != string::npos) {
   	  return true;
   	}
@@ -546,8 +546,8 @@ bool URLcontainer::Examine_keylinks2(const string& line,
 				     const list<string>& keylink_list,
 				     const URLcontainer& urlcon)
 {
-  unsigned int pointer = 0;
-  unsigned int from_pos = 0;
+  std::size_t pointer = 0;
+  std::size_t from_pos = 0;
   while(1) {
     bool flag = true;
     for(list<string>::const_iterator itr = keylink_list.begin();
@@ -559,7 +559,7 @@ bool URLcontainer::Examine_keylinks2(const string& line,
     }
     if(flag) return false;
   
-    unsigned int eq_pos;
+    std::size_t eq_pos;
     eq_pos = line.rfind('=', pointer);
     if(eq_pos == string::npos || eq_pos < from_pos) {
       if((from_pos = line.find(' ', pointer)) == string::npos) {
@@ -568,7 +568,7 @@ bool URLcontainer::Examine_keylinks2(const string& line,
 	continue;
       }
     }
-    unsigned int url_start = line.find_first_not_of(" \t'\"", eq_pos+1);
+    std::size_t url_start = line.find_first_not_of(" \t'\"", eq_pos+1);
     bool quoted_flag = false;
     if(url_start == string::npos) {
       if((from_pos = line.find(' ', pointer)) == string::npos) {
@@ -586,7 +586,7 @@ bool URLcontainer::Examine_keylinks2(const string& line,
     if(line.at(url_start) == '\\') {
       url_start += 2;
     }
-    unsigned int url_end;
+    std::size_t url_end;
     if(quoted_flag) {
       url_end = line.find_first_of("'\">", url_start+1);
     } else {
@@ -601,7 +601,7 @@ bool URLcontainer::Examine_keylinks2(const string& line,
     }
     
     string href = Remove_white(line.substr(url_start, url_end-url_start));
-    unsigned int slash_pos = href.find('#');
+    std::size_t slash_pos = href.find('#');
     if(slash_pos != string::npos) {
       href.erase(slash_pos);
     }
@@ -659,7 +659,7 @@ bool URLcontainer::Parse_URL(string url)
 
 bool URLcontainer::Is_supported_protocol(const string& protocol_in)
 {
-  for(unsigned int index = 0; supported_protocol_list[index].protocol != ""; index ++) {
+  for(std::size_t index = 0; supported_protocol_list[index].protocol != ""; index ++) {
     if(supported_protocol_list[index].protocol == protocol_in) {
       port = supported_protocol_list[index].default_port;
       return true;
@@ -670,7 +670,7 @@ bool URLcontainer::Is_supported_protocol(const string& protocol_in)
 
 void URLcontainer::Extract_protocol(string& url)
 {
-  unsigned int slash_index = url.find("//");
+  std::size_t slash_index = url.find("//");
   if(slash_index == string::npos) throw URLCON_EINVALIDURL;
   protocol = url.substr(0, slash_index);
   url.erase(0, slash_index+2);
@@ -680,15 +680,15 @@ void URLcontainer::Extract_protocol(string& url)
 // username and passwd extraction made by Matthias Babisch
 void URLcontainer::Extract_userpasswd(string& url)
 {
-   unsigned int slash_index = url.find("/");
-   unsigned int at_index = url.find("@");
+   std::size_t slash_index = url.find("/");
+   std::size_t at_index = url.find("@");
    if(at_index == string::npos) {
      username="";
      passwd="";
    } else {
      if(slash_index == string::npos || slash_index > at_index) {
        // We do have a username-passwd combination
-       unsigned int colon_index = url.find(":");
+       std::size_t colon_index = url.find(":");
        if(colon_index < slash_index) {
 	 // we have a passwd
 	 passwd=url.substr(colon_index+1, at_index-colon_index-1);	
@@ -704,7 +704,7 @@ void URLcontainer::Extract_userpasswd(string& url)
  
 void URLcontainer::Extract_host(string& url)
 {
-  unsigned int slash_index = url.find('/');
+  std::size_t slash_index = url.find('/');
   if(slash_index == string::npos) {
     if(url.empty()) {
       throw URLCON_EINVALIDURL;
@@ -715,7 +715,7 @@ void URLcontainer::Extract_host(string& url)
   if(slash_index == 0) throw URLCON_EINVALIDURL;
   host = url.substr(0, slash_index);
   url.erase(0, slash_index);
-  unsigned int colon_index = host.rfind(':');
+  std::size_t colon_index = host.rfind(':');
   if(colon_index != string::npos) {
     int port_temp = stoi(host.substr(colon_index+1), 10);
     if(port_temp != 0) port = port_temp;
@@ -725,14 +725,14 @@ void URLcontainer::Extract_host(string& url)
 
 void URLcontainer::Extract_dir(string& url)
 {
-  unsigned int ques_index = url.find('?');
+  std::size_t ques_index = url.find('?');
   if(ques_index != string::npos) {
-    unsigned int slash_index = url.rfind('/', ques_index);
+    std::size_t slash_index = url.rfind('/', ques_index);
     if(slash_index == string::npos) throw URLCON_EINVALIDURL;
     dir = url.substr(0, slash_index);
     url.erase(0, slash_index);
   } else {
-    unsigned int slash_index = url.rfind('/');
+    std::size_t slash_index = url.rfind('/');
     if(slash_index == string::npos) {
       slash_index = url.size();
     }
@@ -749,11 +749,11 @@ void URLcontainer::Extract_file(string& url)
 {
   //file = Remove_white(url);
   file = url;
-  unsigned int sharp_index = file.find('#');
+  std::size_t sharp_index = file.find('#');
   if(sharp_index != string::npos) {
     file.erase(sharp_index);
   }
-  unsigned int query_index = file.find('?');
+  std::size_t query_index = file.find('?');
   if(query_index != string::npos) {
     query = file.substr(query_index);
     file.erase(query_index);
@@ -801,7 +801,7 @@ const string& URLcontainer::ret_File() const
 
 string URLcontainer::ret_Extension() const
 {
-  unsigned int comma_pos = file.rfind(".");
+  std::size_t comma_pos = file.rfind(".");
   if(comma_pos == string::npos) return "";
   else return file.substr(comma_pos+1);
 }
@@ -870,7 +870,7 @@ string URLcontainer::URL_Encode(const string& src_string)
 string URLcontainer::ret_Filename() const
 {
   /*
-  unsigned int ques_pos = file.find('?', 1);
+  std::size_t ques_pos = file.find('?', 1);
   if(ques_pos != string::npos) {
     return file.substr(1, ques_pos-1);
   }

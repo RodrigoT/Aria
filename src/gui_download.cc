@@ -974,7 +974,7 @@ static void Download_start_all_sub(ListEntry *listentry)
   list<GtkTreePath*> selection_temp;
   Backup_selection_list(listentry->ret_Dl_clist(), selection_temp);
 
-  gtk_clist_select_all(GTK_CLIST(listentry->ret_Dl_clist()));
+  /*gtk_clist_select_all(GTK_CLIST(listentry->ret_Dl_clist()));
   GList *node = GTK_CLIST(listentry->ret_Dl_clist())->selection;
   if(node == NULL) {
     return;
@@ -984,8 +984,13 @@ static void Download_start_all_sub(ListEntry *listentry)
     ItemCell* itemcell = (ItemCell*)gtk_clist_get_row_data(GTK_CLIST(listentry->ret_Dl_clist()), rowindex);
     Download_start_sub(itemcell, rowindex, listentry, true);
     node = g_list_next(node);
+  }*/
+  for (size_t i=0; i < listentry->getRowCount(); ++i)
+  {
+    ItemCell* itemcell = listentry->getItemCellByRow(i);
+    Download_start_sub(itemcell, i, listentry, true);
   }
-  gtk_clist_unselect_all(GTK_CLIST(listentry->ret_Dl_clist())); // fix this
+  //gtk_clist_unselect_all(GTK_CLIST(listentry->ret_Dl_clist())); // fix this
 
   Restore_selection_list(listentry->ret_Dl_clist(), selection_temp);
 

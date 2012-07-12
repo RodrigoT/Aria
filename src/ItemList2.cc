@@ -429,8 +429,8 @@ bool ItemList::Restore_saved_list(const string& filename)
 	if(item != "%Begin_Item" && item == "%Columns-Size:") {
 	  for(int index = 0; index < TOTALCOL; ++index) {
 	    int size = stoi(Token_splitter(line, " \t"));
-	    gtk_clist_set_column_width(GTK_CLIST(listentry->ret_Dl_clist()),
-				       index, size);
+	    //gtk_clist_set_column_width(GTK_CLIST(listentry->ret_Dl_clist()),
+		//		       index, size);
 	  }
 	} 
       } else {

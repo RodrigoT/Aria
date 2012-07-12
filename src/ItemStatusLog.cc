@@ -42,10 +42,20 @@ void ItemStatusLog::Update()
     Append_text(item_log, g_consoleText);
   } else {
     if(g_listManager->ret_Current_listentry() != listentry) return;
-    GList *node = GTK_CLIST(listentry->ret_Dl_clist())->selection;
-    if(node != NULL &&
-       gtk_clist_get_row_data(GTK_CLIST(listentry->ret_Dl_clist()), GPOINTER_TO_UINT(node->data)) == ret_ItemCell()) {
-      Append_text(item_log, g_text);
+//    GList *node = GTK_CLIST(listentry->ret_Dl_clist())->selection;
+    GtkTreeSelection * selection = gtk_tree_view_get_selection (GTK_TREE_VIEW(listentry->ret_Dl_clist()));
+	GtkTreeModel *model = NULL;
+	GList *selectList = gtk_tree_selection_get_selected_rows (selection, &model);
+    if( gtk_tree_selection_count_selected_rows(selection) )
+	{
+		GtkTreePath *path = (GtkTreePath *)(selectList->data);
+		gint pathdepth;
+		gint *indices = gtk_tree_path_get_indices_with_depth (path, &pathdepth);
+		if (listentry->getItemCellByRow(indices[pathdepth-1]) == ret_ItemCell()) {
+      		Append_text(item_log, g_text);
+		}
     }
+	g_list_foreach (selectList, (GFunc) gtk_tree_path_free, NULL);
+	g_list_free (selectList);
   }
 }

@@ -161,8 +161,8 @@ void Send_halt_message()
 
     listEntry->get_Dl_clist_lock();
     listEntry->getThreadManager()->setHaltFlag();
-    for(int rowindex = 0; rowindex < GTK_CLIST(listEntry->ret_Dl_clist())->rows; ++rowindex) {
-      ItemCell *itemCell = (ItemCell *)gtk_clist_get_row_data(GTK_CLIST(listEntry->ret_Dl_clist()), rowindex);
+    for(size_t rowindex = 0; rowindex < listEntry->getRowCount(); ++rowindex) {
+      ItemCell *itemCell = listEntry->getItemCellByRow(rowindex);
       switch(itemCell->ret_Status()) {
       case ItemCell::ITEM_DOWNLOAD:
       case ItemCell::ITEM_INUSE:

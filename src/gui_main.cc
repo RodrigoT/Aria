@@ -104,7 +104,7 @@ GtkWidget *sg_sumInfoErrLabel;
 PasteWindow *g_pasteWindow;
 
 GdkBitmap *sg_progressBarMask[51];
-GdkPixmap *sg_progressBar[51];
+GdkPixbuf *sg_progressBar[51];
 
 static GtkWidget *sg_speedScale;
 static GtkWidget *sg_speedScaleSpin;
@@ -629,7 +629,7 @@ static void Create_progress_bar()
 
   for(int i = 0; i <= 50; ++i) {
     GdkBitmap *mask;
-    sg_progressBar[i] = gdk_pixmap_create_from_xpm_d(g_toplevel->window, &mask, &sg_dlCListStyle->bg[GTK_STATE_NORMAL], (char **)a[i]);
+    sg_progressBar[i] = gdk_pixbuf_new_from_xpm_data((const char **)a[i]);
     sg_progressBarMask[i] = mask;
   }
 }

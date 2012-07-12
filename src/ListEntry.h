@@ -48,7 +48,7 @@ private:
 
   void Create_dl_clist();
 
-  GdkPixmap *statusIcon[ICON_TOTAL];
+  GdkPixbuf *statusIcon[ICON_TOTAL];
   GdkBitmap *statusIconMask[ICON_TOTAL];
 public:
   ThreadManager *getThreadManager();
@@ -73,7 +73,7 @@ public:
   void setMD5List(list<CRCList*>& md5List);
   void setCRCList(list<CRCList*>& crcList);
 
-  void setStatusIcon(GdkPixmap *pixmaps[], GdkBitmap *bitmaps[]);
+  void setStatusIcon(GdkPixbuf *pixmaps[], GdkBitmap *bitmaps[]);
   void setSizeDisplayStyle(bool flagHumanReadble);
 
   void Set_clist_column__crc(int rowindex, const string& crc_string);
@@ -121,6 +121,11 @@ public:
 
   ItemCell *Get_next_item();
   ItemCell *getItemCellByRow(int rowindex) const;
+  std::size_t getRowCount() const { return items.size();};
+  std::size_t getRowForCell(ItemCell *item) {
+	  return distance(items.begin(), std::find(items.begin(), items.end(), item) );
+	};
+		
 
   list<int> getActiveRowList();
 
