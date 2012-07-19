@@ -125,11 +125,11 @@ list<string> URLcontainer::Unfold_URL(const string& src_url)
 	string url;
 	url = urlcon.ret_Protocol()+"//"+
 	  urlcon.ret_Hostname();
-	if(urlcon.ret_Port() != DEFAULT_WWW_PORT && urlcon.ret_Protocol() == "http:" ||
+	if((urlcon.ret_Port() != DEFAULT_WWW_PORT && urlcon.ret_Protocol() == "http:") ||
 #ifdef HAVE_OPENSSL
-	   urlcon.ret_Port() != DEFAULT_HTTPS_PORT && urlcon.ret_Protocol() == "https:" ||
+	   (urlcon.ret_Port() != DEFAULT_HTTPS_PORT && urlcon.ret_Protocol() == "https:") ||
 #endif // HAVE_OPENSSL
-	   urlcon.ret_Port() != DEFAULT_FTP_PORT && urlcon.ret_Protocol() == "ftp:") {
+	   (urlcon.ret_Port() != DEFAULT_FTP_PORT && urlcon.ret_Protocol() == "ftp:")) {
 	  url += ":"+itos(urlcon.ret_Port());
 	}
 	url += urlcon.ret_Dir()+body;
@@ -834,9 +834,9 @@ string URLcontainer::URL_Decode(const string& src_string)
 bool URLcontainer::Is_reserved(char ch)
 {
   if(ch == 0x2d ||               // '-'
-     ch >= 0x61 && ch <= 0x7a || // 'a'-'z'
-     ch >= 0x41 && ch <= 0x5a || // 'A'-'Z'
-     ch >= 0x30 && ch <= 0x39 || // '0'-'9'
+     (ch >= 0x61 && ch <= 0x7a) || // 'a'-'z'
+     (ch >= 0x41 && ch <= 0x5a) || // 'A'-'Z'
+     (ch >= 0x30 && ch <= 0x39) || // '0'-'9'
      ch == 0x5f ||               // '_'
      ch == 0x5c ||               // '\'
      ch == 0x2a ||               // '*'
@@ -929,11 +929,11 @@ void URLcontainer::force_bad()
 
 string URLcontainer::ret_URL() const
 {
-  if(protocol == "http:" && port != DEFAULT_WWW_PORT ||
+  if((protocol == "http:" && port != DEFAULT_WWW_PORT) ||
 #ifdef HAVE_OPENSSL
-     protocol == "https:" && port != DEFAULT_HTTPS_PORT ||
+     (protocol == "https:" && port != DEFAULT_HTTPS_PORT) ||
 #endif // HAVE_OPENSSL
-     protocol == "ftp:" && port != DEFAULT_FTP_PORT) {
+     (protocol == "ftp:" && port != DEFAULT_FTP_PORT)) {
     return protocol+"//"+
       host+':'+itos(port)+dir+file+query;
   } else return protocol+"//"+

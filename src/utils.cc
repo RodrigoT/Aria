@@ -464,7 +464,7 @@ string get_file_mod_date(const string& filename)
   return date;
 }
 
-unsigned int casefind(const string& string1, const string& string2)
+size_t casefind(const string& string1, const string& string2)
 {
   if(string1.size() < string2.size()) return string::npos;
 
@@ -671,7 +671,7 @@ bool patternMatch(string str, string pattern)
 void updateInterval(struct timeval &dst, int timeout)
 {
   if(timeout < dst.tv_sec ||
-     timeout == dst.tv_sec && dst.tv_usec > 0) {
+     (timeout == dst.tv_sec && dst.tv_usec > 0)) {
     dst.tv_sec = 0;
     dst.tv_usec = 0;
   }
@@ -685,7 +685,7 @@ void updateInterval(struct timeval &dst, int timeout)
 void updateInterval(struct timeval &dst, struct timeval src)
 {
   if(src.tv_sec < dst.tv_sec ||
-     src.tv_sec == dst.tv_sec && dst.tv_usec > 0) {
+     (src.tv_sec == dst.tv_sec && dst.tv_usec > 0)) {
     dst.tv_sec = 0;
     dst.tv_usec = 0;
   }

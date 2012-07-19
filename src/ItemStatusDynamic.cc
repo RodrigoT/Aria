@@ -134,10 +134,10 @@ void ItemStatusDynamic::Update()
     {
       itemcell->get_Options_Lock();
       if(delete_flag && (itemcell->Is_Partial() ||
-			 itemcell->ret_Options_opt().ret_Delete_When_Finish() &&
+			 (itemcell->ret_Options_opt().ret_Delete_When_Finish() &&
 			 ((itemcell->ret_CRC_Type() != ItemCell::CRC_NONE ||
-			   itemcell->ret_md5string().size()) && !itemcell->ret_Options_opt().ret_no_crc_checking() ||
-			  !itemcell->ret_Options_opt().ret_Dont_Delete_Without_CRC()))) {
+			   (itemcell->ret_md5string().size()) && !itemcell->ret_Options_opt().ret_no_crc_checking()) ||
+			  !itemcell->ret_Options_opt().ret_Dont_Delete_Without_CRC())))) {
 	itemcell->release_Options_Lock();
 	// freeze clist
 	listentry->freezeDlCList();

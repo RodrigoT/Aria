@@ -61,7 +61,7 @@ string get_storedir(string store_dir, string target);
 string get_hostname(string url);
 string get_file(string& target);
 string get_file_mod_date(const string& filename);
-unsigned int casefind(const string& string1, const string& string2);
+size_t casefind(const string& string1, const string& string2);
 bool startwith(const string& string1, const string& string2);
 bool casecomp(const string& string1, const string& string2);
 bool startwith(const string& string1, const string& string2);

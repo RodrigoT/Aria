@@ -257,10 +257,10 @@ ItemCell::DownloadStatusType ItemCell::Download_Main()
   Retrieve *retr_obj;
 
   if(urlcon.ret_Protocol() == "http:" ||
-     urlcon.ret_Protocol() == "ftp:" &&
+     ( urlcon.ret_Protocol() == "ftp:" &&
      options.ret_use_ftp_proxy() &&
      options.ret_use_ftp_proxy_via_http() &&
-     !options.ret_ftp_proxy().ret_Server().empty()) {
+     !options.ret_ftp_proxy().ret_Server().empty())) {
     retr_obj = new RetrieveHTTP(this);
   } else if(urlcon.ret_Protocol() == "ftp:") {
     retr_obj = new RetrieveFTP(this);

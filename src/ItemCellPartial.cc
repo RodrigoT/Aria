@@ -54,10 +54,10 @@ ItemCell::DownloadStatusType ItemCellPartial::Download_Main()
   Retrieve *retr_obj = 0;
 
   if(ret_URL_Container().ret_Protocol() == "http:" ||
-     ret_URL_Container().ret_Protocol() == "ftp:" &&
+     (ret_URL_Container().ret_Protocol() == "ftp:" &&
      ret_Options().ret_use_ftp_proxy() &&
      ret_Options().ret_use_ftp_proxy_via_http() &&
-     !ret_Options().ret_ftp_proxy().ret_Server().empty()) {
+     !ret_Options().ret_ftp_proxy().ret_Server().empty())) {
     retr_obj = new RetrieveHTTP2(this);
   }
 #ifdef HAVE_OPENSSL

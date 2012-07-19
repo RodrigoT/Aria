@@ -630,9 +630,9 @@ void ListEntry::Create_dl_clist()
 
 	//create dl_clist(CLIST) with TOTALCOL columns
 	//dl_clist = gtk_clist_new_with_titles(TOTALCOL, titles);
-	dl_model = gtk_list_store_new(TOTALCOL, GDK_TYPE_PIXBUF, G_TYPE_STRING, G_TYPE_INT, G_TYPE_INT, GDK_TYPE_PIXBUF,
-		G_TYPE_STRING, G_TYPE_STRING, G_TYPE_INT, G_TYPE_INT, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING, 
-		G_TYPE_STRING, G_TYPE_STRING);
+	dl_model = gtk_list_store_new(TOTALCOL, GDK_TYPE_PIXBUF, G_TYPE_STRING, G_TYPE_INT64, G_TYPE_INT64, GDK_TYPE_PIXBUF,//*,file,downloaded,total,%
+		G_TYPE_STRING, G_TYPE_STRING, G_TYPE_INT, G_TYPE_INT, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING, //speed,remainig,retry,recurse,status,crc,md5
+		G_TYPE_STRING, G_TYPE_STRING);//save,url
 	dl_table = gtk_tree_view_new_with_model(GTK_TREE_MODEL(dl_model));
 
 	for (size_t i = 0; i < TOTALCOL; ++i)
@@ -1049,7 +1049,7 @@ void ListEntry::Set_clist_column__status(int rowindex, const string& status_stri
 void ListEntry::Set_clist_column__icon(int rowindex, ItemCell::ItemStatusType status)
 {
 	GtkTreeIter iter;
-	bool validiter = gtk_tree_model_iter_nth_child (GTK_TREE_MODEL(dl_model), &iter, NULL, rowindex);
+	gtk_tree_model_iter_nth_child (GTK_TREE_MODEL(dl_model), &iter, NULL, rowindex);
 	switch(status) {
 	case ItemCell::ITEM_READY:
 	case ItemCell::ITEM_READY_AGAIN:

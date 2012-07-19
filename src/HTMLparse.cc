@@ -57,7 +57,7 @@ URLcontainer HTMLparse::find_href(string line, Options& options)
   unsigned int eq_pos = 0;
   bool flag = true;;
   URLcontainer urlcon;
-  bool fsavefile = (options.ret_with_hostname_dir() && options.ret_abs2rel_url() || options.ret_delete_comment() || options.ret_delete_javascript() || options.ret_convert_tilde()) && !outfile_bad;
+  bool fsavefile = ((options.ret_with_hostname_dir() && options.ret_abs2rel_url()) || options.ret_delete_comment() || options.ret_delete_javascript() || options.ret_convert_tilde()) && !outfile_bad;
   bool abs2rel = options.ret_with_hostname_dir() && options.ret_abs2rel_url() && !outfile_bad;
   bool fcv_flag = false;
   try {
@@ -235,8 +235,8 @@ URLcontainer HTMLparse::find_href(string line, Options& options)
 	 || startwith(href, "https:")
 #endif // HAVE_OPENSSL
 	 ) {
-	if(!isTag(line, "base")
-	   && options.ret_only_relative_links() || !options.ret_with_hostname_dir()) {
+	if((!isTag(line, "base")
+	   && options.ret_only_relative_links()) || !options.ret_with_hostname_dir()) {
 	  if(options.ret_force_convert() && options.ret_with_hostname_dir()) {
 	    fcv_flag = true;
 	  } else {
@@ -306,8 +306,8 @@ URLcontainer HTMLparse::find_href(string line, Options& options)
 	// filter by file extension here
 	if(options.ret_use_down_filter() &&
 	   (!options.Is_in_activated_filter_down_target_list(urlcon.ret_Filename()) && !options.Is_in_activated_parse_target_list(urlcon.ret_Filename()))
-	   || !options.ret_use_down_filter() &&
-	   options.Is_in_activated_filter_nodown_target_list(urlcon.ret_Filename())) {
+	   || (!options.ret_use_down_filter() &&
+	   options.Is_in_activated_filter_nodown_target_list(urlcon.ret_Filename()))) {
 	  if(options.ret_force_convert() && options.ret_with_hostname_dir()) {
 	    fcv_flag = true;
 	  } else {
@@ -409,7 +409,7 @@ void HTMLparse::Set_save_directory(const URLcontainer& urlcon,
 URLcontainer HTMLparse::find_css(string line, Options& options) {
   // expects line to be url(***.css) or url("***.css")
   //         or simply  "***.css" or ***.css
-  bool fsavefile = (options.ret_with_hostname_dir() && options.ret_abs2rel_url() || options.ret_delete_comment() || options.ret_delete_javascript()) && !outfile_bad;
+  bool fsavefile = ((options.ret_with_hostname_dir() && options.ret_abs2rel_url()) || options.ret_delete_comment() || options.ret_delete_javascript()) && !outfile_bad;
   bool abs2rel = options.ret_with_hostname_dir() && options.ret_abs2rel_url() && !outfile_bad;
   URLcontainer urlcon;
   try {
@@ -548,8 +548,8 @@ URLcontainer HTMLparse::find_css(string line, Options& options) {
       // filter by file extension here
       if(options.ret_use_down_filter() &&
 	 (!options.Is_in_activated_filter_down_target_list(urlcon.ret_Filename()) && !options.Is_in_activated_parse_target_list(urlcon.ret_Filename())) ||
-	 !options.ret_use_down_filter() &&
-	 options.Is_in_activated_filter_nodown_target_list(urlcon.ret_Filename())) {
+	 (!options.ret_use_down_filter() &&
+	 options.Is_in_activated_filter_nodown_target_list(urlcon.ret_Filename()))) {
 	if(options.ret_force_convert() && options.ret_with_hostname_dir()) {
 	  fcv_flag = true;
 	} else {
@@ -617,7 +617,7 @@ URLcontainer HTMLparse::find_css(string line, Options& options) {
 
 URLcontainer HTMLparse::get_href(Options& options)
 {
-  bool fsavefile = (options.ret_with_hostname_dir() && options.ret_abs2rel_url() || options.ret_delete_comment() || options.ret_delete_javascript()) && !outfile_bad;
+  bool fsavefile = ((options.ret_with_hostname_dir() && options.ret_abs2rel_url()) || options.ret_delete_comment() || options.ret_delete_javascript()) && !outfile_bad;
   bool abs2rel = options.ret_with_hostname_dir() && options.ret_abs2rel_url() && !outfile_bad;
   //bool keylink_flag = false;
   //if(keylink_list.size()) keylink_flag = true;
@@ -796,8 +796,8 @@ HTMLparse::HTMLparse(const string& base_url_in,
   documentroot_dir = documentroot_dir_in;
   baseHref = "";
 
-  if(static_options_in.ret_with_hostname_dir() &&
-     static_options_in.ret_abs2rel_url() ||
+  if((static_options_in.ret_with_hostname_dir() &&
+     static_options_in.ret_abs2rel_url()) ||
      static_options_in.ret_delete_comment() ||
      static_options_in.ret_delete_javascript()) {
     unsigned int pos = documentroot_dir.size();

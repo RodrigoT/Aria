@@ -2853,7 +2853,7 @@ void ItemOption::setOptionValues(ItemCell *itemcell_in,
 
   // URL page
   if(itemcell == g_consoleItem ||
-     listentry != NULL && itemcell == listentry->ret_Default_item() ||
+     (listentry != NULL && itemcell == listentry->ret_Default_item()) ||
      multipleSelectionFlag) {
     gtk_widget_set_sensitive(url_entry, FALSE);
     gtk_widget_set_sensitive(crc_entry, FALSE);
@@ -3887,7 +3887,7 @@ int ItemOption::Process_changes()
 	int rowindex = gtk_clist_find_row_from_data(GTK_CLIST(itemlist), itemcell);
 	listentry->Set_clist_column__crc(rowindex, crc_string);
       }
-    } else if(crc_string.size() != 4 && crc_string.size() != 8 ||
+    } else if((crc_string.size() != 4 && crc_string.size() != 8) ||
 	      (crc = stoui(crc_string, 16)) == ULONG_MAX && errno == ERANGE) {
       // release lock
       itemcell->release_CRC_Lock();
@@ -4024,7 +4024,7 @@ int ItemOption::Process_changes()
   if(g_itemManagerPaste->search_item(itemcell)) {
     node = GTK_CLIST(itemlist)->selection;
   } else if(itemcell == g_consoleItem ||
-	    listentry != NULL && itemcell == listentry->ret_Default_item()) {
+	    (listentry != NULL && itemcell == listentry->ret_Default_item())) {
     itemcell->get_Options_Lock();
     itemcell->set_Options_opt(options_opt);
     itemcell->release_Options_Lock();

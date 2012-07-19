@@ -63,7 +63,7 @@ time_t TimerData::get_correct_time(int hour, int min, bool force_next_day)
   time_t curtime = time(NULL);
   struct tm *tmst = localtime(&curtime);
 
-  if(force_next_day || tmst->tm_hour > hour || tmst->tm_hour == hour && tmst->tm_min > min) {
+  if(force_next_day || tmst->tm_hour > hour || (tmst->tm_hour == hour && tmst->tm_min > min)) {
     // set next day
     //cerr << "update" << endl;
     ++(tmst->tm_mday);

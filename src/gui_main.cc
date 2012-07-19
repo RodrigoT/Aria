@@ -103,7 +103,7 @@ GtkWidget *sg_sumInfoErrLabel;
 //  GdkBitmap *g_statIconMask[ICON_TOTAL];
 PasteWindow *g_pasteWindow;
 
-GdkBitmap *sg_progressBarMask[51];
+//GdkBitmap *sg_progressBarMask[51];
 GdkPixbuf *sg_progressBar[51];
 
 static GtkWidget *sg_speedScale;
@@ -628,9 +628,9 @@ static void Create_progress_bar()
   a[50] = progress50_xpm;
 
   for(int i = 0; i <= 50; ++i) {
-    GdkBitmap *mask;
+    //GdkBitmap *mask;
     sg_progressBar[i] = gdk_pixbuf_new_from_xpm_data((const char **)a[i]);
-    sg_progressBarMask[i] = mask;
+    //sg_progressBarMask[i] = mask;
   }
 }
 

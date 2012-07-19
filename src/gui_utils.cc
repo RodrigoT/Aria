@@ -257,7 +257,7 @@ int findNearestSelectedRow(GtkWidget *clist, unsigned int row_current)
     rowindex = GPOINTER_TO_UINT(node->data);
     diff = abs((int)(row_current-row_nearest))-abs((int)(row_current-rowindex));
     if(row_current != rowindex &&
-       (diff == 0 && row_nearest > rowindex || diff > 0)) {
+       ((diff == 0 && row_nearest > rowindex) || diff > 0)) {
       row_nearest = rowindex;
     }
     node = g_list_next(node);

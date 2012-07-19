@@ -1981,8 +1981,8 @@ void AppOption::Process_changes()
   }
   gtk_clist_append(GTK_CLIST(statusIconPreviewList), titles);
 
-  if(use_size_human_readable && !use_size_human_readable_temp ||
-     !use_size_human_readable && use_size_human_readable_temp) {
+  if((use_size_human_readable && !use_size_human_readable_temp) ||
+     (!use_size_human_readable && use_size_human_readable_temp)) {
     for(list<ListEntry*>::const_iterator itr = g_listManager->ret_Listentry_list().begin(); itr != g_listManager->ret_Listentry_list().end(); ++itr) {
       (*itr)->setSizeDisplayStyle(use_size_human_readable);
     }

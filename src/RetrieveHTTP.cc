@@ -213,11 +213,11 @@ void RetrieveHTTP::Send_Request(const Socket& sock, unsigned int startingbyte)
   command += command_line;
 
   //Cache control
-  if(itemcell->ret_Options().ret_use_http_proxy() &&
+  if((itemcell->ret_Options().ret_use_http_proxy() &&
      !itemcell->ret_Options().ret_http_proxy().ret_Server().empty() &&
-     !itemcell->ret_Options().ret_use_http_cache() ||
-     itemcell->ret_URL_Container().ret_Protocol() == "ftp:" &&
-     itemcell->ret_Options().ret_use_ftp_cache()) {
+     !itemcell->ret_Options().ret_use_http_cache()) ||
+     (itemcell->ret_URL_Container().ret_Protocol() == "ftp:" &&
+     itemcell->ret_Options().ret_use_ftp_cache())) {
     command_line = "Pragma: no-cache\r\n";
     itemcell->Send_message_to_gui(command_line, MSG_DOWNLOAD_SEND);
     command += command_line;
@@ -490,17 +490,17 @@ ItemCell::DownloadStatusType RetrieveHTTP::Download_Main()
       }
     }
 
-    if(itemcell->ret_Status() != ItemCell::ITEM_CRCERROR &&
+    if((itemcell->ret_Status() != ItemCell::ITEM_CRCERROR &&
        itemcell->ret_Status() != ItemCell::ITEM_EXECERROR &&
        itemcell->ret_Status() != ItemCell::ITEM_INUSE_AGAIN &&
        itemcell->ret_Status() != ItemCell::ITEM_DOWNLOAD_AGAIN &&
        itemcell->ret_Options().ret_downm_type() != Options::DOWNM_NORESUME &&
        itemcell->ret_Filename().size() &&
-       (!itemcell->Is_current_session_valid() ||
-	!itemcell->ret_current_session().Is_noresume() &&
+       (!itemcell->Is_current_session_valid()) ||
+	(!itemcell->ret_current_session().Is_noresume() &&
 	!itemcell->ret_current_session().Is_nodown() &&
 	!itemcell->ret_current_session().Is_getkeylink() &&
-	!itemcell->ret_current_session().Is_getkeylink_force())) {
+	!itemcell->ret_current_session().Is_getkeylink_force()))) {
       startingbyte = Get_starting_byte();
     }
     initialstatus = itemcell->ret_Status();
@@ -771,11 +771,11 @@ ItemCell::DownloadStatusType RetrieveHTTP::Download_Main()
 	//} else {
       //itemcell->set_Size_Total(httpcon.ret_ContentLength()+startingbyte);
       //}
-      if(itemcell->ret_Options().ret_Divide() > 1 && resume_allowed &&
-	 (!itemcell->Is_current_session_valid() ||
-	  !itemcell->ret_current_session().Is_nodown() &&
+      if((itemcell->ret_Options().ret_Divide() > 1 && resume_allowed &&
+	 (!itemcell->Is_current_session_valid()) ||
+	  (!itemcell->ret_current_session().Is_nodown() &&
 	  !itemcell->ret_current_session().Is_getkeylink() &&
-	  !itemcell->ret_current_session().Is_getkeylink_force())) {
+	  !itemcell->ret_current_session().Is_getkeylink_force()))) {
 	itemcell->set_Size_Current(0);
 	// check whether or not remote server suports resume
 	itemcell->Send_message_to_gui(_("Checking whether server supports resuming"), MSG_DOWNLOAD_INFO);
@@ -983,11 +983,11 @@ void RetrieveHTTP::Start_Download(const Socket& socket, unsigned int startingbyt
        itemcell->ret_current_session().Is_nodown()) {
       throw ItemCell::ITEM_ENEXTSTAGE;
     }
-    if(((itemcell->ret_Size_Total() == 0 || itemcell->ret_Options().ret_use_http_proxy() && !itemcell->ret_Options().ret_http_proxy().ret_Server().empty()) &&
+    if(((itemcell->ret_Size_Total() == 0 || (itemcell->ret_Options().ret_use_http_proxy() && !itemcell->ret_Options().ret_http_proxy().ret_Server().empty()) &&
 	itemcell->Is_current_session_valid() &&
-	itemcell->ret_current_session().Is_getkeylink()) ||
-       itemcell->Is_current_session_valid() &&
-       itemcell->ret_current_session().Is_getkeylink_force()) {
+	itemcell->ret_current_session().Is_getkeylink())) ||
+       (itemcell->Is_current_session_valid() &&
+       itemcell->ret_current_session().Is_getkeylink_force())) {
       tempfilename = filename+"."+itos(time(NULL))+itos((int)((float)100*random()/(RAND_MAX+1.0)));
       downloadmode = EMBEDED_URL_MODE;
       outfile.open(tempfilename.c_str(), ios::out|ios::trunc|ios::binary);
