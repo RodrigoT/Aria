@@ -640,6 +640,7 @@ void ListEntry::Create_dl_clist()
 		GtkTreeViewColumn *col = gtk_tree_view_column_new();
 		gtk_tree_view_append_column(GTK_TREE_VIEW(dl_table), col);
 		gtk_tree_view_column_set_title( col, titles[i]);
+		gtk_tree_view_column_set_resizable( col, (i != COL_ICON && i != COL_PROGRESS) );
 		if (i != 0 && i != 4)
 		{
 			GtkCellRenderer *renderer = gtk_cell_renderer_text_new();
@@ -655,9 +656,10 @@ void ListEntry::Create_dl_clist()
 	//gtk_object_set_user_data(GTK_OBJECT(dl_clist), (void *)this);
 
 	// セレクションモードをMULTIPLEに設定
-/*	gtk_clist_set_selection_mode(GTK_LIST_STORE(dl_clist), GTK_SELECTION_MULTIPLE);
+//	gtk_clist_set_selection_mode(GTK_LIST_STORE(dl_clist), GTK_SELECTION_MULTIPLE);
+	gtk_tree_selection_set_mode(gtk_tree_view_get_selection(GTK_TREE_VIEW(dl_table)), GTK_SELECTION_MULTIPLE);
 
-	gtk_clist_set_button_actions(GTK_CLIST(dl_clist),
+/*	gtk_clist_set_button_actions(GTK_CLIST(dl_clist),
 	                             2,
 	                             GTK_BUTTON_SELECTS);
 
@@ -699,10 +701,6 @@ void ListEntry::Create_dl_clist()
 	gtk_clist_set_column_width(GTK_CLIST(dl_clist), COL_STATUS, 150);
 	gtk_clist_set_column_width(GTK_CLIST(dl_clist), COL_RETRY, 60);
 	gtk_clist_set_column_width(GTK_CLIST(dl_clist), COL_REC, 60);
-*/
-	// resizeability
-/*	gtk_clist_set_column_resizeable(GTK_CLIST(dl_clist), COL_ICON, FALSE);
-	gtk_clist_set_column_resizeable(GTK_CLIST(dl_clist), COL_PROGRESS, FALSE);
 */
 	// modified 2001/3/19
 	//gtk_clist_set_column_width(GTK_CLIST(dl_clist), COL_SAVE, 400);
@@ -843,6 +841,7 @@ int ListEntry::Append_dl_item(char *clist_item[], ItemCell *itemcell)
 	//int rowindex = gtk_clist_append(GTK_CLIST(dl_clist), clist_item);
 	//gtk_clist_set_row_data(GTK_CLIST(dl_clist), rowindex, itemcell);
 	item_manager->regist_item_back(itemcell);
+	updateRow(items.size()-1);
 
 	return items.size()-1;
 }
@@ -856,7 +855,9 @@ int ListEntry::Insert_dl_item(char *clist_item[], ItemCell *itemcell, ItemCell *
 	++it;
 	items.insert(it, itemcell);
 	item_manager->regist_item_back(itemcell);
-	return it - items.begin();
+	std::size_t pos = it - items.begin();
+	updateRow(pos);
+	return pos;
 }
 
 ItemCell *ListEntry::ret_Default_item()
@@ -1155,6 +1156,153 @@ void ListEntry::Set_clist_column__save(int rowindex, const string& save_string)
 	GtkTreeIter iter;
 	gtk_tree_model_iter_nth_child (GTK_TREE_MODEL(dl_model), &iter, NULL, rowindex);
 	gtk_list_store_set (dl_model, &iter, COL_SAVE, save_string.c_str(), -1);
+}
+
+void ListEntry::updateRow(int rowIndex, int columnIndex)
+{
+	GtkTreeIter iter;
+	gtk_tree_model_iter_nth_child (GTK_TREE_MODEL(dl_model), &iter, NULL, rowIndex);
+	ItemCell* item = items [rowIndex];
+
+	if (columnIndex == COL_ICON || columnIndex == COL_STATUS || columnIndex == -1)
+	{
+		switch(item->ret_Status()) {
+		case ItemCell::ITEM_READY:
+		case ItemCell::ITEM_READY_AGAIN:
+		case ItemCell::ITEM_INUSE:
+		case ItemCell::ITEM_INUSE_AGAIN:
+			//case ITEM_INUSE_CONCAT:
+			gtk_list_store_set (dl_model, &iter, COL_ICON, statusIcon[ICON_READY], -1);//, statusIconMask[ICON_READY]);
+			gtk_list_store_set (dl_model, &iter, COL_STATUS, _("READY"), -1);
+			break;
+
+		case ItemCell::ITEM_DOWNLOAD_PARTIAL:
+			gtk_list_store_set (dl_model, &iter, COL_ICON, statusIcon[ICON_DIVIDE], -1);
+			gtk_list_store_set (dl_model, &iter, COL_STATUS, _("DIVIDED"), -1);
+			break;
+
+		case ItemCell::ITEM_READY_CONCAT:
+		case ItemCell::ITEM_INUSE_CONCAT:
+			gtk_list_store_set (dl_model, &iter, COL_ICON, statusIcon[ICON_DIVIDE], -1);
+			gtk_list_store_set (dl_model, &iter, COL_STATUS, _("READY TO CONCAT"), -1);
+			break;
+
+		case ItemCell::ITEM_CRCERROR:
+			gtk_list_store_set (dl_model, &iter, COL_ICON, statusIcon[ICON_ERROR], -1);
+			gtk_list_store_set (dl_model, &iter, COL_STATUS, _("CRC ERROR"), -1);
+			break;
+		case ItemCell::ITEM_EXECERROR:
+			gtk_list_store_set (dl_model, &iter, COL_ICON, statusIcon[ICON_ERROR], -1);
+			gtk_list_store_set (dl_model, &iter, COL_STATUS, _("EXEC ERROR"), -1);
+			break;
+		case ItemCell::ITEM_ERROR:
+			gtk_list_store_set (dl_model, &iter, COL_ICON, statusIcon[ICON_ERROR], -1);
+			gtk_list_store_set (dl_model, &iter, COL_STATUS, _("DOWNLOAD ERROR"), -1);
+			break;
+
+		case ItemCell::ITEM_STOP:
+			gtk_list_store_set (dl_model, &iter, COL_ICON, statusIcon[ICON_STOP], -1);
+			gtk_list_store_set (dl_model, &iter, COL_STATUS, _("STOPPED"), -1);
+			break;
+
+		case ItemCell::ITEM_LOCK:
+			gtk_list_store_set (dl_model, &iter, COL_ICON, statusIcon[ICON_LOCK], -1);
+			gtk_list_store_set (dl_model, &iter, COL_STATUS, _("LOCKED"), -1);
+			break;
+
+		case ItemCell::ITEM_DOWNLOAD:
+		case ItemCell::ITEM_DOWNLOAD_AGAIN:
+		case ItemCell::ITEM_DOWNLOAD_INTERNAL_AGAIN:
+			gtk_list_store_set (dl_model, &iter, COL_ICON, statusIcon[ICON_DOWNLOAD], -1);
+			gtk_list_store_set (dl_model, &iter, COL_STATUS, _("DOWNLOADING"), -1);
+			break;
+
+		case ItemCell::ITEM_COMPLETE:
+			gtk_list_store_set (dl_model, &iter, COL_ICON, statusIcon[ICON_COMPLETE], -1);
+			gtk_list_store_set (dl_model, &iter, COL_STATUS, _("DOWNLOAD COMPLETE"), -1);
+			break;
+
+		default:
+			break;
+		}
+	}
+	if (columnIndex == COL_FILENAME || columnIndex == -1)
+	{
+		string fix;
+		if(item->ret_Filename().empty()) {
+			fix = _("<directory>");
+		} else {
+			fix = item->ret_Filename();
+		}
+		gtk_list_store_set (dl_model, &iter, COL_FILENAME, fix.c_str(), -1);
+	}
+	if (columnIndex == COL_CURSIZE || columnIndex == -1)
+	{
+		gtk_list_store_set (dl_model, &iter, COL_CURSIZE, get_human_readable_size(item->ret_Size_Current()).c_str(), -1);
+	}
+	if (columnIndex == COL_TOTSIZE || columnIndex == -1)
+	{
+		gtk_list_store_set (dl_model, &iter, COL_TOTSIZE, get_human_readable_size(item->ret_Size_Total()).c_str(), -1);
+	}
+	if (columnIndex == COL_PROGRESS || columnIndex == -1)
+	{
+		int progress = 0;
+		if(item->ret_Size_Total() != 0) {
+		  progress = (int)(100.0*((float)item->ret_Size_Current()/item->ret_Size_Total()));//fixed 2001/3/18
+		}
+		int index = progress/2;
+		if(index > 50) {
+			index = 0;
+		}
+		gtk_list_store_set (dl_model, &iter, COL_PROGRESS, sg_progressBar[index], -1);
+	}
+	if (columnIndex == COL_SPEED || columnIndex == -1)
+	{//TODO:
+		//gtk_list_store_set (dl_model, &iter, COL_SPEED, speed_string.c_str(), -1);
+		gtk_list_store_set (dl_model, &iter, COL_SPEED, "", -1);
+	}
+	if (columnIndex == COL_RTIME || columnIndex == -1)
+	{//TODO
+		gtk_list_store_set (dl_model, &iter, COL_RTIME, "", -1);
+	}
+	if (columnIndex == COL_RETRY || columnIndex == -1)
+	{
+		string try_string = itos(item->ret_Count())+'/';
+		if(item->ret_Options_opt().ret_Retry() == -1) {
+			try_string += '-';
+		} else {
+			try_string += itos(item->ret_Options_opt().ret_Retry());
+		}
+		gtk_list_store_set (dl_model, &iter, COL_RETRY, try_string.c_str(), -1);
+	}
+	if (columnIndex == COL_REC || columnIndex == -1)
+	{//TODO: the item should take care to return the correct value per protocol
+		if(item->ret_URL_Container().ret_Protocol() == "http:"
+#ifdef HAVE_OPENSSL
+		   || item->ret_URL_Container().ret_Protocol() == "https:"
+#endif // HAVE_OPENSSL
+		   ) {
+			gtk_list_store_set (dl_model, &iter, COL_REC, itos(item->ret_Options().ret_recurse_count()).c_str(), -1);
+		} else {
+			gtk_list_store_set (dl_model, &iter, COL_REC, itos(item->ret_Options().ret_FTP_recurse_count()).c_str(), -1);
+		}
+	}
+	if (columnIndex == COL_CRC || columnIndex == -1)
+	{//TODO
+		gtk_list_store_set (dl_model, &iter, COL_CRC, "", -1);
+	}
+	if (columnIndex == COL_MD5 || columnIndex == -1)
+	{//TODO
+		gtk_list_store_set (dl_model, &iter, COL_MD5, "", -1);
+	}
+	if (columnIndex == COL_SAVE || columnIndex == -1)
+	{
+		gtk_list_store_set (dl_model, &iter, COL_SAVE, item->ret_Options_opt().ret_Store_Dir().c_str(), -1);
+	}
+	if (columnIndex == COL_URL || columnIndex == -1)
+	{
+		gtk_list_store_set (dl_model, &iter, COL_URL, item->ret_URL().c_str(), -1);
+	}
 }
 
 // deletes matched items. unmatched items are returned

@@ -49,6 +49,7 @@
 #define MWHEIGHT 480
 
 // definition for the columns of clist
+// TODO: To enumerate inside ListEntry.h !
 #define COL_ICON 0
 #define COL_FILENAME 1
 #define COL_CURSIZE 2

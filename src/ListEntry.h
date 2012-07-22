@@ -90,6 +90,7 @@ public:
   void Set_clist_column__save(int rowindex, const string& save_string);
   void Set_clist_column__try(int rowindex, int currentCount, int maxCount);
   void Set_clist_column__icon(int rowindex , ItemCell::ItemStatusType status);
+  void updateRow(int rowIndex, int columnIndex = -1); // col -1 means full row
 
   void Sort_by_filename(GtkSortType stype);
   void Sort_by_extension(GtkSortType stype);
