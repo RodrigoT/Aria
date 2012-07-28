@@ -251,8 +251,9 @@ static bool Download_start_sub(ItemCell *itemcell, int rowindex, ListEntry *list
 	//suminfo.dec_stop();
       }
 
-      itemcell->set_Status(ItemCell::ITEM_READY);
-      listentry->Set_clist_column__icon(rowindex, ItemCell::ITEM_READY);
+      //itemcell->set_Status(ItemCell::ITEM_READY);
+      //listentry->Set_clist_column__icon(rowindex, ItemCell::ITEM_READY);
+	  listentry->updateRow(rowindex, COL_STATUS);
 
       retval = true;
       break;
@@ -284,10 +285,11 @@ gboolean Download_start(GtkWidget *w, gpointer data)
 {
   ListEntry *listentry = g_listManager->ret_Current_listentry();
 
-  GtkWidget *clist = listentry->ret_Dl_clist();
+  //GtkWidget *clist = listentry->ret_Dl_clist();
 
-  GList *node = GTK_CLIST(clist)->selection;
-  if(node == NULL) {
+  //GList *node = GTK_CLIST(clist)->selection;
+  GtkTreeSelection *sel = gtk_tree_view_get_selection(GTK_TREE_VIEW(listentry->ret_Dl_clist()));
+  if(gtk_tree_selection_count_selected_rows(sel) == 0) {
     return TRUE;
   }
 
@@ -296,22 +298,29 @@ gboolean Download_start(GtkWidget *w, gpointer data)
 
   // int count added 2001/3/21
   int count = 0;
-  while(node) {
-    int rowindex = GPOINTER_TO_UINT(node->data);
-    ItemCell *itemcell = (ItemCell *)gtk_clist_get_row_data(GTK_CLIST(clist), rowindex);
+  GList *list = gtk_tree_selection_get_selected_rows(sel, NULL);
+  while(list) {
+    //int rowindex = GPOINTER_TO_UINT(node->data);
+	
+    gint pathdepth;
+	gint *indices = gtk_tree_path_get_indices_with_depth ((GtkTreePath*)list->data, &pathdepth);
+	gint rowindex = indices[pathdepth-1];
+    ItemCell *itemcell = listentry->getItemCellByRow(rowindex);
     if(Download_start_sub(itemcell, rowindex, listentry)) {
       ++count;
     }
-    node = g_list_next(node);
+    list = g_list_next(list);
   }
+  g_list_foreach (list, (GFunc) gtk_tree_path_free, NULL);
+  g_list_free (list);
   if(g_appOption->isForceDownloadNowEnabled()) {
     int diff = 0;
     diff = count+listentry->getThreadManager()->getTotalThread()-listentry->getThreadLimit();
     
     if(diff > 0) {
-      list<int> activeRowList = listentry->getActiveRowList();
+      std::list<int> activeRowList = listentry->getActiveRowList();
       
-      list<int>::iterator itr = activeRowList.begin();
+      std::list<int>::iterator itr = activeRowList.begin();
       while(itr != activeRowList.end() && (int)activeRowList.size() > diff) {
 	++itr;
 	++diff;
@@ -654,10 +663,11 @@ void Download_download_again_sub(ItemCell *itemcell, int rowindex, ListEntry *li
       itemcell->set_Size_Total(0);
 
       ListEntry *listentry = g_listManager->ret_Current_listentry();
-      listentry->Set_clist_column__icon(rowindex, itemcell->ret_Status());
-      listentry->Set_clist_column__cursize(rowindex, itos(itemcell->ret_Size_Current()));
-      listentry->Set_clist_column__totsize(rowindex, itos(itemcell->ret_Size_Total()));
-      listentry->Set_clist_column__progress(rowindex, 0);
+      //listentry->Set_clist_column__icon(rowindex, itemcell->ret_Status());
+      //listentry->Set_clist_column__cursize(rowindex, itos(itemcell->ret_Size_Current()));
+      //listentry->Set_clist_column__totsize(rowindex, itos(itemcell->ret_Size_Total()));
+      //listentry->Set_clist_column__progress(rowindex, 0);
+	  listentry->updateRow(rowindex);
 
       break;
     }
@@ -735,10 +745,11 @@ void Download_download_again_sub(ItemCell *itemcell, int rowindex, ListEntry *li
 	itemcell->set_Size_Current(0);
 	itemcell->set_Size_Total(0);
 
-	listentry->Set_clist_column__icon(rowindex, itemcell->ret_Status());
-	listentry->Set_clist_column__cursize(rowindex, itos(itemcell->ret_Size_Current()));
-	listentry->Set_clist_column__totsize(rowindex, itos(itemcell->ret_Size_Total()));
-	listentry->Set_clist_column__progress(rowindex, 0);
+	//listentry->Set_clist_column__icon(rowindex, itemcell->ret_Status());
+	//listentry->Set_clist_column__cursize(rowindex, itos(itemcell->ret_Size_Current()));
+	//listentry->Set_clist_column__totsize(rowindex, itos(itemcell->ret_Size_Total()));
+	//listentry->Set_clist_column__progress(rowindex, 0);
+	listentry->updateRow(rowindex);
 
 	
 	if(GTK_CLIST(listentry->ret_Dl_clist())->selection <= 0) {
@@ -760,16 +771,23 @@ gboolean Download_download_again(GtkWidget *w, gpointer data)
 {
   ListEntry *listentry = g_listManager->ret_Current_listentry();
   listentry->get_Dl_clist_lock();
+  GtkTreeSelection *sel = gtk_tree_view_get_selection(GTK_TREE_VIEW(listentry->ret_Dl_clist()));
 
-  GList *node = GTK_CLIST(listentry->ret_Dl_clist())->selection;
+  //GList *node = GTK_CLIST(listentry->ret_Dl_clist())->selection;
+  GList *list = gtk_tree_selection_get_selected_rows(sel, NULL);
 
-  while(node) {
-    unsigned int rowindex = GPOINTER_TO_UINT(node->data);
-    ItemCell *itemcell = (ItemCell*)gtk_clist_get_row_data(GTK_CLIST(listentry->ret_Dl_clist()), rowindex);
+  while(list) {
+    gint pathdepth;
+	gint *indices = gtk_tree_path_get_indices_with_depth ((GtkTreePath*)list->data, &pathdepth);
+	gint rowindex = indices[pathdepth-1];
+    //unsigned int rowindex = GPOINTER_TO_UINT(node->data);
+    ItemCell *itemcell = listentry->getItemCellByRow(rowindex);
 
     Download_download_again_sub(itemcell, rowindex, listentry);
-    node = g_list_next(node);   
+    list = g_list_next(list);   
   }
+  g_list_foreach (list, (GFunc) gtk_tree_path_free, NULL);
+  g_list_free (list);
   listentry->Send_start_signal();
   listentry->release_Dl_clist_lock();
 
@@ -808,7 +826,8 @@ void Download_stop_sub(ItemCell *itemcell, int rowindex, ListEntry *listentry, b
 	// item status is ITEM_CRCERROR or ITEM_ERROR and not are driven by
 	// download thread
       } else {//modified 2001/3/2
-	listentry->Set_clist_column__icon(rowindex, ItemCell::ITEM_STOP);
+	//listentry->Set_clist_column__icon(rowindex, ItemCell::ITEM_STOP);
+	  listentry->updateRow(rowindex, COL_STATUS);
       }
       break;
     }
@@ -816,7 +835,8 @@ void Download_stop_sub(ItemCell *itemcell, int rowindex, ListEntry *listentry, b
   case ItemCell::ITEM_READY_AGAIN:
     {
       itemcell->set_Status(ItemCell::ITEM_STOP);
-      listentry->Set_clist_column__icon(rowindex, ItemCell::ITEM_STOP);
+      //listentry->Set_clist_column__icon(rowindex, ItemCell::ITEM_STOP);
+	  listentry->updateRow(rowindex, COL_STATUS);
       break;
     }
   case ItemCell::ITEM_DOWNLOAD_PARTIAL:

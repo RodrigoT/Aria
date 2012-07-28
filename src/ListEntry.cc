@@ -27,8 +27,8 @@
 extern void dragged_to_download_list(GtkWidget *, GdkDragContext *, int, int, GtkSelectionData *, unsigned int, unsigned int);
 extern void Set_sensitive__no_item_selected();
 extern void Set_sensitive__items_selected();
-extern void Set_speed_scale(GtkWidget *dl_clist, int rowindex);
-extern void Show_download_log(GtkWidget *dl_clist, int rowindex);
+extern void Set_speed_scale(ItemCell* itemcell);
+extern void Show_download_log(ItemCell* itemcell);
 extern ItemOption *g_itemOption;
 
 extern GtkWidget *g_popupMenu;
@@ -36,6 +36,8 @@ extern int g_threadLimit;
 extern pthread_mutex_t g_appLock;
 extern GdkBitmap *sg_progressBarMask[51];
 extern GdkPixmap *sg_progressBar[51];
+
+bool ListEntry::useHumanReadable;
 
 static void
 dlCList_rowMove_cb(GtkCList *clist,
@@ -93,32 +95,37 @@ ListEntry::dlCList_unselectRow(int row,
                                int column,
                                GdkEventButton *event)
 {
-	/*    switch(event->button) {
+	std::cout << "unselect " << row << std::endl;
+		ItemCell* itemcell = items[row] ;
+		GtkTreeSelection* selection = gtk_tree_view_get_selection(GTK_TREE_VIEW(dl_table));
+	    switch(event->button) {
 	    case 1:
 	        if(event->state & (GDK_CONTROL_MASK | GDK_SHIFT_MASK)) {
 	            //      GList *node = GTK_CLIST(dl_clist)->selection;
-	            GtkTreeSelection* selection = gtk_tree_view_get_selection(dl_table);
 	            if(gtk_tree_selection_count_selected_rows(selection) == 0) {
 	                Set_sensitive__no_item_selected();
 	            } else {
-	                gtk_clist_unselect_row(GTK_CLIST(dl_clist), row, 0);
+	                //gtk_clist_unselect_row(GTK_CLIST(dl_clist), row, 0);
 	                //	GList *node = GTK_CLIST(dl_clist)->selection;
-	                GtkTreeSelection* selection = gtk_tree_view_get_selection(dl_table);
+					GtkTreeIter iter;
+					gtk_tree_model_iter_nth_child (GTK_TREE_MODEL(dl_model), &iter, NULL, row);
+					gtk_tree_selection_unselect_iter(gtk_tree_view_get_selection(GTK_TREE_VIEW(dl_table)), &iter);
 	                if(gtk_tree_selection_count_selected_rows(selection) == 0) {
 	                    Set_sensitive__no_item_selected();
 	                }
 	            }
 	        } else {
 	            //GList *node = GTK_CLIST(dl_clist)->selection;
-	            GtkTreeSelection* selection = gtk_tree_view_get_selection(dl_table);
 	            if(gtk_tree_selection_count_selected_rows(selection) != 0) {
 	                //gtk_clist_unselect_all(GTK_CLIST(dl_clist));
 	                gtk_tree_selection_unselect_all(selection);
 	                //gtk_clist_select_row(GTK_CLIST(dl_clist), row, 0);
-	                gtk_tree_selection_select_path(selection, );
+					GtkTreeIter iter;
+					gtk_tree_model_iter_nth_child (GTK_TREE_MODEL(dl_model), &iter, NULL, row);
+					gtk_tree_selection_select_iter(gtk_tree_view_get_selection(GTK_TREE_VIEW(dl_table)), &iter);
 	                Set_sensitive__items_selected();
-	                Set_speed_scale(dl_clist, row);
-	                Show_download_log(dl_clist, row);
+	                Set_speed_scale(itemcell);
+	                Show_download_log(itemcell);
 	            } else {
 	                Set_sensitive__no_item_selected();
 	            }
@@ -127,9 +134,12 @@ ListEntry::dlCList_unselectRow(int row,
 	    case 2:
 	    case 3:
 	    {
-	        gtk_clist_select_row(GTK_CLIST(dl_clist), row, 0);
-	        Set_speed_scale(dl_clist, row);
-	        Show_download_log(dl_clist, row);
+	        //gtk_clist_select_row(GTK_CLIST(dl_clist), row, 0);
+			GtkTreeIter iter;
+			gtk_tree_model_iter_nth_child (GTK_TREE_MODEL(dl_model), &iter, NULL, row);
+			gtk_tree_selection_select_iter(gtk_tree_view_get_selection(GTK_TREE_VIEW(dl_table)), &iter);
+	        Set_speed_scale(itemcell);
+	        Show_download_log(itemcell);
 	        Set_sensitive__items_selected();
 
 	        gtk_menu_popup(GTK_MENU(g_popupMenu),
@@ -142,7 +152,6 @@ ListEntry::dlCList_unselectRow(int row,
 	        break;
 	    }
 	    }
-	*/
 	return;
 }
 
@@ -151,8 +160,10 @@ ListEntry::dlCList_selectRow(int row,
                              int column,
                              GdkEventButton *event)
 {
-	/*    if(event->type == GDK_2BUTTON_PRESS) {
-	        ItemCell* itemcell = (ItemCell*)gtk_clist_get_row_data(GTK_CLIST(dl_clist), row);
+	std::cout << "select " << row << std::endl;
+		ItemCell* itemcell = items[row] ;
+
+	    if(event->type == GDK_2BUTTON_PRESS) {
 	        g_itemOption->setOptionValues(itemcell,
 	                                      itemcell->ret_Options_opt(),
 	                                      this);
@@ -162,10 +173,10 @@ ListEntry::dlCList_selectRow(int row,
 	        switch(event->button) {
 	        case 1:
 	            if(event->state & GDK_CONTROL_MASK) {
-	                Set_speed_scale(dl_clist, row);
-	                Show_download_log(dl_clist, row);
+	                Set_speed_scale(itemcell);
+	                Show_download_log(itemcell);
 	            } else if(event->state & GDK_SHIFT_MASK) {
-	                int nearestSelectedRow = findNearestSelectedRow(dl_clist, row);
+/*	                int nearestSelectedRow = findNearestSelectedRow(dl_clist, row);
 	                if(nearestSelectedRow < row) {
 	                    for(int index = nearestSelectedRow+1; index < row; ++index) {
 	                        gtk_clist_select_row(GTK_CLIST(dl_clist), index, 0);
@@ -174,24 +185,27 @@ ListEntry::dlCList_selectRow(int row,
 	                    for(int index = row+1; index < nearestSelectedRow; ++index) {
 	                        gtk_clist_select_row(GTK_CLIST(dl_clist), index, 0);
 	                    }
-	                }
-	                Set_speed_scale(dl_clist, row);
-	                Show_download_log(dl_clist, row);
+	                }*/
+	                Set_speed_scale(itemcell);
+	                Show_download_log(itemcell);
 	            } else {// with no mask
-	                gtk_clist_unselect_all(GTK_CLIST(dl_clist));
-	                gtk_clist_select_row(GTK_CLIST(dl_clist), row, 0);
-	                Set_speed_scale(dl_clist, row);
-	                Show_download_log(dl_clist, row);
+					gtk_tree_selection_unselect_all(gtk_tree_view_get_selection(GTK_TREE_VIEW(dl_table)));
+	                //gtk_clist_select_row(GTK_CLIST(dl_clist), row, 0);
+					GtkTreeIter iter;
+					gtk_tree_model_iter_nth_child (GTK_TREE_MODEL(dl_model), &iter, NULL, row);
+					gtk_tree_selection_select_iter(gtk_tree_view_get_selection(GTK_TREE_VIEW(dl_table)), &iter);
+	                Set_speed_scale(itemcell);
+	                Show_download_log(itemcell);
 	            }
 	            Set_sensitive__items_selected();
 	            break;
 	        case 2:
 	        case 3:
 	        {
-	            gtk_clist_unselect_all(GTK_CLIST(dl_clist));
-	            gtk_clist_select_row(GTK_CLIST(dl_clist), row, 0);
-	            Set_speed_scale(dl_clist, row);
-	            Show_download_log(dl_clist, row);
+	            //gtk_clist_unselect_all(GTK_CLIST(dl_clist));
+	            //gtk_clist_select_row(GTK_CLIST(dl_clist), row, 0);
+	            Set_speed_scale(itemcell);
+	            Show_download_log(itemcell);
 	            Set_sensitive__items_selected();
 
 	            gtk_menu_popup(GTK_MENU(g_popupMenu),
@@ -206,7 +220,58 @@ ListEntry::dlCList_selectRow(int row,
 	        default:
 	            break;
 	        }
-	    }*/
+	    }
+}
+
+/*gboolean view_selection_func (GtkTreeSelection *selection,
+		GtkTreeModel     *model,
+		GtkTreePath      *path,
+		gboolean          path_currently_selected,
+		gpointer          userdata)
+{
+	GtkTreeIter iter;
+
+    if (gtk_tree_model_get_iter(model, &iter, path))
+    {
+		std::cout << "SelectFunction " << gtk_tree_model_get_string_from_iter(model, &iter) << std::endl;
+	}
+	return TRUE; // allow selection state to change
+}*/
+
+/*static void evt_selection_changed(GtkTreeSelection *ts, gpointer user)
+{
+	std::cout << "Selection signal" << std::endl;
+}
+*/
+static gboolean evt_dirpane_button_press(GtkWidget *wid, GdkEventButton *event, gpointer user)
+{
+	std::cout << "Click" << std::endl;
+	GtkTreeView* gtv = GTK_TREE_VIEW(wid);
+	GtkTreePath *path;
+	if (gtk_tree_view_get_path_at_pos(gtv, (gint) event->x, (gint) event->y, &path, NULL, NULL, NULL))
+	{
+		g_print ("\t\there\n");
+		GtkTreeIter iter;
+		GtkTreeModel *model = gtk_tree_view_get_model (gtv);
+		gtk_tree_model_get_iter (model, &iter, path);
+		std::cout << "SelectFunction " << gtk_tree_model_get_string_from_iter(model, &iter) << std::endl;
+		GtkTreeSelection* sel = gtk_tree_view_get_selection(gtv);
+
+		gint pathdepth;
+		gint *indices = gtk_tree_path_get_indices_with_depth (path, &pathdepth);
+		gint row = indices[pathdepth-1];
+		ListEntry* listEntry = (ListEntry*) user;
+		if (gtk_tree_selection_path_is_selected(sel, path))
+		{//already selected: unselect
+			dlCList_unselectRow_cb(wid, row, 0, event, listEntry);
+		}
+		else
+		{//do selection
+			dlCList_selectRow_cb(wid, row, 0, event, listEntry);
+		}
+	}
+	//return FALSE; //do not consume the event
+	return TRUE; // consume the event
 }
 
 ListEntry::ListEntry(const string& name_in,
@@ -630,8 +695,8 @@ void ListEntry::Create_dl_clist()
 
 	//create dl_clist(CLIST) with TOTALCOL columns
 	//dl_clist = gtk_clist_new_with_titles(TOTALCOL, titles);
-	dl_model = gtk_list_store_new(TOTALCOL, GDK_TYPE_PIXBUF, G_TYPE_STRING, G_TYPE_INT64, G_TYPE_INT64, GDK_TYPE_PIXBUF,//*,file,downloaded,total,%
-		G_TYPE_STRING, G_TYPE_STRING, G_TYPE_INT, G_TYPE_INT, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING, //speed,remainig,retry,recurse,status,crc,md5
+	dl_model = gtk_list_store_new(TOTALCOL, GDK_TYPE_PIXBUF, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING, GDK_TYPE_PIXBUF,//*,file,downloaded,total,%
+		G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING, //speed,remainig,retry,recurse,status,crc,md5
 		G_TYPE_STRING, G_TYPE_STRING);//save,url
 	dl_table = gtk_tree_view_new_with_model(GTK_TREE_MODEL(dl_model));
 
@@ -658,6 +723,10 @@ void ListEntry::Create_dl_clist()
 	// セレクションモードをMULTIPLEに設定
 //	gtk_clist_set_selection_mode(GTK_LIST_STORE(dl_clist), GTK_SELECTION_MULTIPLE);
 	gtk_tree_selection_set_mode(gtk_tree_view_get_selection(GTK_TREE_VIEW(dl_table)), GTK_SELECTION_MULTIPLE);
+	gtk_tree_view_set_rubber_banding(GTK_TREE_VIEW(dl_table), true);
+//	gtk_tree_selection_set_select_function(gtk_tree_view_get_selection(GTK_TREE_VIEW(dl_table)), view_selection_func, NULL, NULL);
+//	g_signal_connect(G_OBJECT(gtk_tree_view_get_selection(GTK_TREE_VIEW(dl_table))), "changed", G_CALLBACK(evt_selection_changed), NULL);
+	g_signal_connect(G_OBJECT(dl_table), "button_press_event", G_CALLBACK(evt_dirpane_button_press), this);
 
 /*	gtk_clist_set_button_actions(GTK_CLIST(dl_clist),
 	                             2,
@@ -835,12 +904,14 @@ GtkWidget *ListEntry::ret_Dl_clist()
 
 int ListEntry::Append_dl_item(char *clist_item[], ItemCell *itemcell)
 {
+	std::cout << "Append Item" << std::endl;
 	items.push_back(itemcell);
 	GtkTreeIter   iter;	
 	gtk_list_store_append(dl_model, &iter);
 	//int rowindex = gtk_clist_append(GTK_CLIST(dl_clist), clist_item);
 	//gtk_clist_set_row_data(GTK_CLIST(dl_clist), rowindex, itemcell);
 	item_manager->regist_item_back(itemcell);
+	//TODO: update row data
 	updateRow(items.size()-1);
 
 	return items.size()-1;
@@ -848,6 +919,7 @@ int ListEntry::Append_dl_item(char *clist_item[], ItemCell *itemcell)
 
 int ListEntry::Insert_dl_item(char *clist_item[], ItemCell *itemcell, ItemCell *itemcell_base)
 {
+	std::cout << "Insert Item" << std::endl;
 /*	int destindex = gtk_clist_find_row_from_data(GTK_CLIST(dl_clist), itemcell_base)+1;
 	int rowindex = gtk_clist_insert(GTK_CLIST(dl_clist), destindex, clist_item);
 	gtk_clist_set_row_data(GTK_CLIST(dl_clist), rowindex, itemcell);*/
@@ -855,6 +927,7 @@ int ListEntry::Insert_dl_item(char *clist_item[], ItemCell *itemcell, ItemCell *
 	++it;
 	items.insert(it, itemcell);
 	item_manager->regist_item_back(itemcell);
+	//TODO: update row data
 	std::size_t pos = it - items.begin();
 	updateRow(pos);
 	return pos;
@@ -915,8 +988,9 @@ void ListEntry::setStatusIcon(GdkPixbuf *pixmaps[], GdkBitmap *bitmaps[]) {
 	}
 //	gtk_clist_freeze(GTK_CLIST(dl_clist));
 	for(size_t rowindex = 0; rowindex < items.size(); ++rowindex) {
-		ItemCell *itemcell = items[rowindex];
-		Set_clist_column__icon(rowindex, itemcell->ret_Status());
+		//ItemCell *itemcell = items[rowindex];
+		//Set_clist_column__icon(rowindex, itemcell->ret_Status());
+		updateRow(rowindex, COL_STATUS);
 	}
 	// here
 
@@ -940,15 +1014,10 @@ void ListEntry::setStatusIcon(GdkPixbuf *pixmaps[], GdkBitmap *bitmaps[]) {
 void ListEntry::setSizeDisplayStyle(bool flagHumanReadable) {
 	pthread_mutex_lock(&dl_clist_lock);
 //	gtk_clist_freeze(GTK_CLIST(dl_clist));
+    useHumanReadable = flagHumanReadable;
 	for(size_t rowindex = 0; rowindex < items.size(); ++rowindex) {
-		ItemCell *itemcell = items[rowindex];
-		if(flagHumanReadable) {
-			Set_clist_column__cursize(rowindex, get_human_readable_size(itemcell->ret_Size_Current()));
-			Set_clist_column__totsize(rowindex, get_human_readable_size(itemcell->ret_Size_Total()));
-		} else {
-			Set_clist_column__cursize(rowindex, itos(itemcell->ret_Size_Current(), true));
-			Set_clist_column__totsize(rowindex, itos(itemcell->ret_Size_Total(), true));
-		}
+		updateRow(rowindex,COL_TOTSIZE);
+		updateRow(rowindex,COL_CURSIZE);
 	}
 //	gtk_clist_thaw(GTK_CLIST(dl_clist));
 	pthread_mutex_unlock(&dl_clist_lock);
@@ -980,14 +1049,14 @@ void ListEntry::Set_clist_column__cursize(int rowindex, const string& size_strin
 //	gtk_clist_set_text(GTK_CLIST(dl_clist), rowindex, COL_CURSIZE, size_string.c_str());
 }
 
-void ListEntry::Set_clist_column__totsize(int rowindex, const string& size_string)
+/*void ListEntry::Set_clist_column__totsize(int rowindex, const string& size_string)
 {
 	GtkTreeIter iter;
 	gtk_tree_model_iter_nth_child (GTK_TREE_MODEL(dl_model), &iter, NULL, rowindex);
 	gtk_list_store_set (dl_model, &iter, COL_TOTSIZE, size_string.c_str(), -1);
 //	gtk_clist_set_text(GTK_CLIST(dl_clist), rowindex, COL_TOTSIZE, size_string.c_str());
 }
-
+*/
 void ListEntry::Set_clist_column__progress(int rowindex, int progress)
 {
 	int index = progress/2;
@@ -1039,7 +1108,7 @@ void ListEntry::Set_clist_column__rec(int rowindex, const string& rec_string)
 	//gtk_clist_set_text(GTK_CLIST(dl_clist), rowindex, COL_REC, rec_string.c_str());
 }
 
-void ListEntry::Set_clist_column__status(int rowindex, const string& status_string)
+/*void ListEntry::Set_clist_column__status(int rowindex, const string& status_string)
 {
 	GtkTreeIter iter;
 	gtk_tree_model_iter_nth_child (GTK_TREE_MODEL(dl_model), &iter, NULL, rowindex);
@@ -1129,7 +1198,7 @@ void ListEntry::Set_clist_column__icon(int rowindex, ItemCell::ItemStatusType st
 	default:
 		break;
 	}
-}
+}*/
 
 void ListEntry::Set_clist_column__try(int rowindex, int currentCount, int maxCount)
 {
@@ -1146,6 +1215,7 @@ void ListEntry::Set_clist_column__try(int rowindex, int currentCount, int maxCou
 
 void ListEntry::Set_clist_column__url(int rowindex, const string& url_string)
 {
+	std::cout << "Set URL[" << rowindex << "]: " << url_string << std::endl;
 	GtkTreeIter iter;
 	gtk_tree_model_iter_nth_child (GTK_TREE_MODEL(dl_model), &iter, NULL, rowindex);
 	gtk_list_store_set (dl_model, &iter, COL_URL, url_string.c_str(), -1);
@@ -1238,11 +1308,21 @@ void ListEntry::updateRow(int rowIndex, int columnIndex)
 	}
 	if (columnIndex == COL_CURSIZE || columnIndex == -1)
 	{
-		gtk_list_store_set (dl_model, &iter, COL_CURSIZE, get_human_readable_size(item->ret_Size_Current()).c_str(), -1);
+		if (useHumanReadable)
+		{
+			gtk_list_store_set (dl_model, &iter, COL_CURSIZE, get_human_readable_size(item->ret_Size_Current()).c_str(), -1);
+		} else {
+			gtk_list_store_set (dl_model, &iter, COL_CURSIZE, itos(item->ret_Size_Current()).c_str(), -1);
+		}
 	}
 	if (columnIndex == COL_TOTSIZE || columnIndex == -1)
 	{
-		gtk_list_store_set (dl_model, &iter, COL_TOTSIZE, get_human_readable_size(item->ret_Size_Total()).c_str(), -1);
+		if (useHumanReadable)
+		{
+			gtk_list_store_set (dl_model, &iter, COL_TOTSIZE, get_human_readable_size(item->ret_Size_Total()).c_str(), -1);
+		} else {
+			gtk_list_store_set (dl_model, &iter, COL_TOTSIZE, itos(item->ret_Size_Total()).c_str(), -1);
+		}
 	}
 	if (columnIndex == COL_PROGRESS || columnIndex == -1)
 	{

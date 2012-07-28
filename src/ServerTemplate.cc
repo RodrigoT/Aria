@@ -20,6 +20,7 @@
 // $Id: ServerTemplate.cc,v 1.8 2001/05/19 18:38:59 tujikawa Exp $
 
 #include "ServerTemplate.h"
+#include <assert.h>
 
 ServerTemplate::ServerTemplate(const string& name_in,
 			       const string& comment_in,
@@ -191,22 +192,23 @@ bool ServerTemplate::Is_valid() const
   return valid;
 }
 
-bool ServerTemplate::Is_valid(int session_count) const
+bool ServerTemplate::Is_valid(std::size_t session_count) const
 {
-  return valid && (session_vector.size() >= (unsigned int)session_count);
+  return valid && (session_vector.size() >= session_count);
 }
     
-Session& ServerTemplate::ret_session(unsigned int session_count)
+Session& ServerTemplate::ret_session(std::size_t session_count)
 {
+	assert(session_vector.size() > 0);
   if(session_count > session_vector.size()) return session_vector[0];
   else 
     return session_vector[session_count-1];
 }
 
-const vector<Session>& ServerTemplate::ret_session_vector() const
+/*const vector<Session>& ServerTemplate::ret_session_vector() const
 {
   return session_vector;
-}
+}*/
 
 int ServerTemplate::ret_total_session() const
 {

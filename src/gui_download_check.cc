@@ -51,7 +51,8 @@ static bool Do_crc_check(int rowindex, ItemCell *itemcell, ListEntry *listentry)
 	string line = _("Checking CRC of '")+itemcell->ret_Filename()+_("' successful");
 	g_consoleItem->Send_message_to_gui(line, MSG_SYS_SUCCESS);
 	itemcell->set_Status(ItemCell::ITEM_COMPLETE);
-	listentry->Set_clist_column__icon(rowindex, ItemCell::ITEM_COMPLETE);
+	//listentry->Set_clist_column__icon(rowindex, ItemCell::ITEM_COMPLETE);
+	listentry->updateRow(rowindex, COL_STATUS);
 	g_historyWindow->addItem(itemcell);
 	itemcell->Send_status_complete();
 	retval = true;
@@ -61,8 +62,9 @@ static bool Do_crc_check(int rowindex, ItemCell *itemcell, ListEntry *listentry)
 
 	itemcell->get_Options_Lock();
 	if(!itemcell->ret_Options_opt().ret_ignore_crc_error()) {
-	  itemcell->set_Status(ItemCell::ITEM_ERROR);
-	  listentry->Set_clist_column__icon(rowindex, itemcell->ret_Status());
+	  //itemcell->set_Status(ItemCell::ITEM_ERROR);
+	  listentry->updateRow(rowindex, COL_STATUS);
+	  //listentry->Set_clist_column__icon(rowindex, itemcell->ret_Status());
 	}
 	itemcell->release_Options_Lock();
 
@@ -97,7 +99,8 @@ static bool Do_md5_check(int rowindex, ItemCell *itemcell, ListEntry *listentry)
 	  if(casecomp(md5spec, md5comp)) {
 	    g_consoleItem->Send_message_to_gui(_("Checking MD5 of '")+itemcell->ret_Filename()+_("' successful"), MSG_DOWNLOAD_SUCCESS);
 	    itemcell->set_Status(ItemCell::ITEM_COMPLETE);
-	    listentry->Set_clist_column__icon(rowindex, ItemCell::ITEM_COMPLETE);
+	    //listentry->Set_clist_column__icon(rowindex, ItemCell::ITEM_COMPLETE);
+	    listentry->updateRow(rowindex, COL_STATUS);
 	    g_historyWindow->addItem(itemcell);
 	    itemcell->Send_status_complete();
 	    retval = true;
@@ -108,7 +111,8 @@ static bool Do_md5_check(int rowindex, ItemCell *itemcell, ListEntry *listentry)
 	    itemcell->get_Options_Lock();
 	    if(!itemcell->ret_Options_opt().ret_ignore_crc_error()) {
 	      itemcell->set_Status(ItemCell::ITEM_ERROR);
-	      listentry->Set_clist_column__icon(rowindex, itemcell->ret_Status());
+	      //listentry->Set_clist_column__icon(rowindex, itemcell->ret_Status());
+	      listentry->updateRow(rowindex, COL_STATUS);
 	    }
 	    itemcell->release_Options_Lock();
 

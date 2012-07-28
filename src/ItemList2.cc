@@ -836,8 +836,8 @@ bool ItemList::Restore_saved_list(const string& filename)
 	  clist_item[COL_SAVE] = g_strdup(itemcell->ret_Options().ret_Store_Dir().c_str());
 	  clist_item[COL_URL] = g_strdup(itemcell->ret_URL().c_str());
 	  int rowindex = listentry->Append_dl_item(clist_item, itemcell);
-	  listentry->Set_clist_column__icon(rowindex, itemcell->ret_Status());
-	  listentry->Set_clist_column__progress(rowindex, progress);
+	  //listentry->Set_clist_column__icon(rowindex, itemcell->ret_Status());
+	  //listentry->Set_clist_column__progress(rowindex, progress);
 	
 	  g_free(clist_item[COL_FILENAME]);
 	  g_free(clist_item[COL_CRC]);

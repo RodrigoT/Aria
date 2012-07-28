@@ -26,8 +26,8 @@ extern void Set_sensitive__list_not_empty();
 extern void Set_sensitive__items_selected();
 extern void Set_sensitive__no_item_selected();
 extern void Toolbar_set_thread_spin(int n_thread);
-extern void Set_speed_scale(GtkWidget *dl_clist, int rowindex);
-extern void Show_download_log(GtkWidget *dl_clist, int rowindex);
+extern void Set_speed_scale(ItemCell* itemcell);
+extern void Show_download_log(ItemCell* itemcell);
 
 //  static gboolean ListPopup_cb(GtkWidget *widget,
 //  			     GdkEventButton *event,
@@ -57,8 +57,8 @@ static void Page_switched(GtkNotebook *notebook,
       Set_sensitive__items_selected();
       
       int rowindex = GPOINTER_TO_INT(g_list_last(GTK_CLIST(listentry->ret_Dl_clist())->selection)->data);
-      Set_speed_scale(listentry->ret_Dl_clist(), rowindex);
-      Show_download_log(listentry->ret_Dl_clist(), rowindex);
+      Set_speed_scale(listentry->getItemCellByRow(rowindex));
+      Show_download_log(listentry->getItemCellByRow(rowindex));
     } else {
       // no items selected
       Set_sensitive__no_item_selected();

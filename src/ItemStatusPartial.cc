@@ -80,8 +80,8 @@ void ItemStatusPartial::Update()
 
   int rowindex = listentry->Insert_dl_item(clist_item, itemcell_worker, itemcell_boss);
 
-  listentry->Set_clist_column__progress(rowindex, 0);
-  listentry->Set_clist_column__icon(rowindex, itemcell_worker->ret_Status());
+  //listentry->Set_clist_column__progress(rowindex, 0);
+  //listentry->Set_clist_column__icon(rowindex, itemcell_worker->ret_Status());
 
   itemcell_boss->Append_worker(itemcell_worker);
 

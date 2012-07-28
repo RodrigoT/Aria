@@ -53,8 +53,8 @@ public:
 		 const vector<Session>& session_in);
   ServerTemplate();
 
-  Session& ret_session(unsigned int session_count);
-  const vector<Session>& ret_session_vector() const;
+  Session& ret_session(std::size_t session_count);
+//  const vector<Session>& ret_session_vector() const;
   int ret_total_session() const;
 
   bool bad() const;
@@ -73,6 +73,6 @@ public:
   int ret_port() const;
   void set_valid(bool flag);
   bool Is_valid() const;
-  bool Is_valid(int session_count) const;
+  bool Is_valid(std::size_t session_count) const;
 };
 #endif //_SERVERTEMPLATE_H_

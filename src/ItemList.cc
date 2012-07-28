@@ -449,12 +449,12 @@ bool ItemList::Read_URL_from_file(ListEntry *listentry, const string& filename)
 	clist_item[COL_SAVE] = g_strdup(itemcell->ret_Options().ret_Store_Dir().c_str());
 	clist_item[COL_URL] = g_strdup(itemcell->ret_URL().c_str());
 	int rowindex = listentry->Append_dl_item(clist_item, itemcell);
-	listentry->Set_clist_column__progress(rowindex, 0);
+	/*listentry->Set_clist_column__progress(rowindex, 0);
 	if(g_appOption->Whether_use_automatic_start()) {
 	  listentry->Set_clist_column__icon(rowindex, ItemCell::ITEM_READY);
 	} else {
 	  listentry->Set_clist_column__icon(rowindex, ItemCell::ITEM_STOP);
-	}
+	}*/
 
 	g_free(clist_item[COL_FILENAME]);
 	g_free(clist_item[COL_RETRY]);

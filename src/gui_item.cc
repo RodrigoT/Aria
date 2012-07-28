@@ -233,8 +233,9 @@ gboolean Item_lock_item(GtkWidget *w, gpointer data)
       case ItemCell::ITEM_READY_AGAIN:
       case ItemCell::ITEM_READY_CONCAT:
       case ItemCell::ITEM_STOP:
-	itemcell->set_Status(ItemCell::ITEM_LOCK);
-	listentry->Set_clist_column__icon(rowindex, ItemCell::ITEM_LOCK);
+	//itemcell->set_Status(ItemCell::ITEM_LOCK);
+	//listentry->Set_clist_column__icon(rowindex, ItemCell::ITEM_LOCK);
+	listentry->updateRow(rowindex, COL_STATUS);
 	break;
       default:
 	break;
@@ -265,8 +266,9 @@ gboolean Item_unlock_item(GtkWidget *w, gpointer data)
       ItemCell *itemcell = (ItemCell *)gtk_clist_get_row_data(GTK_CLIST(listentry->ret_Dl_clist()), rowindex);
       switch(itemcell->ret_Status()) {
       case ItemCell::ITEM_LOCK:
-	itemcell->set_Status(ItemCell::ITEM_STOP);// modified 2001/5/20
-	listentry->Set_clist_column__icon(rowindex, ItemCell::ITEM_STOP);
+	//itemcell->set_Status(ItemCell::ITEM_STOP);// modified 2001/5/20
+	//listentry->Set_clist_column__icon(rowindex, ItemCell::ITEM_STOP);
+	listentry->updateRow(rowindex, COL_STATUS);
 	break;
       default:
 	break;
@@ -290,8 +292,9 @@ static gboolean Item_lock_error_item(GtkWidget *w, gpointer data)
       ItemCell *itemcell = (ItemCell *)gtk_clist_get_row_data(GTK_CLIST(listentry->ret_Dl_clist()), rowindex);
       switch(itemcell->ret_Status()) {
       case ItemCell::ITEM_ERROR:
-	itemcell->set_Status(ItemCell::ITEM_LOCK);
-	listentry->Set_clist_column__icon(rowindex, ItemCell::ITEM_LOCK);
+	//itemcell->set_Status(ItemCell::ITEM_LOCK);
+	//listentry->Set_clist_column__icon(rowindex, ItemCell::ITEM_LOCK);
+	listentry->updateRow(rowindex, COL_STATUS);
 	break;
       default:
 	break;

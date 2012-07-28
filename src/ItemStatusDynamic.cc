@@ -90,13 +90,15 @@ void ItemStatusDynamic::Update()
       progress = (int)(100.0*((float)size_current/size_total));//fixed 2001/3/18
     }
     listentry->Set_clist_column__progress(rowindex, progress);
-    if(g_appOption->ret_use_size_human_readable()) {
+    /*if(g_appOption->ret_use_size_human_readable()) {
       listentry->Set_clist_column__cursize(rowindex, get_human_readable_size(size_current));
       listentry->Set_clist_column__totsize(rowindex, get_human_readable_size(size_total));
     } else {
       listentry->Set_clist_column__cursize(rowindex, itos(size_current, true));
       listentry->Set_clist_column__totsize(rowindex, itos(size_total, true));
-    }
+    }*/
+	listentry->updateRow(rowindex, COL_TOTSIZE);
+	listentry->updateRow(rowindex, COL_CURSIZE);
   }
   if(update_flag & ItemStatusDynamic::speed_col) {
     string speed_string = ftos(speed, 1)+"k";
@@ -127,7 +129,7 @@ void ItemStatusDynamic::Update()
       listentry->Set_clist_column__rec(rowindex, itos(itemcell->ret_Options().ret_FTP_recurse_count()));
     }
   }
-  listentry->Set_clist_column__icon(rowindex, status);
+  //listentry->Set_clist_column__icon(rowindex, status);
 
   switch(status) {
   case ItemCell::ITEM_COMPLETE:
@@ -136,7 +138,7 @@ void ItemStatusDynamic::Update()
       if(delete_flag && (itemcell->Is_Partial() ||
 			 (itemcell->ret_Options_opt().ret_Delete_When_Finish() &&
 			 ((itemcell->ret_CRC_Type() != ItemCell::CRC_NONE ||
-			   (itemcell->ret_md5string().size()) && !itemcell->ret_Options_opt().ret_no_crc_checking()) ||
+			   (itemcell->ret_md5string().size() && !itemcell->ret_Options_opt().ret_no_crc_checking())) ||
 			  !itemcell->ret_Options_opt().ret_Dont_Delete_Without_CRC())))) {
 	itemcell->release_Options_Lock();
 	// freeze clist

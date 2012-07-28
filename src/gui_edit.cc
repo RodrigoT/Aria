@@ -85,11 +85,13 @@ static gboolean Edit_select_all(GtkWidget *w, gpointer data)
   ListEntry *listentry = g_listManager->ret_Current_listentry();
   listentry->get_Dl_clist_lock();
 
-  gtk_clist_select_all(GTK_CLIST(listentry->ret_Dl_clist()));
+  /*gtk_clist_select_all(GTK_CLIST(listentry->ret_Dl_clist()));
   GList *node = GTK_CLIST(listentry->ret_Dl_clist())->selection;
   if(node != NULL) {
     Set_sensitive__items_selected(); // fix this
-  }
+  }*/
+  GtkTreeSelection* sel = gtk_tree_view_get_selection(GTK_TREE_VIEW(listentry->ret_Dl_clist()));
+  gtk_tree_selection_select_all(sel);
   listentry->release_Dl_clist_lock();
   return TRUE;
 }
@@ -101,7 +103,7 @@ static gboolean Edit_invert_selection(GtkWidget *w, gpointer data)
   GtkWidget *clist = listentry->ret_Dl_clist();
   listentry->get_Dl_clist_lock();
   listentry->freezeDlCList();
-  GList *selection = g_list_copy(GTK_CLIST(clist)->selection);
+  /*GList *selection = g_list_copy(GTK_CLIST(clist)->selection);
 
   // select all, then unselect row that is in node list
   gtk_clist_select_all(GTK_CLIST(clist));
@@ -116,7 +118,23 @@ static gboolean Edit_invert_selection(GtkWidget *w, gpointer data)
   } else {
     Set_sensitive__no_item_selected();
   }
-  g_list_free(selection);
+  g_list_free(selection);*/
+  GtkTreeIter iter;
+  GtkTreeSelection* sel = gtk_tree_view_get_selection(GTK_TREE_VIEW(clist));
+  if (gtk_tree_model_get_iter_first(gtk_tree_view_get_model(GTK_TREE_VIEW(clist)), &iter))
+  {
+	  do
+	  {
+		  if (gtk_tree_selection_iter_is_selected(sel, &iter))
+		  {
+			  gtk_tree_selection_unselect_iter(sel, &iter);
+		  }
+		  else
+		  {
+			  gtk_tree_selection_select_iter(sel, &iter);
+		  }
+	  } while (gtk_tree_model_iter_next(gtk_tree_view_get_model(GTK_TREE_VIEW(clist)), &iter));
+  }
   listentry->thawDlCList();
   listentry->release_Dl_clist_lock();
 
@@ -319,8 +337,8 @@ void Add_new_item_to_downloadlist(ItemCell *itemcell, ListEntry *listentry)
   g_free(clist_item[COL_URL]);
   g_free(clist_item[COL_CURSIZE]);
   g_free(clist_item[COL_TOTSIZE]);
-  listentry->Set_clist_column__icon(rowindex, itemcell->ret_Status());
-  listentry->Set_clist_column__progress(rowindex, 0);
+  //listentry->Set_clist_column__icon(rowindex, itemcell->ret_Status());
+  //listentry->Set_clist_column__progress(rowindex, 0);
 }
 
 static void Paste_md5_set(const string& md5Strings)

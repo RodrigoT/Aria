@@ -360,12 +360,12 @@ void Adjust_speed_scale(int max) {
 //  gtk_range_draw_background(GTK_RANGE(sg_speedScale));
 }
 
-void Show_download_log(GtkWidget *dl_clist, int rowindex)
+void Show_download_log(ItemCell* itemcell)
 {
   //static GdkColormap* cmap = gdk_colormap_get_system();
   string line;
   // get data associated to the row
-  ItemCell* itemcell = (ItemCell*)gtk_clist_get_row_data(GTK_CLIST(dl_clist), rowindex);
+  //ItemCell* itemcell = (ItemCell*)gtk_clist_get_row_data(GTK_CLIST(dl_clist), rowindex);
 
   if(itemcell->ret_Filename().empty()) {
     line = _("<directory>");
@@ -666,11 +666,11 @@ static void SpeedScaleSpin_changed_event_cb(GtkEditable *w,
   Speed_changed_cb(sg_speedScale, NULL, NULL);
 }
 
-void Set_speed_scale(GtkWidget *dl_clist, int rowindex)
+void Set_speed_scale(ItemCell* itemcell)
 {
   //ListEntry *listentry = list_manager->ret_Current_listentry();
 
-  ItemCell* itemcell = (ItemCell*)gtk_clist_get_row_data(GTK_CLIST(dl_clist), rowindex);
+  //ItemCell* itemcell = (ItemCell*)gtk_clist_get_row_data(GTK_CLIST(dl_clist), rowindex);
   GtkAdjustment *adj = gtk_range_get_adjustment(GTK_RANGE(sg_speedScale));
   itemcell->get_Options_Lock();
 

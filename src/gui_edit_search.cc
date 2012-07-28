@@ -24,7 +24,7 @@
 #include "ListManager.h"
 
 // external functions
-extern void Show_download_log(GtkWidget *dl_clist, int rowindex);
+extern void Show_download_log(ItemCell* itemcell);
 
 extern gboolean Hide_window(GtkWidget *window, gpointer unused);
 extern ListManager *g_listManager;
@@ -55,7 +55,7 @@ static gboolean Edit_search_Search_callback(GtkWidget *w, gpointer data)
 
     if(casefind(filename, target.c_str()) != string::npos) {
       gtk_clist_select_row(GTK_CLIST(listentry->ret_Dl_clist()), rowindex, COL_FILENAME);
-      Show_download_log(listentry->ret_Dl_clist(), rowindex);
+      Show_download_log(listentry->getItemCellByRow(rowindex));
       gtk_clist_moveto(GTK_CLIST(listentry->ret_Dl_clist()), rowindex, COL_ICON, 0, 0);
       listentry->release_Dl_clist_lock();
       return TRUE;

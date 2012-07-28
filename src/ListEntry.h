@@ -50,6 +50,8 @@ private:
 
   GdkPixbuf *statusIcon[ICON_TOTAL];
   GdkBitmap *statusIconMask[ICON_TOTAL];
+
+  static bool useHumanReadable;
 public:
   ThreadManager *getThreadManager();
   void setThreadManager(ThreadManager *threadManager_in);
@@ -79,17 +81,17 @@ public:
   void Set_clist_column__crc(int rowindex, const string& crc_string);
   void Set_clist_column__md5(int rowindex, const string& md5String);
   void Set_clist_column__cursize(int rowindex, const string& size_string);
-  void Set_clist_column__totsize(int rowindex, const string& size_string);
+//  void Set_clist_column__totsize(int rowindex, const string& size_string);
   void Set_clist_column__progress(int rowindex, int progress);
   void Set_clist_column__filename(int rowindex, const string& filename);
   void Set_clist_column__speed(int rowindex, const string& speed_string);
   void Set_clist_column__rtime(int rowindex, const string& rtime_string);
-  void Set_clist_column__status(int rowindex, const string& status_string);
+//  void Set_clist_column__status(int rowindex, const string& status_string);
   void Set_clist_column__rec(int rowindex, const string& rec_string);
   void Set_clist_column__url(int rowindex, const string& url_string);
   void Set_clist_column__save(int rowindex, const string& save_string);
   void Set_clist_column__try(int rowindex, int currentCount, int maxCount);
-  void Set_clist_column__icon(int rowindex , ItemCell::ItemStatusType status);
+//  void Set_clist_column__icon(int rowindex , ItemCell::ItemStatusType status);
   void updateRow(int rowIndex, int columnIndex = -1); // col -1 means full row
 
   void Sort_by_filename(GtkSortType stype);
