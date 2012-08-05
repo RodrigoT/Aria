@@ -253,6 +253,7 @@ static bool Download_start_sub(ItemCell *itemcell, int rowindex, ListEntry *list
 
       //itemcell->set_Status(ItemCell::ITEM_READY);
       //listentry->Set_clist_column__icon(rowindex, ItemCell::ITEM_READY);
+	  itemcell->set_Status(ItemCell::ITEM_READY);
 	  listentry->updateRow(rowindex, COL_STATUS);
 
       retval = true;
@@ -385,8 +386,10 @@ void Update_sumup_info(ItemCell::ItemStatusType status)
 bool Download_clear_sub(ItemCell *itemcell, ListEntry *listentry)
 {
   if(listentry->getItemManager()->search_item(itemcell)) {
-    int rowindex = gtk_clist_find_row_from_data(GTK_CLIST(listentry->ret_Dl_clist()), itemcell);
-    gtk_clist_remove(GTK_CLIST(listentry->ret_Dl_clist()), rowindex); // remove from clist
+    //int rowindex = gtk_clist_find_row_from_data(GTK_CLIST(listentry->ret_Dl_clist()), itemcell);
+	//gint rowindex = listentry->getRowForCell(itemcell); 
+    //gtk_clist_remove(GTK_CLIST(listentry->ret_Dl_clist()), rowindex); // remove from clist
+	listentry->Remove_dl_item(itemcell);
     listentry->getItemManager()->unregist_item(itemcell);
     switch(itemcell->ret_Status()) {
     case ItemCell::ITEM_DOWNLOAD:
@@ -431,26 +434,38 @@ void Download_clear()
   listentry->get_Dl_clist_lock();
   listentry->freezeDlCList();
 
-  GList *node = GTK_CLIST(listentry->ret_Dl_clist())->selection;
-  while (node) {
-    int rowindex = GPOINTER_TO_UINT(node->data);
-    ItemCell* itemcell = (ItemCell*)gtk_clist_get_row_data(GTK_CLIST(listentry->ret_Dl_clist()), rowindex);
-    for(list<ItemCell*>::const_iterator item_ptr = itemcell->ret_Worker_list().begin(); item_ptr != itemcell->ret_Worker_list().end(); ++item_ptr) {
+  //GList *node = GTK_CLIST(listentry->ret_Dl_clist())->selection;
+  GtkTreeSelection *sel = gtk_tree_view_get_selection(GTK_TREE_VIEW(listentry->ret_Dl_clist()));
+  GList *list = gtk_tree_selection_get_selected_rows(sel, NULL);
+  while (list) {
+    gint pathdepth;
+	gint *indices = gtk_tree_path_get_indices_with_depth ((GtkTreePath*)list->data, &pathdepth);
+	gint rowindex = indices[pathdepth-1];
+    //int rowindex = GPOINTER_TO_UINT(node->data);
+    //ItemCell* itemcell = (ItemCell*)gtk_clist_get_row_data(GTK_CLIST(listentry->ret_Dl_clist()), rowindex);
+    ItemCell *itemcell = listentry->getItemCellByRow(rowindex);
+    for(std::list<ItemCell*>::const_iterator item_ptr = itemcell->ret_Worker_list().begin(); item_ptr != itemcell->ret_Worker_list().end(); ++item_ptr) {
       Download_clear_sub((ItemCell*)*item_ptr, listentry);
     }
     if(itemcell->Is_Partial()) {
-      node = g_list_next(node);
+      list = g_list_next(list);
     } else {
-      if(Download_clear_sub(itemcell, listentry)) count++;
-      node = GTK_CLIST(listentry->ret_Dl_clist())->selection;
+      if(Download_clear_sub(itemcell, listentry)) 
+		  count++;
+      g_list_foreach (list, (GFunc) gtk_tree_path_free, NULL);
+      g_list_free (list);
+      list = gtk_tree_selection_get_selected_rows(sel, NULL);
     }
+	g_list_foreach (list, (GFunc) gtk_tree_path_free, NULL);
+	g_list_free (list);
   }
 
   listentry->thawDlCList();
 
   if(count > 0) {
     Set_sensitive__no_item_selected();// fix this
-    if(GTK_CLIST(listentry->ret_Dl_clist())->rows == 0) {
+//    if(GTK_CLIST(listentry->ret_Dl_clist())->rows == 0) {
+    if(listentry->getRowCount() == 0) {
       Set_sensitive__list_empty(); // fix this
     }
   }
@@ -857,13 +872,22 @@ gboolean Download_stop(GtkWidget *w, gpointer data)
   ListEntry *listentry = g_listManager->ret_Current_listentry();
   listentry->get_Dl_clist_lock();
 
-  GList *node = GTK_CLIST(listentry->ret_Dl_clist())->selection;
-  while(node) {
-    int rowindex = GPOINTER_TO_UINT(node->data);
-    ItemCell* itemcell = (ItemCell *)gtk_clist_get_row_data(GTK_CLIST(listentry->ret_Dl_clist()), rowindex);
+  //GList *node = GTK_CLIST(listentry->ret_Dl_clist())->selection;
+  GtkTreeSelection *sel = gtk_tree_view_get_selection(GTK_TREE_VIEW(listentry->ret_Dl_clist()));
+  GList *list = gtk_tree_selection_get_selected_rows(sel, NULL);
+  while(list) {
+    gint pathdepth;
+	gint *indices = gtk_tree_path_get_indices_with_depth ((GtkTreePath*)list->data, &pathdepth);
+	gint rowindex = indices[pathdepth-1];
+    //int rowindex = GPOINTER_TO_UINT(node->data);
+    //ItemCell* itemcell = (ItemCell *)gtk_clist_get_row_data(GTK_CLIST(listentry->ret_Dl_clist()), rowindex);
+    ItemCell *itemcell = listentry->getItemCellByRow(rowindex);
     Download_stop_sub(itemcell, rowindex, listentry);
-    node = g_list_next(node);
+    list = g_list_next(list);
+    //node = g_list_next(node);
   }
+  g_list_foreach (list, (GFunc) gtk_tree_path_free, NULL);
+  g_list_free (list);
   listentry->release_Dl_clist_lock();
   // update sumup informatiaon
   ItemStatusSum *itemstatus = new ItemStatusSum(g_consoleItem);

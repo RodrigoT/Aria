@@ -322,7 +322,7 @@ bool URLcontainer::Retrieve_embedded_URL(const list<string>& keylink_list, const
     while(1) {
       string line;
       getline(infile, line, '<');
-      if(line.empty() && infile.eof()) {
+      if(line.empty() && !infile.good()) {
 	throw EMBEDPARSE_EOF;
       }
       
@@ -335,7 +335,7 @@ bool URLcontainer::Retrieve_embedded_URL(const list<string>& keylink_list, const
 	  while(1) {
 	    line = "";
 	    getline(infile, line, '>');
-	    if(line.empty() && infile.eof()) throw EMBEDPARSE_EOF;
+	    if(line.empty() && !infile.good()) throw EMBEDPARSE_EOF;
 	    if(Examine_keylinks(line, keylink_list, urlcon)) {
 	      throw EMBEDPARSE_FOUND;
 	    }
@@ -351,7 +351,7 @@ bool URLcontainer::Retrieve_embedded_URL(const list<string>& keylink_list, const
 	while(1) {
 	  line = "";
 	  getline(infile, line, '>');
-	  if(line.empty() && infile.eof()) throw EMBEDPARSE_EOF;
+	  if(line.empty() && !infile.good()) throw EMBEDPARSE_EOF;
 	  if(endwith(line, "/style")) {
 	    break;
 	  }
@@ -362,7 +362,7 @@ bool URLcontainer::Retrieve_embedded_URL(const list<string>& keylink_list, const
 	  while(1) {
 	    line = "";
 	    getline(infile, line, '>');
-	    if(line.empty() && infile.eof()) throw EMBEDPARSE_EOF;
+	    if(line.empty() && !infile.good()) throw EMBEDPARSE_EOF;
 	    
 	    if(endwith(line, "--")) {
 	      break;
@@ -373,7 +373,7 @@ bool URLcontainer::Retrieve_embedded_URL(const list<string>& keylink_list, const
 	while(1) {
 	  line = "";
 	  getline(infile, line, '>');
-	  if(line.empty() && infile.eof()) throw EMBEDPARSE_EOF;
+	  if(line.empty() && !infile.good()) throw EMBEDPARSE_EOF;
 	  if(endwith(line, "/PRE")) {
 	    break;
 	  }

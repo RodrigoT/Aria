@@ -245,7 +245,10 @@ ListEntry::dlCList_selectRow(int row,
 */
 static gboolean evt_dirpane_button_press(GtkWidget *wid, GdkEventButton *event, gpointer user)
 {
-	std::cout << "Click" << std::endl;
+	std::cout << "Click " << event->x << "x" << event->y  << " "<< wid << " " << gtk_widget_has_focus(wid) << std::endl;
+	/* avoid handling header clicks */
+	if (event->window != gtk_tree_view_get_bin_window (GTK_TREE_VIEW(wid)))
+		return FALSE;
 	GtkTreeView* gtv = GTK_TREE_VIEW(wid);
 	GtkTreePath *path;
 	if (gtk_tree_view_get_path_at_pos(gtv, (gint) event->x, (gint) event->y, &path, NULL, NULL, NULL))
@@ -269,9 +272,9 @@ static gboolean evt_dirpane_button_press(GtkWidget *wid, GdkEventButton *event, 
 		{//do selection
 			dlCList_selectRow_cb(wid, row, 0, event, listEntry);
 		}
+		return TRUE; // consume the event
 	}
-	//return FALSE; //do not consume the event
-	return TRUE; // consume the event
+	return FALSE; //do not consume the event
 }
 
 ListEntry::ListEntry(const string& name_in,
@@ -911,7 +914,6 @@ int ListEntry::Append_dl_item(char *clist_item[], ItemCell *itemcell)
 	//int rowindex = gtk_clist_append(GTK_CLIST(dl_clist), clist_item);
 	//gtk_clist_set_row_data(GTK_CLIST(dl_clist), rowindex, itemcell);
 	item_manager->regist_item_back(itemcell);
-	//TODO: update row data
 	updateRow(items.size()-1);
 
 	return items.size()-1;
@@ -925,12 +927,26 @@ int ListEntry::Insert_dl_item(char *clist_item[], ItemCell *itemcell, ItemCell *
 	gtk_clist_set_row_data(GTK_CLIST(dl_clist), rowindex, itemcell);*/
 	std::vector<ItemCell*>::iterator it = std::find(items.begin(), items.end(), itemcell_base);
 	++it;
+	std::size_t pos = it - items.begin();
 	items.insert(it, itemcell);
+	//TODO: listStore.insert
+	gtk_list_store_insert(dl_model, NULL, pos);
 	item_manager->regist_item_back(itemcell);
 	//TODO: update row data
-	std::size_t pos = it - items.begin();
 	updateRow(pos);
 	return pos;
+}
+
+int ListEntry::Remove_dl_item(ItemCell *itemcell)
+{
+	std::cout << "Delete Item" << std::endl;
+	GtkTreeIter iter;
+	std::vector<ItemCell*>::iterator it = std::find(items.begin(), items.end(), itemcell);
+	std::size_t rowindex = it - items.begin();
+	gtk_tree_model_iter_nth_child (GTK_TREE_MODEL(dl_model), &iter, NULL, rowindex);
+	items.erase(it);
+	gtk_list_store_remove(dl_model, &iter);
+	return rowindex;
 }
 
 ItemCell *ListEntry::ret_Default_item()

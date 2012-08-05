@@ -34,7 +34,7 @@ string md5_check(const string& filename)
   if(infile.bad()) {
     throw MD5_IOERR;
   }
-  while(!infile.eof()) {
+  while(infile.good()) {
     infile.read((char *)buf, sizeof(buf));
     md5_write(&md5ctx, buf, infile.gcount());
   }

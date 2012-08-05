@@ -628,7 +628,7 @@ URLcontainer HTMLparse::get_href(Options& options)
       string line;
       getline(infile, line, ';');
 
-      if(line.empty() && infile.eof()) {
+      if(line.empty() && !infile.good()) {
 	throw HTMLPARSE_EOF;
       }
       unsigned int index;
@@ -658,7 +658,7 @@ URLcontainer HTMLparse::get_href(Options& options)
     string line;
     getline(infile, line, '<');
     if(fsavefile) outfile << line;
-    if(line.empty() && infile.eof()) {
+    if(line.empty() && !infile.good()) {
       throw HTMLPARSE_EOF;
     }
     //if(abs2rel) outfile << '<';
@@ -678,7 +678,7 @@ URLcontainer HTMLparse::get_href(Options& options)
       while(1) {
 	line = "";
 	getline(infile, line, '>');
-	if(line.empty() && infile.eof()) throw HTMLPARSE_EOF;
+	if(line.empty() && !infile.good()) throw HTMLPARSE_EOF;
 	if(fsavefile && !options.ret_delete_javascript()) {
 	  outfile << line << '>';
 	}
@@ -696,7 +696,7 @@ URLcontainer HTMLparse::get_href(Options& options)
       while(1) {
 	line = "";
 	getline(infile, line, '>');
-	if(line.empty() && infile.eof()) throw HTMLPARSE_EOF;
+	if(line.empty() && !infile.good()) throw HTMLPARSE_EOF;
 	if(fsavefile) {
 	  outfile << line << '>';
 	}
@@ -713,7 +713,7 @@ URLcontainer HTMLparse::get_href(Options& options)
 	while(1) {
 	  line = "";
 	  getline(infile, line, '>');
-	  if(line.empty() && infile.eof()) throw HTMLPARSE_EOF;
+	  if(line.empty() && !infile.good()) throw HTMLPARSE_EOF;
 	  if(abs2rel && !options.ret_delete_comment()) {
 	    outfile << line << '>';
 	  }
@@ -727,7 +727,7 @@ URLcontainer HTMLparse::get_href(Options& options)
       while(1) {
 	line = "";
 	getline(infile, line, '>');
-	if(line.empty() && infile.eof()) throw HTMLPARSE_EOF;
+	if(line.empty() && !infile.good()) throw HTMLPARSE_EOF;
 	if(fsavefile) outfile << line << '>';
 	if(endwith(line, "/pre")) {
 	  break;
@@ -755,7 +755,7 @@ URLcontainer HTMLparse::get_href(Options& options)
 	while(1) {
 	  line = "";
 	  getline(infile, line, '>');
-	  if(line.empty() && infile.eof()) throw HTMLPARSE_EOF;
+	  if(line.empty() && !infile.good()) throw HTMLPARSE_EOF;
 	  if(endwith(line, "/iframe")) {
 	    break;
 	  }

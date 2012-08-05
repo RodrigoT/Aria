@@ -353,7 +353,7 @@ public:
   const ItemLogList&        ret_Log_list() const;
   void                      Clear_log();
   ItemErrorType             ret_Errno() const;
-  const list<ItemCell*>&    ret_Worker_list() const;
+  const std::list<ItemCell*>&    ret_Worker_list() const;
   DownloadStatusType        ret_Command() const;
   DownloadStatusType        ret_Dl_status() const;
   ItemCommand::EventCause   ret_Dl_event() const;

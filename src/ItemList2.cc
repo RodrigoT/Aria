@@ -71,7 +71,7 @@ bool ItemList::Restore_default_item_option_sub(ifstream& infile, Options& defaul
     string line;
     getline(infile, line, '\n');
     item = Token_splitter(line, " \t");
-    if(item == "%End_default" || infile.eof()) {
+    if(item == "%End_default" || !infile.good()) {
       unsigned int use_authentication = stoi(default_map.get(FI_USE_AUTHENTICATION));
       Userdata user(default_map.get(FI_USER), default_map.get(FI_PASSWORD));
       string storedir = default_map.get(FI_STORE_DIRECTORY);
@@ -390,7 +390,7 @@ bool ItemList::Restore_saved_list(const string& filename)
     getline(infile, line, '\n');
 
     //item = Token_splitter(line, " \t");
-    if(infile.eof()) return true;
+    if(!infile.good()) return true;
     
     bool compat_flag = false;
     if(line != "%Begin_Tab") {
@@ -453,12 +453,12 @@ bool ItemList::Restore_saved_list(const string& filename)
 
       getline(infile, line, '\n');
 
-      if(line == "%End_Tab" || line == "%End_Items_Section" || infile.eof()) break;
+      if(line == "%End_Tab" || line == "%End_Items_Section" || !infile.good()) break;
       StringHash item_map;
       while(1) {
 	getline(infile, line, '\n');
 
-	if(infile.eof()) break;// added 2001/9/4
+	if(!infile.good()) break;// added 2001/9/4
 
 	item = Token_splitter(line, " \t");
 
@@ -894,7 +894,7 @@ bool ItemList::Restore_saved_app_settings()
   while(1) {
     string item;
     infile >> item;
-    if(infile.eof()) break;
+    if(!infile.good()) break;
     string value;
     getline(infile, value, '\n');
     app_map.add(item, Remove_white(value));

@@ -41,6 +41,7 @@ ItemCell::ItemCell(const string& url_in,
 		   const URLcontainer& urlcon_in,
 		   const Options& options_in,
 		   const string& initial_log)
+	:svt()
 {
   id = -1;
   urlcon = urlcon_in;
@@ -776,7 +777,7 @@ bool ItemCell::Concatenate_partial_files()
       if(infile.bad()) {
 	throw ITEM_EIO;
       }
-      while(!infile.eof()) {
+      while(infile.good()) {
 	char buf[8192];
 	infile.read(buf, sizeof(buf));
 	outfile.write(buf, infile.gcount());

@@ -107,7 +107,7 @@ bool ServerTemplateList::Read_config_file(const string& filename)
     //map<string, string> server_map;
     //vector<Session> session_vector;
 
-    while(!infile.eof()) {
+    while(infile.good()) {
       try {
 	tag = get_next_tag(infile);
 	if(!Is_reserved(tag)) {
@@ -165,7 +165,7 @@ bool ServerTemplateList::Read_config_file(const string& filename)
 	      if(!Is_reserved_in_session(tag)) {
 		throw tag;
 	      }
-	      if(infile.eof()) {
+	      if(!infile.good()) {
 		cerr << "parse error: in getting tag in <sequence>" << endl;
 		throw TAGPARSE_GETTAG_EOF;
 	      }
@@ -178,7 +178,7 @@ bool ServerTemplateList::Read_config_file(const string& filename)
 		    throw tag;
 		  }
 		  //cerr << tag << endl;
-		  if(infile.eof()) {
+		  if(!infile.good()) {
 		    cerr << "parse error: in getting tag in <session>" << endl;
 		    throw TAGPARSE_GETTAG_EOF;
 		  }

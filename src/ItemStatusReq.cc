@@ -47,10 +47,11 @@ void ItemStatusReq::Update()
       if(g_listManager->Search(listentry)) {
 	int rowindex;
 	GtkWidget *clist = listentry->ret_Dl_clist();
-	if((rowindex = gtk_clist_find_row_from_data(GTK_CLIST(clist), ret_ItemCell())) > -1) {
-	  if(gtk_clist_row_is_visible(GTK_CLIST(clist), rowindex) != GTK_VISIBILITY_FULL) {
+	if((rowindex = listentry->getRowForCell(ret_ItemCell())) > -1) {
+	  /*if(gtk_clist_row_is_visible(GTK_CLIST(clist), rowindex) != GTK_VISIBILITY_FULL) {
 	    gtk_clist_moveto(GTK_CLIST(clist), rowindex, 0, 0.5, 0.0);
-	  } 
+	  } */
+	  gtk_tree_view_scroll_to_cell(GTK_TREE_VIEW(clist), gtk_tree_path_new_from_indices(rowindex, -1), NULL, FALSE, 0.0, 0.0);
 	}
       }
       break;

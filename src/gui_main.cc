@@ -838,7 +838,7 @@ bool restore_gui_info(const string& filename,
   map<string, string> guiInfoMap;
   if(infile.bad()) return false;
   
-  if(infile.eof()) return false;
+  if(!infile.good()) return false;
   while(infile.good()) {
     string line;
     getline(infile, line, '\n');

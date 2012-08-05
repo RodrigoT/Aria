@@ -74,7 +74,7 @@ bool CommandList::Read_from_file(const string& filename)
     infile.open(filename.c_str(), ios::in);//ios::skipws|ios::in);
     if(infile.bad()) throw EOPEN;
 
-    while(!infile.eof()) {
+    while(infile.good()) {
       try {
 	tag = get_next_tag(infile);
 	if(!Is_reserved(tag)) {
@@ -91,7 +91,7 @@ bool CommandList::Read_from_file(const string& filename)
 	    throw tag;
 	  }
 	  //cerr << tag << endl;
-	  if(infile.eof()) {
+	  if(!infile.good()) {
 	    cerr << "in getting tag in <command>" << endl;
 	    throw TAGPARSE_GETTAG_EOF;
 	  }

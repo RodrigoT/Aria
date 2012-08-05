@@ -563,7 +563,7 @@ bool copy_file(const string& srcfile, const string& destfile)
   if(outfile.bad()) return false;
   char buffer[8192];
 
-  while(!infile.eof()) {
+  while(infile.good()) {
     infile.read(buffer, sizeof(buffer));
     if(infile.bad()) return false;
     outfile.write(buffer, infile.gcount());

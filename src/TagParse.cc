@@ -67,7 +67,7 @@ string get_value(ifstream& infile, string tag)
       line.erase(line.size()-tag.size());
       break;
     }
-    if(infile.eof()) {
+    if(!infile.good()) {
       throw TAGPARSE_GETVALUE_EOF;
     }
   }

@@ -177,7 +177,7 @@ bool ItemList::Read_md5_from_file(ListEntry *listentry, const string& filename)
       CRCList *md5Entry = new CRCList(filename_entry, md5String);
       md5List.push_back(md5Entry);
     }
-    if(infile.eof()) break;
+    if(!infile.good()) break;
   }
 
   listentry->setMD5List(md5List);
@@ -225,7 +225,7 @@ bool ItemList::Read_CRC_from_file(ListEntry *listentry, const string& filename)
       CRCList *crc_entry = new CRCList(filename_entry, crc_string);
       crc_list.push_back(crc_entry);
     }
-    if(infile.eof()) break;
+    if(!infile.good()) break;
   }
 
   listentry->setCRCList(crc_list);
@@ -329,7 +329,7 @@ bool ItemList::Find_Hyperlink_from_file(const string& filename, const string& ba
 	}
       }
     }
-    if(infile.eof()) break;
+    if(!infile.good()) break;
   }
   //gtk_clist_thaw(GTK_CLIST(listentry->ret_Dl_clist()));
   listentry->thawDlCList();
@@ -463,7 +463,7 @@ bool ItemList::Read_URL_from_file(ListEntry *listentry, const string& filename)
 	g_free(clist_item[COL_URL]);
       }
       //}
-    if(infile.eof()) break;
+    if(!infile.good()) break;
   }
   //gtk_clist_thaw(GTK_CLIST(listentry->ret_Dl_clist()));
   listentry->thawDlCList();

@@ -496,11 +496,11 @@ ItemCell::DownloadStatusType RetrieveHTTP::Download_Main()
        itemcell->ret_Status() != ItemCell::ITEM_DOWNLOAD_AGAIN &&
        itemcell->ret_Options().ret_downm_type() != Options::DOWNM_NORESUME &&
        itemcell->ret_Filename().size() &&
-       (!itemcell->Is_current_session_valid()) ||
+       (!itemcell->Is_current_session_valid() ||
 	(!itemcell->ret_current_session().Is_noresume() &&
 	!itemcell->ret_current_session().Is_nodown() &&
 	!itemcell->ret_current_session().Is_getkeylink() &&
-	!itemcell->ret_current_session().Is_getkeylink_force()))) {
+	!itemcell->ret_current_session().Is_getkeylink_force())))) {
       startingbyte = Get_starting_byte();
     }
     initialstatus = itemcell->ret_Status();
@@ -771,8 +771,8 @@ ItemCell::DownloadStatusType RetrieveHTTP::Download_Main()
 	//} else {
       //itemcell->set_Size_Total(httpcon.ret_ContentLength()+startingbyte);
       //}
-      if((itemcell->ret_Options().ret_Divide() > 1 && resume_allowed &&
-	 (!itemcell->Is_current_session_valid()) ||
+      if (itemcell->ret_Options().ret_Divide() > 1 && resume_allowed &&
+	 (!itemcell->Is_current_session_valid() ||
 	  (!itemcell->ret_current_session().Is_nodown() &&
 	  !itemcell->ret_current_session().Is_getkeylink() &&
 	  !itemcell->ret_current_session().Is_getkeylink_force()))) {

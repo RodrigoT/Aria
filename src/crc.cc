@@ -133,7 +133,7 @@ gushort calculate_crc16(const string& filename)
   gushort crc = 0xffff;
   gint i;
 
-  while(!infile.eof()) {
+  while(infile.good()) {
     infile.read(buffer, sizeof(buffer));
     gint len = infile.gcount();
     p = buffer;
@@ -154,7 +154,7 @@ guint32 calculate_crc32(const string& filename)
   guint32 crc = 0xffffffff;
   gint i;
 
-  while(!infile.eof()) {
+  while(infile.good()) {
     infile.read(buffer, sizeof(buffer));
     gint len = infile.gcount();
     p = buffer;
