@@ -243,7 +243,7 @@ ListEntry::dlCList_selectRow(int row,
 	std::cout << "Selection signal" << std::endl;
 }
 */
-static gboolean evt_dirpane_button_press(GtkWidget *wid, GdkEventButton *event, gpointer user)
+gboolean ListEntry::evt_dirpane_button_press(GtkWidget *wid, GdkEventButton *event, gpointer user)
 {
 	std::cout << "Click " << event->x << "x" << event->y  << " "<< wid << " " << gtk_widget_has_focus(wid) << std::endl;
 	/* avoid handling header clicks */
@@ -264,6 +264,7 @@ static gboolean evt_dirpane_button_press(GtkWidget *wid, GdkEventButton *event, 
 		gint *indices = gtk_tree_path_get_indices_with_depth (path, &pathdepth);
 		gint row = indices[pathdepth-1];
 		ListEntry* listEntry = (ListEntry*) user;
+		listEntry->last_selected_row = row;
 		if (gtk_tree_selection_path_is_selected(sel, path))
 		{//already selected: unselect
 			dlCList_unselectRow_cb(wid, row, 0, event, listEntry);
@@ -311,6 +312,7 @@ void ListEntry::init(const string& name_in,
 		n_thread = n_thread_in;
 	}
 
+    last_selected_row = -1;
 	item_manager = new ItemManager();
 	Create_dl_clist();
 	thread_manager = new ThreadManager(n_thread, this);
@@ -709,13 +711,16 @@ void ListEntry::Create_dl_clist()
 		gtk_tree_view_append_column(GTK_TREE_VIEW(dl_table), col);
 		gtk_tree_view_column_set_title( col, titles[i]);
 		gtk_tree_view_column_set_resizable( col, (i != COL_ICON && i != COL_PROGRESS) );
-		if (i != 0 && i != 4)
+		GtkCellRenderer *renderer;
+		if (i != COL_ICON && i != COL_PROGRESS)
 		{
-			GtkCellRenderer *renderer = gtk_cell_renderer_text_new();
+			renderer = gtk_cell_renderer_text_new();
+			if ( i != COL_FILENAME && i != COL_SAVE && i != COL_URL )
+				g_object_set( G_OBJECT( renderer ), "xalign", 1.0 , NULL);
 			gtk_tree_view_column_pack_start(col, renderer, TRUE);
 			gtk_tree_view_column_add_attribute(col, renderer, "text", i);//set renderer att text as value to update from model
 		} else {
-			GtkCellRenderer *renderer = gtk_cell_renderer_pixbuf_new();
+			renderer = gtk_cell_renderer_pixbuf_new();
 			gtk_tree_view_column_pack_start(col, renderer, TRUE);
 			gtk_tree_view_column_add_attribute(col, renderer, "pixbuf", i);//set renderer att text as value to update from model
 		}

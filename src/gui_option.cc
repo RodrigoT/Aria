@@ -132,9 +132,11 @@ static gboolean Option_clear_syslog_c(GtkWidget *w, gpointer data)
 gboolean Option_item_individual(GtkWidget *w, gpointer data)
 {
   ListEntry *listentry = g_listManager->ret_Current_listentry();
-  GList *node = g_list_last(GTK_CLIST(listentry->ret_Dl_clist())->selection);
-  if(node == NULL) return TRUE;
-  ItemCell* itemcell = (ItemCell*)gtk_clist_get_row_data(GTK_CLIST(listentry->ret_Dl_clist()), GPOINTER_TO_UINT(node->data));
+  //GList *node = g_list_last(GTK_CLIST(listentry->ret_Dl_clist())->selection);
+  gint selectedrow = listentry->getLastSelectedRow();
+  if(selectedrow == -1) return TRUE;
+//  ItemCell* itemcell = (ItemCell*)gtk_clist_get_row_data(GTK_CLIST(listentry->ret_Dl_clist()), GPOINTER_TO_UINT(node->data));
+  ItemCell* itemcell = listentry->getItemCellByRow(selectedrow);
   //pthread_mutex_lock(&itemlistlock); //mod 2001/4/11
   g_itemOption->setOptionValues(itemcell,
 				itemcell->ret_Options_opt(),

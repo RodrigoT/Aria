@@ -40,6 +40,7 @@ private:
   std::vector<ItemCell* > items;
   string name;
   int n_thread;
+  gint last_selected_row;
 
   pthread_mutex_t dl_clist_lock;
   pthread_cond_t dl_clist_signal;
@@ -52,6 +53,7 @@ private:
   GdkBitmap *statusIconMask[ICON_TOTAL];
 
   static bool useHumanReadable;
+  static gboolean evt_dirpane_button_press(GtkWidget *wid, GdkEventButton *event, gpointer user);
 public:
   ThreadManager *getThreadManager();
   void setThreadManager(ThreadManager *threadManager_in);
@@ -129,6 +131,8 @@ public:
   std::size_t getRowForCell(ItemCell *item) {
 	  return distance(items.begin(), std::find(items.begin(), items.end(), item) );
 	};
+  gint getLastSelectedRow() const { return last_selected_row;};
+  std::size_t getSelectedRowCount() { return gtk_tree_selection_count_selected_rows(gtk_tree_view_get_selection(GTK_TREE_VIEW(dl_table)));};
 		
 
   list<int> getActiveRowList();

@@ -2833,7 +2833,8 @@ void ItemOption::setOptionValues(ItemCell *itemcell_in,
   } else {
     // from download list
     if(listentry != NULL &&
-       g_list_length(GTK_CLIST(listentry->ret_Dl_clist())->selection) > 1) {
+//       g_list_length(GTK_CLIST(listentry->ret_Dl_clist())->selection) > 1) {
+       listentry->getSelectedRowCount() > 1) {//TODO: condition to asingment
       multipleSelectionFlag = true;
     } else {
       multipleSelectionFlag = false;
@@ -2967,19 +2968,22 @@ void ItemOption::setOptionValues(ItemCell *itemcell_in,
   }
   //gtk_entry_set_text(GTK_ENTRY(command_entry), command_string.c_str());
   // delete all text
-  gtk_editable_delete_text(GTK_EDITABLE(command_entry), 0, -1);
+  //gtk_editable_delete_text(GTK_EDITABLE(command_entry), 0, -1);
+  gtk_text_buffer_set_text(gtk_text_view_get_buffer(GTK_TEXT_VIEW(command_entry)), "", 0);
   // then, set text
   //gtk_text_set_point(GTK_TEXT(command_entry), 0);
-  int insertPos = 0;
+/*  int insertPos = 0;
   for(unsigned int i = 0; i < command_string.size(); i++) {
     if(command_string.at(i) == '\r') {
       command_string.replace(i, 1, "\n");
     }
-  }
-  gtk_editable_insert_text(GTK_EDITABLE(command_entry),
+  }*/
+ //gtk_editable_insert_text(GTK_EDITABLE(command_entry),
+ gtk_text_buffer_set_text(gtk_text_view_get_buffer(GTK_TEXT_VIEW(command_entry)),
 			   command_string.c_str(),
-			   command_string.size(),
-			   &insertPos);
+			   command_string.size()
+			   );
+			   //&insertPos);
 
   gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(use_command_toggle),
 			       options.ret_use_Command());
