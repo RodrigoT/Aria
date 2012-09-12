@@ -37,10 +37,10 @@ string HTMLparse::erase_protocol(string line, int length, int prot_pos)
 {
   line.erase(prot_pos, length);
   line.insert(prot_pos, prefix);
-  unsigned int colon_pos = line.find_first_of(":/\"'>", prot_pos);
+  std::size_t colon_pos = line.find_first_of(":/\"'>", prot_pos);
   if(colon_pos != string::npos) {
     if(line.at(colon_pos) == ':') {
-      unsigned int slash_pos = line.find_first_of("/\"'>", colon_pos);
+      std::size_t slash_pos = line.find_first_of("/\"'>", colon_pos);
       if(slash_pos != string::npos) {
 	line.erase(colon_pos, slash_pos-colon_pos);
       } else {
@@ -53,8 +53,8 @@ string HTMLparse::erase_protocol(string line, int length, int prot_pos)
 
 URLcontainer HTMLparse::find_href(string line, Options& options)
 {
-  unsigned int href_pos = 0;
-  unsigned int eq_pos = 0;
+  std::size_t href_pos = 0;
+  std::size_t eq_pos = 0;
   bool flag = true;;
   URLcontainer urlcon;
   bool fsavefile = ((options.ret_with_hostname_dir() && options.ret_abs2rel_url()) || options.ret_delete_comment() || options.ret_delete_javascript() || options.ret_convert_tilde()) && !outfile_bad;
@@ -157,7 +157,7 @@ URLcontainer HTMLparse::find_href(string line, Options& options)
     }
 
     if(!flag) {
-      unsigned int url_start = line.find_first_not_of(" \t\r\n", eq_pos+1);
+      std::size_t url_start = line.find_first_not_of(" \t\r\n", eq_pos+1);
       if(url_start == string::npos) {
 	throw HTMLPARSE_NOHREF;
       }
@@ -172,7 +172,7 @@ URLcontainer HTMLparse::find_href(string line, Options& options)
 
       //cerr << line.substr(url_start) << endl;
       /*
-      unsigned int url_start = line.find_first_not_of(" \t'\"", eq_pos+1);
+      std::size_t url_start = line.find_first_not_of(" \t'\"", eq_pos+1);
       bool quoted_flag = false;
       if(url_start == string::npos) {
 	throw HTMLPARSE_NOHREF;
@@ -190,7 +190,7 @@ URLcontainer HTMLparse::find_href(string line, Options& options)
       if(line.at(url_start) == '\\') {
 	url_start += 2;
       }
-      unsigned int url_end;
+      std::size_t url_end;
       if(quoted_flag) {
 	url_end = line.find_first_of("'\">", url_start);
       } else {
@@ -208,7 +208,7 @@ URLcontainer HTMLparse::find_href(string line, Options& options)
       string href = replaceSubstring(removeCtrlChar(Remove_white(line.substr(url_start, url_end-url_start))), "&amp;", "&");
       href = URLcontainer::URL_Decode(href);
 
-      unsigned int slash_pos = href.find('#');
+      std::size_t slash_pos = href.find('#');
       if(slash_pos != string::npos) {
 	href.erase(slash_pos);
       }
@@ -320,7 +320,7 @@ URLcontainer HTMLparse::find_href(string line, Options& options)
       Set_save_directory(urlcon, href, options);
 
       if(options.ret_convert_tilde()) {
-	unsigned int tilde_pos = line.find('~');
+	std::size_t tilde_pos = line.find('~');
 	if(tilde_pos >= url_start &&  tilde_pos < url_end) {
 	  line.erase(tilde_pos, 1);
 	  line.insert(tilde_pos, "%7E");
@@ -329,7 +329,7 @@ URLcontainer HTMLparse::find_href(string line, Options& options)
       }
       // convert absolute URL to relative one
       if(abs2rel) {
-	unsigned int prot_pos;
+	std::size_t prot_pos;
 	string line_temp;
 	if(line.size() > 7 && (prot_pos = line.find("http://", url_start, 7)) != string::npos && prot_pos < url_end) {
 	  // start with "HTTP://"
@@ -413,7 +413,7 @@ URLcontainer HTMLparse::find_css(string line, Options& options) {
   bool abs2rel = options.ret_with_hostname_dir() && options.ret_abs2rel_url() && !outfile_bad;
   URLcontainer urlcon;
   try {
-    unsigned int index;
+    std::size_t index;
     bool fcv_flag = false;
     string media;
 
@@ -427,14 +427,14 @@ URLcontainer HTMLparse::find_css(string line, Options& options) {
     }
     // needs following three variables
     string href;
-    unsigned int url_start;
-    unsigned int url_end;
+    std::size_t url_start;
+    std::size_t url_end;
     if(casecomp(media, "url")) {
       //cerr << "find keyword 'url'" << endl;
-      unsigned int parenL = index;
-      unsigned int parenR = line.find(")", index+1);
+      std::size_t parenL = index;
+      std::size_t parenR = line.find(")", index+1);
       if(parenR == string::npos) throw HTMLPARSE_NOHREF;
-      unsigned int quoteL = line.find("\"", index+1);
+      std::size_t quoteL = line.find("\"", index+1);
       if(quoteL < parenR && quoteL != string::npos) {
 	if((url_start = line.find_first_not_of(" \t", quoteL+1, parenR-quoteL-1)) == string::npos) {
 	  throw HTMLPARSE_NOHREF;
@@ -442,7 +442,7 @@ URLcontainer HTMLparse::find_css(string line, Options& options) {
       } else {
 	url_start = parenL+1;
       }
-      unsigned int quoteR = line.find("\"", url_start+1);
+      std::size_t quoteR = line.find("\"", url_start+1);
       if(quoteR < parenR && quoteR != string::npos) {
 	url_end = quoteR-1;
       } else {
@@ -561,7 +561,7 @@ URLcontainer HTMLparse::find_css(string line, Options& options) {
       Set_save_directory(urlcon, href, options);
 
       if(options.ret_convert_tilde()) {
-	unsigned int tilde_pos = line.find('~');
+	std::size_t tilde_pos = line.find('~');
 	if(tilde_pos >= url_start &&  tilde_pos < url_end) {
 	  line.erase(tilde_pos, 1);
 	  line.insert(tilde_pos, "%7E");
@@ -570,7 +570,7 @@ URLcontainer HTMLparse::find_css(string line, Options& options) {
       }
       // convert absolute URL to relative one
       if(abs2rel) {
-	unsigned int prot_pos;
+	std::size_t prot_pos;
 	string line_temp;
 	if(line.size() > 7 && (prot_pos = line.find("http://", url_start, 7)) != string::npos && prot_pos < url_end) {
 	  // start with "HTTP://"
@@ -631,7 +631,7 @@ URLcontainer HTMLparse::get_href(Options& options)
       if(line.empty() && !infile.good()) {
 	throw HTMLPARSE_EOF;
       }
-      unsigned int index;
+      std::size_t index;
       if((index = line.find("@import")) != string::npos) {
 	index = line.find_first_not_of(" \t", index+7);// 7 is the length of string "@import"
 	if(index != string::npos) {
@@ -800,7 +800,7 @@ HTMLparse::HTMLparse(const string& base_url_in,
      static_options_in.ret_abs2rel_url()) ||
      static_options_in.ret_delete_comment() ||
      static_options_in.ret_delete_javascript()) {
-    unsigned int pos = documentroot_dir.size();
+    std::size_t pos = documentroot_dir.size();
     while((pos = static_options_in.ret_Store_Dir().find('/', pos+1)) != string::npos) {
       prefix += "../";
     }

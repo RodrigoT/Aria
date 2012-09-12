@@ -983,11 +983,11 @@ void RetrieveHTTP::Start_Download(const Socket& socket, unsigned int startingbyt
        itemcell->ret_current_session().Is_nodown()) {
       throw ItemCell::ITEM_ENEXTSTAGE;
     }
-    if(((itemcell->ret_Size_Total() == 0 || (itemcell->ret_Options().ret_use_http_proxy() && !itemcell->ret_Options().ret_http_proxy().ret_Server().empty()) &&
+    if(((itemcell->ret_Size_Total() == 0 || itemcell->ret_Options().ret_use_http_proxy() && !itemcell->ret_Options().ret_http_proxy().ret_Server().empty()) &&
 	itemcell->Is_current_session_valid() &&
-	itemcell->ret_current_session().Is_getkeylink())) ||
-       (itemcell->Is_current_session_valid() &&
-       itemcell->ret_current_session().Is_getkeylink_force())) {
+	itemcell->ret_current_session().Is_getkeylink()) ||
+       itemcell->Is_current_session_valid() &&
+       itemcell->ret_current_session().Is_getkeylink_force()) {
       tempfilename = filename+"."+itos(time(NULL))+itos((int)((float)100*random()/(RAND_MAX+1.0)));
       downloadmode = EMBEDED_URL_MODE;
       outfile.open(tempfilename.c_str(), ios::out|ios::trunc|ios::binary);

@@ -24,23 +24,23 @@
 string Remove_white(string nword)
 {
   //string nword = word;
-  unsigned int first_pos = nword.find_first_not_of(" \t\r\n");
+  std::size_t first_pos = nword.find_first_not_of(" \t\r\n");
   if(first_pos == string::npos) {
     first_pos = nword.size();
   }
   nword.erase(0, first_pos);
 
-  unsigned int last_pos = nword.find_last_not_of(" \t\r\n");
+  std::size_t last_pos = nword.find_last_not_of(" \t\r\n");
   if(last_pos != string::npos) {
     nword.erase(last_pos+1);
   }
   
   /*
-  unsigned int first_pos = nword.find_first_not_of(" \t");
+  std::size_t first_pos = nword.find_first_not_of(" \t");
   if(first_pos != string::npos) {
     nword.erase(0, first_pos);
   }
-  unsigned int last_pos = nword.find_last_not_of(" \t\r");
+  std::size_t last_pos = nword.find_last_not_of(" \t\r");
   if(last_pos != string::npos) {
     nword.erase(last_pos+1);
   }
@@ -263,7 +263,7 @@ string get_storedir(string store_dir, string target)
 
 string get_protocol_from_url(const string& base_url)
 {
-  unsigned int pos = base_url.find(':');
+  std::size_t pos = base_url.find(':');
   if(pos != string::npos) {
     return base_url.substr(0, pos);
   } else {
@@ -278,7 +278,7 @@ string get_abs_url(string base_url, string target)
     return get_protocol_from_url(base_url)+"://"+
       get_hostname(base_url)+target;
   }
-  unsigned int file_pos = target.find_last_of("/");
+  std::size_t file_pos = target.find_last_of("/");
   string file;
   if(file_pos != string::npos) {
     file = target.substr(file_pos+1);
@@ -337,13 +337,13 @@ void erase_protocol(string& url)
 string get_hostname(string url)
 {
   erase_protocol(url);
-  unsigned int slash_index = url.find('/');
+  std::size_t slash_index = url.find('/');
   if(slash_index == string::npos) {
     slash_index = url.size();
   }
   string host = url.substr(0, slash_index);
   //url.erase(0, slash_index);
-  unsigned int colon_index = host.rfind(':');
+  std::size_t colon_index = host.rfind(':');
   if(colon_index != string::npos) {
     //int port_temp = stoi(host.substr(colon_index+1), 10);
     //if(port_temp != 0) port = port_temp;
@@ -354,7 +354,7 @@ string get_hostname(string url)
 
 string get_file(string& target)
 {
-  unsigned int file_pos = target.find_last_of("/");
+  std::size_t file_pos = target.find_last_of("/");
   if(file_pos == string::npos) {
     target.erase();
     return target;
@@ -468,7 +468,7 @@ size_t casefind(const string& string1, const string& string2)
 {
   if(string1.size() < string2.size()) return string::npos;
 
-  for(unsigned int index = 0; index < string1.size()-string2.size()+1; ++index) {
+  for(std::size_t index = 0; index < string1.size()-string2.size()+1; ++index) {
     if(!strncasecmp(string1.substr(index).c_str(), string2.c_str(), string2.size())) {
       return index;
     }
@@ -510,7 +510,7 @@ bool endwith(const string& string1, const string& string2)
 
 string insert_comma(const string& val_str)
 {
-  unsigned int pos = val_str.size();
+  std::size_t pos = val_str.size();
   string ret_str;
   while(pos > 3) {
     ret_str = ','+val_str.substr(pos-3, 3)+ret_str;
@@ -547,7 +547,7 @@ time_t get_mod_time(const string& mdtm_string)
 string convert_tilde(const string& src_str)
 {
   string mod_str = src_str;
-  unsigned int tilde_pos = src_str.rfind('~');
+  std::size_t tilde_pos = src_str.rfind('~');
   if(tilde_pos != string::npos) {
     mod_str.erase(tilde_pos, 1);
     mod_str.insert(tilde_pos, "%7E");
@@ -574,7 +574,7 @@ bool copy_file(const string& srcfile, const string& destfile)
 }
 
 string replaceSubstring(const string& srcStr, const string& oldSubstr, const string& newSubstr) {
-  unsigned int index = 0;
+  std::size_t index = 0;
   string dstStr = srcStr;
   while(1) {
     if((index = dstStr.find(oldSubstr, index)) == string::npos) {
@@ -589,7 +589,7 @@ string replaceSubstring(const string& srcStr, const string& oldSubstr, const str
 // remove control chars from a given string
 string removeCtrlChar(const string& srcStr) {
   string dstStr = srcStr;
-  unsigned int index = 0;
+  std::size_t index = 0;
   while(1) {
     if((index = dstStr.find_first_of("\r\n", index)) == string::npos) {
       return dstStr;
@@ -603,7 +603,7 @@ static string patternGetNextToken(string& pattern)
 {
   string retStr;
 
-  unsigned int wcIndex = pattern.find_first_of("*?");
+  std::size_t wcIndex = pattern.find_first_of("*?");
   if(wcIndex == string::npos) {
     retStr = pattern;
     pattern.erase();
@@ -656,7 +656,7 @@ bool patternMatch(string str, string pattern)
       }
 //        cerr << sIndex << ", " << searchSize << endl;
 //        cerr << str.substr(sIndex, searchSize) << endl;
-      unsigned int index = casefind(str.substr(sIndex, searchSize), subpattern);
+      std::size_t index = casefind(str.substr(sIndex, searchSize), subpattern);
       if(index == string::npos) {
 	return false;
       }

@@ -3435,8 +3435,12 @@ int ItemOption::Process_changes()
 
   //string command_string = Remove_white(gtk_entry_get_text(GTK_ENTRY(command_entry)));
   string command_string;
-  char* command_string_char = gtk_editable_get_chars(GTK_EDITABLE(command_entry),
-						     0, -1);
+  GtkTextBuffer *buffer = gtk_text_view_get_buffer(GTK_TEXT_VIEW(command_entry));
+  GtkTextIter start_iter;
+  GtkTextIter end_iter;
+  gtk_text_buffer_get_start_iter(buffer, &start_iter);
+  gtk_text_buffer_get_end_iter(buffer, &end_iter);
+  char* command_string_char = gtk_text_buffer_get_text(buffer, &start_iter, &end_iter, false);
   command_string = command_string_char;
   g_free(command_string_char);
 
@@ -3492,7 +3496,7 @@ int ItemOption::Process_changes()
   }
 
   string proxy_entry = Remove_white(gtk_entry_get_text(GTK_ENTRY(GTK_COMBO(http_proxy_cbox)->entry)));
-  unsigned int colon_pos;
+  std::size_t colon_pos;
   string proxyserver_name;
   int proxyserver_port = DEFAULT_HTTP_PROXY_PORT;
   if(string::npos != (colon_pos = proxy_entry.find(':')) && proxy_entry.substr(colon_pos).size() > 1) {
