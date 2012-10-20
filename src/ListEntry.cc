@@ -912,7 +912,7 @@ GtkWidget *ListEntry::ret_Dl_clist()
 
 int ListEntry::Append_dl_item(char *clist_item[], ItemCell *itemcell)
 {
-	std::cout << "Append Item" << std::endl;
+//	std::cout << "Append Item" << std::endl;
 	items.push_back(itemcell);
 	GtkTreeIter   iter;	
 	gtk_list_store_append(dl_model, &iter);

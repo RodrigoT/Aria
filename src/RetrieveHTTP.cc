@@ -1142,7 +1142,7 @@ void RetrieveHTTP::uncompressFile(const string& filename)
   }
 
   // open compressed file
-  gzFile *infile = (gzFile *)gzopen((dir+tempFilename).c_str(), "r");
+  gzFile infile = gzopen((dir+tempFilename).c_str(), "r");
 
   FILE *outfile = fopen((dir+filename).c_str(), "w");
 

@@ -142,6 +142,7 @@ int get_interval(time_t timer_time)
 }
 
 AppOption::AppOption(GtkWidget *app_window)
+  :history_limit()
 {
   pthread_mutex_init(&option_lock, NULL);
   option_window = gtk_dialog_new();

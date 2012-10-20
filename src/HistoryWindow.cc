@@ -441,11 +441,11 @@ bool HistoryWindow::addItem(const string& file,
     gtk_adjustment_set_value(adj, vadj);
   }
 
-  delete [] clist_item[HistoryWindow::COL_FILE_H];
-  delete [] clist_item[HistoryWindow::COL_URL_H];
-  delete [] clist_item[HistoryWindow::COL_SAVE_H];
-  delete [] clist_item[HistoryWindow::COL_SIZE_H];
-  delete [] clist_item[HistoryWindow::COL_DATE_H];
+  free(clist_item[HistoryWindow::COL_FILE_H]);
+  free(clist_item[HistoryWindow::COL_URL_H]);
+  free(clist_item[HistoryWindow::COL_SAVE_H]);
+  free(clist_item[HistoryWindow::COL_SIZE_H]);
+  free(clist_item[HistoryWindow::COL_DATE_H]);
   pthread_mutex_unlock(&historyLock);
   return true;
 }

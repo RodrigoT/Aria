@@ -49,10 +49,13 @@ using namespace std;
 // 各スレッドがGUIスレッドに送るメッセージのフォーマット
 class StatusReport {
 public:
-  MessageType reporttype;
   void *data;
   pthread_mutex_t* mutex_p;
   pthread_cond_t* cond_p;
+  MessageType reporttype;
+  StatusReport()
+    :data(NULL), mutex_p(NULL), cond_p(NULL)
+  {}
 };
 
 // 各スレッドに送るコマンド

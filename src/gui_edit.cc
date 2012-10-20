@@ -327,7 +327,7 @@ void Add_new_item_to_downloadlist(ItemCell *itemcell, ListEntry *listentry)
   clist_item[COL_URL] = g_strdup(itemcell->ret_URL().c_str());
   //unsigned int rowindex = gtk_clist_append(GTK_CLIST(itemlistwidget), clist_item);
   itemcell->set_id(-1);
-  int rowindex = listentry->Append_dl_item(clist_item, itemcell);
+  listentry->Append_dl_item(clist_item, itemcell);
   g_free(clist_item[COL_FILENAME]);
   g_free(clist_item[COL_RETRY]);
   g_free(clist_item[COL_REC]);
