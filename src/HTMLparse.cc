@@ -20,6 +20,8 @@
 // $Id: HTMLparse.cc,v 1.23 2002/09/30 13:29:45 tujikawa Exp $
 
 #include "HTMLparse.h"
+#include "utils.h"
+#include "Options.h"
 
 bool isTag(const string& line, const string& tag)
 {
@@ -50,6 +52,10 @@ string HTMLparse::erase_protocol(string line, int length, int prot_pos)
   }
   return line;
 }
+
+std::string singleQuoteEnd("'>");
+std::string doubleQuoteEnd("\">");
+std::string spaceQuoteEnd(" '\">");
 
 URLcontainer HTMLparse::find_href(string line, Options& options)
 {
@@ -161,14 +167,20 @@ URLcontainer HTMLparse::find_href(string line, Options& options)
       if(url_start == string::npos) {
 	throw HTMLPARSE_NOHREF;
       }
-      bool quoted_flag;
-      if(line.at(url_start) == '\'' ||
-	 line.at(url_start) == '"') {
-	quoted_flag = true;
-	++url_start;
-      } else {
-	quoted_flag = false;
-      }
+	  bool quoted_flag;
+	  std::string hrefEnd;
+	  if(line.at(url_start) == '\'' ||
+			  line.at(url_start) == '"') {
+		  quoted_flag = true;
+		  if (line.at(url_start) == '\'')
+			  hrefEnd = singleQuoteEnd;
+		  else
+			  hrefEnd = doubleQuoteEnd;
+		  ++url_start;
+	  } else {
+		  quoted_flag = false;
+		  hrefEnd = spaceQuoteEnd;
+	  }
 
       //cerr << line.substr(url_start) << endl;
       /*
@@ -187,24 +199,24 @@ URLcontainer HTMLparse::find_href(string line, Options& options)
 	}
       }
       */
-      if(line.at(url_start) == '\\') {
-	url_start += 2;
-      }
-      std::size_t url_end;
-      if(quoted_flag) {
-	url_end = line.find_first_of("'\">", url_start);
-      } else {
-	url_end = line.find_first_of(" '\">", url_start);
-      }
+	  if(line.at(url_start) == '\\') {
+		  url_start += 2;
+	  }
+	  std::size_t url_end = line.find_first_of(hrefEnd, url_start);
+/*	  if(quoted_flag) {
+		  url_end = line.find_first_of("'\">", url_start);
+	  } else {
+		  url_end = line.find_first_of(" '\">", url_start);
+      }*/
       
-      if(url_end == string::npos) {
-	url_end = line.size();
-      }
-      if(line.at(url_end-1) == '\\') {
-	--url_end;
-      }
+	  if(url_end == string::npos) {
+		  url_end = line.size();
+	  }
+	  if(line.at(url_end-1) == '\\') {
+		  --url_end;
+	  }
 
-      // fix this
+	  // fix this
       string href = replaceSubstring(removeCtrlChar(Remove_white(line.substr(url_start, url_end-url_start))), "&amp;", "&");
       href = URLcontainer::URL_Decode(href);
 

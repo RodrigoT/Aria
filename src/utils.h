@@ -29,7 +29,7 @@
 #include <sys/time.h>
 #include <sys/stat.h>
 #include <unistd.h>
-#include "aria.h"
+//#include "aria.h"
 
 using namespace std;
 
@@ -64,7 +64,6 @@ string get_file_mod_date(const string& filename);
 size_t casefind(const string& string1, const string& string2);
 bool startwith(const string& string1, const string& string2);
 bool casecomp(const string& string1, const string& string2);
-bool startwith(const string& string1, const string& string2);
 bool endwith(const string& string1, const string& string2);
 time_t get_mod_time(const string& mdtm_string);
 string convert_tilde(const string& src_str);

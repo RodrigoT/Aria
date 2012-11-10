@@ -20,6 +20,7 @@
 // $Id: utils.cc,v 1.26 2002/10/01 15:32:00 tujikawa Exp $
 #include "utils.h"
 #include <stdlib.h>
+#include <strings.h>
 
 string Remove_white(string nword)
 {

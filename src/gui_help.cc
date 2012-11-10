@@ -20,6 +20,7 @@
 // $Id: gui_help.cc,v 1.34 2002/09/30 13:29:46 tujikawa Exp $
 
 #include <string>
+#include <gtk/gtk.h>
 #include "utils.h"
 #include "aria.h"
 #include "pixmaps/ARIA_LOGO.xpm"

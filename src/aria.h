@@ -22,11 +22,11 @@
 #ifndef _ARIA_H_
 #define _ARIA_H_
 
-#include <stdio.h>
-#include <gtk/gtk.h>
-#include <gtk/gtk.h>
-#include <string.h>
-#include <pthread.h>
+//#include <stdio.h>
+//#include <gtk/gtk.h>
+//#include <gtk/gtk.h>
+//#include <string.h>
+//#include <pthread.h>
 #include "config.h"
 
 #define RETRYWAIT 10 // wait between retries(sec)

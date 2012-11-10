@@ -283,7 +283,7 @@ Options::Options(bool use_authentication_in,
   command = command_in;
 }
 
-Options::Options()
+Options::Options(const string& cwd)
 {
   boolOpt = FULLZERO;
   boolOptRec = FULLZERO;
@@ -293,9 +293,10 @@ Options::Options()
   user.username = DEFAULT_OPTION_USER;
   user.password = DEFAULT_OPTION_PASSWORD;
 
-  char *current_dir = g_get_current_dir();
-  store_dir = current_dir;
-  g_free(current_dir);
+//  char *current_dir = g_get_current_dir();
+//  store_dir = current_dir;
+//  g_free(current_dir);
+	store_dir = cwd;
 
   if(store_dir.at(store_dir.size()-1) != '/') {
     store_dir += "/";

@@ -416,7 +416,9 @@ bool ItemList::Restore_saved_list(const string& filename)
       item = Token_splitter(line, " \t");
       tab_map.add(item, Remove_white(line));
       if(header != "Aria - version 0.10.0test1") { // compatibility for v0.10.0test1
-	Options options;
+    char *current_dir = g_get_current_dir();
+	Options options(current_dir);
+    g_free(current_dir);
 	
 	Restore_default_item_option_sub(infile, options);
 	

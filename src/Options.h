@@ -449,7 +449,7 @@ public:
 	  bool use_exit_status,
 	  const Command& command
 	  );
-  Options();
+  Options(const string& cwd);
   ~Options();
   void Change_Values(bool use_authentication_in,
 		     const Userdata& user,

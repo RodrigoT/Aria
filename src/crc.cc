@@ -20,6 +20,7 @@
 // $Id: crc.cc,v 1.16 2001/09/11 13:13:32 tujikawa Exp $
 
 #include "crc.h"
+#include <stdint.h>
 
 static unsigned short crc_table[256] = {
   0x0000, 0x1189, 0x2312, 0x329B, 0x4624, 0x57AD, 0x6536, 0x74BF,
@@ -123,19 +124,19 @@ static unsigned long crc_table32[256] = {
   0xB40BBE37, 0xC30C8EA1, 0x5A05DF1B, 0x2D02EF8D
 };
 
-gushort calculate_crc16(const string& filename)
+uint16_t calculate_crc16(const string& filename)
 {
   ifstream infile(filename.c_str(), ios::binary|ios::in);
   if(infile.bad()) throw ItemCell::ITEM_EIO;
 
   char buffer[4096];
   char *p;
-  gushort crc = 0xffff;
-  gint i;
+  uint16_t crc = 0xffff;
+  streamsize i;
 
   while(infile.good()) {
     infile.read(buffer, sizeof(buffer));
-    gint len = infile.gcount();
+    streamsize len = infile.gcount();
     p = buffer;
     for(i = 0; i < len; i++) {
       crc = (crc >> 8)^crc_table[(crc^*p++) & 0x00ff];
@@ -144,19 +145,19 @@ gushort calculate_crc16(const string& filename)
   return crc;
 }
 
-guint32 calculate_crc32(const string& filename)
+uint32_t calculate_crc32(const string& filename)
 {
   ifstream infile(filename.c_str(), ios::binary|ios::in);
   if(infile.bad()) throw ItemCell::ITEM_EIO;
 
   char buffer[4096];
   char *p;
-  guint32 crc = 0xffffffff;
-  gint i;
+  uint32_t crc = 0xffffffff;
+  streamsize  i;
 
   while(infile.good()) {
     infile.read(buffer, sizeof(buffer));
-    gint len = infile.gcount();
+    streamsize len = infile.gcount();
     p = buffer;
     for(i = 0; i < len; i++) {
       crc = (crc >> 8)^crc_table32[(crc^*p++) & 0x00ff];
@@ -168,14 +169,14 @@ guint32 calculate_crc32(const string& filename)
 
 bool CRC_check_main(ItemCell *itemcell)
 {
-  guint32 crc;
+  uint32_t crc;
   string line;
   string filename; // filename with full path
 
   // acquire lock
   itemcell->get_CRC_Lock();
 
-  guint32 crc_specified = itemcell->ret_CRC();
+  uint32_t crc_specified = itemcell->ret_CRC();
   ItemCell::CRC_Type crc_type_specified = itemcell->ret_CRC_Type();
   // release lock;
   itemcell->release_CRC_Lock();

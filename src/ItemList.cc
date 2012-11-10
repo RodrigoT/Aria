@@ -296,7 +296,9 @@ bool ItemList::Find_Hyperlink_from_file(const string& filename, const string& ba
       if(urlcon.Parse_URL(url) && !listentry->getItemManager()->search_by_url(urlcon.ret_URL()) &&
 	 (!g_appOption->ret_use_ignore_extension_list() ||
 	  !g_appOption->Is_in_ignore_extension_list(urlcon.ret_File()))) {
-	Options options;
+    char *current_dir = g_get_current_dir();
+	Options options(current_dir);
+    g_free(current_dir);
 	
 	options = listentry->ret_Options();
 	ItemCell *itemcell = new ItemCell(url, urlcon, options, _("Created"));

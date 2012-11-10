@@ -25,6 +25,7 @@
 #include <sys/stat.h>
 #include <unistd.h>
 #include <cstdlib>
+#include <string.h>
 #include "aria.h"
 #include "utils.h"
 

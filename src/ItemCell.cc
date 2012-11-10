@@ -41,14 +41,15 @@ ItemCell::ItemCell(const string& url_in,
 		   const URLcontainer& urlcon_in,
 		   const Options& options_in,
 		   const string& initial_log)
-	:svt()
+	:id(-1), filename(urlcon.ret_Filename()), urlcon(urlcon_in), filename_opt(filename),
+		options(options_in), options_opt(options_in), svt()
 {
-  id = -1;
+/*  id = -1;
   urlcon = urlcon_in;
 
   filename = urlcon.ret_Filename();
   filename_opt = filename;
-  options = options_in;
+  options = options_in;*/
   // set username and password
   if(urlcon.ret_Username().size()) {
     options.set_use_authentication(true);
@@ -97,6 +98,7 @@ ItemCell::ItemCell(const string& url_in,
 }
 
 ItemCell::ItemCell()
+	: options("/"), options_opt("/")
 {
   split_complete = true;
   count = 0;
@@ -112,6 +114,11 @@ ItemCell::ItemCell()
 
   // init event type
   dl_event = ItemCommand::EV_NOEVENT;
+
+  char *current_dir = g_get_current_dir();
+  options.set_Store_Dir(current_dir);
+  options_opt.set_Store_Dir(current_dir);
+  g_free(current_dir);
 }
 
 ItemCell::~ItemCell()
