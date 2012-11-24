@@ -52,11 +52,11 @@ static void Page_switched(GtkNotebook *notebook,
   } else {
     // at least one item exists
     Set_sensitive__list_not_empty();
-    if(GTK_CLIST(listentry->ret_Dl_clist())->selection != NULL) {
+    if(listentry->getSelectedRowCount() != 0) {
       // some items selected
       Set_sensitive__items_selected();
       
-      int rowindex = GPOINTER_TO_INT(g_list_last(GTK_CLIST(listentry->ret_Dl_clist())->selection)->data);
+      int rowindex = listentry->getLastSelectedRow();
       Set_speed_scale(listentry->getItemCellByRow(rowindex));
       Show_download_log(listentry->getItemCellByRow(rowindex));
     } else {

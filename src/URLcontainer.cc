@@ -33,6 +33,8 @@ static ProtocolList supported_protocol_list[] = {
 
 //constructor
 URLcontainer::URLcontainer()
+	:protocol(), host(), port(), dir(), file(), query(),
+		username(), passwd()
 {
   bad_flag = true;
 }

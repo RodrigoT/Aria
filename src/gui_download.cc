@@ -1161,21 +1161,23 @@ void Download_stop_all_sub(ListEntry *listentry, bool timerFlag)
   list<GtkTreePath*> selection_temp;
   Backup_selection_list(listentry->ret_Dl_clist(), selection_temp);
 
-  gtk_clist_select_all(GTK_CLIST(listentry->ret_Dl_clist()));
+//  gtk_clist_select_all(GTK_CLIST(listentry->ret_Dl_clist()));
 
-  GList *node = GTK_CLIST(listentry->ret_Dl_clist())->selection;
-  while(node) {
-    int rowindex = GPOINTER_TO_UINT(node->data);
-    ItemCell* itemcell = (ItemCell*)gtk_clist_get_row_data(GTK_CLIST(listentry->ret_Dl_clist()), rowindex);
+//  GList *node = GTK_CLIST(listentry->ret_Dl_clist())->selection;
+//  while(node) {
+  for (std::size_t rowindex = 0; rowindex< listentry->getRowCount(); ++rowindex) {
+//    int rowindex = GPOINTER_TO_UINT(node->data);
+//    ItemCell* itemcell = (ItemCell*)gtk_clist_get_row_data(GTK_CLIST(listentry->ret_Dl_clist()), rowindex);
+    ItemCell* itemcell = listentry->getItemCellByRow(rowindex);
     if(timerFlag) {
       Download_stop_sub(itemcell, rowindex, listentry, true, ItemCommand::EV_TIMERINTER);
     } else {
       Download_stop_sub(itemcell, rowindex, listentry, true);
     }
-    node = g_list_next(node);
+//    node = g_list_next(node);
   }
 
-  gtk_clist_unselect_all(GTK_CLIST(listentry->ret_Dl_clist()));
+//  gtk_clist_unselect_all(GTK_CLIST(listentry->ret_Dl_clist()));
 
   Restore_selection_list(listentry->ret_Dl_clist(), selection_temp);
 
@@ -1230,7 +1232,7 @@ static void Download_clear_all_sub(ListEntry *listentry)
   int count = 0;
 
   //gtk_clist_freeze(GTK_CLIST(listentry->ret_Dl_clist()));
-  gtk_clist_select_all(GTK_CLIST(listentry->ret_Dl_clist()));
+/*  gtk_clist_select_all(GTK_CLIST(listentry->ret_Dl_clist()));
 
   GList *node = GTK_CLIST(listentry->ret_Dl_clist())->selection;
 
@@ -1254,6 +1256,32 @@ static void Download_clear_all_sub(ListEntry *listentry)
     g_consoleItem->Send_message_to_gui(line, MSG_SYS_INFO);
     Set_sensitive__no_item_selected();// fix this
     if(GTK_CLIST(listentry->ret_Dl_clist())->rows == 0) {
+      Set_sensitive__list_empty(); // fix this
+    }
+    // update sumup informatiaon
+    ItemStatusSum *itemstatus = new ItemStatusSum(g_consoleItem);
+    Send_report(MSG_SYS_INFO, itemstatus);
+  }*/
+  std::size_t lastPos = 0;
+  while (listentry->getRowCount() > lastPos) {
+	  ItemCell* itemcell = listentry->getItemCellByRow(lastPos);
+      for(list<ItemCell*>::const_iterator item_ptr = itemcell->ret_Worker_list().begin(); item_ptr != itemcell->ret_Worker_list().end(); ++item_ptr) {
+		  Download_clear_sub((ItemCell*)*item_ptr, listentry);
+	  }
+	  if(itemcell->Is_Partial()) {
+	    ++lastPos;
+	  } else {
+	    if(Download_clear_sub(itemcell, listentry)) 
+			count++;
+	    lastPos = 0;
+	  }
+	  //listentry->Remove_dl_item(lastPos);
+  }
+  if(count > 0) {
+    string line = itos(count)+_(" item(s) deleted");
+    g_consoleItem->Send_message_to_gui(line, MSG_SYS_INFO);
+    Set_sensitive__no_item_selected();// fix this
+    if(listentry->getRowCount() == 0) {
       Set_sensitive__list_empty(); // fix this
     }
     // update sumup informatiaon

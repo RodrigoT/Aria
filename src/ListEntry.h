@@ -74,6 +74,7 @@ public:
   // do same things above
   int Insert_dl_item(char *clist_item[], ItemCell *itemcell, ItemCell *itemcell_base);
   int Remove_dl_item(ItemCell *itemcell);
+  void Remove_dl_item(std::size_t index);
 
   void setMD5List(list<CRCList*>& md5List);
   void setCRCList(list<CRCList*>& crcList);

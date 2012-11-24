@@ -945,13 +945,22 @@ int ListEntry::Insert_dl_item(char *clist_item[], ItemCell *itemcell, ItemCell *
 int ListEntry::Remove_dl_item(ItemCell *itemcell)
 {
 	std::cout << "Delete Item" << std::endl;
-	GtkTreeIter iter;
+//	GtkTreeIter iter;
 	std::vector<ItemCell*>::iterator it = std::find(items.begin(), items.end(), itemcell);
 	std::size_t rowindex = it - items.begin();
-	gtk_tree_model_iter_nth_child (GTK_TREE_MODEL(dl_model), &iter, NULL, rowindex);
-	items.erase(it);
-	gtk_list_store_remove(dl_model, &iter);
+//	gtk_tree_model_iter_nth_child (GTK_TREE_MODEL(dl_model), &iter, NULL, rowindex);
+//	items.erase(it);
+//	gtk_list_store_remove(dl_model, &iter);
+	Remove_dl_item(rowindex);
 	return rowindex;
+}
+
+void ListEntry::Remove_dl_item(std::size_t index)
+{
+	GtkTreeIter iter;
+	gtk_tree_model_iter_nth_child (GTK_TREE_MODEL(dl_model), &iter, NULL, index);
+	items.erase(items.begin()+index);
+	gtk_list_store_remove(dl_model, &iter);
 }
 
 ItemCell *ListEntry::ret_Default_item()

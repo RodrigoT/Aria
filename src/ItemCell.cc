@@ -41,7 +41,7 @@ ItemCell::ItemCell(const string& url_in,
 		   const URLcontainer& urlcon_in,
 		   const Options& options_in,
 		   const string& initial_log)
-	:id(-1), filename(urlcon.ret_Filename()), urlcon(urlcon_in), filename_opt(filename),
+	:id(-1), filename(urlcon_in.ret_Filename()), urlcon(urlcon_in), filename_opt(filename),
 		options(options_in), options_opt(options_in), svt()
 {
 /*  id = -1;
