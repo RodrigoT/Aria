@@ -99,15 +99,17 @@ bool Create_new_item(string url, bool onPaste = false, const string& dir = "", c
 	listentry->Send_start_signal();
       }
       
-      gtk_clist_moveto(GTK_CLIST(listentry->ret_Dl_clist()),
+      /*gtk_clist_moveto(GTK_CLIST(listentry->ret_Dl_clist()),
 		       GTK_CLIST(listentry->ret_Dl_clist())->rows-1,
 		       0,
 		       0.0,
-		       0.0);
+		       0.0);*/
+	if (listentry->getRowCount() > 0)
+	  listentry->scrollToRow(listentry->getRowCount()-1);
       //pthread_mutex_unlock(&itemlistlock);
       listentry->release_Dl_clist_lock();
       g_consoleItem->Send_message_to_gui(_("item added"), MSG_SYS_INFO);
-      if(GTK_CLIST(listentry->ret_Dl_clist())->rows > 0) {
+      if(listentry->getRowCount() > 0) {
 	Set_sensitive__list_not_empty();//fix this
       }
     }

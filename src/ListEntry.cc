@@ -1462,6 +1462,14 @@ ItemCell *ListEntry::getItemCellByRow(int rowindex) const {
 	return items[rowindex];
 }
 
+void ListEntry::scrollToRow(std::size_t row) {
+	GtkTreeIter iter;
+	gtk_tree_model_iter_nth_child (GTK_TREE_MODEL(dl_model), &iter, NULL, row);
+	GtkTreePath *path = gtk_tree_model_get_path(GTK_TREE_MODEL(dl_model), &iter);
+	gtk_tree_view_scroll_to_cell(GTK_TREE_VIEW(dl_table), path, NULL, FALSE, 1.0, 1.0);
+	gtk_tree_path_free(path);
+}
+
 // deletes matched items. unmatched items are returned
 void ListEntry::setCRCList(list<CRCList*>& crcList) {
 	pthread_mutex_lock(&dl_clist_lock);

@@ -134,6 +134,7 @@ public:
 	};
   gint getLastSelectedRow() const { return last_selected_row;};
   std::size_t getSelectedRowCount() { return gtk_tree_selection_count_selected_rows(gtk_tree_view_get_selection(GTK_TREE_VIEW(dl_table)));};
+  void scrollToRow(std::size_t row);
 		
 
   list<int> getActiveRowList();
