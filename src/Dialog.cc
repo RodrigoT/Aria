@@ -87,12 +87,12 @@ void Dialog::setup(const string& title_string,
   gtk_signal_disconnect(GTK_OBJECT(Yes_button),
 			Yes_connection_id);
   if(yes_Signal_Func != NULL) {
-  Yes_connection_id = gtk_signal_connect(GTK_OBJECT(Yes_button),
+  Yes_connection_id = g_signal_connect(GTK_OBJECT(Yes_button),
 					 "clicked",
 					 GTK_SIGNAL_FUNC(yes_Signal_Func),
 					 GTK_OBJECT(window));
   } else {
-    Yes_connection_id = gtk_signal_connect(GTK_OBJECT(Yes_button),
+    Yes_connection_id = g_signal_connect(GTK_OBJECT(Yes_button),
 					   "clicked",
 					   GTK_SIGNAL_FUNC(dummy_func),
 					   GTK_OBJECT(window));
@@ -102,12 +102,12 @@ void Dialog::setup(const string& title_string,
   gtk_signal_disconnect(GTK_OBJECT(No_button),
 			No_connection_id);
   if(no_Signal_Func != NULL) {
-    No_connection_id = gtk_signal_connect(GTK_OBJECT(No_button),
+    No_connection_id = g_signal_connect(GTK_OBJECT(No_button),
 					  "clicked",
 					  GTK_SIGNAL_FUNC(no_Signal_Func),
 					  GTK_OBJECT(window));
   } else {
-    No_connection_id = gtk_signal_connect(GTK_OBJECT(No_button),
+    No_connection_id = g_signal_connect(GTK_OBJECT(No_button),
 					  "clicked",
 					  GTK_SIGNAL_FUNC(dummy_func),
 					  GTK_OBJECT(window));
@@ -120,12 +120,12 @@ void Dialog::setup(const string& title_string,
   gtk_signal_disconnect(GTK_OBJECT(Cancel_button),
 			Cancel_connection_id);
   if(cancel_Signal_Func != NULL) {
-    Cancel_connection_id = gtk_signal_connect(GTK_OBJECT(Cancel_button),
+    Cancel_connection_id = g_signal_connect(GTK_OBJECT(Cancel_button),
 					      "clicked",
 					      GTK_SIGNAL_FUNC(cancel_Signal_Func),
 					      GTK_OBJECT(window));
   } else {
-    Cancel_connection_id = gtk_signal_connect(GTK_OBJECT(Cancel_button),
+    Cancel_connection_id = g_signal_connect(GTK_OBJECT(Cancel_button),
 					      "clicked",
 					      GTK_SIGNAL_FUNC(dummy_func),
 					      GTK_OBJECT(window));
@@ -146,7 +146,7 @@ Dialog::Dialog(GtkWindow *toplevel_in)
 
   toplevel = toplevel_in;
   gtk_widget_set_usize(window, 400, 100);
-  gtk_signal_connect_object(GTK_OBJECT(window),
+  g_signal_connect_swapped(GTK_OBJECT(window),
 			    "delete_event",
 			    GTK_SIGNAL_FUNC(Hide_window),
 			    GTK_OBJECT(window));
@@ -168,7 +168,7 @@ Dialog::Dialog(GtkWindow *toplevel_in)
   Yes_button = gtk_button_new_with_label(_("Yes"));
   GTK_WIDGET_SET_FLAGS(Yes_button, GTK_CAN_DEFAULT);
   gtk_window_set_default(GTK_WINDOW(window), Yes_button);
-  Yes_connection_id = gtk_signal_connect(GTK_OBJECT(Yes_button),
+  Yes_connection_id = g_signal_connect(GTK_OBJECT(Yes_button),
 					"clicked",
 					GTK_SIGNAL_FUNC(dummy_func),
 					GTK_OBJECT(window));
@@ -179,7 +179,7 @@ Dialog::Dialog(GtkWindow *toplevel_in)
   // No button
   No_button = gtk_button_new_with_label(_("No"));
   GTK_WIDGET_SET_FLAGS(No_button, GTK_CAN_DEFAULT);
-  No_connection_id = gtk_signal_connect(GTK_OBJECT(No_button),
+  No_connection_id = g_signal_connect(GTK_OBJECT(No_button),
 				       "clicked",
 				       GTK_SIGNAL_FUNC(dummy_func),
 				       GTK_OBJECT(window));
@@ -190,7 +190,7 @@ Dialog::Dialog(GtkWindow *toplevel_in)
   // Cancel button
   Cancel_button = gtk_button_new_with_label(_("Cancel"));
   GTK_WIDGET_SET_FLAGS(Cancel_button, GTK_CAN_DEFAULT);
-  Cancel_connection_id = gtk_signal_connect(GTK_OBJECT(Cancel_button),
+  Cancel_connection_id = g_signal_connect(GTK_OBJECT(Cancel_button),
 					    "clicked",
 					    GTK_SIGNAL_FUNC(dummy_func),
 					    GTK_OBJECT(window));

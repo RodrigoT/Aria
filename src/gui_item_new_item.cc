@@ -158,7 +158,7 @@ void Create_new_item_window(GtkWidget *toplevel)
   gtk_widget_set_usize(new_item_window, 500, 100);
 
   // delete event
-  gtk_signal_connect_object(GTK_OBJECT(new_item_window),
+  g_signal_connect_swapped(GTK_OBJECT(new_item_window),
 			    "delete_event",
 			    GTK_SIGNAL_FUNC(Hide_window),
 			    GTK_OBJECT(new_item_window));
@@ -174,7 +174,7 @@ void Create_new_item_window(GtkWidget *toplevel)
   GtkWidget *Add_button = gtk_button_new_with_label(_("Add"));
   GTK_WIDGET_SET_FLAGS(Add_button, GTK_CAN_DEFAULT);
   gtk_window_set_default(GTK_WINDOW(new_item_window), Add_button);
-  gtk_signal_connect(GTK_OBJECT(Add_button),
+  g_signal_connect(GTK_OBJECT(Add_button),
 		     "clicked",
 		     GTK_SIGNAL_FUNC(Item_new_item_Add_callback),
 		     GTK_OBJECT(new_item_window));
@@ -183,7 +183,7 @@ void Create_new_item_window(GtkWidget *toplevel)
   // unfold button
   GtkWidget *Unfold_button = gtk_button_new_with_label(_("Numerical expansion"));
   //GTK_WIDGET_SET_FLAGS(Unfold_button, GTK_CAN_DEFAULT);
-  gtk_signal_connect(GTK_OBJECT(Unfold_button),
+  g_signal_connect(GTK_OBJECT(Unfold_button),
 		     "clicked",
 		     GTK_SIGNAL_FUNC(Item_new_item_Unfold_callback),
 		     GTK_OBJECT(new_item_window));
@@ -192,7 +192,7 @@ void Create_new_item_window(GtkWidget *toplevel)
   // Cancel button
   GtkWidget *Cancel_button = gtk_button_new_with_label(_("Cancel"));
   //GTK_WIDGET_SET_FLAGS(Cancel_button, GTK_CAN_DEFAULT);
-  gtk_signal_connect_object(GTK_OBJECT(Cancel_button),
+  g_signal_connect_swapped(GTK_OBJECT(Cancel_button),
 			    "clicked",
 			    GTK_SIGNAL_FUNC(Hide_window),
 			    GTK_OBJECT(new_item_window));
@@ -210,7 +210,7 @@ void Create_new_item_window(GtkWidget *toplevel)
   gtk_box_pack_start(GTK_BOX(hbox), label, FALSE, FALSE, 10);
   // text entry for new URL
   new_url_entry = gtk_entry_new_with_max_length(512);
-  gtk_signal_connect_object(GTK_OBJECT(new_url_entry), "activate",
+  g_signal_connect_swapped(GTK_OBJECT(new_url_entry), "activate",
 			    GTK_SIGNAL_FUNC(gtk_button_clicked),
 			    GTK_OBJECT(Add_button));
   gtk_box_pack_start(GTK_BOX(hbox), new_url_entry, TRUE, TRUE, 10);

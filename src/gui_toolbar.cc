@@ -301,7 +301,7 @@ GtkWidget *Create_toolbar(GtkWidget *toplevel)
 					       iconw,
 					       GTK_SIGNAL_FUNC(Paste_get_clipboard),
 					       NULL);
-    gtk_signal_connect(GTK_OBJECT(paste_url_button), "selection_received",
+    g_signal_connect(GTK_OBJECT(paste_url_button), "selection_received",
 		       GTK_SIGNAL_FUNC(Paste_selection_received),
 		       NULL);
     //gtk_toolbar_append_space(GTK_TOOLBAR(toolbar));
@@ -543,7 +543,7 @@ GtkWidget *Create_toolbar(GtkWidget *toplevel)
     gtk_widget_show(thread_spin);
     gtk_entry_set_editable(GTK_ENTRY(thread_spin), FALSE);
 
-    gtk_signal_connect(GTK_OBJECT(thread_spin), "changed",
+    g_signal_connect(GTK_OBJECT(thread_spin), "changed",
 		       GTK_SIGNAL_FUNC(Thread_spin_changed),
 		       (void *)thread_spin);
 

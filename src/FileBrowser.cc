@@ -69,7 +69,7 @@ void FileBrowser::setup(const string& title_string,
   // OK button
   gtk_signal_disconnect(GTK_OBJECT(GTK_FILE_SELECTION(fs)->ok_button),
 			Ok_connection_id);
-  Ok_connection_id = gtk_signal_connect(GTK_OBJECT(GTK_FILE_SELECTION(fs)->ok_button),
+  Ok_connection_id = g_signal_connect(GTK_OBJECT(GTK_FILE_SELECTION(fs)->ok_button),
 					 "clicked",
 					 GTK_SIGNAL_FUNC(ok_Signal_Func),
 					 GTK_OBJECT(fs));
@@ -80,12 +80,12 @@ void FileBrowser::setup(const string& title_string,
   gtk_signal_disconnect(GTK_OBJECT(GTK_FILE_SELECTION(fs)->cancel_button),
 			Cancel_connection_id);
   if(cancel_Signal_Func != NULL) {
-    Cancel_connection_id = gtk_signal_connect(GTK_OBJECT(GTK_FILE_SELECTION(fs)->cancel_button),
+    Cancel_connection_id = g_signal_connect(GTK_OBJECT(GTK_FILE_SELECTION(fs)->cancel_button),
 					      "clicked",
 					      GTK_SIGNAL_FUNC(cancel_Signal_Func),
 					      GTK_OBJECT(fs));
   } else {
-    Cancel_connection_id = gtk_signal_connect(GTK_OBJECT(GTK_FILE_SELECTION(fs)->cancel_button),
+    Cancel_connection_id = g_signal_connect(GTK_OBJECT(GTK_FILE_SELECTION(fs)->cancel_button),
 					      "clicked",
 					      GTK_SIGNAL_FUNC(dummy_func),
 					      GTK_OBJECT(fs));
@@ -111,21 +111,21 @@ FileBrowser::FileBrowser(GtkWindow *toplevel_in)
 
   toplevel = toplevel_in;
   
-  gtk_signal_connect_object(GTK_OBJECT(fs),
+  g_signal_connect_swapped(GTK_OBJECT(fs),
 			    "delete_event",
 			    GTK_SIGNAL_FUNC(Hide_window),
 			    GTK_OBJECT(fs));
 
   //// action area
   // OK button
-  Ok_connection_id = gtk_signal_connect(GTK_OBJECT(GTK_FILE_SELECTION(fs)->ok_button),
+  Ok_connection_id = g_signal_connect(GTK_OBJECT(GTK_FILE_SELECTION(fs)->ok_button),
 					"clicked",
 					GTK_SIGNAL_FUNC(dummy_func),
 					NULL);
 
   
   // Cancel button
-  Cancel_connection_id = gtk_signal_connect(GTK_OBJECT(GTK_FILE_SELECTION(fs)->cancel_button),
+  Cancel_connection_id = g_signal_connect(GTK_OBJECT(GTK_FILE_SELECTION(fs)->cancel_button),
 					    "clicked",
 					    GTK_SIGNAL_FUNC(dummy_func),
 					    NULL);

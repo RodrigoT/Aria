@@ -672,17 +672,17 @@ void PasteWindow::Create_option_menu(GtkWidget *window, GtkWidget *menu_bar, Gtk
   gtk_menu_append(GTK_MENU(option_menu), reset_to_default_all_nosd_item);
 
   // signal handling
-  gtk_signal_connect(GTK_OBJECT(item_individual_item), "activate",
+  g_signal_connect(GTK_OBJECT(item_individual_item), "activate",
 		     GTK_SIGNAL_FUNC(Option_item_individual), GTK_OBJECT(paste_list));
-  gtk_signal_connect(GTK_OBJECT(reset_to_default_item), "activate",
+  g_signal_connect(GTK_OBJECT(reset_to_default_item), "activate",
 		     GTK_SIGNAL_FUNC(Option_reset_to_default), GTK_OBJECT(paste_list));
-  gtk_signal_connect(GTK_OBJECT(reset_to_default_nosd_item), "activate",
+  g_signal_connect(GTK_OBJECT(reset_to_default_nosd_item), "activate",
 		     GTK_SIGNAL_FUNC(Option_reset_to_default_nosd), GTK_OBJECT(paste_list));
-  gtk_signal_connect(GTK_OBJECT(item_default_item), "activate",
+  g_signal_connect(GTK_OBJECT(item_default_item), "activate",
 		     GTK_SIGNAL_FUNC(Option_item_default), NULL);
-  gtk_signal_connect(GTK_OBJECT(reset_to_default_all_item), "activate",
+  g_signal_connect(GTK_OBJECT(reset_to_default_all_item), "activate",
 		     GTK_SIGNAL_FUNC(Option_reset_to_default_all), GTK_OBJECT(paste_list));
-  gtk_signal_connect(GTK_OBJECT(reset_to_default_all_nosd_item), "activate",
+  g_signal_connect(GTK_OBJECT(reset_to_default_all_nosd_item), "activate",
 		     GTK_SIGNAL_FUNC(Option_reset_to_default_all_nosd), GTK_OBJECT(paste_list));
 
   // accelerator key
@@ -770,7 +770,7 @@ PasteWindow::PasteWindow(GtkWindow *toplevel)
   window = gtk_dialog_new();
   gtk_window_set_title(GTK_WINDOW(window), _("Paste URL list"));
   gtk_widget_set_usize(GTK_WIDGET(window), 680, 300);
-  gtk_signal_connect_object(GTK_OBJECT(window),
+  g_signal_connect_swapped(GTK_OBJECT(window),
 			    "delete_event",
 			    GTK_SIGNAL_FUNC(Paste_cancel),
 			    (GtkObject *)this);
@@ -827,10 +827,10 @@ PasteWindow::PasteWindow(GtkWindow *toplevel)
 //  				   TRUE);
   gtk_clist_set_selection_mode(GTK_CLIST(paste_list), GTK_SELECTION_MULTIPLE);
   
-  gtk_signal_connect(GTK_OBJECT(paste_list), "select-row",
+  g_signal_connect(GTK_OBJECT(paste_list), "select-row",
 		     GTK_SIGNAL_FUNC(PasteWindow_selectRow_cb),
 		     (void *)this);
-  gtk_signal_connect(GTK_OBJECT(paste_list), "unselect-row",
+  g_signal_connect(GTK_OBJECT(paste_list), "unselect-row",
 		     GTK_SIGNAL_FUNC(PasteWindow_unselectRow_cb),
 		     (void *)this);
   // 境界に影を付ける必要などないが、そうすれば見栄えが良くなる :)
@@ -863,7 +863,7 @@ PasteWindow::PasteWindow(GtkWindow *toplevel)
     GtkWidget *Paste_button = gtk_button_new_with_label(_("Paste"));
     GTK_WIDGET_SET_FLAGS(Paste_button, GTK_CAN_DEFAULT);
     gtk_window_set_default(GTK_WINDOW(window), Paste_button);
-    gtk_signal_connect(GTK_OBJECT(Paste_button),
+    g_signal_connect(GTK_OBJECT(Paste_button),
 		       "clicked",
 		       GTK_SIGNAL_FUNC(Paste_OK),
 		       (void *)this);
@@ -875,7 +875,7 @@ PasteWindow::PasteWindow(GtkWindow *toplevel)
     // item Option button
     GtkWidget *Option_button = gtk_button_new_with_label(_("Option"));
     GTK_WIDGET_SET_FLAGS(Option_button, GTK_CAN_DEFAULT);
-    gtk_signal_connect(GTK_OBJECT(Option_button),
+    g_signal_connect(GTK_OBJECT(Option_button),
 		       "clicked",
 		       GTK_SIGNAL_FUNC(Option_item_individual),
 		       (void *)this);
@@ -886,7 +886,7 @@ PasteWindow::PasteWindow(GtkWindow *toplevel)
     // Delete button
     GtkWidget *Delete_button = gtk_button_new_with_label(_("Delete"));
     GTK_WIDGET_SET_FLAGS(Delete_button, GTK_CAN_DEFAULT);
-    gtk_signal_connect(GTK_OBJECT(Delete_button),
+    g_signal_connect(GTK_OBJECT(Delete_button),
 		       "clicked",
 		       GTK_SIGNAL_FUNC(Paste_delete),
 		       (void *)this);
@@ -897,7 +897,7 @@ PasteWindow::PasteWindow(GtkWindow *toplevel)
     // Cancel button
     GtkWidget *Cancel_button = gtk_button_new_with_label(_("Cancel"));
     GTK_WIDGET_SET_FLAGS(Cancel_button, GTK_CAN_DEFAULT);
-    gtk_signal_connect_object(GTK_OBJECT(Cancel_button),
+    g_signal_connect_swapped(GTK_OBJECT(Cancel_button),
 			      "clicked",
 			      GTK_SIGNAL_FUNC(Paste_cancel),
 			      (GtkObject *)this);
@@ -922,7 +922,7 @@ PasteWindow::PasteWindow(GtkWindow *toplevel)
 				      GTK_DEST_DEFAULT_DROP),
 		    target_table, 3,
 		    GDK_ACTION_COPY);
-  gtk_signal_connect(GTK_OBJECT(paste_list), "drag_data_received",
+  g_signal_connect(GTK_OBJECT(paste_list), "drag_data_received",
 		     GTK_SIGNAL_FUNC(add_url_on_dnd),
 		     NULL);
   */

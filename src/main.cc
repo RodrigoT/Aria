@@ -340,7 +340,7 @@ int main(int argc, char **argv)
   bindtextdomain(PACKAGE, LOCALEDIR);
   textdomain(PACKAGE);
 # endif
-  gtk_set_locale();
+  //gtk_set_locale();
   bool guiReadyFlag = gtk_init_check(&argc, &argv);
 #ifdef HAVE_OPENSSL
   SSL_load_error_strings();

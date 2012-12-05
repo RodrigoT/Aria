@@ -267,8 +267,8 @@ static gboolean List_sort_status_des(GtkWidget *w, gpointer data)
 
 static void Create_sort_menu(GtkWidget *menu,
 			     char *label,
-			     GtkSignalFunc AscFunc,
-			     GtkSignalFunc DecFunc)
+			     GCallback AscFunc,
+			     GCallback DecFunc)
 {
   // Sort by Filename
   GtkWidget *sortByItem = GTK_create_menu_item_with_icon(menu,

@@ -43,7 +43,7 @@ static gboolean Help_about(GtkWidget *w, GtkWidget *top_level)
   GtkWidget *about_dialog = gtk_dialog_new();
   gtk_widget_set_usize(GTK_WIDGET(about_dialog), 400, 300);
   gtk_window_set_title(GTK_WINDOW(about_dialog), _("About Aria"));
-  gtk_signal_connect_object(GTK_OBJECT(about_dialog),
+  g_signal_connect_swapped(GTK_OBJECT(about_dialog),
 				   "delete_event",
 				   GTK_SIGNAL_FUNC(Help_destroy_about_dialog),
 				   GTK_OBJECT(about_dialog));
@@ -194,7 +194,7 @@ static gboolean Help_about(GtkWidget *w, GtkWidget *top_level)
   GTK_WIDGET_SET_FLAGS(button, GTK_CAN_DEFAULT);
   gtk_window_set_default(GTK_WINDOW(about_dialog), button);
   gtk_box_pack_start(GTK_BOX(bbox), button, FALSE, TRUE, 0);
-  gtk_signal_connect_object(GTK_OBJECT(button), "clicked",
+  g_signal_connect_swapped(GTK_OBJECT(button), "clicked",
 			    GTK_SIGNAL_FUNC(Help_destroy_about_dialog),
 			    GTK_OBJECT(about_dialog));
   gtk_widget_show(button);
@@ -217,7 +217,7 @@ void Create_help_menu(GtkWidget *window, GtkWidget *menu_bar, GtkAccelGroup *acc
   
   gtk_menu_append(GTK_MENU(help_menu), about_item);
 
-  gtk_signal_connect(GTK_OBJECT(about_item), "activate",
+  g_signal_connect(GTK_OBJECT(about_item), "activate",
 		     GTK_SIGNAL_FUNC(Help_about),
 		     GTK_OBJECT(window));
 

@@ -739,11 +739,11 @@ GtkWidget *Create_speed_limitter(GtkWidget *toplevel)
   gtk_widget_show(sg_speedScale);
   gtk_widget_set_usize(sg_speedScale, 300, -1);
   gtk_box_pack_start(GTK_BOX(hbox), sg_speedScale, FALSE, FALSE, 0);
-  gtk_signal_connect(GTK_OBJECT(sg_speedScale),
+  g_signal_connect(GTK_OBJECT(sg_speedScale),
 		     "button-release-event",
 		     GTK_SIGNAL_FUNC(Speed_changed_cb),
 		     NULL);
-  gtk_signal_connect(GTK_OBJECT(sg_speedScale),
+  g_signal_connect(GTK_OBJECT(sg_speedScale),
 		     "motion-notify-event",
 		     GTK_SIGNAL_FUNC(SpeedScale_motionNotify_event_cb),
 		     NULL);
@@ -762,7 +762,7 @@ GtkWidget *Create_speed_limitter(GtkWidget *toplevel)
   gtk_widget_show(sg_speedScaleSpin);
   gtk_box_pack_start(GTK_BOX(hbox), sg_speedScaleSpin, FALSE, FALSE, 0);
 
-  gtk_signal_connect(GTK_OBJECT(sg_speedScaleSpin),
+  g_signal_connect(GTK_OBJECT(sg_speedScaleSpin),
 		     "changed",
 		     GTK_SIGNAL_FUNC(SpeedScaleSpin_changed_event_cb),
 		     NULL);
@@ -965,17 +965,17 @@ GtkWidget *GUI_main(int main_width, int main_height, int main_x, int main_y)
 
   gtk_window_set_title(GTK_WINDOW(window), ARIA_VERSION);
 
-  gtk_signal_connect(GTK_OBJECT(window),
+  g_signal_connect(GTK_OBJECT(window),
 		     "delete_event",
 		     GTK_SIGNAL_FUNC(File_quit_main),
 		     NULL);
 
-  gtk_signal_connect(GTK_OBJECT(window),
+  g_signal_connect(GTK_OBJECT(window),
 		     "focus-in-event",
 		     GTK_SIGNAL_FUNC(window_focusInEvent_cb),
 		     NULL);
   /*
-  gtk_signal_connect(GTK_OBJECT(appWindow),
+  g_signal_connect(GTK_OBJECT(appWindow),
 		     "focus-out-event",
 		     GTK_SIGNAL_FUNC(test2_func),
 		     NULL);

@@ -744,20 +744,20 @@ void ListEntry::Create_dl_clist()
 	//gtk_clist_set_reorderable(GTK_CLIST(dl_clist), TRUE);
 	// 選択,非選択時のコールバックを設定
 
-	gtk_signal_connect(GTK_OBJECT(dl_clist), "select-row",
+	g_signal_connect(GTK_OBJECT(dl_clist), "select-row",
 	                   GTK_SIGNAL_FUNC(dlCList_selectRow_cb),
 	                   (GtkObject *)this);
-	gtk_signal_connect(GTK_OBJECT(dl_clist), "unselect-row",
+	g_signal_connect(GTK_OBJECT(dl_clist), "unselect-row",
 	                   GTK_SIGNAL_FUNC(dlCList_unselectRow_cb),
 	                   (GtkObject *)this);
-	gtk_signal_connect(GTK_OBJECT(dl_clist), "row-move",
+	g_signal_connect(GTK_OBJECT(dl_clist), "row-move",
 	                   GTK_SIGNAL_FUNC(dlCList_rowMove_cb),
 	                   (GtkObject *)this);
-	gtk_signal_connect(GTK_OBJECT(dl_clist), "click-column",
+	g_signal_connect(GTK_OBJECT(dl_clist), "click-column",
 	                   GTK_SIGNAL_FUNC(dlCList_clickColumn_cb),
 	                   (GtkObject *)this);
 */
-	//gtk_signal_connect_after(GTK_OBJECT(dl_clist), "button_press_event",
+	//g_signal_connect_after(GTK_OBJECT(dl_clist), "button_press_event",
 	//			   GTK_SIGNAL_FUNC(right_click_cb),
 	//			   NULL);
 

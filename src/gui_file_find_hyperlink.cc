@@ -100,7 +100,7 @@ void Create_find_hyperlink_window(GtkWidget *topLevel)
   gtk_window_set_title(GTK_WINDOW(sg_findHlWindow), _("Find Hyperlink"));
   gtk_widget_set_usize(sg_findHlWindow, 500, 100);
   // delete event
-  gtk_signal_connect_object(GTK_OBJECT(sg_findHlWindow),
+  g_signal_connect_swapped(GTK_OBJECT(sg_findHlWindow),
 			    "delete_event",
 			    GTK_SIGNAL_FUNC(Hide_window),
 			    GTK_OBJECT(sg_findHlWindow));
@@ -116,7 +116,7 @@ void Create_find_hyperlink_window(GtkWidget *topLevel)
   GtkWidget *OK_button = gtk_button_new_with_label(_("OK"));
   GTK_WIDGET_SET_FLAGS(OK_button, GTK_CAN_DEFAULT);
   gtk_window_set_default(GTK_WINDOW(sg_findHlWindow), OK_button);
-  gtk_signal_connect(GTK_OBJECT(OK_button),
+  g_signal_connect(GTK_OBJECT(OK_button),
 		     "clicked",
 		     GTK_SIGNAL_FUNC(File_find_hyperlink_OK_callback),
 		     GTK_OBJECT(sg_findHlWindow));
@@ -125,7 +125,7 @@ void Create_find_hyperlink_window(GtkWidget *topLevel)
   // Cancel button
   GtkWidget *Cancel_button = gtk_button_new_with_label(_("Cancel"));
   //GTK_WIDGET_SET_FLAGS(Cancel_button, GTK_CAN_DEFAULT);
-  gtk_signal_connect_object(GTK_OBJECT(Cancel_button),
+  g_signal_connect_swapped(GTK_OBJECT(Cancel_button),
 			    "clicked",
 			    GTK_SIGNAL_FUNC(Hide_window),
 			    GTK_OBJECT(sg_findHlWindow));
@@ -143,7 +143,7 @@ void Create_find_hyperlink_window(GtkWidget *topLevel)
   gtk_box_pack_start(GTK_BOX(hbox), label, FALSE, FALSE, 10);
   // text entry for URL
   sg_urlEntry = gtk_entry_new_with_max_length(512);
-  gtk_signal_connect_object(GTK_OBJECT(sg_urlEntry), "activate",
+  g_signal_connect_swapped(GTK_OBJECT(sg_urlEntry), "activate",
 			    GTK_SIGNAL_FUNC(gtk_button_clicked),
 			    GTK_OBJECT(OK_button));
   gtk_box_pack_start(GTK_BOX(hbox), sg_urlEntry, TRUE, TRUE, 10);

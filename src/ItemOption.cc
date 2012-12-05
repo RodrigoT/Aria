@@ -384,7 +384,7 @@ static gboolean Show_dir_browser(GtkWidget *w, GtkWidget *option_window)
   if(store_dir_browser == NULL) {
     store_dir_browser = create_dir_browser(_("Select directory"), current_store_dir.c_str(), GTK_SELECTION_SINGLE, store_dir_handler);
     
-    gtk_signal_connect(GTK_OBJECT(store_dir_browser), "destroy",
+    g_signal_connect(GTK_OBJECT(store_dir_browser), "destroy",
 		       GTK_SIGNAL_FUNC(gtk_widget_destroyed),
 		       (void *)&store_dir_browser);
     
@@ -580,7 +580,7 @@ ItemOption::ItemOption(GtkWidget* app_window)
 {
   option_window = gtk_dialog_new();
   gtk_widget_set_usize(GTK_WIDGET(option_window), 685, 600);
-  gtk_signal_connect_object(GTK_OBJECT(option_window),
+  g_signal_connect_swapped(GTK_OBJECT(option_window),
 		     "delete_event",
 		     GTK_SIGNAL_FUNC(Option_cancel),
 		     (GtkObject *)this);
@@ -672,7 +672,7 @@ ItemOption::ItemOption(GtkWidget* app_window)
   GtkWidget *OK_button = gtk_button_new_with_label(_("OK"));
   GTK_WIDGET_SET_FLAGS(OK_button, GTK_CAN_DEFAULT);
   gtk_window_set_default(GTK_WINDOW(option_window), OK_button);
-  gtk_signal_connect(GTK_OBJECT(OK_button),
+  g_signal_connect(GTK_OBJECT(OK_button),
 		     "clicked",
 		     GTK_SIGNAL_FUNC(Option_OK),
 		     (void *)this);
@@ -682,7 +682,7 @@ ItemOption::ItemOption(GtkWidget* app_window)
   // Cancel button
   GtkWidget *Cancel_button = gtk_button_new_with_label(_("Cancel"));
   //GTK_WIDGET_SET_FLAGS(Cancel_button, GTK_CAN_DEFAULT);
-  gtk_signal_connect_object(GTK_OBJECT(Cancel_button),
+  g_signal_connect_swapped(GTK_OBJECT(Cancel_button),
 		     "clicked",
 		     GTK_SIGNAL_FUNC(Option_cancel),
 		     (GtkObject *)this);
@@ -691,7 +691,7 @@ ItemOption::ItemOption(GtkWidget* app_window)
   gtk_widget_show(Cancel_button);
   // default button
   GtkWidget *Default_button = gtk_button_new_with_label(_("Default"));
-  gtk_signal_connect(GTK_OBJECT(Default_button),
+  g_signal_connect(GTK_OBJECT(Default_button),
 		     "clicked",
 		     GTK_SIGNAL_FUNC(Option_default),
 		     (void *)this);
@@ -1169,7 +1169,7 @@ GtkWidget *ItemOption::Create_General_URL_page()
     gtk_object_set_data(GTK_OBJECT(url_entry),
 			"filename_entry",
 			(gpointer)filename_entry);
-    gtk_signal_connect(GTK_OBJECT(url_entry),
+    g_signal_connect(GTK_OBJECT(url_entry),
 		       "focus-out-event",
 		       GTK_SIGNAL_FUNC(url_entry_focusOutEvent_cb),
 		       NULL);
@@ -1181,7 +1181,7 @@ GtkWidget *ItemOption::Create_General_URL_page()
     gtk_object_set_data(GTK_OBJECT(sync_with_url_toggle),
 			"filename_entry",
 			(gpointer)filename_entry);
-    sync_with_url_toggled_cb_id = gtk_signal_connect(GTK_OBJECT(sync_with_url_toggle),
+    sync_with_url_toggled_cb_id = g_signal_connect(GTK_OBJECT(sync_with_url_toggle),
 						     "toggled",
 						     GTK_SIGNAL_FUNC(sync_with_url_toggled_cb),
 						     NULL);
@@ -1205,7 +1205,7 @@ GtkWidget *ItemOption::Create_General_URL_page()
     GtkWidget *button = gtk_button_new_with_label(_("select"));
     gtk_widget_show(button);
     gtk_box_pack_start(GTK_BOX(hbox), button, FALSE, FALSE, 0);
-    gtk_signal_connect(GTK_OBJECT(button), "clicked",
+    g_signal_connect(GTK_OBJECT(button), "clicked",
 		       GTK_SIGNAL_FUNC(Show_dir_browser),
 		       GTK_OBJECT(option_window));
   }
@@ -1517,12 +1517,12 @@ GtkWidget *ItemOption::Create_General_Download2_page()
     gtk_widget_set_usize(speed_scale, 300, -1);
     gtk_box_pack_start(GTK_BOX(hbox), speed_scale, FALSE, FALSE, 0);
     /*
-    gtk_signal_connect(GTK_OBJECT(speed_scale),
+    g_signal_connect(GTK_OBJECT(speed_scale),
 		       "button-release-event",
 		       GTK_SIGNAL_FUNC(speedScale_buttonReleaseEvent_cb),
 		       (void *)this);
     */
-    gtk_signal_connect(GTK_OBJECT(speed_scale),
+    g_signal_connect(GTK_OBJECT(speed_scale),
 		       "motion-notify-event",
 		       GTK_SIGNAL_FUNC(speedScale_motionNotifyEvent_cb),
 		       (void *)this);
@@ -1544,7 +1544,7 @@ GtkWidget *ItemOption::Create_General_Download2_page()
     gtk_widget_show(speedSpin);
     gtk_box_pack_start(GTK_BOX(hbox), speedSpin, FALSE, FALSE, 0);
     
-    gtk_signal_connect(GTK_OBJECT(speedSpin),
+    g_signal_connect(GTK_OBJECT(speedSpin),
 		       "changed",
 		       GTK_SIGNAL_FUNC(speedSpin_changed_cb),
 		       (void *)this);
@@ -1829,7 +1829,7 @@ GtkWidget *ItemOption::Create_HTTP_Proxy_page()
       GtkWidget *http_proxy_add_button = gtk_button_new_with_label(_("Add"));
       gtk_widget_show(http_proxy_add_button);
       gtk_box_pack_start(GTK_BOX(hbox), http_proxy_add_button, FALSE, FALSE, 0);
-      gtk_signal_connect(GTK_OBJECT(http_proxy_add_button), "clicked",
+      g_signal_connect(GTK_OBJECT(http_proxy_add_button), "clicked",
 			 GTK_SIGNAL_FUNC(Add_http_proxy_entry),
 			 GTK_OBJECT(http_proxy_cbox));
 
@@ -1837,7 +1837,7 @@ GtkWidget *ItemOption::Create_HTTP_Proxy_page()
       GtkWidget *http_proxy_del_button = gtk_button_new_with_label(_("Delete"));
       gtk_widget_show(http_proxy_del_button);
       gtk_box_pack_start(GTK_BOX(hbox), http_proxy_del_button, FALSE, FALSE, 0);
-      gtk_signal_connect(GTK_OBJECT(http_proxy_del_button), "clicked",
+      g_signal_connect(GTK_OBJECT(http_proxy_del_button), "clicked",
 			 GTK_SIGNAL_FUNC(Delete_http_proxy_entry),
 			 GTK_OBJECT(http_proxy_cbox));
     }
@@ -1901,7 +1901,7 @@ GtkWidget *ItemOption::Create_HTTP_Recursive1_page()
 	  recurse_hostname_dir_toggle = gtk_check_button_new_with_label(_("With hostname directory"));
 	  gtk_widget_show(recurse_hostname_dir_toggle);
 	  gtk_box_pack_start(GTK_BOX(vbox1), recurse_hostname_dir_toggle, FALSE, FALSE, 0);
-	  gtk_signal_connect(GTK_OBJECT(recurse_hostname_dir_toggle),
+	  g_signal_connect(GTK_OBJECT(recurse_hostname_dir_toggle),
 			     "toggled",
 			     GTK_SIGNAL_FUNC(HTTPRecursive_toggled_event_cb),
 			     this);
@@ -1910,7 +1910,7 @@ GtkWidget *ItemOption::Create_HTTP_Recursive1_page()
 	  recurse_abs2rel_toggle = gtk_check_button_new_with_label(_("Convert absolute URLs to relative ones"));
 	  gtk_widget_show(recurse_abs2rel_toggle);
 	  gtk_box_pack_start(GTK_BOX(vbox1), recurse_abs2rel_toggle, FALSE, FALSE, 0);
-	  gtk_signal_connect(GTK_OBJECT(recurse_abs2rel_toggle),
+	  g_signal_connect(GTK_OBJECT(recurse_abs2rel_toggle),
 			     "toggled",
 			     GTK_SIGNAL_FUNC(HTTPRecursive_toggled_event_cb),
 			     this);
@@ -2079,7 +2079,7 @@ GtkWidget *ItemOption::Create_HTTP_Recursive2_page()
 	    GtkWidget *add_button = gtk_button_new_with_label(_("Add"));
 	    gtk_widget_show(add_button);
 	    gtk_box_pack_start(GTK_BOX(hbox), add_button, FALSE, FALSE, 0);
-	    gtk_signal_connect_object(GTK_OBJECT(recurse_parse_target_entry), "activate",
+	    g_signal_connect_swapped(GTK_OBJECT(recurse_parse_target_entry), "activate",
 				      GTK_SIGNAL_FUNC(gtk_button_clicked),
 				      GTK_OBJECT(add_button));
 	    
@@ -2091,7 +2091,7 @@ GtkWidget *ItemOption::Create_HTTP_Recursive2_page()
 	    GtkWidget *scrolled_window = Create_CheckCList(&recurse_parse_target_clist, titles, n_titles);
 	    Create_popup_menu(&recurse_parse_target_clist);
 	    gtk_object_set_user_data(GTK_OBJECT(recurse_parse_target_clist), recurse_parse_target_entry);
-	    gtk_signal_connect(GTK_OBJECT(add_button), "clicked",
+	    g_signal_connect(GTK_OBJECT(add_button), "clicked",
 			       GTK_SIGNAL_FUNC(Add_target_item),
 			       GTK_OBJECT(recurse_parse_target_clist));
 	    
@@ -2132,7 +2132,7 @@ GtkWidget *ItemOption::Create_HTTP_Recursive2_page()
 	    GtkWidget *add_button = gtk_button_new_with_label(_("Add"));
 	    gtk_widget_show(add_button);
 	    gtk_box_pack_start(GTK_BOX(hbox), add_button, FALSE, FALSE, 0);
-	    gtk_signal_connect_object(GTK_OBJECT(recurse_ign_domain_entry), "activate",
+	    g_signal_connect_swapped(GTK_OBJECT(recurse_ign_domain_entry), "activate",
 				      GTK_SIGNAL_FUNC(gtk_button_clicked),
 				      GTK_OBJECT(add_button));
 	  
@@ -2145,7 +2145,7 @@ GtkWidget *ItemOption::Create_HTTP_Recursive2_page()
 	    gtk_clist_set_column_auto_resize(GTK_CLIST(recurse_ign_domain_clist), 0, FALSE);
 	    Create_popup_menu(&recurse_ign_domain_clist);
 	    gtk_object_set_user_data(GTK_OBJECT(recurse_ign_domain_clist), recurse_ign_domain_entry);
-	    gtk_signal_connect(GTK_OBJECT(add_button), "clicked",
+	    g_signal_connect(GTK_OBJECT(add_button), "clicked",
 			       GTK_SIGNAL_FUNC(Add_target_item),
 			       GTK_OBJECT(recurse_ign_domain_clist));
 	  
@@ -2193,7 +2193,7 @@ GtkWidget *ItemOption::Create_HTTP_Recursive2_page()
 	    GtkWidget *add_button = gtk_button_new_with_label(_("Add"));
 	    gtk_widget_show(add_button);
 	    gtk_box_pack_start(GTK_BOX(hbox), add_button, FALSE, FALSE, 0);
-	    gtk_signal_connect_object(GTK_OBJECT(recurse_down_filter_target_entry), "activate",
+	    g_signal_connect_swapped(GTK_OBJECT(recurse_down_filter_target_entry), "activate",
 				      GTK_SIGNAL_FUNC(gtk_button_clicked),
 				      GTK_OBJECT(add_button));
 	  
@@ -2206,7 +2206,7 @@ GtkWidget *ItemOption::Create_HTTP_Recursive2_page()
 	    gtk_clist_set_column_auto_resize(GTK_CLIST(recurse_down_filter_target_clist), 0, FALSE);
 	    Create_popup_menu(&recurse_down_filter_target_clist);
 	    gtk_object_set_user_data(GTK_OBJECT(recurse_down_filter_target_clist), recurse_down_filter_target_entry);
-	    gtk_signal_connect(GTK_OBJECT(add_button), "clicked",
+	    g_signal_connect(GTK_OBJECT(add_button), "clicked",
 			       GTK_SIGNAL_FUNC(Add_target_item2),
 			       GTK_OBJECT(recurse_down_filter_target_clist));
 	  
@@ -2245,7 +2245,7 @@ GtkWidget *ItemOption::Create_HTTP_Recursive2_page()
 	    GtkWidget *add_button = gtk_button_new_with_label(_("Add"));
 	    gtk_widget_show(add_button);
 	    gtk_box_pack_start(GTK_BOX(hbox), add_button, FALSE, FALSE, 0);
-	    gtk_signal_connect_object(GTK_OBJECT(recurse_nodown_filter_target_entry), "activate",
+	    g_signal_connect_swapped(GTK_OBJECT(recurse_nodown_filter_target_entry), "activate",
 				      GTK_SIGNAL_FUNC(gtk_button_clicked),
 				      GTK_OBJECT(add_button));
 	  
@@ -2258,7 +2258,7 @@ GtkWidget *ItemOption::Create_HTTP_Recursive2_page()
 	    gtk_clist_set_column_auto_resize(GTK_CLIST(recurse_nodown_filter_target_clist), 0, FALSE);
 	    Create_popup_menu(&recurse_nodown_filter_target_clist);
 	    gtk_object_set_user_data(GTK_OBJECT(recurse_nodown_filter_target_clist), recurse_nodown_filter_target_entry);
-	    gtk_signal_connect(GTK_OBJECT(add_button), "clicked",
+	    g_signal_connect(GTK_OBJECT(add_button), "clicked",
 			       GTK_SIGNAL_FUNC(Add_target_item),
 			       GTK_OBJECT(recurse_nodown_filter_target_clist));
 	  
@@ -2374,7 +2374,7 @@ GtkWidget* ItemOption::Create_HTTP_Misc_page()
     GtkWidget *menu = gtk_menu_new();
     for(unsigned int i = 0; i < sizeof(http_version_string)/sizeof(http_version_string[0]); ++i) {
       GtkWidget *item = gtk_menu_item_new_with_label(http_version_string[i]);
-      gtk_signal_connect(GTK_OBJECT(item), "activate",
+      g_signal_connect(GTK_OBJECT(item), "activate",
 			 GTK_SIGNAL_FUNC(http_version_callback),
 			 GUINT_TO_POINTER(i));
       gtk_widget_show(item);
@@ -2524,7 +2524,7 @@ GtkWidget *ItemOption::Create_FTP_Proxy_page()
       GtkWidget *ftp_proxy_add_button = gtk_button_new_with_label(_("Add"));
       gtk_widget_show(ftp_proxy_add_button);
       gtk_box_pack_start(GTK_BOX(hbox), ftp_proxy_add_button, FALSE, FALSE, 0);
-      gtk_signal_connect(GTK_OBJECT(ftp_proxy_add_button), "clicked",
+      g_signal_connect(GTK_OBJECT(ftp_proxy_add_button), "clicked",
 			 GTK_SIGNAL_FUNC(Add_ftp_proxy_entry),
 			 GTK_OBJECT(ftp_proxy_cbox));
 
@@ -2532,7 +2532,7 @@ GtkWidget *ItemOption::Create_FTP_Proxy_page()
       GtkWidget *ftp_proxy_del_button = gtk_button_new_with_label(_("Delete"));
       gtk_widget_show(ftp_proxy_del_button);
       gtk_box_pack_start(GTK_BOX(hbox), ftp_proxy_del_button, FALSE, FALSE, 0);
-      gtk_signal_connect(GTK_OBJECT(ftp_proxy_del_button), "clicked",
+      g_signal_connect(GTK_OBJECT(ftp_proxy_del_button), "clicked",
 			 GTK_SIGNAL_FUNC(Delete_ftp_proxy_entry),
 			 GTK_OBJECT(ftp_proxy_cbox));
     }
@@ -2772,7 +2772,7 @@ GtkWidget *ItemOption::Create_FTP_Recursive_page()
 	    GtkWidget *add_button = gtk_button_new_with_label(_("Add"));
 	    gtk_widget_show(add_button);
 	    gtk_box_pack_start(GTK_BOX(hbox), add_button, FALSE, FALSE, 0);
-	    gtk_signal_connect_object(GTK_OBJECT(ftp_filter_entry), "activate",
+	    g_signal_connect_swapped(GTK_OBJECT(ftp_filter_entry), "activate",
 				      GTK_SIGNAL_FUNC(gtk_button_clicked),
 				      GTK_OBJECT(add_button));
 	    
@@ -2785,7 +2785,7 @@ GtkWidget *ItemOption::Create_FTP_Recursive_page()
 	    gtk_clist_set_column_auto_resize(GTK_CLIST(recurse_nodown_filter_target_clist), 0, FALSE);
 	    Create_popup_menu(&ftp_filter_clist);
 	    gtk_object_set_user_data(GTK_OBJECT(ftp_filter_clist), ftp_filter_entry);
-	    gtk_signal_connect(GTK_OBJECT(add_button), "clicked",
+	    g_signal_connect(GTK_OBJECT(add_button), "clicked",
 			       GTK_SIGNAL_FUNC(Add_target_item2),
 			       GTK_OBJECT(ftp_filter_clist));
 	    
@@ -2902,7 +2902,7 @@ void ItemOption::setOptionValues(ItemCell *itemcell_in,
       gtk_widget_set_sensitive(storedir_entry, TRUE);
 
       if(sync_with_url_toggled_cb_id == 0) {
-	sync_with_url_toggled_cb_id = gtk_signal_connect(GTK_OBJECT(sync_with_url_toggle),
+	sync_with_url_toggled_cb_id = g_signal_connect(GTK_OBJECT(sync_with_url_toggle),
 							 "toggled",
 							 GTK_SIGNAL_FUNC(sync_with_url_toggled_cb),
 							 NULL);

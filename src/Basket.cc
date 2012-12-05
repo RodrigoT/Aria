@@ -153,23 +153,23 @@ Basket::Basket(GtkWidget *toplevel_in) {
   gtk_widget_show(label);
 
   // set call back functions
-  gtk_signal_connect_object(GTK_OBJECT(window),
+  g_signal_connect_swapped(GTK_OBJECT(window),
 			    "delete_event",
 			    GTK_SIGNAL_FUNC(hide_cb),
 			    (GtkObject *)this);
-  gtk_signal_connect(GTK_OBJECT(window),
+  g_signal_connect(GTK_OBJECT(window),
 		     "motion_notify_event",
 		     GTK_SIGNAL_FUNC(motion_notify_event_cb),
 		     (void *)this);
-  gtk_signal_connect(GTK_OBJECT(window),
+  g_signal_connect(GTK_OBJECT(window),
 		     "button_press_event",
 		     GTK_SIGNAL_FUNC(button_press_event_cb),
 		     (void *)this);
-  gtk_signal_connect(GTK_OBJECT(window),
+  g_signal_connect(GTK_OBJECT(window),
 		     "button_release_event",
 		     GTK_SIGNAL_FUNC(button_release_event_cb),
 		     NULL);
-  gtk_signal_connect(GTK_OBJECT(window),
+  g_signal_connect(GTK_OBJECT(window),
 		     "focus-out-event",
 		     GTK_SIGNAL_FUNC(button_release_event_cb),
 		     NULL);

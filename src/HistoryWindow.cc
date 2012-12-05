@@ -258,7 +258,7 @@ HistoryWindow::HistoryWindow(GtkWindow *toplevel, int maxHistory_in)
   window = gtk_dialog_new();
   gtk_window_set_title(GTK_WINDOW(window), _("History URL list"));
   gtk_widget_set_usize(GTK_WIDGET(window), 680, 300);
-  gtk_signal_connect_object(GTK_OBJECT(window),
+  g_signal_connect_swapped(GTK_OBJECT(window),
 			    "delete_event",
 			    GTK_SIGNAL_FUNC(History_close),
 			    (GtkObject *)this);
@@ -287,10 +287,10 @@ HistoryWindow::HistoryWindow(GtkWindow *toplevel, int maxHistory_in)
 				   TRUE);
   gtk_clist_set_selection_mode(GTK_CLIST(historyList), GTK_SELECTION_MULTIPLE);
   
-  gtk_signal_connect(GTK_OBJECT(historyList), "select-row",
+  g_signal_connect(GTK_OBJECT(historyList), "select-row",
 		     GTK_SIGNAL_FUNC(HistoryWindow_selectRow_cb),
 		     (void *)this);
-  gtk_signal_connect(GTK_OBJECT(historyList), "unselect-row",
+  g_signal_connect(GTK_OBJECT(historyList), "unselect-row",
 		     GTK_SIGNAL_FUNC(HistoryWindow_unselectRow_cb),
 		     (void *)this);
   // 境界に影を付ける必要などないが、そうすれば見栄えが良くなる :)
@@ -344,7 +344,7 @@ HistoryWindow::HistoryWindow(GtkWindow *toplevel, int maxHistory_in)
     // Add button
     GtkWidget *Add_button = gtk_button_new_with_label(_("Paste"));
     gtk_object_set_user_data(GTK_OBJECT(Add_button), window);
-    gtk_signal_connect(GTK_OBJECT(Add_button),
+    g_signal_connect(GTK_OBJECT(Add_button),
 		       "clicked",
 		       GTK_SIGNAL_FUNC(History_pasteEntry),
 		       (void *)this);
@@ -354,7 +354,7 @@ HistoryWindow::HistoryWindow(GtkWindow *toplevel, int maxHistory_in)
     
     // Delete button
     GtkWidget *Delete_button = gtk_button_new_with_label(_("Clear"));
-    gtk_signal_connect(GTK_OBJECT(Delete_button),
+    g_signal_connect(GTK_OBJECT(Delete_button),
 		       "clicked",
 		       GTK_SIGNAL_FUNC(History_deleteEntry),
 		       (void *)this);
@@ -364,7 +364,7 @@ HistoryWindow::HistoryWindow(GtkWindow *toplevel, int maxHistory_in)
 
     // Close button
     GtkWidget *Close_button = gtk_button_new_with_label(_("Close"));
-    gtk_signal_connect_object(GTK_OBJECT(Close_button),
+    g_signal_connect_swapped(GTK_OBJECT(Close_button),
 			      "clicked",
 			      GTK_SIGNAL_FUNC(History_close),
 			      (GtkObject *)this);
@@ -610,13 +610,13 @@ GtkWidget *HistoryWindow::createQueryUI(GtkWidget *window) {
   gtk_widget_show(searchButton);
   gtk_box_pack_start(GTK_BOX(hbox), searchButton, FALSE, FALSE, 5);
   // set callback functions
-  gtk_signal_connect(GTK_OBJECT(searchButton),
+  g_signal_connect(GTK_OBJECT(searchButton),
 		     "clicked",
 		     GTK_SIGNAL_FUNC(HistoryWindow_searchButton_clicked_cb),
 		     (void *)this);
 
   // set callback functions
-  gtk_signal_connect_object(GTK_OBJECT(queryEntry),
+  g_signal_connect_swapped(GTK_OBJECT(queryEntry),
 			    "activate",
 			    GTK_SIGNAL_FUNC(gtk_button_clicked),
 			    GTK_OBJECT(searchButton));

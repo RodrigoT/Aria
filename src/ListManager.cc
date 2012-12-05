@@ -75,13 +75,13 @@ ListManager::ListManager()
   gtk_notebook_popup_enable(GTK_NOTEBOOK(baseNotebook));
 
   // call back function
-  gtk_signal_connect(GTK_OBJECT(baseNotebook), "switch-page",
+  g_signal_connect(GTK_OBJECT(baseNotebook), "switch-page",
 		     GTK_SIGNAL_FUNC(Page_switched),
 		     NULL);
 
   gtk_widget_show(baseNotebook);
 //    gtk_notebook_popup_disable(GTK_NOTEBOOK(notebook));
-//    gtk_signal_connect(GTK_OBJECT(notebook), "button-release-event",
+//    g_signal_connect(GTK_OBJECT(notebook), "button-release-event",
 //  		     GTK_SIGNAL_FUNC(ListPopup_cb),
 //  		     NULL);
 

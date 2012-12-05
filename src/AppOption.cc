@@ -151,7 +151,7 @@ AppOption::AppOption(GtkWidget *app_window)
   gtk_window_set_modal(GTK_WINDOW(option_window), TRUE);
   gtk_window_set_transient_for(GTK_WINDOW(option_window), GTK_WINDOW(app_window));
 
-  gtk_signal_connect_object(GTK_OBJECT(option_window),
+  g_signal_connect_swapped(GTK_OBJECT(option_window),
 			    "delete_event",
 			    GTK_SIGNAL_FUNC(optionWindow_deleteEvent_cb),
 			    (GtkObject *)this);
@@ -216,7 +216,7 @@ AppOption::AppOption(GtkWidget *app_window)
     gtk_window_set_default(GTK_WINDOW(option_window), optionWindowOkButton);
     gtk_box_pack_start(GTK_BOX(bbox),
 		       optionWindowOkButton, TRUE, TRUE, 0);
-    gtk_signal_connect(GTK_OBJECT(optionWindowOkButton),
+    g_signal_connect(GTK_OBJECT(optionWindowOkButton),
 		       "clicked",
 		       GTK_SIGNAL_FUNC(optionWindowOkButton_clicked_cb),
 		       (GtkObject *)this);
@@ -227,7 +227,7 @@ AppOption::AppOption(GtkWidget *app_window)
     //GTK_WIDGET_SET_FLAGS(Cancel_button, GTK_CAN_DEFAULT);
     gtk_box_pack_start(GTK_BOX(bbox),
 		       optionWindowCancelButton, TRUE, TRUE, 0);
-    gtk_signal_connect(GTK_OBJECT(optionWindowCancelButton),
+    g_signal_connect(GTK_OBJECT(optionWindowCancelButton),
 		       "clicked",
 		       GTK_SIGNAL_FUNC(optionWindowCancelButton_clicked_cb),
 		       (GtkObject *)this);
@@ -286,7 +286,7 @@ GtkWidget *AppOption::Create_COMMANDLIST_page()
   gtk_widget_set_name(updateCommandListButton, "button");
   gtk_widget_show(updateCommandListButton);
   gtk_box_pack_start(GTK_BOX(vbox), updateCommandListButton, FALSE, FALSE, 10);
-  gtk_signal_connect(GTK_OBJECT(updateCommandListButton), "clicked",
+  g_signal_connect(GTK_OBJECT(updateCommandListButton), "clicked",
 		     GTK_SIGNAL_FUNC(updateCommandListButton_clicked_cb),
 		     (GtkObject *)this);
 
@@ -380,7 +380,7 @@ GtkWidget *AppOption::Create_SERVERTEMPLATE_page()
   gtk_widget_set_name(updateServerTemplateButton, "button");
   gtk_widget_show(updateServerTemplateButton);
   gtk_box_pack_start(GTK_BOX(vbox), updateServerTemplateButton, FALSE, FALSE, 10);
-  gtk_signal_connect(GTK_OBJECT(updateServerTemplateButton), "clicked",
+  g_signal_connect(GTK_OBJECT(updateServerTemplateButton), "clicked",
 		     GTK_SIGNAL_FUNC(updateServerTemplateButton_clicked_cb),
 		     (GtkObject *)this);
 
@@ -629,11 +629,11 @@ GtkWidget *AppOption::Create_DISPLAY_page()
       gtk_clist_set_selection_mode(GTK_CLIST(statusIconDirList), GTK_SELECTION_SINGLE);
       
       // selection callbacks
-      gtk_signal_connect(GTK_OBJECT(statusIconDirList), "select-row",
+      g_signal_connect(GTK_OBJECT(statusIconDirList), "select-row",
       			 GTK_SIGNAL_FUNC(statusIconDirList_selectRow_cb),
 			 (GtkObject *)this);
 
-      gtk_signal_connect(GTK_OBJECT(statusIconDirList), "unselect-row",
+      g_signal_connect(GTK_OBJECT(statusIconDirList), "unselect-row",
       			 GTK_SIGNAL_FUNC(statusIconDirList_unselectRow_cb),
 			 (GtkObject *)this);
 
@@ -652,7 +652,7 @@ GtkWidget *AppOption::Create_DISPLAY_page()
       gtk_widget_show(statusIconApplyButton);
       gtk_box_pack_start(GTK_BOX(hbox), statusIconApplyButton, FALSE, FALSE, 10);
 
-      gtk_signal_connect(GTK_OBJECT(statusIconApplyButton), "clicked",
+      g_signal_connect(GTK_OBJECT(statusIconApplyButton), "clicked",
 			 GTK_SIGNAL_FUNC(statusIconApplyButton_clicked_cb),
 			 (GtkObject *)this);
     }
@@ -892,10 +892,10 @@ GtkWidget *AppOption::Create_BASKET_page()
       gtk_clist_set_selection_mode(GTK_CLIST(basketPixmapFileList), GTK_SELECTION_SINGLE);
       
       // selection callbacks
-      gtk_signal_connect(GTK_OBJECT(basketPixmapFileList), "select-row",
+      g_signal_connect(GTK_OBJECT(basketPixmapFileList), "select-row",
       			 GTK_SIGNAL_FUNC(basketPixmapFileList_selectRow_cb),
 			 (void *)this);
-      gtk_signal_connect(GTK_OBJECT(basketPixmapFileList), "unselect-row",
+      g_signal_connect(GTK_OBJECT(basketPixmapFileList), "unselect-row",
       			 GTK_SIGNAL_FUNC(basketPixmapFileList_unselectRow_cb),
 			 (void *)this);
 
@@ -918,7 +918,7 @@ GtkWidget *AppOption::Create_BASKET_page()
       gtk_box_pack_start(GTK_BOX(hbox), basketPixmapApplyButton, FALSE, FALSE, 10);
 
       // add callbacks
-      gtk_signal_connect(GTK_OBJECT(basketPixmapApplyButton), "clicked",
+      g_signal_connect(GTK_OBJECT(basketPixmapApplyButton), "clicked",
 			 GTK_SIGNAL_FUNC(basketPixmapApplyButton_clicked_cb),
 			 (void *)this);
     }
@@ -1138,7 +1138,7 @@ GtkWidget *AppOption::Create_DOWNLOAD_page()
     autostartModCurrentListOnly_toggle = gtk_check_button_new_with_label(_("Only current list"));
     gtk_widget_show(autostartModCurrentListOnly_toggle);
     gtk_box_pack_start(GTK_BOX(hbox), autostartModCurrentListOnly_toggle, FALSE, FALSE, 10);
-    gtk_signal_connect(GTK_OBJECT(autoStartToggle),
+    g_signal_connect(GTK_OBJECT(autoStartToggle),
 		       "toggled",
 		       GTK_SIGNAL_FUNC(autoStartToggle_toggled_cb),
 		       (GtkObject *)this);

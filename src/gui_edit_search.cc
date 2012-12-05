@@ -94,7 +94,7 @@ void Create_search_window()
   gtk_widget_set_usize(search_window, 500, 150);
 
   // delete event
-  gtk_signal_connect_object(GTK_OBJECT(search_window),
+  g_signal_connect_swapped(GTK_OBJECT(search_window),
 			    "delete_event",
 			    GTK_SIGNAL_FUNC(Hide_window),
 			    GTK_OBJECT(search_window));
@@ -110,7 +110,7 @@ void Create_search_window()
   GtkWidget *Search_button = gtk_button_new_with_label(_("Search"));
   GTK_WIDGET_SET_FLAGS(Search_button, GTK_CAN_DEFAULT);
   gtk_window_set_default(GTK_WINDOW(search_window), Search_button);
-  gtk_signal_connect(GTK_OBJECT(Search_button),
+  g_signal_connect(GTK_OBJECT(Search_button),
 		     "clicked",
 		     GTK_SIGNAL_FUNC(Edit_search_Search_callback),
 		     GTK_OBJECT(search_window));
@@ -120,7 +120,7 @@ void Create_search_window()
   // Cancel button
   GtkWidget *Cancel_button = gtk_button_new_with_label(_("Cancel"));
   //GTK_WIDGET_SET_FLAGS(Cancel_button, GTK_CAN_DEFAULT);
-  gtk_signal_connect_object(GTK_OBJECT(Cancel_button),
+  g_signal_connect_swapped(GTK_OBJECT(Cancel_button),
 			    "clicked",
 			    GTK_SIGNAL_FUNC(Hide_window),
 			    GTK_OBJECT(search_window));
@@ -138,7 +138,7 @@ void Create_search_window()
   gtk_box_pack_start(GTK_BOX(hbox), label, FALSE, FALSE, 10);
   // text entry for new URL
   search_entry = gtk_entry_new_with_max_length(128);
-  gtk_signal_connect_object(GTK_OBJECT(search_entry), "activate",
+  g_signal_connect_swapped(GTK_OBJECT(search_entry), "activate",
 			    GTK_SIGNAL_FUNC(gtk_button_clicked),
 			    GTK_OBJECT(Search_button));
   gtk_box_pack_start(GTK_BOX(hbox), search_entry, TRUE, TRUE, 10);

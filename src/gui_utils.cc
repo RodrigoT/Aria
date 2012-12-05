@@ -90,7 +90,7 @@ string get_accel_string(unsigned int accelKey,
 
 GtkWidget *GTK_create_menu_item_with_icon(GtkWidget *menu,
 					  char *label,
-					  GtkSignalFunc func,
+					  GCallback func,
 					  gpointer func_data,
 					  const char **xpmData,
 					  GtkWidget *toplevel,
@@ -134,7 +134,7 @@ GtkWidget *GTK_create_menu_item_with_icon(GtkWidget *menu,
 
   if(func != NULL) {
     // signal handling function
-    gtk_signal_connect(GTK_OBJECT(menu_item),
+    g_signal_connect(GTK_OBJECT(menu_item),
 		       "activate",
 		       func,
 		       func_data);
@@ -168,7 +168,7 @@ GtkWidget *GTK_create_menu_item_with_icon(GtkWidget *menu,
 
 GtkWidget *GTK_create_menu_item_with_icon(GtkWidget *menu,
 					  char *label,
-					  GtkSignalFunc func,
+					  GCallback func,
 					  gpointer data,
 					  const char **xpmData,
 					  GtkWidget *toplevel)
@@ -178,7 +178,7 @@ GtkWidget *GTK_create_menu_item_with_icon(GtkWidget *menu,
 
 GtkWidget *GTK_create_menu_item_with_icon(GtkWidget *menu,
 					  char *label,
-					  GtkSignalFunc func,
+					  GCallback func,
 					  gpointer data,
 					  GtkAccelGroup *accel_group,
 					  unsigned int accel_key,
@@ -189,7 +189,7 @@ GtkWidget *GTK_create_menu_item_with_icon(GtkWidget *menu,
 
 GtkWidget *GTK_create_menu_item_with_icon(GtkWidget *menu,
 					  char *label,
-					  GtkSignalFunc func,
+					  GCallback func,
 					  gpointer data)
 {
   return GTK_create_menu_item_with_icon(menu, label, func, data, NULL, NULL, NULL, 0, (GdkModifierType)0);
@@ -224,7 +224,7 @@ void Setup_dnd(GtkWidget *toplevel, void (*Signal_Func)(GtkWidget  *w,
 
   static int n_mime_types = sizeof(mime_types)/sizeof(mime_types[0]);
 
-  gtk_signal_connect(GTK_OBJECT(toplevel), "drag_data_received",
+  g_signal_connect(GTK_OBJECT(toplevel), "drag_data_received",
 		     GTK_SIGNAL_FUNC(Signal_Func),
 		     NULL);
 
@@ -271,7 +271,7 @@ int findNearestSelectedRow(GtkWidget *clist, unsigned int row_current)
 /*
 GtkWidget *GTK_create_menu_item(GtkWidget *menu,
 				char *label,
-				GtkSignalFunc func,
+				GCallback func,
 				gpointer func_data,
 				GtkAccelGroup *accel_group,
 				unsigned int accel_key,
@@ -283,7 +283,7 @@ GtkWidget *GTK_create_menu_item(GtkWidget *menu,
 
   if(func != NULL) {
     // signal handling function
-    gtk_signal_connect(GTK_OBJECT(menu_item),
+    g_signal_connect(GTK_OBJECT(menu_item),
 		       "activate",
 		       func,
 		       func_data);
@@ -303,7 +303,7 @@ GtkWidget *GTK_create_menu_item(GtkWidget *menu,
 
 GtkWidget *GTK_create_menu_item(GtkWidget *menu,
 				char *label,
-				GtkSignalFunc func,
+				GCallback func,
 				gpointer data)
 {
   return GTK_create_menu_item(menu, label, func, data, NULL, 0, 0);

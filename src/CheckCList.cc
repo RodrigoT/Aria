@@ -116,7 +116,7 @@ GtkWidget *Create_popup_menu(GtkWidget **clist_ptr)
   gtk_menu_append(GTK_MENU(popup_menu), delete_item);
 
   // signal handling
-  gtk_signal_connect(GTK_OBJECT(delete_item), "activate",
+  g_signal_connect(GTK_OBJECT(delete_item), "activate",
 		     GTK_SIGNAL_FUNC(Delete_item), GTK_OBJECT(*clist_ptr));
 
   gtk_widget_show(delete_item);
@@ -125,7 +125,7 @@ GtkWidget *Create_popup_menu(GtkWidget **clist_ptr)
   gtk_widget_show(popup_item);
   gtk_menu_item_set_submenu(GTK_MENU_ITEM(popup_item), popup_menu);
 
-  gtk_signal_connect_after(GTK_OBJECT(*clist_ptr), "button_press_event", 
+  g_signal_connect_after(GTK_OBJECT(*clist_ptr), "button_press_event", 
 			   GTK_SIGNAL_FUNC(right_click_cb), 
 			   (gpointer)popup_menu); 
 
@@ -149,10 +149,10 @@ GtkWidget *Create_CheckCList(GtkWidget **clist_ptr, char *titles[], int n_titles
   gtk_clist_set_selection_mode(GTK_CLIST(*clist_ptr), GTK_SELECTION_MULTIPLE);
 
   // selection callbacks
-  gtk_signal_connect(GTK_OBJECT(*clist_ptr), "select-row",
+  g_signal_connect(GTK_OBJECT(*clist_ptr), "select-row",
 		     GTK_SIGNAL_FUNC(CheckCList_selectRow_cb),
 		     NULL);
-  gtk_signal_connect(GTK_OBJECT(*clist_ptr), "unselect-row",
+  g_signal_connect(GTK_OBJECT(*clist_ptr), "unselect-row",
 		     GTK_SIGNAL_FUNC(CheckCList_unselectRow_cb),
 		     NULL);
 

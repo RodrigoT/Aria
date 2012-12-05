@@ -623,7 +623,7 @@ void Create_edit_menu(GtkWidget *toplevel, GtkWidget *menu_bar, GtkAccelGroup *a
 						 SC_PASTEURL,
 						 SCM_PASTEURL);
 
-  gtk_signal_connect(GTK_OBJECT(pasteURL_item), "selection_received",
+  g_signal_connect(GTK_OBJECT(pasteURL_item), "selection_received",
 		     GTK_SIGNAL_FUNC(Paste_selection_received),
 		     NULL);
 
@@ -635,7 +635,7 @@ void Create_edit_menu(GtkWidget *toplevel, GtkWidget *menu_bar, GtkAccelGroup *a
 					  SC_PASTEURLEXP,
 					  SCM_PASTEURLEXP);
 
-  gtk_signal_connect(GTK_OBJECT(pasteURLexp_item), "selection_received",
+  g_signal_connect(GTK_OBJECT(pasteURLexp_item), "selection_received",
 		     GTK_SIGNAL_FUNC(Paste_url_unfold_selection_received),
 		     NULL);
 
@@ -650,7 +650,7 @@ void Create_edit_menu(GtkWidget *toplevel, GtkWidget *menu_bar, GtkAccelGroup *a
 				       SCM_PASTECRC);
 
   
-  gtk_signal_connect(GTK_OBJECT(pasteCRC_item), "selection_received",
+  g_signal_connect(GTK_OBJECT(pasteCRC_item), "selection_received",
 		     GTK_SIGNAL_FUNC(Paste_crc_selection_received),
 		     NULL);
 
@@ -664,7 +664,7 @@ void Create_edit_menu(GtkWidget *toplevel, GtkWidget *menu_bar, GtkAccelGroup *a
 				       SCM_PASTEMD5);
   */
   
-  gtk_signal_connect(GTK_OBJECT(pasteMD5_item), "selection_received",
+  g_signal_connect(GTK_OBJECT(pasteMD5_item), "selection_received",
 		     GTK_SIGNAL_FUNC(Paste_md5_selection_received),
 		     NULL);
 

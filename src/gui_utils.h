@@ -30,7 +30,7 @@ using namespace std;
 
 GtkWidget *GTK_create_menu_item_with_icon(GtkWidget *menu,
 					  char *label,
-					  GtkSignalFunc func,
+					  GCallback func,
 					  gpointer func_data,
 					  const char **xpmData,
 					  GtkWidget *toplevel,
@@ -40,14 +40,14 @@ GtkWidget *GTK_create_menu_item_with_icon(GtkWidget *menu,
 
 GtkWidget *GTK_create_menu_item_with_icon(GtkWidget *menu,
 					  char *label,
-					  GtkSignalFunc func,
+					  GCallback func,
 					  gpointer func_data,
 					  const char **xpmData,
 					  GtkWidget *toplevel);
 
 GtkWidget *GTK_create_menu_item_with_icon(GtkWidget *menu,
 					  char *label,
-					  GtkSignalFunc func,
+					  GCallback func,
 					  gpointer data,
 					  GtkAccelGroup *accel_group,
 					  unsigned int accel_key,
@@ -55,7 +55,7 @@ GtkWidget *GTK_create_menu_item_with_icon(GtkWidget *menu,
 
 GtkWidget *GTK_create_menu_item_with_icon(GtkWidget *menu,
 					  char *label,
-					  GtkSignalFunc func,
+					  GCallback func,
 					  gpointer func_data);
 
 GtkWidget *GTK_create_menu_separator(GtkWidget *menu);
