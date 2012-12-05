@@ -35,38 +35,38 @@ using namespace std;
 class SocketPool
 {
 private:
-  vector<SocketPoolCell *> socketPoolCellList;
-  pthread_mutex_t socketPoolCellListLock;
+    vector<SocketPoolCell *> socketPoolCellList;
+    pthread_mutex_t socketPoolCellListLock;
 
-  // search a socket associated to host:port
-  vector<SocketPoolCell *>::iterator searchPooledSocket(const string& host, int port);
-  vector<SocketPoolCell *>::iterator searchPooledSocket(int socket);
+    // search a socket associated to host:port
+    vector<SocketPoolCell *>::iterator searchPooledSocket(const string &host, int port);
+    vector<SocketPoolCell *>::iterator searchPooledSocket(int socket);
 public:
-  SocketPool();
-  ~SocketPool();
+    SocketPool();
+    ~SocketPool();
 
-  void getSocketPoolLock();
-  void releaseSocketPoolLock();
-  // add a socket to the list
-  void addSocketPoolCell(int socket, const string& host, int port);
-  void addSocketPoolCell(int socket, const string& host, int port,
-			 const string& redirectedHost, int redirectedPort
+    void getSocketPoolLock();
+    void releaseSocketPoolLock();
+    // add a socket to the list
+    void addSocketPoolCell(int socket, const string &host, int port);
+    void addSocketPoolCell(int socket, const string &host, int port,
+                           const string &redirectedHost, int redirectedPort
 #ifdef HAVE_OPENSSL
-			 , SSL_CTX *ctx,
-			 SSL *ssl
+                           , SSL_CTX *ctx,
+                           SSL *ssl
 #endif // HAVE_OPENSSL
-			 );
-  // delete specified socket form the list
-  bool deleteSocketPoolCell(int socket, const string& host, int port);
-  bool deleteSocketPoolCell(int socket);
-  // delete all sockets from the list
-  void deleteAllSocketPoolCell();
-  // get the socket associated to host:port
-  SocketPoolCell *getPooledSocket(const string& host, int port);
-  SocketPoolCell *getPooledSocket(const string& host, int port,
-				  const string& redirectedHost,
-				  int redirectedPort);
-  void returnPooledSocket(int socket);
-  void refresh();
+                          );
+    // delete specified socket form the list
+    bool deleteSocketPoolCell(int socket, const string &host, int port);
+    bool deleteSocketPoolCell(int socket);
+    // delete all sockets from the list
+    void deleteAllSocketPoolCell();
+    // get the socket associated to host:port
+    SocketPoolCell *getPooledSocket(const string &host, int port);
+    SocketPoolCell *getPooledSocket(const string &host, int port,
+                                    const string &redirectedHost,
+                                    int redirectedPort);
+    void returnPooledSocket(int socket);
+    void refresh();
 };
 #endif // _SOCKETPOOL_H_

@@ -33,23 +33,23 @@ using namespace std;
 class ProxyList
 {
 private:
-  list<Proxyserver*> proxy_list;
-  string filename;
+    list<Proxyserver *> proxy_list;
+    string filename;
 public:
-  ProxyList();
-  ProxyList(list<Proxyserver> initial_proxy_list);
-  ProxyList(const ProxyList& proxylist_src);
-  ~ProxyList();
+    ProxyList();
+    ProxyList(list<Proxyserver> initial_proxy_list);
+    ProxyList(const ProxyList &proxylist_src);
+    ~ProxyList();
 
-  bool search(const Proxyserver& entry);
-  void clear();
-  bool add(const Proxyserver& new_entry);
-  bool remove(const Proxyserver& entry);
-  bool set(const ProxyList& new_list);
-  const list<Proxyserver*>& ret_list() const;
+    bool search(const Proxyserver &entry);
+    void clear();
+    bool add(const Proxyserver &new_entry);
+    bool remove(const Proxyserver &entry);
+    bool set(const ProxyList &new_list);
+    const list<Proxyserver *> &ret_list() const;
 
-  bool Save_proxy_list(const string& filename);
-  bool Read_proxy_list(const string& filename);
+    bool Save_proxy_list(const string &filename);
+    bool Read_proxy_list(const string &filename);
 };
 
 #endif // _PROXYLIST_H_

@@ -33,46 +33,46 @@ using namespace std;
 class ServerTemplate
 {
 private:
-  string name;
-  string comment;
-  list<string> server_name_list;
-  vector<Session> session_vector;
-  list<string> ignore_server_name_list;
-  list<string> ignore_extension_list;
-  int port;
-  bool valid;
-  bool ignorefileerr;
-  bool bad_flag;
+    string name;
+    string comment;
+    list<string> server_name_list;
+    vector<Session> session_vector;
+    list<string> ignore_server_name_list;
+    list<string> ignore_extension_list;
+    int port;
+    bool valid;
+    bool ignorefileerr;
+    bool bad_flag;
 public:
-  ServerTemplate(const string& name_in,
-		 const string& comment_in,
-		 const list<string>& server_name_list,
-		 const list<string>& ignore_server_name_list,
-		 const list<string>& ignore_extension_list,
-		 const string& option_in,
-		 const vector<Session>& session_in);
-  ServerTemplate();
+    ServerTemplate(const string &name_in,
+                   const string &comment_in,
+                   const list<string> &server_name_list,
+                   const list<string> &ignore_server_name_list,
+                   const list<string> &ignore_extension_list,
+                   const string &option_in,
+                   const vector<Session> &session_in);
+    ServerTemplate();
 
-  Session& ret_session(std::size_t session_count);
+    Session &ret_session(std::size_t session_count);
 //  const vector<Session>& ret_session_vector() const;
-  int ret_total_session() const;
+    int ret_total_session() const;
 
-  bool bad() const;
-  void Process_hostname(string hostname);
-  void Process_option_string(string option_string);
-  void Process_session_vector(vector<Session>& session_vector);
+    bool bad() const;
+    void Process_hostname(string hostname);
+    void Process_option_string(string option_string);
+    void Process_session_vector(vector<Session> &session_vector);
 
-  string MyToken_splitter(string& line);
+    string MyToken_splitter(string &line);
 
-  const list<string>& ret_server_name_list() const;
-  const list<string>& ret_ignore_server_name_list() const;
-  bool Is_in_entry(const string& server_name, const string& filename) const;
-  const string& ret_template_name() const;
-  const string& ret_template_comment() const;
-  const string& ret_host() const;
-  int ret_port() const;
-  void set_valid(bool flag);
-  bool Is_valid() const;
-  bool Is_valid(std::size_t session_count) const;
+    const list<string> &ret_server_name_list() const;
+    const list<string> &ret_ignore_server_name_list() const;
+    bool Is_in_entry(const string &server_name, const string &filename) const;
+    const string &ret_template_name() const;
+    const string &ret_template_comment() const;
+    const string &ret_host() const;
+    int ret_port() const;
+    void set_valid(bool flag);
+    bool Is_valid() const;
+    bool Is_valid(std::size_t session_count) const;
 };
 #endif //_SERVERTEMPLATE_H_

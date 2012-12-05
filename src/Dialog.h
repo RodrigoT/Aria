@@ -29,35 +29,35 @@ using namespace std;
 class Dialog
 {
 private:
-  GtkWidget *window;
-  GtkWidget *Yes_button;
-  GtkWidget *No_button;
-  GtkWidget *Cancel_button;
-  GtkWidget *label;
-  GtkWindow *toplevel;
+    GtkWidget *window;
+    GtkWidget *Yes_button;
+    GtkWidget *No_button;
+    GtkWidget *Cancel_button;
+    GtkWidget *label;
+    GtkWindow *toplevel;
 
-  unsigned int Yes_connection_id;
-  unsigned int No_connection_id;
-  unsigned int Cancel_connection_id;
+    unsigned int Yes_connection_id;
+    unsigned int No_connection_id;
+    unsigned int Cancel_connection_id;
 
 public:
-  Dialog(GtkWindow *toplevel_in);
-  ~Dialog();
+    Dialog(GtkWindow *toplevel_in);
+    ~Dialog();
 
-  void setup(const string& title_in,
-	     const string& label_in,
-	     gboolean (*yes_SignalFunc)(GtkWidget *w, GtkWidget *window) = NULL,
-	     gboolean (*no_SignalFunc)(GtkWidget *w, GtkWidget *window) = NULL,
-	     gboolean (*cancel_SignalFunc)(GtkWidget *w, GtkWidget *window) = NULL);
-  void set_yes_button_visible(bool isvisible);
-  void set_no_button_visible(bool isvisible);
-  void set_cancel_button_visible(bool isvisible);
-  void set_data(void *data);
-  void *get_data();
-  void set_window_usize(int x, int y);
-  void set_transient(GtkWindow *parent);
-  void show();
-  void hide();
+    void setup(const string &title_in,
+               const string &label_in,
+               gboolean (*yes_SignalFunc)(GtkWidget *w, GtkWidget *window) = NULL,
+               gboolean (*no_SignalFunc)(GtkWidget *w, GtkWidget *window) = NULL,
+               gboolean (*cancel_SignalFunc)(GtkWidget *w, GtkWidget *window) = NULL);
+    void set_yes_button_visible(bool isvisible);
+    void set_no_button_visible(bool isvisible);
+    void set_cancel_button_visible(bool isvisible);
+    void set_data(void *data);
+    void *get_data();
+    void set_window_usize(int x, int y);
+    void set_transient(GtkWindow *parent);
+    void show();
+    void hide();
 };
 
 #endif //_DIALOG_H_

@@ -23,33 +23,34 @@
 #define _TIMERDATA_H_
 #include <time.h>
 
-class TimerData {
+class TimerData
+{
 private:
-  int hour_start;
-  int min_start;
-  int hour_stop;
-  int min_stop;
+    int hour_start;
+    int min_start;
+    int hour_stop;
+    int min_stop;
 
-  time_t t_start;
-  time_t t_stop;
+    time_t t_start;
+    time_t t_stop;
 public:
-  TimerData(int hour_start, int min_start, int hour_stop, int min_stop);
-  TimerData();
-  ~TimerData();
+    TimerData(int hour_start, int min_start, int hour_stop, int min_stop);
+    TimerData();
+    ~TimerData();
 
-  int ret_hour_start();
-  int ret_min_start();
-  int ret_hour_stop();
-  int ret_min_stop();
+    int ret_hour_start();
+    int ret_min_start();
+    int ret_hour_stop();
+    int ret_min_stop();
 
-  void set_start_time(int hour_start, int min_start);
-  void set_stop_time(int hour_stop, int min_stop);
-  void adjustStopTimeBasedOnStartTime();
-  time_t get_correct_time(int hour, int min, bool force_next_day = false);
+    void set_start_time(int hour_start, int min_start);
+    void set_stop_time(int hour_stop, int min_stop);
+    void adjustStopTimeBasedOnStartTime();
+    time_t get_correct_time(int hour, int min, bool force_next_day = false);
 
-  time_t ret_start_time();
-  time_t ret_stop_time();
-  void Update_start_time();
-  void Update_stop_time();
+    time_t ret_start_time();
+    time_t ret_stop_time();
+    void Update_start_time();
+    void Update_stop_time();
 };
 #endif // _TIMERDATA_H_

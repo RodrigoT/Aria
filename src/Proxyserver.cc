@@ -23,38 +23,38 @@
 
 Proxyserver::Proxyserver()
 {
-  server = "";
-  port = 0;
+    server = "";
+    port = 0;
 }
 
-Proxyserver::Proxyserver(const string& server_in, int port_in)
+Proxyserver::Proxyserver(const string &server_in, int port_in)
 {
-  server = server_in;
-  port = port_in;
+    server = server_in;
+    port = port_in;
 }
 
-Proxyserver::Proxyserver(const Proxyserver& entry)
+Proxyserver::Proxyserver(const Proxyserver &entry)
 {
-  server = entry.ret_Server();
-  port = entry.ret_Port();
+    server = entry.ret_Server();
+    port = entry.ret_Port();
 }
 
-const string& Proxyserver::ret_Server() const
+const string &Proxyserver::ret_Server() const
 {
-  return server;
+    return server;
 }
 
 int Proxyserver::ret_Port() const
 {
-  return port;
+    return port;
 }
 
-void Proxyserver::set_Server(const string& server_in)
+void Proxyserver::set_Server(const string &server_in)
 {
-  server = server_in;
+    server = server_in;
 }
 
 void Proxyserver::set_Port(int port_in)
 {
-  port = port_in;
+    port = port_in;
 }

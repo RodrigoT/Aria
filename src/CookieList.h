@@ -26,16 +26,16 @@
 class CookieList
 {
 private:
-  list<Cookie> cookie_list;
+    list<Cookie> cookie_list;
 public:
-  CookieList();
-  ~CookieList();
+    CookieList();
+    ~CookieList();
 
-  void add_cookie(const Cookie& cookie);
-  void add_cookie(string cookie_string);
-  list<Cookie>::iterator search_by_domain_path(const string& domain, const string& path);
-  string ret_valid_cookie_string(const string& domain, const string& path) const;
-  void all_clear();
+    void add_cookie(const Cookie &cookie);
+    void add_cookie(string cookie_string);
+    list<Cookie>::iterator search_by_domain_path(const string &domain, const string &path);
+    string ret_valid_cookie_string(const string &domain, const string &path) const;
+    void all_clear();
 };
 
 #endif //_COOKIELIST_H_

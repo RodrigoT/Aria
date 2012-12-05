@@ -26,69 +26,69 @@
 
 SocketPoolCell::SocketPoolCell()
 {
-  socket = 0;
-  port = 0;
-  redirectedPort = -1;
-  enabledFlag = false;
-  lastUsedTime = 0;
+    socket = 0;
+    port = 0;
+    redirectedPort = -1;
+    enabledFlag = false;
+    lastUsedTime = 0;
 #ifdef HAVE_OPENSSL
-  ctx = NULL;
-  ssl = NULL;
+    ctx = NULL;
+    ssl = NULL;
 #endif // HAVE_OPENSSL
 }
 
-SocketPoolCell::SocketPoolCell(int socket_in, const string& host_in, int port_in)
+SocketPoolCell::SocketPoolCell(int socket_in, const string &host_in, int port_in)
 {
-  enabledFlag = false;
-  socket = socket_in;
-  host = host_in;
-  port = port_in;
-  redirectedHost = "";
-  redirectedPort = -1;
-  lastUsedTime = 0;
+    enabledFlag = false;
+    socket = socket_in;
+    host = host_in;
+    port = port_in;
+    redirectedHost = "";
+    redirectedPort = -1;
+    lastUsedTime = 0;
 #ifdef HAVE_OPENSSL
-  ctx = NULL;
-  ssl = NULL;
+    ctx = NULL;
+    ssl = NULL;
 #endif // HAVE_OPENSSL
 }
 
-SocketPoolCell::SocketPoolCell(int socket_in, const string& host_in, int port_in, const string& redirectedHost_in, int redirectedPort_in
+SocketPoolCell::SocketPoolCell(int socket_in, const string &host_in, int port_in, const string &redirectedHost_in, int redirectedPort_in
 #ifdef HAVE_OPENSSL
-			       , SSL_CTX *ctx_in, SSL *ssl_in
+                               , SSL_CTX *ctx_in, SSL *ssl_in
 #endif // HAVE_OPENSSL
-			       )
+                              )
 {
-  enabledFlag = false;
-  socket = socket_in;
-  host = host_in;
-  port = port_in;
-  redirectedHost = redirectedHost_in;
-  redirectedPort = redirectedPort_in;
-  setLastUsedTime();
+    enabledFlag = false;
+    socket = socket_in;
+    host = host_in;
+    port = port_in;
+    redirectedHost = redirectedHost_in;
+    redirectedPort = redirectedPort_in;
+    setLastUsedTime();
 
 #ifdef HAVE_OPENSSL
-  ctx = ctx_in;
-  ssl = ssl_in;
+    ctx = ctx_in;
+    ssl = ssl_in;
 #endif // HAVE_OPENSSL
 }
 
 SocketPoolCell::~SocketPoolCell()
 {
 #ifdef DEBUG
-  cerr << "closing socket: " << socket << endl;
+    cerr << "closing socket: " << socket << endl;
 #endif // DEBUG
-  close(socket);
+    close(socket);
 }
 
 bool
 SocketPoolCell::isTimeOut()
 {
-  int rightNowTime = time(NULL);
-  if(rightNowTime-lastUsedTime > 600) {
-    return true;
-  } else {
-    return false;
-  }
+    int rightNowTime = time(NULL);
+    if (rightNowTime - lastUsedTime > 600) {
+        return true;
+    } else {
+        return false;
+    }
 }
 
 /*
@@ -99,147 +99,147 @@ SocketPoolCell::isTimeOut()
 bool
 SocketPoolCell::isSocketAlive()
 {
-  fd_set rfds;
-  fd_set wfds;
-  struct timeval tv;
-  int retval;
-  
-  FD_ZERO(&rfds);
-  FD_ZERO(&wfds);
-  FD_SET(socket, &rfds);
-  FD_SET(socket, &wfds);
-  tv.tv_sec = 0;
-  tv.tv_usec = 0;
-  retval = select(socket+1, &rfds, &wfds, NULL, &tv);
-  if(retval
-     && !FD_ISSET(socket, &rfds)
-     && FD_ISSET(socket, &wfds)) {
-    return true;
-  } else {
-    return false;
-  }
+    fd_set rfds;
+    fd_set wfds;
+    struct timeval tv;
+    int retval;
+
+    FD_ZERO(&rfds);
+    FD_ZERO(&wfds);
+    FD_SET(socket, &rfds);
+    FD_SET(socket, &wfds);
+    tv.tv_sec = 0;
+    tv.tv_usec = 0;
+    retval = select(socket + 1, &rfds, &wfds, NULL, &tv);
+    if (retval
+            && !FD_ISSET(socket, &rfds)
+            && FD_ISSET(socket, &wfds)) {
+        return true;
+    } else {
+        return false;
+    }
 }
 
 bool
-SocketPoolCell::isEqual(const string& host_in, int port_in)
+SocketPoolCell::isEqual(const string &host_in, int port_in)
 {
-  return isEqual(host_in, port_in, "", -1);
+    return isEqual(host_in, port_in, "", -1);
 }
 
 bool
-SocketPoolCell::isEqual(const string& host_in, int port_in,
-			const string& redirectedHost_in, int redirectedPort_in)
+SocketPoolCell::isEqual(const string &host_in, int port_in,
+                        const string &redirectedHost_in, int redirectedPort_in)
 {
-  if(redirectedHost_in.empty()) {
-    if(host_in == host && port_in == port) {
-      return true;
+    if (redirectedHost_in.empty()) {
+        if (host_in == host && port_in == port) {
+            return true;
+        } else {
+            return false;
+        }
     } else {
-      return false;
+        if (host_in == host && port_in == port
+                && redirectedHost_in == redirectedHost
+                && redirectedPort_in == redirectedPort) {
+            return true;
+        } else {
+            return false;
+        }
     }
-  } else {
-    if(host_in == host && port_in == port
-       && redirectedHost_in == redirectedHost
-       && redirectedPort_in == redirectedPort) {
-      return true;
-    } else {
-      return false;
-    }
-  }
 }
 
 bool
 SocketPoolCell::isEqual(int socket_in)
 {
-  if(socket_in == socket) {
-    return true;
-  } else {
-    return false;
-  }
+    if (socket_in == socket) {
+        return true;
+    } else {
+        return false;
+    }
 }
 
 bool
 SocketPoolCell::isEnabled()
 {
-  return enabledFlag;
+    return enabledFlag;
 }
 
 void
 SocketPoolCell::setEnabled(bool toggle)
 {
-  //cerr << "set enabled " << toggle << endl;
-  enabledFlag = toggle;
-  if(toggle == false) {
-    setLastUsedTime();
-  }
+    //cerr << "set enabled " << toggle << endl;
+    enabledFlag = toggle;
+    if (toggle == false) {
+        setLastUsedTime();
+    }
 }
 
 void
 SocketPoolCell::setLastUsedTime()
 {
 #ifdef DEBUG
-  cerr << "updating last used time" << endl;
+    cerr << "updating last used time" << endl;
 #endif // DEBUG
-  time(&lastUsedTime);
+    time(&lastUsedTime);
 }
 
 int
 SocketPoolCell::getSocket()
 {
-  return socket;
+    return socket;
 }
 
-const string&
+const string &
 SocketPoolCell::getHost()
 {
-  return host;
+    return host;
 }
 
 int
 SocketPoolCell::getPort()
 {
-  return port;
+    return port;
 }
 
 void
 SocketPoolCell::setSocket(int socket_in)
 {
-  socket = socket_in;
+    socket = socket_in;
 }
 
 void
-SocketPoolCell::setHost(const string& host_in)
+SocketPoolCell::setHost(const string &host_in)
 {
-  host = host_in;
+    host = host_in;
 }
 
 void
 SocketPoolCell::setPort(int port_in)
 {
-  port = port_in;
+    port = port_in;
 }
 
 #ifdef HAVE_OPENSSL
 SSL_CTX *
 SocketPoolCell::getSSLCTX()
 {
-  return ctx;
+    return ctx;
 }
 
 SSL *
 SocketPoolCell::getSSL()
 {
-  return ssl;
+    return ssl;
 }
 
 void
 SocketPoolCell::setSSLCTX(SSL_CTX *ctx_in)
 {
-  ctx = ctx_in;
+    ctx = ctx_in;
 }
 
 void
 SocketPoolCell::setSSL(SSL *ssl_in)
 {
-  ssl = ssl_in;
+    ssl = ssl_in;
 }
 #endif // HAVE_OPENSSL

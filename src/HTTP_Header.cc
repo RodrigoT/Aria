@@ -22,22 +22,22 @@
 // implementation of class HTTP_Header
 #include "HTTP_Header.h"
 
-HTTP_Header::HTTP_Header(const string& header_in, const string& arg_in)
+HTTP_Header::HTTP_Header(const string &header_in, const string &arg_in)
 {
-  item = header_in;
-  arg = arg_in;
+    item = header_in;
+    arg = arg_in;
 }
 
 HTTP_Header::~HTTP_Header()
 {
 }
 
-const string& HTTP_Header::ret_Arg() const
+const string &HTTP_Header::ret_Arg() const
 {
-  return(arg);
+    return(arg);
 }
 
-const string& HTTP_Header::ret_Item() const
+const string &HTTP_Header::ret_Item() const
 {
-  return(item);
+    return(item);
 }

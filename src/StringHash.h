@@ -30,28 +30,28 @@ using namespace std;
 class StringHash
 {
 private:
-  GHashTable* hashTable;
+    GHashTable *hashTable;
 
-  void destory();
+    void destory();
 public:
-  StringHash();
+    StringHash();
 
-  ~StringHash();
+    ~StringHash();
 
-  // adds the key-value pair to the hash table
-  void add(string key, string value);
+    // adds the key-value pair to the hash table
+    void add(string key, string value);
 
-  // returns the size of the hash table
-  int size();
+    // returns the size of the hash table
+    int size();
 
-  // gets the value associated with the key
-  string get(string key);
+    // gets the value associated with the key
+    string get(string key);
 
-  // clears all the key-value pair in the hash table
-  void clear();
+    // clears all the key-value pair in the hash table
+    void clear();
 
-  // returns true if the value associated with the key is found,
-  // returns false otherwise.
-  bool find(string key);
+    // returns true if the value associated with the key is found,
+    // returns false otherwise.
+    bool find(string key);
 };
 #endif // _STRINGHASH_H_

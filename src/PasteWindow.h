@@ -37,42 +37,42 @@ using namespace std;
 class PasteWindow
 {
 private:
-  GtkWidget *window;
-  GtkWidget *paste_list;
-  GtkWidget *targetListCombo;
-  GtkWidget *autostartToggle;
-  pthread_mutex_t listLock;
-  bool visibleFlag;
+    GtkWidget *window;
+    GtkWidget *paste_list;
+    GtkWidget *targetListCombo;
+    GtkWidget *autostartToggle;
+    pthread_mutex_t listLock;
+    bool visibleFlag;
 public:
-  PasteWindow(GtkWindow *toplevel = NULL);
+    PasteWindow(GtkWindow *toplevel = NULL);
 
-  GtkWidget *Create_menu_bar(GtkWidget *window);
-  void Create_edit_menu(GtkWidget *window, GtkWidget *menu_bar, GtkAccelGroup *accel_group);
-  void Create_option_menu(GtkWidget *window, GtkWidget *menu_bar, GtkAccelGroup *accel_group);
+    GtkWidget *Create_menu_bar(GtkWidget *window);
+    void Create_edit_menu(GtkWidget *window, GtkWidget *menu_bar, GtkAccelGroup *accel_group);
+    void Create_option_menu(GtkWidget *window, GtkWidget *menu_bar, GtkAccelGroup *accel_group);
 
-  bool addURL(string url_string, int mime_info = MIME_URL);
-  bool addURLByNumericalExpansion(string url_string);
-  bool addItem(const string& url);
-  bool addItem(ItemCell *itemcell);
-  void deleteItem();
-  void deleteAllItem();
-  void paste();
-  GtkWidget *getPasteList();
-  void selectAll();
-  void invertSelection();
-  void selectRow(int row, int column, GdkEventButton *event);
-  void unselectRow(int row, int column, GdkEventButton *event);
+    bool addURL(string url_string, int mime_info = MIME_URL);
+    bool addURLByNumericalExpansion(string url_string);
+    bool addItem(const string &url);
+    bool addItem(ItemCell *itemcell);
+    void deleteItem();
+    void deleteAllItem();
+    void paste();
+    GtkWidget *getPasteList();
+    void selectAll();
+    void invertSelection();
+    void selectRow(int row, int column, GdkEventButton *event);
+    void unselectRow(int row, int column, GdkEventButton *event);
 
-  void show();
-  void show(const string& listName);
-  void hide();
-  void updateTargetList();
-  void updateTargetListWithCurrentList();
-  void updateAutostart();
-  string getTargetListName() const;
-  bool isAutostartEnabled() const;
-  GtkWidget *getWindow();
-  int getSelectedItemNum() const;
-  bool isVisible() const;
+    void show();
+    void show(const string &listName);
+    void hide();
+    void updateTargetList();
+    void updateTargetListWithCurrentList();
+    void updateAutostart();
+    string getTargetListName() const;
+    bool isAutostartEnabled() const;
+    GtkWidget *getWindow();
+    int getSelectedItemNum() const;
+    bool isVisible() const;
 };
 #endif //_PASTEWINDOW_H_

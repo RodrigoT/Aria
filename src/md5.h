@@ -29,16 +29,16 @@
 /* The AC_CHECK_SIZEOF() in configure fails for some machines.
  * we provide some fallback values here */
 #if !SIZEOF_UNSIGNED_SHORT
-  #undef SIZEOF_UNSIGNED_SHORT
-  #define SIZEOF_UNSIGNED_SHORT 2
+#undef SIZEOF_UNSIGNED_SHORT
+#define SIZEOF_UNSIGNED_SHORT 2
 #endif
 #if !SIZEOF_UNSIGNED_INT
-  #undef SIZEOF_UNSIGNED_INT
-  #define SIZEOF_UNSIGNED_INT 4
+#undef SIZEOF_UNSIGNED_INT
+#define SIZEOF_UNSIGNED_INT 4
 #endif
 #if !SIZEOF_UNSIGNED_LONG
-  #undef SIZEOF_UNSIGNED_LONG
-  #define SIZEOF_UNSIGNED_LONG 4
+#undef SIZEOF_UNSIGNED_LONG
+#define SIZEOF_UNSIGNED_LONG 4
 #endif
 
 
@@ -46,33 +46,33 @@
 
 
 #ifndef HAVE_BYTE_TYPEDEF
-  #undef byte	    /* maybe there is a macro with this name */
-  typedef unsigned char byte;
-  #define HAVE_BYTE_TYPEDEF
+#undef byte	    /* maybe there is a macro with this name */
+typedef unsigned char byte;
+#define HAVE_BYTE_TYPEDEF
 #endif
 
 #ifndef HAVE_USHORT_TYPEDEF
-  #undef ushort     /* maybe there is a macro with this name */
-  typedef unsigned short ushort;
-  #define HAVE_USHORT_TYPEDEF
+#undef ushort     /* maybe there is a macro with this name */
+typedef unsigned short ushort;
+#define HAVE_USHORT_TYPEDEF
 #endif
 
 #ifndef HAVE_ULONG_TYPEDEF
-  #undef ulong	    /* maybe there is a macro with this name */
-  typedef unsigned long ulong;
-  #define HAVE_ULONG_TYPEDEF
+#undef ulong	    /* maybe there is a macro with this name */
+typedef unsigned long ulong;
+#define HAVE_ULONG_TYPEDEF
 #endif
 
 #ifndef HAVE_U32_TYPEDEF
-  #undef u32	    /* maybe there is a macro with this name */
-  #if SIZEOF_UNSIGNED_INT == 4
-    typedef unsigned int u32;
-  #elif SIZEOF_UNSIGNED_LONG == 4
-    typedef unsigned long u32;
-  #else
-    #error no typedef for u32
-  #endif
-  #define HAVE_U32_TYPEDEF
+#undef u32	    /* maybe there is a macro with this name */
+#if SIZEOF_UNSIGNED_INT == 4
+typedef unsigned int u32;
+#elif SIZEOF_UNSIGNED_LONG == 4
+typedef unsigned long u32;
+#else
+#error no typedef for u32
+#endif
+#define HAVE_U32_TYPEDEF
 #endif
 
 typedef union {
@@ -80,9 +80,9 @@ typedef union {
     short b;
     char c[1];
     long d;
-  #ifdef HAVE_U64_TYPEDEF
+#ifdef HAVE_U64_TYPEDEF
     u64 e;
-  #endif
+#endif
     float f;
     double g;
 } PROPERLY_ALIGNED_TYPE;
@@ -103,19 +103,19 @@ typedef struct string_list {
 static inline u32
 rol( u32 x, int n)
 {
-        __asm__("roll %%cl,%0"
-                :"=r" (x)
-                :"0" (x),"c" (n));
-        return x;
+    __asm__("roll %%cl,%0"
+            :"=r" (x)
+            :"0" (x), "c" (n));
+    return x;
 }
 #else
-  #define rol(x,n) ( ((x) << (n)) | ((x) >> (32-(n))) )
+#define rol(x,n) ( ((x) << (n)) | ((x) >> (32-(n))) )
 #endif
 
 
 /******** some macros ************/
 #ifndef STR
-  #define STR(v) #v
+#define STR(v) #v
 #endif
 #define STR2(v) STR(v)
 #define DIM(v) (sizeof(v)/sizeof((v)[0]))
@@ -123,7 +123,7 @@ rol( u32 x, int n)
 
 /******** export md5 struct and functions ********/
 typedef struct {
-    u32 A,B,C,D;	  /* chaining variables */
+    u32 A, B, C, D;	 /* chaining variables */
     u32  nblocks;
     byte buf[64];
     int  count;

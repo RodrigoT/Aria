@@ -28,7 +28,7 @@ extern ListManager *g_listManager;
 
 ItemStatusReq::ItemStatusReq(ItemCell *itemcell_in, RequestType req_in) : ItemStatus(itemcell_in)
 {
-  req = req_in;
+    req = req_in;
 }
 
 ItemStatusReq::~ItemStatusReq()
@@ -37,26 +37,25 @@ ItemStatusReq::~ItemStatusReq()
 
 void ItemStatusReq::Update()
 {
-  switch(req) {
-  case REQ_QUIT:
-    Send_halt_message();
-    Save_files();
-    exit(0);
-  case REQ_MOVEVIEW:// move clist viewport to the specific row, added 2001/5/21
-    {
-      if(g_listManager->Search(listentry)) {
-	int rowindex;
-	GtkWidget *clist = listentry->ret_Dl_clist();
-	if((rowindex = listentry->getRowForCell(ret_ItemCell())) > -1) {
-	  /*if(gtk_clist_row_is_visible(GTK_CLIST(clist), rowindex) != GTK_VISIBILITY_FULL) {
-	    gtk_clist_moveto(GTK_CLIST(clist), rowindex, 0, 0.5, 0.0);
-	  } */
-	  gtk_tree_view_scroll_to_cell(GTK_TREE_VIEW(clist), gtk_tree_path_new_from_indices(rowindex, -1), NULL, FALSE, 0.0, 0.0);
-	}
-      }
-      break;
+    switch (req) {
+        case REQ_QUIT:
+            Send_halt_message();
+            Save_files();
+            exit(0);
+        case REQ_MOVEVIEW: { // move clist viewport to the specific row, added 2001/5/21
+            if (g_listManager->Search(listentry)) {
+                int rowindex;
+                GtkWidget *clist = listentry->ret_Dl_clist();
+                if ((rowindex = listentry->getRowForCell(ret_ItemCell())) > -1) {
+                    /*if(gtk_clist_row_is_visible(GTK_CLIST(clist), rowindex) != GTK_VISIBILITY_FULL) {
+                      gtk_clist_moveto(GTK_CLIST(clist), rowindex, 0, 0.5, 0.0);
+                    } */
+                    gtk_tree_view_scroll_to_cell(GTK_TREE_VIEW(clist), gtk_tree_path_new_from_indices(rowindex, -1), NULL, FALSE, 0.0, 0.0);
+                }
+            }
+            break;
+        }
+        default:
+            break;
     }
-  default:
-    break;
-  }
 }

@@ -28,21 +28,22 @@
 
 // 各スレッドがGUIスレッドにファイルのダウンロード状況を知らせるときに
 // 送るデータのフォーマット
-class ItemStatusRec : public ItemStatus {
+class ItemStatusRec : public ItemStatus
+{
 private:
-  URLcontainer urlcon;
-  list<ItemCell *> item_list;
-  bool addPasteEnabled;
+    URLcontainer urlcon;
+    list<ItemCell *> item_list;
+    bool addPasteEnabled;
 public:
-  ItemStatusRec(ItemCell *itemcell,
-		const list<ItemCell *>& item_list);
+    ItemStatusRec(ItemCell *itemcell,
+                  const list<ItemCell *> &item_list);
 
-  ItemStatusRec(ItemCell *itemcell,
-		const list<ItemCell *>& item_list,
-		bool addPasteEnabled);
+    ItemStatusRec(ItemCell *itemcell,
+                  const list<ItemCell *> &item_list,
+                  bool addPasteEnabled);
 
-  ~ItemStatusRec();
-  void Update();
+    ~ItemStatusRec();
+    void Update();
 };
 
 #endif // _ITEMSTATUSREC_H_

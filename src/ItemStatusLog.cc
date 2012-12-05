@@ -21,15 +21,15 @@
 
 #include "ItemStatusLog.h"
 
-void Append_text(const ItemLogCell& itemlogcell, GtkWidget *text);
+void Append_text(const ItemLogCell &itemlogcell, GtkWidget *text);
 
 extern ListManager *g_listManager;
 extern ItemCell *g_consoleItem;
 extern GtkWidget *g_consoleText, *g_text;
 
-ItemStatusLog::ItemStatusLog(ItemCell *itemcell_in, const ItemLogCell& itemlogcell_in) : ItemStatus(itemcell_in)
+ItemStatusLog::ItemStatusLog(ItemCell *itemcell_in, const ItemLogCell &itemlogcell_in) : ItemStatus(itemcell_in)
 {
-  item_log = itemlogcell_in;
+    item_log = itemlogcell_in;
 }
 
 ItemStatusLog::~ItemStatusLog()
@@ -38,24 +38,23 @@ ItemStatusLog::~ItemStatusLog()
 
 void ItemStatusLog::Update()
 {
-  if(g_consoleItem == ret_ItemCell()) {
-    Append_text(item_log, g_consoleText);
-  } else {
-    if(g_listManager->ret_Current_listentry() != listentry) return;
+    if (g_consoleItem == ret_ItemCell()) {
+        Append_text(item_log, g_consoleText);
+    } else {
+        if (g_listManager->ret_Current_listentry() != listentry) return;
 //    GList *node = GTK_CLIST(listentry->ret_Dl_clist())->selection;
-    GtkTreeSelection * selection = gtk_tree_view_get_selection (GTK_TREE_VIEW(listentry->ret_Dl_clist()));
-	GtkTreeModel *model = NULL;
-	GList *selectList = gtk_tree_selection_get_selected_rows (selection, &model);
-    if( gtk_tree_selection_count_selected_rows(selection) )
-	{
-		GtkTreePath *path = (GtkTreePath *)(selectList->data);
-		gint pathdepth;
-		gint *indices = gtk_tree_path_get_indices_with_depth (path, &pathdepth);
-		if (listentry->getItemCellByRow(indices[pathdepth-1]) == ret_ItemCell()) {
-      		Append_text(item_log, g_text);
-		}
+        GtkTreeSelection *selection = gtk_tree_view_get_selection (GTK_TREE_VIEW(listentry->ret_Dl_clist()));
+        GtkTreeModel *model = NULL;
+        GList *selectList = gtk_tree_selection_get_selected_rows (selection, &model);
+        if ( gtk_tree_selection_count_selected_rows(selection) ) {
+            GtkTreePath *path = (GtkTreePath *)(selectList->data);
+            gint pathdepth;
+            gint *indices = gtk_tree_path_get_indices_with_depth (path, &pathdepth);
+            if (listentry->getItemCellByRow(indices[pathdepth - 1]) == ret_ItemCell()) {
+                Append_text(item_log, g_text);
+            }
+        }
+        g_list_foreach (selectList, (GFunc) gtk_tree_path_free, NULL);
+        g_list_free (selectList);
     }
-	g_list_foreach (selectList, (GFunc) gtk_tree_path_free, NULL);
-	g_list_free (selectList);
-  }
 }

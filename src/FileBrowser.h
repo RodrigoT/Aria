@@ -29,23 +29,23 @@ using namespace std;
 class FileBrowser
 {
 private:
-  GtkWidget *fs;
-  GtkWindow *toplevel;
+    GtkWidget *fs;
+    GtkWindow *toplevel;
 
-  unsigned int Ok_connection_id;
-  unsigned int Cancel_connection_id;
+    unsigned int Ok_connection_id;
+    unsigned int Cancel_connection_id;
 public:
-  FileBrowser(GtkWindow *toplevel_in);
-  ~FileBrowser();
+    FileBrowser(GtkWindow *toplevel_in);
+    ~FileBrowser();
 
-  void setup(const string& title_in,
-	     gboolean (*ok_SignalFunc)(GtkWidget *w, GtkWidget *fs),
-	     gboolean (*cancel_SignalFunc)(GtkWidget *w, GtkWidget *fs) = NULL);
-  void set_ok_button_visible(bool isvisible);
-  void set_cancel_button_visible(bool isvisible);
-  void set_transient(GtkWindow *parent);
-  void set_default_path(const string& path);
-  void show();
-  void hide();
+    void setup(const string &title_in,
+               gboolean (*ok_SignalFunc)(GtkWidget *w, GtkWidget *fs),
+               gboolean (*cancel_SignalFunc)(GtkWidget *w, GtkWidget *fs) = NULL);
+    void set_ok_button_visible(bool isvisible);
+    void set_cancel_button_visible(bool isvisible);
+    void set_transient(GtkWindow *parent);
+    void set_default_path(const string &path);
+    void show();
+    void hide();
 };
 #endif //_FILEBROWSER_H_

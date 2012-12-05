@@ -23,41 +23,41 @@
 
 LockList::LockList()
 {
-  pthread_mutex_init(&ll_lock, NULL);
+    pthread_mutex_init(&ll_lock, NULL);
 }
 
 LockList::~LockList()
 {
-  //cerr << "size of lock_list " << lock_list.size() << endl;
+    //cerr << "size of lock_list " << lock_list.size() << endl;
 }
 
-bool LockList::Try_lock(const string& filename)
+bool LockList::Try_lock(const string &filename)
 {
-  pthread_mutex_lock(&ll_lock);
-  for(list<string>::iterator itr = lock_list.begin();
-      itr != lock_list.end(); ++itr) {
-    if(*itr == filename) {
-      pthread_mutex_unlock(&ll_lock);
-      return false;
+    pthread_mutex_lock(&ll_lock);
+    for (list<string>::iterator itr = lock_list.begin();
+            itr != lock_list.end(); ++itr) {
+        if (*itr == filename) {
+            pthread_mutex_unlock(&ll_lock);
+            return false;
+        }
     }
-  }
-  lock_list.push_back(filename);
-  pthread_mutex_unlock(&ll_lock);
-  return true;
+    lock_list.push_back(filename);
+    pthread_mutex_unlock(&ll_lock);
+    return true;
 }
 
-bool LockList::Unlock(const string& filename)
+bool LockList::Unlock(const string &filename)
 {
-  pthread_mutex_lock(&ll_lock);
-  for(list<string>::iterator itr = lock_list.begin();
-      itr != lock_list.end(); ++itr) {
-    if(*itr == filename) {
-      lock_list.remove(filename);
-      pthread_mutex_unlock(&ll_lock);
-      return true;
+    pthread_mutex_lock(&ll_lock);
+    for (list<string>::iterator itr = lock_list.begin();
+            itr != lock_list.end(); ++itr) {
+        if (*itr == filename) {
+            lock_list.remove(filename);
+            pthread_mutex_unlock(&ll_lock);
+            return true;
+        }
     }
-  }
-  pthread_mutex_unlock(&ll_lock);
-  return false;
+    pthread_mutex_unlock(&ll_lock);
+    return false;
 }
-  
+

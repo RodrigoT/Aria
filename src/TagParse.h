@@ -31,8 +31,8 @@ using namespace std;
 #define TAGPARSE_GETVALUE_EOF 1001
 #define TAGPARSE_UCOM_EOF 1002
 
-string get_next_tag(ifstream& infile);
-string get_value(ifstream& infile, string tag);
+string get_next_tag(ifstream &infile);
+string get_value(ifstream &infile, string tag);
 
 #endif // _TAGPARSE_H_
 

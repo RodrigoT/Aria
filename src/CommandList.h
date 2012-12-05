@@ -33,21 +33,21 @@ using namespace std;
 class CommandList
 {
 private:
-  vector<Command> command_list;
-  pthread_mutex_t command_list_lock;
+    vector<Command> command_list;
+    pthread_mutex_t command_list_lock;
 public:
-  CommandList();
-  ~CommandList();
-  bool Is_reserved(const string& tag);
-  bool Read_from_file(const string& filename);
+    CommandList();
+    ~CommandList();
+    bool Is_reserved(const string &tag);
+    bool Read_from_file(const string &filename);
 
-  const Command& search(const string& filename);
-  void set_valid_safely(vector<Command>::iterator com_itr, bool flag);
-  void update_validity(GList *selection);
-  vector<Command>& ret_command_list();
+    const Command &search(const string &filename);
+    void set_valid_safely(vector<Command>::iterator com_itr, bool flag);
+    void update_validity(GList *selection);
+    vector<Command> &ret_command_list();
 
-  enum ErrorType {
-    EOPEN
-  };
+    enum ErrorType {
+        EOPEN
+    };
 };
 #endif //_COMMANDLIST_H_

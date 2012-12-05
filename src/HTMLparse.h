@@ -35,9 +35,9 @@ using namespace std;
 
 
 enum HTMLparseExceptionType {
-  HTMLPARSE_NOHREF,
-  HTMLPARSE_EIO,
-  HTMLPARSE_EOF,
+    HTMLPARSE_NOHREF,
+    HTMLPARSE_EIO,
+    HTMLPARSE_EOF,
 };
 
 class URLcontainer;
@@ -46,34 +46,34 @@ class Options;
 class HTMLparse
 {
 private:
-  string base_url;
-  string root_url;
-  string documentroot_dir;
-  string prefix;
-  string outfilename;
-  string infilename;
-  ofstream outfile;
-  ifstream infile;
-  bool outfile_bad;
-  bool infile_bad;
-  string baseHref;
+    string base_url;
+    string root_url;
+    string documentroot_dir;
+    string prefix;
+    string outfilename;
+    string infilename;
+    ofstream outfile;
+    ifstream infile;
+    bool outfile_bad;
+    bool infile_bad;
+    string baseHref;
 
-  URLcontainer find_href(string line, Options& options);
-  URLcontainer find_css(string line, Options& options);
-  string erase_protocol(string line, int length, int prot_pos);
+    URLcontainer find_href(string line, Options &options);
+    URLcontainer find_css(string line, Options &options);
+    string erase_protocol(string line, int length, int prot_pos);
 public:
-  HTMLparse(const string& base_url_in,
-	    const string& root_url_in,
-	    const string& documentroot_dir_in,
-	    const Options& static_options,
-	    const string& infilename);
-  ~HTMLparse();
-  URLcontainer get_href(Options& options);
+    HTMLparse(const string &base_url_in,
+              const string &root_url_in,
+              const string &documentroot_dir_in,
+              const Options &static_options,
+              const string &infilename);
+    ~HTMLparse();
+    URLcontainer get_href(Options &options);
 
 
-  void Set_save_directory(const URLcontainer& urlcon, const string& href, Options& options);
+    void Set_save_directory(const URLcontainer &urlcon, const string &href, Options &options);
 
-  bool out_bad() const;
-  bool in_bad() const;
+    bool out_bad() const;
+    bool in_bad() const;
 };
 #endif

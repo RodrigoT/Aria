@@ -35,40 +35,41 @@
 //    溢れてしまう
 //    本オブジェクト内でもういちど SumInfo に対しダウンロード数などの
 //    変更操作を行っており二度手間となっている
-class ItemStatusSum : public ItemStatus {
+class ItemStatusSum : public ItemStatus
+{
 private:
-  int n_download;
-  int n_stop;
-  int n_ready;
-  int n_split;
-  int n_locked;
-  int n_complete;
-  int n_error;
+    int n_download;
+    int n_stop;
+    int n_ready;
+    int n_split;
+    int n_locked;
+    int n_complete;
+    int n_error;
 public:
-  ItemStatusSum(ItemCell *itemcell);
-  ~ItemStatusSum();
-  void Update();
+    ItemStatusSum(ItemCell *itemcell);
+    ~ItemStatusSum();
+    void Update();
 
-  void inc_download();
-  void dec_download();
+    void inc_download();
+    void dec_download();
 
-  void inc_stop();
-  void dec_stop();
+    void inc_stop();
+    void dec_stop();
 
-  void inc_ready();
-  void dec_ready();
+    void inc_ready();
+    void dec_ready();
 
-  void inc_split();
-  void dec_split();
+    void inc_split();
+    void dec_split();
 
-  void inc_locked();
-  void dec_locked();
+    void inc_locked();
+    void dec_locked();
 
-  void inc_complete();
-  void dec_complete();
+    void inc_complete();
+    void dec_complete();
 
-  void inc_error();
-  void dec_error();
+    void inc_error();
+    void dec_error();
 };
 
 #endif // _ITEMSTATUSSUM_H_

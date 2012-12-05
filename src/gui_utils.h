@@ -29,50 +29,50 @@
 using namespace std;
 
 GtkWidget *GTK_create_menu_item_with_icon(GtkWidget *menu,
-					  char *label,
-					  GCallback func,
-					  gpointer func_data,
-					  const char **xpmData,
-					  GtkWidget *toplevel,
-					  GtkAccelGroup *accel_group,
-					  unsigned int accel_key,
-					  GdkModifierType accel_mods);
+                                          char *label,
+                                          GCallback func,
+                                          gpointer func_data,
+                                          const char **xpmData,
+                                          GtkWidget *toplevel,
+                                          GtkAccelGroup *accel_group,
+                                          unsigned int accel_key,
+                                          GdkModifierType accel_mods);
 
 GtkWidget *GTK_create_menu_item_with_icon(GtkWidget *menu,
-					  char *label,
-					  GCallback func,
-					  gpointer func_data,
-					  const char **xpmData,
-					  GtkWidget *toplevel);
+                                          char *label,
+                                          GCallback func,
+                                          gpointer func_data,
+                                          const char **xpmData,
+                                          GtkWidget *toplevel);
 
 GtkWidget *GTK_create_menu_item_with_icon(GtkWidget *menu,
-					  char *label,
-					  GCallback func,
-					  gpointer data,
-					  GtkAccelGroup *accel_group,
-					  unsigned int accel_key,
-					  unsigned int accel_mods);
+                                          char *label,
+                                          GCallback func,
+                                          gpointer data,
+                                          GtkAccelGroup *accel_group,
+                                          unsigned int accel_key,
+                                          unsigned int accel_mods);
 
 GtkWidget *GTK_create_menu_item_with_icon(GtkWidget *menu,
-					  char *label,
-					  GCallback func,
-					  gpointer func_data);
+                                          char *label,
+                                          GCallback func,
+                                          gpointer func_data);
 
 GtkWidget *GTK_create_menu_separator(GtkWidget *menu);
 
 void Setup_dnd(GtkWidget *toplevel, void (*Signal_Func)(GtkWidget  *w,
-							GdkDragContext *context,
-							int x,
-							int y,
-							GtkSelectionData *data,
-							unsigned int info,
-							unsigned int time));
+                                                        GdkDragContext *context,
+                                                        int x,
+                                                        int y,
+                                                        GtkSelectionData *data,
+                                                        unsigned int info,
+                                                        unsigned int time));
 
 int findNearestSelectedRow(GtkWidget *clist, unsigned int row_current);
 
 bool Create_pixmap_from_file(GdkPixbuf **pixmap_ptr,
-			     GdkBitmap **bitmap_ptr,
-			     const string& filepath,
-			     GtkWidget *styleWidget);
+                             GdkBitmap **bitmap_ptr,
+                             const string &filepath,
+                             GtkWidget *styleWidget);
 
 #endif // _GUI_UTILS_H_

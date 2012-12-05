@@ -29,59 +29,59 @@
 #include "aria.h"
 #include "utils.h"
 
-void createDir(const string& dirName, int permission)
+void createDir(const string &dirName, int permission)
 {
-  struct stat dirStat;
-  if(stat(dirName.c_str(), &dirStat) < 0) {
-    if(mkdir(dirName.c_str(), permission) < 0) {
-      if(errno == EEXIST) {
-	cerr << _("Non-directory file \"") << dirName << _("\" exists. Please rename this file in order to get Aria work correctly.") << '\n';
-	exit(1);
-      }
+    struct stat dirStat;
+    if (stat(dirName.c_str(), &dirStat) < 0) {
+        if (mkdir(dirName.c_str(), permission) < 0) {
+            if (errno == EEXIST) {
+                cerr << _("Non-directory file \"") << dirName << _("\" exists. Please rename this file in order to get Aria work correctly.") << '\n';
+                exit(1);
+            }
+        }
     }
-  }
 }
 
-bool Initialize_resource_files(const string& rcdir, bool force_flag = false)
+bool Initialize_resource_files(const string &rcdir, bool force_flag = false)
 {
-  struct stat dir_stat;
+    struct stat dir_stat;
 
-  if(stat(rcdir.c_str(), &dir_stat) < 0) {
-    if(mkdir(rcdir.c_str(), 0700) < 0) {
-      if(errno == EEXIST) {
-	cerr << _("Non-directory file \"") << rcdir << _("\" exists. Please rename this file in order to get Aria work correctly.") << '\n';
-	exit(1);
-      }
+    if (stat(rcdir.c_str(), &dir_stat) < 0) {
+        if (mkdir(rcdir.c_str(), 0700) < 0) {
+            if (errno == EEXIST) {
+                cerr << _("Non-directory file \"") << rcdir << _("\" exists. Please rename this file in order to get Aria work correctly.") << '\n';
+                exit(1);
+            }
+        }
     }
-  }
 
-  createDir(rcdir+"/statusIcon", 0700);
-  createDir(rcdir+"/statusIcon/iconset", 0700);
+    createDir(rcdir + "/statusIcon", 0700);
+    createDir(rcdir + "/statusIcon/iconset", 0700);
 
-  createDir(rcdir+"/basket", 0700);
-  createDir(rcdir+"/basket/pixmap", 0700);
+    createDir(rcdir + "/basket", 0700);
+    createDir(rcdir + "/basket/pixmap", 0700);
 
-  string savedir = rcdir+"/save";
-  if(stat(savedir.c_str(), &dir_stat) < 0) {
-    if(mkdir(savedir.c_str(), 0700) < 0) {
-      if(errno == EEXIST) {
-	cerr << _("Non-directory file \"") << savedir << _("\" exists. Please rename this file in order to get Aria work correctly.") << '\n';
-	exit(1);
-      }
+    string savedir = rcdir + "/save";
+    if (stat(savedir.c_str(), &dir_stat) < 0) {
+        if (mkdir(savedir.c_str(), 0700) < 0) {
+            if (errno == EEXIST) {
+                cerr << _("Non-directory file \"") << savedir << _("\" exists. Please rename this file in order to get Aria work correctly.") << '\n';
+                exit(1);
+            }
+        }
+    } else if (!force_flag) {
+        return true;
     }
-  } else if(!force_flag) {
+
+    string datadir = DATADIR;
+
+    if (!copy_file(datadir + "/aria/rc.aria", rcdir + "/rc.aria") ||
+            !copy_file(datadir + "/aria/command.aria", savedir + "/command.aria") ||
+            !copy_file(datadir + "/aria/server.aria", savedir + "/server.aria") ||
+            !copy_file(datadir + "/aria/useragent.aria", savedir + "/useragent.aria")) {
+        cerr << _("Error occurred in resource file copy: ") << strerror(errno) << endl;
+        return false;
+    }
+
     return true;
-  }
-  
-  string datadir = DATADIR;
-
-  if(!copy_file(datadir+"/aria/rc.aria", rcdir+"/rc.aria") ||
-     !copy_file(datadir+"/aria/command.aria", savedir+"/command.aria") ||
-     !copy_file(datadir+"/aria/server.aria", savedir+"/server.aria") ||
-     !copy_file(datadir+"/aria/useragent.aria", savedir+"/useragent.aria")) {
-    cerr << _("Error occurred in resource file copy: ") << strerror(errno) << endl;
-    return false;
-  }
-
-  return true;
 }

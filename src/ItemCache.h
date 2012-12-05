@@ -30,15 +30,15 @@ using namespace std;
 class ItemCache
 {
 private:
-  list<ItemCell *> item_list;
+    list<ItemCell *> item_list;
 public:
-  ItemCache();
-  ~ItemCache();
+    ItemCache();
+    ~ItemCache();
 
-  void add_Cache_by_copy(ItemCell *itemcell);
-  void add_Cache_by_cut(ItemCell *itemcell);
-  void clear_Cache();
-  int ret_Cache_Total();
-  void paste_Cache(ListEntry *listentry);
+    void add_Cache_by_copy(ItemCell *itemcell);
+    void add_Cache_by_cut(ItemCell *itemcell);
+    void clear_Cache();
+    int ret_Cache_Total();
+    void paste_Cache(ListEntry *listentry);
 };
 #endif //_ITEMCACHE_H_

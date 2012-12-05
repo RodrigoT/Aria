@@ -27,10 +27,10 @@
 class RetrieveHTTPS2 : public RetrieveHTTP2
 {
 public:
-  RetrieveHTTPS2(ItemCellPartial *itemcellPartial);
-  ~RetrieveHTTPS2();
-#ifdef HAVE_OPENSSL 
-  void establishConnection(Socket& sock);
+    RetrieveHTTPS2(ItemCellPartial *itemcellPartial);
+    ~RetrieveHTTPS2();
+#ifdef HAVE_OPENSSL
+    void establishConnection(Socket &sock);
 #endif // HAVE_OPENSSL
 };
 #endif // _RETRIEVEHTTPS2_H_

@@ -24,27 +24,27 @@
 #include "ThreadManager.h"
 #include "ListEntry.h"
 
-extern void* Download_thread_main(ListEntry *listentry);
+extern void *Download_thread_main(ListEntry *listentry);
 
 // コンストラクタ
 ThreadManager::ThreadManager(int maxthread_in, void *boss_in)
 {
-  maxthread = maxthread_in;
-  halt_flag = false;
-  n_thread_to_retire = 0;
-  boss = boss_in;
+    maxthread = maxthread_in;
+    halt_flag = false;
+    n_thread_to_retire = 0;
+    boss = boss_in;
 
-  autostart_flag = false;
-  //token_thread = NULL;
-  pthread_mutex_init(&tm_lock, NULL);
-  //pthread_mutex_init(&token_lock, NULL);
+    autostart_flag = false;
+    //token_thread = NULL;
+    pthread_mutex_init(&tm_lock, NULL);
+    //pthread_mutex_init(&token_lock, NULL);
 //    token_gettime.tv_sec = 0;
 //    token_gettime.tv_usec = 0;
 }
 
 void ThreadManager::setBoss(void *boss_in)
 {
-  boss = boss_in;
+    boss = boss_in;
 }
 
 // Change thread state
@@ -52,43 +52,44 @@ void ThreadManager::setBoss(void *boss_in)
 // if thread is downloading any item, its state is THREAD_ACTIVE.
 // if thread is waiting the signal(wait state), its state is THREAD_WAIT.
 void ThreadManager::setThreadState(pthread_t thread_id,
-				   ItemCell *itemcell,
-				   ThreadStatusType thread_status)
+                                   ItemCell *itemcell,
+                                   ThreadStatusType thread_status)
 {
-  pthread_mutex_lock(&tm_lock);
-  ThreadList::iterator tl_itr;
-  for(tl_itr = thread_list.begin(); tl_itr != thread_list.end(); ++tl_itr) {
-    if((*tl_itr)->Is_equal_thread(thread_id)) {
-      (*tl_itr)->set_Status(thread_status);
-      (*tl_itr)->setItemCell(itemcell);
-      break;
+    pthread_mutex_lock(&tm_lock);
+    ThreadList::iterator tl_itr;
+    for (tl_itr = thread_list.begin(); tl_itr != thread_list.end(); ++tl_itr) {
+        if ((*tl_itr)->Is_equal_thread(thread_id)) {
+            (*tl_itr)->set_Status(thread_status);
+            (*tl_itr)->setItemCell(itemcell);
+            break;
+        }
     }
-  }
-  pthread_mutex_unlock(&tm_lock);
+    pthread_mutex_unlock(&tm_lock);
 }
 
 ThreadSlot *ThreadManager::getThreadSlot(pthread_t thread)
 {
-  ThreadSlot *retval = NULL;
-  pthread_mutex_lock(&tm_lock);
-  for(ThreadList::const_iterator tl_itr = thread_list.begin(); tl_itr != thread_list.end(); ++tl_itr) {
-    if((*tl_itr)->ret_thread_id() == thread) {
-      retval = *tl_itr;
+    ThreadSlot *retval = NULL;
+    pthread_mutex_lock(&tm_lock);
+    for (ThreadList::const_iterator tl_itr = thread_list.begin(); tl_itr != thread_list.end(); ++tl_itr) {
+        if ((*tl_itr)->ret_thread_id() == thread) {
+            retval = *tl_itr;
+        }
     }
-  }
-  pthread_mutex_unlock(&tm_lock);
-  return retval;
+    pthread_mutex_unlock(&tm_lock);
+    return retval;
 }
 
-list<ItemCell *> ThreadManager::getActiveItemCell() {
-  pthread_mutex_lock(&tm_lock);
-  list<ItemCell *> itemCellList;
-  for(ThreadList::const_iterator tl_itr = thread_list.begin(); tl_itr != thread_list.end(); ++tl_itr) {
-    itemCellList.push_back((*tl_itr)->getItemCell());
-  }  
-  pthread_mutex_unlock(&tm_lock);
+list<ItemCell *> ThreadManager::getActiveItemCell()
+{
+    pthread_mutex_lock(&tm_lock);
+    list<ItemCell *> itemCellList;
+    for (ThreadList::const_iterator tl_itr = thread_list.begin(); tl_itr != thread_list.end(); ++tl_itr) {
+        itemCellList.push_back((*tl_itr)->getItemCell());
+    }
+    pthread_mutex_unlock(&tm_lock);
 
-  return itemCellList;
+    return itemCellList;
 }
 
 /*
@@ -167,71 +168,71 @@ ThreadSlot *ThreadManager::get_next_token_thread(ThreadSlot *threadslot)
 
 bool ThreadManager::isNoActiveThread() const
 {
-  for(ThreadList::const_iterator tl_itr = thread_list.begin(); tl_itr != thread_list.end(); ++tl_itr) {
-    if((*tl_itr)->ret_Status() == THREAD_ACTIVE || (*tl_itr)->ret_Status() == THREAD_WAITTOKEN) {
-      return false;
+    for (ThreadList::const_iterator tl_itr = thread_list.begin(); tl_itr != thread_list.end(); ++tl_itr) {
+        if ((*tl_itr)->ret_Status() == THREAD_ACTIVE || (*tl_itr)->ret_Status() == THREAD_WAITTOKEN) {
+            return false;
+        }
     }
-  }
-  return true;
+    return true;
 }
 
 void ThreadManager::ManageThread()
 {
-  ManageThread(maxthread);
+    ManageThread(maxthread);
 }
 
 // スレッドの数を動的に増減する
 void ThreadManager::ManageThread(int maxthread_in)
-{  
-  pthread_mutex_lock(&tm_lock);
-  int diff = maxthread_in-thread_list.size();
+{
+    pthread_mutex_lock(&tm_lock);
+    int diff = maxthread_in - thread_list.size();
 
-  //cerr << maxthread_in << " " << n_thread_to_retire << " " << thread_list.size() << endl;
-  autostart_flag = !isNoActiveThread();
-  maxthread = maxthread_in;
-  if(diff > 0) {
-    n_thread_to_retire = 0;
-    // increase the total number of thread by diff
-    // diff個だけスレッドを増加させる
-    //cerr << "create" << diff << endl;
-    for(int i = 0; i < diff; i++) {
-      pthread_t* thread_ptr = new pthread_t;
-      pthread_create(thread_ptr, (pthread_attr_t*)NULL,
-		     (void*(*)(void*))Download_thread_main,
-		     (void*)boss);
-      //pthread_detach(*thread_ptr);
-      // create thread entry
-      ThreadSlot* thread_slot_ptr = new ThreadSlot(thread_ptr);
-      // end register it to thread management list
-      thread_list.push_back(thread_slot_ptr);
+    //cerr << maxthread_in << " " << n_thread_to_retire << " " << thread_list.size() << endl;
+    autostart_flag = !isNoActiveThread();
+    maxthread = maxthread_in;
+    if (diff > 0) {
+        n_thread_to_retire = 0;
+        // increase the total number of thread by diff
+        // diff個だけスレッドを増加させる
+        //cerr << "create" << diff << endl;
+        for (int i = 0; i < diff; i++) {
+            pthread_t *thread_ptr = new pthread_t;
+            pthread_create(thread_ptr, (pthread_attr_t *)NULL,
+                           (void * ( *)(void *))Download_thread_main,
+                           (void *)boss);
+            //pthread_detach(*thread_ptr);
+            // create thread entry
+            ThreadSlot *thread_slot_ptr = new ThreadSlot(thread_ptr);
+            // end register it to thread management list
+            thread_list.push_back(thread_slot_ptr);
+        }
+    } else if (diff < 0) {
+        //cerr << "delete" << -diff << endl;
+        // decrease the total number of thread by abs(diff)
+        // diff個だけスレッドを減少させる
+        //set_retire_number(-diff);
+        n_thread_to_retire = -diff;
+    } else {
+        n_thread_to_retire = 0;
     }
-  } else if(diff < 0) {
-    //cerr << "delete" << -diff << endl;
-    // decrease the total number of thread by abs(diff)
-    // diff個だけスレッドを減少させる
-    //set_retire_number(-diff);
-    n_thread_to_retire = -diff;
-  } else {
-    n_thread_to_retire = 0;
-  }
-  pthread_mutex_unlock(&tm_lock);
+    pthread_mutex_unlock(&tm_lock);
 }
 
 // Wait the other threads terminate
 // その他のすべてのスレッドが終了するのを待つ
 void ThreadManager::waitThreadTermination()
 {
-  for(ThreadList::iterator tl_itr = thread_list.begin(); tl_itr != thread_list.end(); ++tl_itr) {
-    //pthread_cancel((*tl_itr)->ret_thread_id() );
-    pthread_join((*tl_itr)->ret_thread_id(), NULL);
-  }
+    for (ThreadList::iterator tl_itr = thread_list.begin(); tl_itr != thread_list.end(); ++tl_itr) {
+        //pthread_cancel((*tl_itr)->ret_thread_id() );
+        pthread_join((*tl_itr)->ret_thread_id(), NULL);
+    }
 }
 
 // Return the number of currently running thread
 // 現在のスレッドの数を返す
 int ThreadManager::getTotalThread() const
 {
-  return thread_list.size();
+    return thread_list.size();
 }
 
 // delete thread entry whose id is thread_id from thread_list
@@ -239,57 +240,57 @@ int ThreadManager::getTotalThread() const
 // 引数thread_idのスレッドエントリをスレッド管理リストから削除する
 void ThreadManager::retireThread(pthread_t thread_id)
 {
-  pthread_mutex_lock(&tm_lock);
-  --n_thread_to_retire;
-  //cerr << "retire" << endl;
-  ThreadList::iterator tl_itr;
-  for(tl_itr = thread_list.begin(); tl_itr != thread_list.end(); ++tl_itr) {
-    if((*tl_itr)->Is_equal_thread(thread_id)) {
-      // unresiter ThreadSlot *tl_itr
-      thread_list.remove(*tl_itr);
-      // and delete it
-      delete *tl_itr;
-      pthread_detach(thread_id);
-      break;
+    pthread_mutex_lock(&tm_lock);
+    --n_thread_to_retire;
+    //cerr << "retire" << endl;
+    ThreadList::iterator tl_itr;
+    for (tl_itr = thread_list.begin(); tl_itr != thread_list.end(); ++tl_itr) {
+        if ((*tl_itr)->Is_equal_thread(thread_id)) {
+            // unresiter ThreadSlot *tl_itr
+            thread_list.remove(*tl_itr);
+            // and delete it
+            delete *tl_itr;
+            pthread_detach(thread_id);
+            break;
+        }
     }
-  }
-  pthread_mutex_unlock(&tm_lock);
+    pthread_mutex_unlock(&tm_lock);
 }
 
 bool ThreadManager::retireThreadByRequest(pthread_t thread_id)
 {
-  bool retval;
-  pthread_mutex_lock(&tm_lock);
-  if(n_thread_to_retire > 0) {
-    retval = true;
-    --n_thread_to_retire;
-    ThreadList::iterator tl_itr;
-    for(tl_itr = thread_list.begin(); tl_itr != thread_list.end(); ++tl_itr) {
-      if((*tl_itr)->Is_equal_thread(thread_id)) {
-	// unresiter ThreadSlot *tl_itr
-	thread_list.remove(*tl_itr);
-	// and delete it
-	delete *tl_itr;
-	pthread_detach(thread_id);
-	break;
-      }
+    bool retval;
+    pthread_mutex_lock(&tm_lock);
+    if (n_thread_to_retire > 0) {
+        retval = true;
+        --n_thread_to_retire;
+        ThreadList::iterator tl_itr;
+        for (tl_itr = thread_list.begin(); tl_itr != thread_list.end(); ++tl_itr) {
+            if ((*tl_itr)->Is_equal_thread(thread_id)) {
+                // unresiter ThreadSlot *tl_itr
+                thread_list.remove(*tl_itr);
+                // and delete it
+                delete *tl_itr;
+                pthread_detach(thread_id);
+                break;
+            }
+        }
+    } else {
+        // no retire requested
+        retval = false;
     }
-  } else {
-    // no retire requested
-    retval = false;
-  }
-  pthread_mutex_unlock(&tm_lock);
-  return retval;
+    pthread_mutex_unlock(&tm_lock);
+    return retval;
 }
 
 bool ThreadManager::getHaltFlag() const
 {
-  return halt_flag;
+    return halt_flag;
 }
 
 void ThreadManager::setHaltFlag()
 {
-  halt_flag = true;
+    halt_flag = true;
 }
 
 //  bool ThreadManager::Whether_retire_is_required()
@@ -307,17 +308,17 @@ void ThreadManager::setHaltFlag()
 
 void ThreadManager::setRetireNumber(int num)
 {
-  //cerr << num << endl;
-  n_thread_to_retire = num;
+    //cerr << num << endl;
+    n_thread_to_retire = num;
 }
 
 bool ThreadManager::getAutostartFlag() const
 {
-  return autostart_flag;
+    return autostart_flag;
 }
 
 void ThreadManager::setAutostartFlag(bool flag)
 {
-  autostart_flag = flag;
+    autostart_flag = flag;
 }
 

@@ -47,40 +47,40 @@ using namespace std;
 class RetrieveHTTP : public Retrieve
 {
 private:
-  bool compressedFlag;
-  bool chunkedFlag;
+    bool compressedFlag;
+    bool chunkedFlag;
 public:
-  RetrieveHTTP(ItemCell *itemcell);
-  ~RetrieveHTTP();
+    RetrieveHTTP(ItemCell *itemcell);
+    ~RetrieveHTTP();
 
-  ItemCell::DownloadStatusType Download_Main();
+    ItemCell::DownloadStatusType Download_Main();
 protected:
-  // download mode
-  enum DownloadMode {
-    NORMAL_MODE,
-    EMBEDED_URL_MODE,
-    ADD_HREF_MODE
-  };
+    // download mode
+    enum DownloadMode {
+        NORMAL_MODE,
+        EMBEDED_URL_MODE,
+        ADD_HREF_MODE
+    };
 
-  // ファイルの格納
-  void Start_Download(const Socket& socket, unsigned int startingbyte);
+    // ファイルの格納
+    void Start_Download(const Socket &socket, unsigned int startingbyte);
 
-  // download chunked encoding data
-  int Download_data_chunked(ofstream& outfile, const Socket& socket);
+    // download chunked encoding data
+    int Download_data_chunked(ofstream &outfile, const Socket &socket);
 
-  void validateHTTPStatus(int httpStatus);
+    void validateHTTPStatus(int httpStatus);
 
-  // GETなどの送信
-  void Send_Request(const Socket& socket, unsigned int startingbyte);
-  // ヘッダーを取得
-  void Get_HTTP_header(const Socket& socket, HTTPHeaderList& http_header_list);
-  
-  string create_url(const vector<string>& string_vector);
+    // GETなどの送信
+    void Send_Request(const Socket &socket, unsigned int startingbyte);
+    // ヘッダーを取得
+    void Get_HTTP_header(const Socket &socket, HTTPHeaderList &http_header_list);
+
+    string create_url(const vector<string> &string_vector);
 #ifdef HAVE_ZLIB
-  void uncompressFile(const string& filename);
+    void uncompressFile(const string &filename);
 #endif // HAVE_ZLIB
-  //ItemCell::DownloadStatusType Post_process();
-  //bool Execute_program();
-  virtual void establishConnection(Socket& sock);
+    //ItemCell::DownloadStatusType Post_process();
+    //bool Execute_program();
+    virtual void establishConnection(Socket &sock);
 };
 #endif // _RETRIEVEHTTP_H_

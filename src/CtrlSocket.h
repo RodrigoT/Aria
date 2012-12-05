@@ -33,73 +33,75 @@
 
 using namespace std;
 
-class CmdPacketHeader {
+class CmdPacketHeader
+{
 public:
-  enum CommandType {
-    CMD_PING,
-    CMD_URL,
-    CMD_URL2PW,
-    CMD_URLLIST,
-    CMD_CRCLIST,
-    CMD_START,
-    CMD_STOP,
-    CMD_AGAIN,
-    CMD_LISTNAME,
-    CMD_PREVLIST,
-    CMD_NEXTLIST,
-    CMD_DELLIST,
-    CMD_DELCOMPLETE,
-    CMD_QUIT,
-    CMD_LSCOMP,
-    CMD_LSREADY,
-    CMD_LSSTOP,
-    CMD_LSGO,
-    CMD_LSFAILED,
-    CMD_LSLOCK,
-    CMD_LSALL,
-    CMD_DATA
-  };
+    enum CommandType {
+        CMD_PING,
+        CMD_URL,
+        CMD_URL2PW,
+        CMD_URLLIST,
+        CMD_CRCLIST,
+        CMD_START,
+        CMD_STOP,
+        CMD_AGAIN,
+        CMD_LISTNAME,
+        CMD_PREVLIST,
+        CMD_NEXTLIST,
+        CMD_DELLIST,
+        CMD_DELCOMPLETE,
+        CMD_QUIT,
+        CMD_LSCOMP,
+        CMD_LSREADY,
+        CMD_LSSTOP,
+        CMD_LSGO,
+        CMD_LSFAILED,
+        CMD_LSLOCK,
+        CMD_LSALL,
+        CMD_DATA
+    };
 private:
-  CommandType command;
-  int length;
-  int option;
+    CommandType command;
+    int length;
+    int option;
 public:
-  CmdPacketHeader(CommandType cmd, int length = 0);
-  CmdPacketHeader();
-  int get_length() const;
-  CommandType get_command() const;
+    CmdPacketHeader(CommandType cmd, int length = 0);
+    CmdPacketHeader();
+    int get_length() const;
+    CommandType get_command() const;
 };
 
-class CtrlSocket {
+class CtrlSocket
+{
 private:
-  bool remote_running;
-  int ctrl_fd;
-  string socket_name;
+    bool remote_running;
+    int ctrl_fd;
+    string socket_name;
 public:
-  CtrlSocket();
-  ~CtrlSocket();
+    CtrlSocket();
+    ~CtrlSocket();
 
-  enum ListingType {
-    CTSOCK_LSCOMP = 1,
-    CTSOCK_LSREADY = 1 << 1,
-    CTSOCK_LSSTOP = 1 << 2,
-    CTSOCK_LSGO = 1 << 3,
-    CTSOCK_LSFAILED = 1 << 4,
-    CTSOCK_LSLOCK = 1 << 5,
-    CTSOCK_LSALL = CTSOCK_LSCOMP|CTSOCK_LSREADY|CTSOCK_LSSTOP|CTSOCK_LSGO|CTSOCK_LSFAILED|CTSOCK_LSLOCK
-  };
+    enum ListingType {
+        CTSOCK_LSCOMP = 1,
+        CTSOCK_LSREADY = 1 << 1,
+        CTSOCK_LSSTOP = 1 << 2,
+        CTSOCK_LSGO = 1 << 3,
+        CTSOCK_LSFAILED = 1 << 4,
+        CTSOCK_LSLOCK = 1 << 5,
+        CTSOCK_LSALL = CTSOCK_LSCOMP | CTSOCK_LSREADY | CTSOCK_LSSTOP | CTSOCK_LSGO | CTSOCK_LSFAILED | CTSOCK_LSLOCK
+    };
 
-  bool Is_remote_running();
-  int Send_command(int fd, CmdPacketHeader::CommandType command, void *data = NULL, int length = 0);
-  int Send_command(CmdPacketHeader::CommandType cmd, void *data = NULL, int length = 0);
-  bool Send_ack(int fd);
-  int Recv_command(int fd, void **data_ptr);
+    bool Is_remote_running();
+    int Send_command(int fd, CmdPacketHeader::CommandType command, void *data = NULL, int length = 0);
+    int Send_command(CmdPacketHeader::CommandType cmd, void *data = NULL, int length = 0);
+    bool Send_ack(int fd);
+    int Recv_command(int fd, void **data_ptr);
 
-  bool Recv_ack();
-  bool Is_remote_running_internal();
-  int connect_to();
-  int Select2();
-  void Read_message();
-  int ret_ctrl_fd() const;
+    bool Recv_ack();
+    bool Is_remote_running_internal();
+    int connect_to();
+    int Select2();
+    void Read_message();
+    int ret_ctrl_fd() const;
 };
 #endif // _CTRLSOCKET_H_

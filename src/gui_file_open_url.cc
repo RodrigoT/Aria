@@ -41,63 +41,63 @@ extern FileBrowser *g_cFileBrowser;
 // URLファイルを読み込む
 //
 // URLファイルセレクションウインドウでOKボタンを押したときの処理
-void Open_url_file(const string& filename)
+void Open_url_file(const string &filename)
 {
-  ListEntry *listEntry = g_listManager->ret_Current_listentry();
-  // another thread can access clist in download.cc,
-  // so this mutex lock is necessary.
-  listEntry->get_Dl_clist_lock();
+    ListEntry *listEntry = g_listManager->ret_Current_listentry();
+    // another thread can access clist in download.cc,
+    // so this mutex lock is necessary.
+    listEntry->get_Dl_clist_lock();
 
-  if(!g_itemList->Read_URL_from_file(listEntry, filename)) {
-    listEntry->release_Dl_clist_lock();
-    g_consoleItem->Send_message_to_gui(_("Error occurred while reading URL file"), MSG_SYS_ERROR);
-  } else {
-    bool crcFlag = false;
-    struct stat fileStat;
-    string crcFilename = filename+".crc";
-    if(stat(crcFilename.c_str(), &fileStat) == 0 && S_ISREG(fileStat.st_mode)) {
-      crcFlag = true;
+    if (!g_itemList->Read_URL_from_file(listEntry, filename)) {
+        listEntry->release_Dl_clist_lock();
+        g_consoleItem->Send_message_to_gui(_("Error occurred while reading URL file"), MSG_SYS_ERROR);
     } else {
-      unsigned int ext_pos = filename.rfind('.');
-      if(ext_pos != string::npos) {
-	crcFilename = filename.substr(0, ext_pos)+".crc";
-	if(stat(crcFilename.c_str(), &fileStat) == 0 && S_ISREG(fileStat.st_mode)) {
-	  crcFlag = true;
-	}
-      }
-    }
-    if(crcFlag) {
-      g_itemList->Read_CRC_from_file(listEntry, crcFilename);
-    }
-    // modified 2001/5/20
-    if(g_appOption->Whether_use_automatic_start()) {
-      listEntry->Send_start_signal();      
-    }
+        bool crcFlag = false;
+        struct stat fileStat;
+        string crcFilename = filename + ".crc";
+        if (stat(crcFilename.c_str(), &fileStat) == 0 && S_ISREG(fileStat.st_mode)) {
+            crcFlag = true;
+        } else {
+            unsigned int ext_pos = filename.rfind('.');
+            if (ext_pos != string::npos) {
+                crcFilename = filename.substr(0, ext_pos) + ".crc";
+                if (stat(crcFilename.c_str(), &fileStat) == 0 && S_ISREG(fileStat.st_mode)) {
+                    crcFlag = true;
+                }
+            }
+        }
+        if (crcFlag) {
+            g_itemList->Read_CRC_from_file(listEntry, crcFilename);
+        }
+        // modified 2001/5/20
+        if (g_appOption->Whether_use_automatic_start()) {
+            listEntry->Send_start_signal();
+        }
 
-    listEntry->release_Dl_clist_lock();
-    g_consoleItem->Send_message_to_gui(_("URL list opened"), MSG_SYS_INFO);
-  }
-  if(GTK_CLIST(listEntry->ret_Dl_clist())->rows > 0) {
-    Set_sensitive__list_not_empty();//fix this
-  }
+        listEntry->release_Dl_clist_lock();
+        g_consoleItem->Send_message_to_gui(_("URL list opened"), MSG_SYS_INFO);
+    }
+    if (GTK_CLIST(listEntry->ret_Dl_clist())->rows > 0) {
+        Set_sensitive__list_not_empty();//fix this
+    }
 }
 
 static gboolean File_ok_open_URL_list(GtkWidget *w, GtkWidget *fs)
 {
-  const char *filename;
+    const char *filename;
 
-  g_cFileBrowser->hide();
-  if((filename = gtk_file_selection_get_filename(GTK_FILE_SELECTION(fs))) != NULL) {
-    Open_url_file(filename);
-  }
-  return TRUE;
+    g_cFileBrowser->hide();
+    if ((filename = gtk_file_selection_get_filename(GTK_FILE_SELECTION(fs))) != NULL) {
+        Open_url_file(filename);
+    }
+    return TRUE;
 }
 
 gboolean File_open_URL_list(GtkWidget *w, gpointer data)
 {
-  g_cFileBrowser->setup(_("Open URL list"),
-			File_ok_open_URL_list);
-  g_cFileBrowser->show();  
+    g_cFileBrowser->setup(_("Open URL list"),
+                          File_ok_open_URL_list);
+    g_cFileBrowser->show();
 
-  return TRUE;
+    return TRUE;
 }

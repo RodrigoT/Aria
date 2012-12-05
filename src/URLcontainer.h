@@ -46,85 +46,87 @@ using namespace std;
 #define DEFAULT_FTP_PORT 21
 #define DEFAULT_HTTPS_PORT 443
 
-class ProtocolList {
+class ProtocolList
+{
 public:
-  string protocol;
-  int default_port;
+    string protocol;
+    int default_port;
 };
 
-class URLcontainer {
+class URLcontainer
+{
 private:
-  string protocol;
-  string host;
-  int port;
-  string dir;
-  string file;
-  string query;
+    string protocol;
+    string host;
+    int port;
+    string dir;
+    string file;
+    string query;
 
-  // thanks to Matthias Babisch
-  string username;
-  string passwd;
+    // thanks to Matthias Babisch
+    string username;
+    string passwd;
 
-  bool Is_supported_protocol(const string& protocol);
-  void Extract_protocol(string& url);
-  void Extract_userpasswd(string& url);
-  void Extract_host(string& url);
-  void Extract_dir(string& url);
-  void Extract_file(string& url);
+    bool Is_supported_protocol(const string &protocol);
+    void Extract_protocol(string &url);
+    void Extract_userpasswd(string &url);
+    void Extract_host(string &url);
+    void Extract_dir(string &url);
+    void Extract_file(string &url);
 
-  bool bad_flag;
+    bool bad_flag;
 public:
-  URLcontainer();
-  ~URLcontainer();
-  static string Find_URL(string& text, bool ws_quark = false);
-  static string Find_URL_ext(string& text);
-  static list<string> Unfold_URL(const string& src_url);
-  static string Find_HREF(string& text, string base);
-  static string Find_HREF_strict(string& text, string base_url);
-  static string URL_Encode(const string& src_string);
-  static string URL_Decode(const string& src_string);
-  static bool Is_reserved(char ch);
-  // read private member valiables
-  string ret_URL() const;
-  const string& ret_Protocol() const;
-  const string& ret_Username() const;
-  const string& ret_Password() const;
-  const string& ret_Hostname() const;
-  const string& ret_Dir() const;
-  const string& ret_File() const;
-  const string& ret_Query() const;
-  string ret_Extension() const;
-  string ret_Filename() const;
-  unsigned int ret_Port() const;
+    URLcontainer();
+    ~URLcontainer();
+    static string Find_URL(string &text, bool ws_quark = false);
+    static string Find_URL_ext(string &text);
+    static list<string> Unfold_URL(const string &src_url);
+    static string Find_HREF(string &text, string base);
+    static string Find_HREF_strict(string &text, string base_url);
+    static string URL_Encode(const string &src_string);
+    static string URL_Decode(const string &src_string);
+    static bool Is_reserved(char ch);
+    // read private member valiables
+    string ret_URL() const;
+    const string &ret_Protocol() const;
+    const string &ret_Username() const;
+    const string &ret_Password() const;
+    const string &ret_Hostname() const;
+    const string &ret_Dir() const;
+    const string &ret_File() const;
+    const string &ret_Query() const;
+    string ret_Extension() const;
+    string ret_Filename() const;
+    unsigned int ret_Port() const;
 
-  // write to private member valiables
-  void set_Protocol(const string& protocol);
-  void set_Hostname(const string& hostname);
-  void set_Dir(const string& dir);
-  void set_File(const string& file);
-  void set_Port(unsigned int port);
-  void force_bad();
-  bool bad() const;
-  void clear();
-  bool Retrieve_embedded_URL(const list<string>& keylink_list, const string& filename, const URLcontainer& urlcon);
-  bool Examine_keylinks(const string& line,
-			const list<string>& keylink_list,
-			const URLcontainer& urlcon);
-  bool Evaluate_javascript(ifstream& infile,
-			   const string& target,
-			   const list<string>& keylink_list,
-			   const URLcontainer& urlcon);
+    // write to private member valiables
+    void set_Protocol(const string &protocol);
+    void set_Hostname(const string &hostname);
+    void set_Dir(const string &dir);
+    void set_File(const string &file);
+    void set_Port(unsigned int port);
+    void force_bad();
+    bool bad() const;
+    void clear();
+    bool Retrieve_embedded_URL(const list<string> &keylink_list, const string &filename, const URLcontainer &urlcon);
+    bool Examine_keylinks(const string &line,
+                          const list<string> &keylink_list,
+                          const URLcontainer &urlcon);
+    bool Evaluate_javascript(ifstream &infile,
+                             const string &target,
+                             const list<string> &keylink_list,
+                             const URLcontainer &urlcon);
 
-  bool Parse_URL(string url);
+    bool Parse_URL(string url);
 
-  enum EmbedParseStatusType {
-    EMBEDPARSE_FOUND,
-    EMBEDPARSE_EOF
-  };
-  enum URLconErrorType {
-    URLCON_EINVALIDURL,
-    URLCON_EUNSUPP
-  };
+    enum EmbedParseStatusType {
+        EMBEDPARSE_FOUND,
+        EMBEDPARSE_EOF
+    };
+    enum URLconErrorType {
+        URLCON_EINVALIDURL,
+        URLCON_EUNSUPP
+    };
 };
 
 #endif // _URLCONTAINER_H_

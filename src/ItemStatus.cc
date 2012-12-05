@@ -23,7 +23,7 @@
 
 ItemStatus::ItemStatus(ItemCell *itemcell_in)
 {
-  itemcell = itemcell_in;
+    itemcell = itemcell_in;
 }
 
 ItemStatus::~ItemStatus()
@@ -32,7 +32,7 @@ ItemStatus::~ItemStatus()
 
 ItemCell *ItemStatus::ret_ItemCell()
 {
-  return itemcell;
+    return itemcell;
 }
 
 void ItemStatus::Update()
@@ -41,6 +41,6 @@ void ItemStatus::Update()
 
 void ItemStatus::set_Listentry(ListEntry *listentry_in)
 {
-  listentry = listentry_in;
+    listentry = listentry_in;
 }
 

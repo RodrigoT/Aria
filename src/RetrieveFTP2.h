@@ -34,16 +34,17 @@
 #include "ItemCellPartial.h"
 using namespace std;
 
-class RetrieveFTP2 : public RetrieveFTP {
+class RetrieveFTP2 : public RetrieveFTP
+{
 private:
-  ItemCellPartial *itemcell;
+    ItemCellPartial *itemcell;
 public:
-  RetrieveFTP2(ItemCellPartial *itemcell);
-  ~RetrieveFTP2();
+    RetrieveFTP2(ItemCellPartial *itemcell);
+    ~RetrieveFTP2();
 
-  ItemCell::DownloadStatusType Download_Main();
+    ItemCell::DownloadStatusType Download_Main();
 protected:
-  void Start_Download(const Socket& sock_data, unsigned int startingbyte);
+    void Start_Download(const Socket &sock_data, unsigned int startingbyte);
 };
 
 #endif // _RetrieveFTP2_H_

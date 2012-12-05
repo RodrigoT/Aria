@@ -25,41 +25,41 @@ UseragentList::UseragentList()
 {
 }
 
-UseragentList::UseragentList(const UseragentList& useragentlist_src)
+UseragentList::UseragentList(const UseragentList &useragentlist_src)
 {
-  useragent_list = useragentlist_src.ret_vector();
+    useragent_list = useragentlist_src.ret_vector();
 }
 
 UseragentList::~UseragentList()
 {
 }
 
-bool UseragentList::add(const string& useragent_in)
+bool UseragentList::add(const string &useragent_in)
 {
-  string useragent = Remove_white(useragent_in);
-  if(useragent.empty()) return false;
-  else {
-    useragent_list.push_back(useragent);
+    string useragent = Remove_white(useragent_in);
+    if (useragent.empty()) return false;
+    else {
+        useragent_list.push_back(useragent);
+        return true;
+    }
+}
+
+const vector<string> &UseragentList::ret_vector() const
+{
+    return useragent_list;
+}
+
+bool UseragentList::Read_useragent_list(const string &file_useragent_list)
+{
+    ifstream infile(file_useragent_list.c_str(), ios::in);//ios::skipws|ios::in);
+    if (infile.bad() || infile.eof()) return false;
+
+    while (infile.good()) {
+        string line;
+        getline(infile, line, '\n');
+        if (infile.bad()) return false;
+        if (line.empty() || line.at(0) == '#') continue;
+        add(line);
+    }
     return true;
-  }
-}
-
-const vector<string>& UseragentList::ret_vector() const
-{
-  return useragent_list;
-}
-
-bool UseragentList::Read_useragent_list(const string& file_useragent_list)
-{
-  ifstream infile(file_useragent_list.c_str(), ios::in);//ios::skipws|ios::in);
-  if(infile.bad() || infile.eof()) return false;
-
-  while(infile.good()) {
-    string line;
-    getline(infile, line, '\n');
-    if(infile.bad()) return false;
-    if(line.empty() || line.at(0) == '#') continue;
-    add(line);
-  }
-  return true;
 }

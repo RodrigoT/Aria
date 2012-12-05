@@ -31,15 +31,15 @@ using namespace std;
 class UseragentList
 {
 private:
-  vector<string> useragent_list;
+    vector<string> useragent_list;
 public:
-  UseragentList();
-  UseragentList(const UseragentList& useragentlist_src);
-  ~UseragentList();
+    UseragentList();
+    UseragentList(const UseragentList &useragentlist_src);
+    ~UseragentList();
 
-  bool add(const string& useragent_in);
-  const vector<string>& ret_vector() const;
-  bool Read_useragent_list(const string& filename);
+    bool add(const string &useragent_in);
+    const vector<string> &ret_vector() const;
+    bool Read_useragent_list(const string &filename);
 };
 
 #endif // _USERAGENTLIST_H_

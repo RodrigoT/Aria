@@ -22,7 +22,7 @@
 #include "RetrieveHTTPS2.h"
 
 RetrieveHTTPS2::RetrieveHTTPS2(ItemCellPartial *itemcellPartial_in)
-  : RetrieveHTTP2(itemcellPartial_in)
+    : RetrieveHTTP2(itemcellPartial_in)
 {
 }
 
@@ -31,13 +31,13 @@ RetrieveHTTPS2::~RetrieveHTTPS2()
 }
 
 #ifdef HAVE_OPENSSL
-void RetrieveHTTPS2::establishConnection(Socket& sock)
+void RetrieveHTTPS2::establishConnection(Socket &sock)
 {
-  RetrieveHTTP2::establishConnection(sock);
-  if(sock.enableSSL() <= 0) {
-    itemcell->Send_message_to_gui(_("Error while establishing SSL connection"), MSG_DOWNLOAD_ERROR);
-    itemcell->set_Command(ItemCell::DLERRORSTOP);
-    throw ItemCell::ITEM_EPROT;
-  }
+    RetrieveHTTP2::establishConnection(sock);
+    if (sock.enableSSL() <= 0) {
+        itemcell->Send_message_to_gui(_("Error while establishing SSL connection"), MSG_DOWNLOAD_ERROR);
+        itemcell->set_Command(ItemCell::DLERRORSTOP);
+        throw ItemCell::ITEM_EPROT;
+    }
 }
 #endif // HAVE_OPENSSL

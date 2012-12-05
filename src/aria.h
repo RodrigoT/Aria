@@ -77,14 +77,14 @@
 
 // status icon (penguin like creature, you know)
 enum {
-  ICON_READY,
-  ICON_STOP,
-  ICON_COMPLETE,
-  ICON_DOWNLOAD,
-  ICON_ERROR,
-  ICON_DIVIDE,
-  ICON_LOCK,
-  ICON_TOTAL
+    ICON_READY,
+    ICON_STOP,
+    ICON_COMPLETE,
+    ICON_DOWNLOAD,
+    ICON_ERROR,
+    ICON_DIVIDE,
+    ICON_LOCK,
+    ICON_TOTAL
 };
 
 #endif // _ARIA_H_

@@ -29,55 +29,55 @@ using namespace std;
 class SumInfo
 {
 private:
-  int n_download;
-  int n_error;
-  int n_stop;
-  int n_ready;
-  int n_split;
-  int n_locked;
-  int n_complete;
-  pthread_mutex_t si_lock;
+    int n_download;
+    int n_error;
+    int n_stop;
+    int n_ready;
+    int n_split;
+    int n_locked;
+    int n_complete;
+    pthread_mutex_t si_lock;
 public:
-  SumInfo();
-  ~SumInfo();
+    SumInfo();
+    ~SumInfo();
 
-  void all_reset();
+    void all_reset();
 
-  void inc_download();
-  void dec_download();
-  void set_diff_download(int diff);
-  int ret_download();
+    void inc_download();
+    void dec_download();
+    void set_diff_download(int diff);
+    int ret_download();
 
-  void inc_error();
-  void dec_error();
-  void set_diff_error(int diff);
-  int ret_error();
+    void inc_error();
+    void dec_error();
+    void set_diff_error(int diff);
+    int ret_error();
 
-  void inc_stop();
-  void dec_stop();
-  void set_diff_stop(int diff);
-  int ret_stop();
+    void inc_stop();
+    void dec_stop();
+    void set_diff_stop(int diff);
+    int ret_stop();
 
-  void inc_ready();
-  void dec_ready();
-  void set_diff_ready(int diff);
-  int ret_ready();
+    void inc_ready();
+    void dec_ready();
+    void set_diff_ready(int diff);
+    int ret_ready();
 
-  void inc_split();
-  void dec_split();
-  void set_diff_split(int diff);
-  int ret_split();
+    void inc_split();
+    void dec_split();
+    void set_diff_split(int diff);
+    int ret_split();
 
-  void inc_locked();
-  void dec_locked();
-  void set_diff_locked(int diff);
-  int ret_locked();
+    void inc_locked();
+    void dec_locked();
+    void set_diff_locked(int diff);
+    int ret_locked();
 
-  void inc_complete();
-  void dec_complete();
-  void set_diff_complete(int diff);
-  int ret_complete();
+    void inc_complete();
+    void dec_complete();
+    void set_diff_complete(int diff);
+    int ret_complete();
 
-  void print_sum() const;
+    void print_sum() const;
 };
 #endif // _SUMINFO_H_

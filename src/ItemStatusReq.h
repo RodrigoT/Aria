@@ -26,18 +26,19 @@
 
 // 各スレッドがGUIスレッドにリクエスト
 // 送る時のフォーマット
-class ItemStatusReq : public ItemStatus {
+class ItemStatusReq : public ItemStatus
+{
 public:
-  enum RequestType {
-    REQ_QUIT,
-    REQ_MOVEVIEW
-  };
+    enum RequestType {
+        REQ_QUIT,
+        REQ_MOVEVIEW
+    };
 private:
-  RequestType req;
+    RequestType req;
 public:
-  ItemStatusReq(ItemCell *itemcell, RequestType req);
-  ~ItemStatusReq();
-  void Update();
+    ItemStatusReq(ItemCell *itemcell, RequestType req);
+    ~ItemStatusReq();
+    void Update();
 };
 
 #endif // _ITEMSTATUSREQ_H_

@@ -26,27 +26,27 @@
 // 引数respはa,b,c,d,e,fのフォーマット
 // ここからIPアドレスa.b.c.d, ポートe*256+fを構成し、
 // server_addr, portにそれぞれ格納
-FTPcontainer::FTPcontainer(const string& resp_string)
+FTPcontainer::FTPcontainer(const string &resp_string)
 {
-  int ip[4];
-  int port_array[2];
+    int ip[4];
+    int port_array[2];
 
-  const char *resp = resp_string.c_str();
+    const char *resp = resp_string.c_str();
 
-  port = 0;
+    port = 0;
 
-  if(resp == NULL) return;
-  unsigned int index = resp_string.find_first_of("0123456789");
-  if(index != string::npos) {
-    //cout << resp+i << "\n" << flush;
-    sscanf(resp+index, "%d,%d,%d,%d,%d,%d", ip, ip+1, ip+2, ip+3,
-	   port_array, port_array+1);
-    //cout << port_array[0] << "\n" << port_array[1] << "\n" << flush;
-    server_addr = itos(ip[0])+"."+itos(ip[1])+"."+itos(ip[2])+"."+itos(ip[3]);
-    port = port_array[0]*256+port_array[1];
-    //cout << port << "\n" << flush;
-    //cout << server_addr << " " << port << flush;
-  }
+    if (resp == NULL) return;
+    unsigned int index = resp_string.find_first_of("0123456789");
+    if (index != string::npos) {
+        //cout << resp+i << "\n" << flush;
+        sscanf(resp + index, "%d,%d,%d,%d,%d,%d", ip, ip + 1, ip + 2, ip + 3,
+               port_array, port_array + 1);
+        //cout << port_array[0] << "\n" << port_array[1] << "\n" << flush;
+        server_addr = itos(ip[0]) + "." + itos(ip[1]) + "." + itos(ip[2]) + "." + itos(ip[3]);
+        port = port_array[0] * 256 + port_array[1];
+        //cout << port << "\n" << flush;
+        //cout << server_addr << " " << port << flush;
+    }
 }
 
 //デストラクタ
@@ -56,16 +56,16 @@ FTPcontainer::~FTPcontainer()
 
 void FTPcontainer::set_Filesize(unsigned int size)
 {
-  filesize = size;
+    filesize = size;
 }
 
 int FTPcontainer::ret_Port() const
 {
-  return port;
+    return port;
 }
 
 unsigned int FTPcontainer::ret_Filesize() const
 {
-  return filesize;
+    return filesize;
 }
 

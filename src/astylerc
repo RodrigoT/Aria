@@ -1,0 +1,16 @@
+# force file format to C/C++
+mode=c
+# line end format
+lineend=linux
+# general braket format
+style=kr
+# ident
+indent=spaces=4
+indent-switches
+indent-preprocessor
+max-instatement-indent=100
+#pointer and reference
+align-pointer=name
+# use space separator for
+pad-oper
+pad-header  

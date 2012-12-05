@@ -25,14 +25,14 @@ extern void Set_suminfo_label();
 
 ItemStatusSum::ItemStatusSum(ItemCell *itemcell_in) : ItemStatus(itemcell_in)
 {
-  /*
-  n_download = 0;
-  n_stop = 0;
-  n_ready = 0;
-  n_split = 0;
-  n_locked = 0;
-  n_complete = 0;
-  */
+    /*
+    n_download = 0;
+    n_stop = 0;
+    n_ready = 0;
+    n_split = 0;
+    n_locked = 0;
+    n_complete = 0;
+    */
 }
 
 ItemStatusSum::~ItemStatusSum()
@@ -41,16 +41,16 @@ ItemStatusSum::~ItemStatusSum()
 
 void ItemStatusSum::Update()
 {
-  /*
-  suminfo.set_diff_download(n_download);
-  suminfo.set_diff_stop(n_stop);
-  suminfo.set_diff_ready(n_ready);
-  suminfo.set_diff_split(n_split);
-  suminfo.set_diff_locked(n_locked);
-  suminfo.set_diff_complete(n_complete);
-  */
-  //suminfo.print_sum();
-  Set_suminfo_label();
+    /*
+    suminfo.set_diff_download(n_download);
+    suminfo.set_diff_stop(n_stop);
+    suminfo.set_diff_ready(n_ready);
+    suminfo.set_diff_split(n_split);
+    suminfo.set_diff_locked(n_locked);
+    suminfo.set_diff_complete(n_complete);
+    */
+    //suminfo.print_sum();
+    Set_suminfo_label();
 }
 /*
 void ItemStatusSum::inc_download()

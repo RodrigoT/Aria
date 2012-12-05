@@ -31,16 +31,17 @@
 #include "ItemCellPartial.h"
 using namespace std;
 
-class RetrieveHTTP2 : public RetrieveHTTP {
+class RetrieveHTTP2 : public RetrieveHTTP
+{
 protected:
-  ItemCellPartial *itemcell;
+    ItemCellPartial *itemcell;
 public:
-  RetrieveHTTP2(ItemCellPartial *itemcell);
-  ~RetrieveHTTP2();
+    RetrieveHTTP2(ItemCellPartial *itemcell);
+    ~RetrieveHTTP2();
 
-  ItemCell::DownloadStatusType Download_Main();
+    ItemCell::DownloadStatusType Download_Main();
 protected:
-  void Start_Download(const Socket& socket, unsigned int startingbyte);
-  //ItemCell::DownloadStatusType Post_process();
+    void Start_Download(const Socket &socket, unsigned int startingbyte);
+    //ItemCell::DownloadStatusType Post_process();
 };
 #endif // _RETRIEVEHTTP2_H_

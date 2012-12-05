@@ -36,51 +36,51 @@ using namespace std;
 class HistoryWindow
 {
 private:
-  GtkWidget *window;
-  GtkWidget *historyList;
-  GtkWidget *queryEntry;
-  GtkWidget *searchButton;
+    GtkWidget *window;
+    GtkWidget *historyList;
+    GtkWidget *queryEntry;
+    GtkWidget *searchButton;
 
-  int maxHistory;
-  pthread_mutex_t historyLock;
+    int maxHistory;
+    pthread_mutex_t historyLock;
 
-  GtkWidget *Create_menu_bar(GtkWidget *window);
-  GtkWidget *createQueryUI(GtkWidget *window);
-  void Create_edit_menu(GtkWidget *window, GtkWidget *menu_bar, GtkAccelGroup *accel_group);
+    GtkWidget *Create_menu_bar(GtkWidget *window);
+    GtkWidget *createQueryUI(GtkWidget *window);
+    void Create_edit_menu(GtkWidget *window, GtkWidget *menu_bar, GtkAccelGroup *accel_group);
 public:
-  HistoryWindow(GtkWindow *toplevel = NULL, int maxHistory = DEFAULTHISTORY);
+    HistoryWindow(GtkWindow *toplevel = NULL, int maxHistory = DEFAULTHISTORY);
 
-  bool addItem(ItemCell *itemcell);
-  bool addItem(const string& file,
-		const string& size,
-		time_t time_log,
-		const string& url,
-		const string& save);
-  void selectRow(int row, int column, GdkEventButton *event);
-  void unselectRow(int row, int column, GdkEventButton *event);
-  
-  void selectAll();
-  void invertSelection();
+    bool addItem(ItemCell *itemcell);
+    bool addItem(const string &file,
+                 const string &size,
+                 time_t time_log,
+                 const string &url,
+                 const string &save);
+    void selectRow(int row, int column, GdkEventButton *event);
+    void unselectRow(int row, int column, GdkEventButton *event);
 
-  bool readFile(const string& filename);
-  bool writeFile(const string& filename);
-  void setHistoryMax(int max);
-  void fitHistory();
-  void show();
-  void hide();
-  void deleteEntry();
-  void pasteEntry();
-  void search();
-  GtkWidget *getWindow();
-  GtkWidget *getHistoryList();
+    void selectAll();
+    void invertSelection();
 
-  enum {
-    COL_FILE_H = 0,
-    COL_SIZE_H = 1,
-    COL_DATE_H = 2,
-    COL_URL_H = 3,
-    COL_SAVE_H = 4,
-    COL_TOTAL_H = 5
-  };
+    bool readFile(const string &filename);
+    bool writeFile(const string &filename);
+    void setHistoryMax(int max);
+    void fitHistory();
+    void show();
+    void hide();
+    void deleteEntry();
+    void pasteEntry();
+    void search();
+    GtkWidget *getWindow();
+    GtkWidget *getHistoryList();
+
+    enum {
+        COL_FILE_H = 0,
+        COL_SIZE_H = 1,
+        COL_DATE_H = 2,
+        COL_URL_H = 3,
+        COL_SAVE_H = 4,
+        COL_TOTAL_H = 5
+    };
 };
 #endif //_HISTORYWINDOW_H_

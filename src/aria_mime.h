@@ -23,9 +23,9 @@
 #define __ARIA_MIME_H_
 
 enum MimeType {
-  MIME_URL,
-  MIME_TEXT_PLAIN,
-  MIME_TEXT_HTML
+    MIME_URL,
+    MIME_TEXT_PLAIN,
+    MIME_TEXT_HTML
 };
 
 #endif // __ARIA_MIME_H_

@@ -54,31 +54,31 @@ using namespace std;
 class ServerTemplateList
 {
 private:
-  vector<ServerTemplate> svt_list;
-  pthread_mutex_t svt_list_lock;
+    vector<ServerTemplate> svt_list;
+    pthread_mutex_t svt_list_lock;
 public:
-  ServerTemplateList();
-  ~ServerTemplateList();
+    ServerTemplateList();
+    ~ServerTemplateList();
 
-  void push_front(const ServerTemplate& svt_in);
-  void set_valid(bool flag);
-  bool Is_valid() const;
+    void push_front(const ServerTemplate &svt_in);
+    void set_valid(bool flag);
+    bool Is_valid() const;
 
-  const ServerTemplate& search(const string& server_name, const string& filename);
-  vector<ServerTemplate>& ret_server_template_list();
+    const ServerTemplate &search(const string &server_name, const string &filename);
+    vector<ServerTemplate> &ret_server_template_list();
 
-  void set_valid_safely(vector<ServerTemplate>::iterator svt_itr, bool flag);
+    void set_valid_safely(vector<ServerTemplate>::iterator svt_itr, bool flag);
 
-  bool find(const string& server_name);
-  bool find_with_keylink(const string& server_name);
+    bool find(const string &server_name);
+    bool find_with_keylink(const string &server_name);
 
-  bool Is_reserved(const string& tag);
-  bool Is_reserved_in_session(const string& tag);
-  bool Read_config_file(const string& filename);
-  void update_validity(GList *selection);
-  int length() const;
-  enum ErrorType {
-    EOPEN
-  };
+    bool Is_reserved(const string &tag);
+    bool Is_reserved_in_session(const string &tag);
+    bool Read_config_file(const string &filename);
+    void update_validity(GList *selection);
+    int length() const;
+    enum ErrorType {
+        EOPEN
+    };
 };
 #endif //_SERVERTEMPLATELIST_H_

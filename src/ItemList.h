@@ -164,47 +164,48 @@ using namespace std;
 #define FI_HTTP_ACCEPT_LANG_ENABLED "%HTTP-Accept-Lang-Enabled:"
 #define FI_HTTP_ACCEPT_LANG_STRING "%HTTP-Accept-Lang-String:"
 
-class ItemList {
+class ItemList
+{
 private:
-  string file_app_settings;         // default file name for app settings
-  string file_server_settings;
-  string file_default_item_settings;// default file name for default item
-  string file_default_item_list;    // default file name for item list
-  string file_http_proxy_list;
-  string file_ftp_proxy_list;
-  string file_useragent_list;
-  string file_command_list;
-  string file_history;
-  string file_gui_info;
+    string file_app_settings;         // default file name for app settings
+    string file_server_settings;
+    string file_default_item_settings;// default file name for default item
+    string file_default_item_list;    // default file name for item list
+    string file_http_proxy_list;
+    string file_ftp_proxy_list;
+    string file_useragent_list;
+    string file_command_list;
+    string file_history;
+    string file_gui_info;
 public:
-  ItemList();
+    ItemList();
 
-  const string& ret_file_http_proxy_list() const;
-  const string& ret_file_ftp_proxy_list() const;
-  const string& ret_file_useragent_list() const;
-  const string& ret_file_server_settings() const;
-  const string& ret_file_command_list() const;
-  const string& ret_file_history() const;
-  const string& ret_file_gui_info() const;
-  bool Read_CRC_from_file(ListEntry *listentry, const string& filename);
-  bool Read_md5_from_file(ListEntry *listentry, const string& filename);
-  bool Read_URL_from_file(ListEntry *listentry, const string& filename);
-  bool Find_Hyperlink_from_file(const string& filename, const string& base_url, int mode);
-  list<ItemCell*> Recursive_add_http_item(ItemCell *itemcell, ListEntry *listentry);
-  bool Restore_saved_list(const string& filename);
-  bool Restore_saved_list();
-  bool Restore_saved_default_item_settings();
-  bool Restore_saved_app_settings();
-  bool Restore_default_item_option_sub(ifstream& infile, Options& default_options);
-  bool Save_default_item_option_sub(ofstream& outfile, const Options& default_options);
-  bool Save_current_list(const string& filename);
-  bool Save_current_list();
-  bool Save_default_item_settings();
-  bool Save_app_settings();
+    const string &ret_file_http_proxy_list() const;
+    const string &ret_file_ftp_proxy_list() const;
+    const string &ret_file_useragent_list() const;
+    const string &ret_file_server_settings() const;
+    const string &ret_file_command_list() const;
+    const string &ret_file_history() const;
+    const string &ret_file_gui_info() const;
+    bool Read_CRC_from_file(ListEntry *listentry, const string &filename);
+    bool Read_md5_from_file(ListEntry *listentry, const string &filename);
+    bool Read_URL_from_file(ListEntry *listentry, const string &filename);
+    bool Find_Hyperlink_from_file(const string &filename, const string &base_url, int mode);
+    list<ItemCell *> Recursive_add_http_item(ItemCell *itemcell, ListEntry *listentry);
+    bool Restore_saved_list(const string &filename);
+    bool Restore_saved_list();
+    bool Restore_saved_default_item_settings();
+    bool Restore_saved_app_settings();
+    bool Restore_default_item_option_sub(ifstream &infile, Options &default_options);
+    bool Save_default_item_option_sub(ofstream &outfile, const Options &default_options);
+    bool Save_current_list(const string &filename);
+    bool Save_current_list();
+    bool Save_default_item_settings();
+    bool Save_app_settings();
 
-  static const int FINDHREF_PASTE = 0;
-  static const int FINDHREF_ADD = 1;
-  static const int STRICT_HREF = 2;
-}; 
+    static const int FINDHREF_PASTE = 0;
+    static const int FINDHREF_ADD = 1;
+    static const int STRICT_HREF = 2;
+};
 
 #endif // _ITEMLIST_H_

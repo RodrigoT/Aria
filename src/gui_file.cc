@@ -52,9 +52,9 @@ extern gboolean File_open_md5_list(GtkWidget *w, gpointer unused);
 extern gboolean File_open_Saved_list(GtkWidget *w, gpointer unused);
 //// Save list
 extern gboolean File_save_list(GtkWidget *w, gpointer unused);
-extern bool save_gui_info(const string& filename);
+extern bool save_gui_info(const string &filename);
 extern gboolean Download_start_all_by_listentry(ListEntry *listentry);
-extern gboolean Download_stop_all_list_on_timer(GtkWidget* w, gpointer unused);
+extern gboolean Download_stop_all_list_on_timer(GtkWidget *w, gpointer unused);
 extern void Do_something_on_event(ItemCommand::EventCause last_event);
 extern bool Is_all_thread_sleeping();
 
@@ -73,260 +73,259 @@ extern HistoryWindow *g_historyWindow;
 // windowを隠す
 gboolean Hide_window(GtkWidget *window, gpointer unused)
 {
-  gtk_widget_hide(window);
+    gtk_widget_hide(window);
 
-  return TRUE;
+    return TRUE;
 }
-  
+
 // Autosave
 gboolean Autosave_list(gpointer data)
 {
-  //pthread_mutex_lock(&itemlistlock); //mod 2001/4/11
-  g_itemList->Save_current_list();
-  g_itemList->Save_default_item_settings();
-  g_itemList->Save_app_settings();
-  g_httpProxyList->Save_proxy_list(g_itemList->ret_file_http_proxy_list());
-  g_ftpProxyList->Save_proxy_list(g_itemList->ret_file_ftp_proxy_list());
-   
-  g_historyWindow->writeFile(g_itemList->ret_file_history());
-  //pthread_mutex_unlock(&itemlistlock); //mod 2001/4/11
-  save_gui_info(g_itemList->ret_file_gui_info());
-  g_consoleItem->Send_message_to_gui(_("Autosave done"), MSG_SYS_INFO);
-  return TRUE;
+    //pthread_mutex_lock(&itemlistlock); //mod 2001/4/11
+    g_itemList->Save_current_list();
+    g_itemList->Save_default_item_settings();
+    g_itemList->Save_app_settings();
+    g_httpProxyList->Save_proxy_list(g_itemList->ret_file_http_proxy_list());
+    g_ftpProxyList->Save_proxy_list(g_itemList->ret_file_ftp_proxy_list());
+
+    g_historyWindow->writeFile(g_itemList->ret_file_history());
+    //pthread_mutex_unlock(&itemlistlock); //mod 2001/4/11
+    save_gui_info(g_itemList->ret_file_gui_info());
+    g_consoleItem->Send_message_to_gui(_("Autosave done"), MSG_SYS_INFO);
+    return TRUE;
 }
 
 // Start timer
 gboolean Timer_start(gpointer data)
 {
-  int curTime = time(NULL);
-  int diff = g_appOption->ret_timer_start_time()-curTime;
-  //int diff = g_appOption->getTimerInterval();
-  if(diff <= 60 && diff > 0) {
-    g_appOption->Start_start_timer(1000);
-  } else if(diff <= 0) {
-    if(g_appOption->ret_timer_start_all_list()) {
-      for(list<ListEntry*>::const_iterator itr = g_listManager->ret_Listentry_list().begin(); itr != g_listManager->ret_Listentry_list().end(); ++itr) {
-	ListEntry *listentry = *itr;
-	listentry->get_Dl_clist_lock();
-	listentry->freezeDlCList();
-	Download_start_all_by_listentry(listentry);
-	listentry->thawDlCList();
-	listentry->release_Dl_clist_lock();
-      }
-      //Download_start_all_list(NULL, NULL);
-    } else {
-      ListEntry *listentry = g_listManager->ret_Current_listentry();
-      listentry->get_Dl_clist_lock();
-      listentry->freezeDlCList();
-      Download_start_all_by_listentry(listentry);
-      listentry->thawDlCList();
-      listentry->release_Dl_clist_lock();
-      //Download_start_all(NULL, NULL);
+    int curTime = time(NULL);
+    int diff = g_appOption->ret_timer_start_time() - curTime;
+    //int diff = g_appOption->getTimerInterval();
+    if (diff <= 60 && diff > 0) {
+        g_appOption->Start_start_timer(1000);
+    } else if (diff <= 0) {
+        if (g_appOption->ret_timer_start_all_list()) {
+            for (list<ListEntry *>::const_iterator itr = g_listManager->ret_Listentry_list().begin(); itr != g_listManager->ret_Listentry_list().end(); ++itr) {
+                ListEntry *listentry = *itr;
+                listentry->get_Dl_clist_lock();
+                listentry->freezeDlCList();
+                Download_start_all_by_listentry(listentry);
+                listentry->thawDlCList();
+                listentry->release_Dl_clist_lock();
+            }
+            //Download_start_all_list(NULL, NULL);
+        } else {
+            ListEntry *listentry = g_listManager->ret_Current_listentry();
+            listentry->get_Dl_clist_lock();
+            listentry->freezeDlCList();
+            Download_start_all_by_listentry(listentry);
+            listentry->thawDlCList();
+            listentry->release_Dl_clist_lock();
+            //Download_start_all(NULL, NULL);
+        }
+        g_appOption->Update_timer_start();
+        g_appOption->Start_start_timer(60000);
     }
-    g_appOption->Update_timer_start();
-    g_appOption->Start_start_timer(60000);
-  }
-  return TRUE;
+    return TRUE;
 }
 
 // Stop timer
 gboolean Timer_stop(gpointer data)
 {
-  int curTime = time(NULL);
-  int diff = g_appOption->ret_timer_stop_time()-curTime;
-  //int diff = g_appOption->getTimerInterval();
+    int curTime = time(NULL);
+    int diff = g_appOption->ret_timer_stop_time() - curTime;
+    //int diff = g_appOption->getTimerInterval();
 
-  if(diff <= 60 && diff > 0) {
-    g_appOption->Start_stop_timer(1000);
-  } else if(diff <= 0) {
-    if(g_appOption->isNoStopDownloadOnTimerEnabled()
-       || Is_all_thread_sleeping()) {
-      Do_something_on_event(ItemCommand::EV_TIMERINTER);
-    } else {
-      Download_stop_all_list_on_timer(NULL, NULL);
+    if (diff <= 60 && diff > 0) {
+        g_appOption->Start_stop_timer(1000);
+    } else if (diff <= 0) {
+        if (g_appOption->isNoStopDownloadOnTimerEnabled()
+                || Is_all_thread_sleeping()) {
+            Do_something_on_event(ItemCommand::EV_TIMERINTER);
+        } else {
+            Download_stop_all_list_on_timer(NULL, NULL);
+        }
+        g_appOption->Update_timer_stop();
+        g_appOption->Start_stop_timer(60000);
     }
-    g_appOption->Update_timer_stop();
-    g_appOption->Start_stop_timer(60000);
-  }
-  return TRUE;
+    return TRUE;
 }
 
 // プログラム終了メッセージを各スレッドに通達
 // Broadcast halt message to all threads
 void Send_halt_message()
 {
-  for(list<ListEntry*>::const_iterator itr = g_listManager->ret_Listentry_list().begin();
-      itr != g_listManager->ret_Listentry_list().end(); ++itr) {
-    ListEntry *listEntry = *itr;
+    for (list<ListEntry *>::const_iterator itr = g_listManager->ret_Listentry_list().begin();
+            itr != g_listManager->ret_Listentry_list().end(); ++itr) {
+        ListEntry *listEntry = *itr;
 
-    listEntry->get_Dl_clist_lock();
-    listEntry->getThreadManager()->setHaltFlag();
-    for(size_t rowindex = 0; rowindex < listEntry->getRowCount(); ++rowindex) {
-      ItemCell *itemCell = listEntry->getItemCellByRow(rowindex);
-      switch(itemCell->ret_Status()) {
-      case ItemCell::ITEM_DOWNLOAD:
-      case ItemCell::ITEM_INUSE:
-      case ItemCell::ITEM_DOWNLOAD_AGAIN:
-      case ItemCell::ITEM_DOWNLOAD_INTERNAL_AGAIN:
-      case ItemCell::ITEM_INUSE_AGAIN:
-	{
-	  ItemCommand itemCommand;
-	  itemCommand.commandtype = ItemCommand::COMMAND_HALT;
-	  //itemcell->set_Status(ItemCell::ITEM_READY);
-	  itemCell->set_Status(ItemCell::ITEM_STOP);
-	  write(itemCell->ret_Desc_w(), &itemCommand, sizeof(ItemCommand));
-	}
-	break;
-	/*
-      case ItemCell::ITEM_DOWNLOAD_PARTIAL:
-      case ItemCell::ITEM_READY_CONCAT:
-      case ItemCell::ITEM_READY_AGAIN:
-	//itemcell->set_Status(ItemCell::ITEM_READY);
-	itemcell->set_Status(ItemCell::ITEM_STOP);
-	break;
-	*/
-      case ItemCell::ITEM_COMPLETE:
-      case ItemCell::ITEM_LOCK:
-      case ItemCell::ITEM_ERROR:
-	break;
-      default:
-	itemCell->set_Status(ItemCell::ITEM_STOP);// added 2001/5/17
-	break;
-      }
+        listEntry->get_Dl_clist_lock();
+        listEntry->getThreadManager()->setHaltFlag();
+        for (size_t rowindex = 0; rowindex < listEntry->getRowCount(); ++rowindex) {
+            ItemCell *itemCell = listEntry->getItemCellByRow(rowindex);
+            switch (itemCell->ret_Status()) {
+                case ItemCell::ITEM_DOWNLOAD:
+                case ItemCell::ITEM_INUSE:
+                case ItemCell::ITEM_DOWNLOAD_AGAIN:
+                case ItemCell::ITEM_DOWNLOAD_INTERNAL_AGAIN:
+                case ItemCell::ITEM_INUSE_AGAIN: {
+                    ItemCommand itemCommand;
+                    itemCommand.commandtype = ItemCommand::COMMAND_HALT;
+                    //itemcell->set_Status(ItemCell::ITEM_READY);
+                    itemCell->set_Status(ItemCell::ITEM_STOP);
+                    write(itemCell->ret_Desc_w(), &itemCommand, sizeof(ItemCommand));
+                }
+                break;
+                /*
+                  case ItemCell::ITEM_DOWNLOAD_PARTIAL:
+                  case ItemCell::ITEM_READY_CONCAT:
+                  case ItemCell::ITEM_READY_AGAIN:
+                //itemcell->set_Status(ItemCell::ITEM_READY);
+                itemcell->set_Status(ItemCell::ITEM_STOP);
+                break;
+                */
+                case ItemCell::ITEM_COMPLETE:
+                case ItemCell::ITEM_LOCK:
+                case ItemCell::ITEM_ERROR:
+                    break;
+                default:
+                    itemCell->set_Status(ItemCell::ITEM_STOP);// added 2001/5/17
+                    break;
+            }
+        }
+        listEntry->Send_start_signal();
+        listEntry->release_Dl_clist_lock();
+        //pthread_mutex_unlock(&itemlistlock);
+        //listentry->release_Dl_clist_lock();
     }
-    listEntry->Send_start_signal();
-    listEntry->release_Dl_clist_lock();
-    //pthread_mutex_unlock(&itemlistlock);
-    //listentry->release_Dl_clist_lock();
-  }
-  for(list<ListEntry*>::const_iterator itr = g_listManager->ret_Listentry_list().begin();
-      itr != g_listManager->ret_Listentry_list().end(); ++itr) {
-    ListEntry *listEntry = *itr;
-    listEntry->getThreadManager()->waitThreadTermination();
-  }
+    for (list<ListEntry *>::const_iterator itr = g_listManager->ret_Listentry_list().begin();
+            itr != g_listManager->ret_Listentry_list().end(); ++itr) {
+        ListEntry *listEntry = *itr;
+        listEntry->getThreadManager()->waitThreadTermination();
+    }
 }
 
 static void Save_default_settings()
 {
-  g_itemList->Save_default_item_settings();
+    g_itemList->Save_default_item_settings();
 }
 
 static void Save_app_settings()
 {
-  g_itemList->Save_app_settings();
+    g_itemList->Save_app_settings();
 
 }
 
 static void Save_proxy_list()
 {
-  g_httpProxyList->Save_proxy_list(g_itemList->ret_file_http_proxy_list());
-  g_ftpProxyList->Save_proxy_list(g_itemList->ret_file_ftp_proxy_list());
+    g_httpProxyList->Save_proxy_list(g_itemList->ret_file_http_proxy_list());
+    g_ftpProxyList->Save_proxy_list(g_itemList->ret_file_ftp_proxy_list());
 }
 
 static void Save_history()
 {
-  g_historyWindow->writeFile(g_itemList->ret_file_history());
+    g_historyWindow->writeFile(g_itemList->ret_file_history());
 }
 
 static void Save_gui_info()
 {
-  save_gui_info(g_itemList->ret_file_gui_info());
+    save_gui_info(g_itemList->ret_file_gui_info());
 }
 
 void Save_files()
 {
-  Save_default_settings();
-  Save_app_settings();
-  Save_proxy_list();
-  Save_history();
-  Save_gui_info();
-  // save current list and its crc
-  //pthread_mutex_lock(&itemlistlock);
-  g_itemList->Save_current_list();
-  //pthread_mutex_unlock(&itemlistlock);
+    Save_default_settings();
+    Save_app_settings();
+    Save_proxy_list();
+    Save_history();
+    Save_gui_info();
+    // save current list and its crc
+    //pthread_mutex_lock(&itemlistlock);
+    g_itemList->Save_current_list();
+    //pthread_mutex_unlock(&itemlistlock);
 }
 
-static void* doExitSequence1()
+static void *doExitSequence1()
 {
-  g_appOption->Update_timer_start();
-  g_appOption->Start_start_timer(600000);
+    g_appOption->Update_timer_start();
+    g_appOption->Start_start_timer(600000);
 
-  Send_halt_message();  
-  Save_default_settings();
-  Save_app_settings();
-  Save_proxy_list();
-  Save_history();
-  Save_gui_info();
+    Send_halt_message();
+    Save_default_settings();
+    Save_app_settings();
+    Save_proxy_list();
+    Save_history();
+    Save_gui_info();
 
-  close(g_pipetogui[0]);
-  close(g_pipetogui[1]);
+    close(g_pipetogui[0]);
+    close(g_pipetogui[1]);
 
-  exit(0);
+    exit(0);
 }
 
-static void* doExitSequence2()
+static void *doExitSequence2()
 {
-  g_appOption->Update_timer_stop();
-  g_appOption->Start_stop_timer(600000);
+    g_appOption->Update_timer_stop();
+    g_appOption->Start_stop_timer(600000);
 
-  Send_halt_message();  
-  Save_files();
+    Send_halt_message();
+    Save_files();
 
-  close(g_pipetogui[0]);
-  close(g_pipetogui[1]);
+    close(g_pipetogui[0]);
+    close(g_pipetogui[1]);
 
-  exit(0);
+    exit(0);
 }
 
 // 現在のリストを保存せず終了
 gboolean File_quit_wos(GtkWidget *w, GtkWidget *window)
 {
-  g_cDialog->hide();
+    g_cDialog->hide();
 
-  pthread_t thread;
-  pthread_create(&thread, (pthread_attr_t*)NULL,
-		 (void*(*)(void*))doExitSequence1(),
-		 (void*)NULL);
-  //exit(0);
+    pthread_t thread;
+    pthread_create(&thread, (pthread_attr_t *)NULL,
+                   (void * ( *)(void *))doExitSequence1(),
+                   (void *)NULL);
+    //exit(0);
 
-  return TRUE;
+    return TRUE;
 }
 
 // 現在のリストを保存して終了
 gboolean File_quit(GtkWidget *w, GtkWidget *unused)
 {
-  g_cDialog->hide();
-  /*
-  Send_halt_message();
+    g_cDialog->hide();
+    /*
+    Send_halt_message();
 
-  Save_files();
-  */
-  pthread_t thread;
-  pthread_create(&thread, (pthread_attr_t*)NULL,
-		 (void*(*)(void*))doExitSequence2(),
-		 (void*)NULL);
+    Save_files();
+    */
+    pthread_t thread;
+    pthread_create(&thread, (pthread_attr_t *)NULL,
+                   (void * ( *)(void *))doExitSequence2(),
+                   (void *)NULL);
 
-  /*
-  close(g_pipetogui[0]);
-  close(g_pipetogui[1]);
-  */
-  //exit(0);
+    /*
+    close(g_pipetogui[0]);
+    close(g_pipetogui[1]);
+    */
+    //exit(0);
 
-  return TRUE;
+    return TRUE;
 }
 
 gboolean File_quit_c(GtkWidget *w, gboolean (*SignalFunc)(GtkWidget *x, GtkWidget *window))
 {
-  if(g_appOption->ret_confirm_exit()) {
-    g_cDialog->setup(_("Quit program"),
-		   _("Are you sure to quit?"),
-		   SignalFunc);
-    g_cDialog->set_cancel_button_visible(false);
-    g_cDialog->show();
-  } else {
-    (*SignalFunc)(NULL, NULL);
-  }
-  return TRUE;
+    if (g_appOption->ret_confirm_exit()) {
+        g_cDialog->setup(_("Quit program"),
+                         _("Are you sure to quit?"),
+                         SignalFunc);
+        g_cDialog->set_cancel_button_visible(false);
+        g_cDialog->show();
+    } else {
+        (*SignalFunc)(NULL, NULL);
+    }
+    return TRUE;
 }
 
 /*
@@ -338,109 +337,109 @@ gboolean File_signal_func(GtkWidget* w, gboolean (*Signal_Func)())
 */
 
 // ファイルメニューを作成
-void Create_file_menu(GtkWidget* topLevel, GtkWidget* menuBar, GtkAccelGroup* accelGroup)
+void Create_file_menu(GtkWidget *topLevel, GtkWidget *menuBar, GtkAccelGroup *accelGroup)
 {
-  GtkWidget *menu, *rootItem;
-  GtkWidget *urlOpenItem, *crcOpenItem;
-  GtkWidget *md5OpenItem;
-  GtkWidget *findHyperlinkItem;
-  GtkWidget *openSavedListItem, *saveListItem;
-  GtkWidget *quitItem, *quitWosItem;
+    GtkWidget *menu, *rootItem;
+    GtkWidget *urlOpenItem, *crcOpenItem;
+    GtkWidget *md5OpenItem;
+    GtkWidget *findHyperlinkItem;
+    GtkWidget *openSavedListItem, *saveListItem;
+    GtkWidget *quitItem, *quitWosItem;
 
-      //create file menu
-  menu = gtk_menu_new();
+    //create file menu
+    menu = gtk_menu_new();
 
-  urlOpenItem = GTK_create_menu_item_with_icon(menu,
-					       _("Open URL list"),
-					       GTK_SIGNAL_FUNC(File_open_URL_list),
-					       NULL,
-					       url_list_xpm,
-					       topLevel,
-					       accelGroup,
-					       SC_OPENURL,
-					       SCM_OPENURL);
+    urlOpenItem = GTK_create_menu_item_with_icon(menu,
+                                                 _("Open URL list"),
+                                                 GTK_SIGNAL_FUNC(File_open_URL_list),
+                                                 NULL,
+                                                 url_list_xpm,
+                                                 topLevel,
+                                                 accelGroup,
+                                                 SC_OPENURL,
+                                                 SCM_OPENURL);
 
-  crcOpenItem = GTK_create_menu_item_with_icon(menu,
-				     _("Open CRC list"),
-				     GTK_SIGNAL_FUNC(File_open_CRC_list),
-				     NULL,
-				     accelGroup,
-				     SC_OPENCRC,
-				     SCM_OPENCRC);
+    crcOpenItem = GTK_create_menu_item_with_icon(menu,
+                                                 _("Open CRC list"),
+                                                 GTK_SIGNAL_FUNC(File_open_CRC_list),
+                                                 NULL,
+                                                 accelGroup,
+                                                 SC_OPENCRC,
+                                                 SCM_OPENCRC);
 
-  md5OpenItem = GTK_create_menu_item_with_icon(menu,
-				     _("Open MD5 list"),
-				     GTK_SIGNAL_FUNC(File_open_md5_list),
-				     NULL);
-  /*
-				     accelGroup,
-				     SC_OPENCRC,
-				     SCM_OPENCRC);
-  */
+    md5OpenItem = GTK_create_menu_item_with_icon(menu,
+                                                 _("Open MD5 list"),
+                                                 GTK_SIGNAL_FUNC(File_open_md5_list),
+                                                 NULL);
+    /*
+    			     accelGroup,
+    			     SC_OPENCRC,
+    			     SCM_OPENCRC);
+    */
 
-  GTK_create_menu_separator(menu);
+    GTK_create_menu_separator(menu);
 
-  findHyperlinkItem = GTK_create_menu_item_with_icon(menu,
-					   _("Find hyperlink"),
-					   GTK_SIGNAL_FUNC(File_find_hyperlink),
-					   NULL,
-					   accelGroup,
-					   SC_FINDHREF,
-					   SCM_FINDHREF);
-  
-  Create_find_hyperlink_window(topLevel);
-  GTK_create_menu_separator(menu);
+    findHyperlinkItem = GTK_create_menu_item_with_icon(menu,
+                                                       _("Find hyperlink"),
+                                                       GTK_SIGNAL_FUNC(File_find_hyperlink),
+                                                       NULL,
+                                                       accelGroup,
+                                                       SC_FINDHREF,
+                                                       SCM_FINDHREF);
 
-  openSavedListItem = GTK_create_menu_item_with_icon(menu,
-						     _("Open saved list"),
-						     GTK_SIGNAL_FUNC(File_open_Saved_list),
-						     NULL,
-						     open_xpm,
-						     topLevel,
-						     accelGroup,
-						     SC_OPEN,
-						     SCM_OPEN);
+    Create_find_hyperlink_window(topLevel);
+    GTK_create_menu_separator(menu);
 
-  saveListItem = GTK_create_menu_item_with_icon(menu,
-						_("Save current list"),
-						GTK_SIGNAL_FUNC(File_save_list),
-						NULL,
-						save_xpm,
-						topLevel,
-						accelGroup,
-						SC_SAVE,
-						SCM_SAVE);
+    openSavedListItem = GTK_create_menu_item_with_icon(menu,
+                                                       _("Open saved list"),
+                                                       GTK_SIGNAL_FUNC(File_open_Saved_list),
+                                                       NULL,
+                                                       open_xpm,
+                                                       topLevel,
+                                                       accelGroup,
+                                                       SC_OPEN,
+                                                       SCM_OPEN);
 
-  GTK_create_menu_separator(menu);
+    saveListItem = GTK_create_menu_item_with_icon(menu,
+                                                  _("Save current list"),
+                                                  GTK_SIGNAL_FUNC(File_save_list),
+                                                  NULL,
+                                                  save_xpm,
+                                                  topLevel,
+                                                  accelGroup,
+                                                  SC_SAVE,
+                                                  SCM_SAVE);
 
-  quitItem = GTK_create_menu_item_with_icon(menu,
-				  _("Quit with saving lists"),
-				  GTK_SIGNAL_FUNC(File_quit_c),
-				  (void*)File_quit,
-				  accelGroup,
-				  SC_QUIT,
-				  SCM_QUIT);
+    GTK_create_menu_separator(menu);
 
-  quitWosItem = GTK_create_menu_item_with_icon(menu,
-				     _("Quit without saving lists"),
-				     GTK_SIGNAL_FUNC(File_quit_c),
-				     (void*)File_quit_wos);
+    quitItem = GTK_create_menu_item_with_icon(menu,
+                                              _("Quit with saving lists"),
+                                              GTK_SIGNAL_FUNC(File_quit_c),
+                                              (void *)File_quit,
+                                              accelGroup,
+                                              SC_QUIT,
+                                              SCM_QUIT);
+
+    quitWosItem = GTK_create_menu_item_with_icon(menu,
+                                                 _("Quit without saving lists"),
+                                                 GTK_SIGNAL_FUNC(File_quit_c),
+                                                 (void *)File_quit_wos);
 
 
-  rootItem = gtk_menu_item_new_with_label(_("File"));
-  gtk_widget_show(rootItem);
-  gtk_menu_item_set_submenu(GTK_MENU_ITEM(rootItem), menu);
-  gtk_menu_bar_append(GTK_MENU_BAR(menuBar), rootItem);
+    rootItem = gtk_menu_item_new_with_label(_("File"));
+    gtk_widget_show(rootItem);
+    gtk_menu_item_set_submenu(GTK_MENU_ITEM(rootItem), menu);
+    gtk_menu_bar_append(GTK_MENU_BAR(menuBar), rootItem);
 }
 
-  //gtk_toolips_set_tip(tooltips, menuitem, szTip, NULL);
-  //GTK_TOGGLE_BUTTON(widget)->active;
-  //GTK_CHECK_MENU_ITEM(widget)->acitve;
-  //toolbar = gtk_toolbar_new(GTK_ORIENTAION_HORIZONTAOL,
-  //  GTK_TOOLBAR_ICONS);
-  //gtk_widget_show(toolbar);
-  //gtk_toolbar_append_item(GTK_TOOLBAR(toolbar),
-  //NULL, "New windw", NULL,
-  //CreateWidgetFromXpm(vbox_main, (gchar **)xpm_new),
-  //(GtkSIgnalFunc)ButtonClicked,
-  //NULL);
+//gtk_toolips_set_tip(tooltips, menuitem, szTip, NULL);
+//GTK_TOGGLE_BUTTON(widget)->active;
+//GTK_CHECK_MENU_ITEM(widget)->acitve;
+//toolbar = gtk_toolbar_new(GTK_ORIENTAION_HORIZONTAOL,
+//  GTK_TOOLBAR_ICONS);
+//gtk_widget_show(toolbar);
+//gtk_toolbar_append_item(GTK_TOOLBAR(toolbar),
+//NULL, "New windw", NULL,
+//CreateWidgetFromXpm(vbox_main, (gchar **)xpm_new),
+//(GtkSIgnalFunc)ButtonClicked,
+//NULL);

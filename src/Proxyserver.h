@@ -26,20 +26,21 @@
 using namespace std;
 
 // proxy server
-class Proxyserver {
+class Proxyserver
+{
 private:
-  string server;
-  int port;
-  friend class Options;
+    string server;
+    int port;
+    friend class Options;
 public:
-  Proxyserver();
-  Proxyserver(const string& server, int port);
-  Proxyserver(const Proxyserver& entry);
-  const string& ret_Server() const;
-  int ret_Port() const;
+    Proxyserver();
+    Proxyserver(const string &server, int port);
+    Proxyserver(const Proxyserver &entry);
+    const string &ret_Server() const;
+    int ret_Port() const;
 
-  void set_Server(const string& server);
-  void set_Port(int port);
+    void set_Server(const string &server);
+    void set_Port(int port);
 };
 
 #endif // _PROXYSERVER_H_

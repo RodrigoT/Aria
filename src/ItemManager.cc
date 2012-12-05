@@ -23,34 +23,34 @@
 
 ItemManager::ItemManager()
 {
-  maxid = 1;
-  pthread_mutex_init(&im_lock, NULL);
+    maxid = 1;
+    pthread_mutex_init(&im_lock, NULL);
 }
 
 ItemManager::~ItemManager()
 {
-  pthread_mutex_destroy(&im_lock);
+    pthread_mutex_destroy(&im_lock);
 }
 
 bool ItemManager::regist_item_back(ItemCell *itemcell)
 {
-  int id;
-  if(search_item(itemcell)) return false;
-  pthread_mutex_lock(&im_lock);
-  if(reusable_id_list.size()) {
-    id = reusable_id_list.front();
-    reusable_id_list.pop_front();
-  } else {
-    id = maxid;
-    ++maxid;
-  }
-  itemcell->set_id(id);
-  used_id_list.push_back(id);
-  item_id_map[id] = itemcell;
-  reverse_item_id_map[itemcell] = id;
-  pthread_mutex_unlock(&im_lock);
+    int id;
+    if (search_item(itemcell)) return false;
+    pthread_mutex_lock(&im_lock);
+    if (reusable_id_list.size()) {
+        id = reusable_id_list.front();
+        reusable_id_list.pop_front();
+    } else {
+        id = maxid;
+        ++maxid;
+    }
+    itemcell->set_id(id);
+    used_id_list.push_back(id);
+    item_id_map[id] = itemcell;
+    reverse_item_id_map[itemcell] = id;
+    pthread_mutex_unlock(&im_lock);
 
-  return true;
+    return true;
 }
 /*
 bool ItemManager::regist_item_next_to(ItemCell *itemcell_base, ItemCell *itemcell)
@@ -117,82 +117,82 @@ bool ItemManager::regist_item_front(ItemCell *itemcell)
 bool ItemManager::unregist_item(ItemCell *itemcell)
 {
 
-  if(!search_item(itemcell)) return false;
-  pthread_mutex_lock(&im_lock);
-  int id = itemcell->ret_id();
-  itemcell->set_id(-1);
-  used_id_list.remove(id);
-  reusable_id_list.push_back(id);
-  //reverse_item_id_map[itemcell] = 0;
-  reverse_item_id_map.erase(itemcell);//modified 2001/6/2
-  item_id_map.erase(id);// added 2001/6/2
-  pthread_mutex_unlock(&im_lock);
+    if (!search_item(itemcell)) return false;
+    pthread_mutex_lock(&im_lock);
+    int id = itemcell->ret_id();
+    itemcell->set_id(-1);
+    used_id_list.remove(id);
+    reusable_id_list.push_back(id);
+    //reverse_item_id_map[itemcell] = 0;
+    reverse_item_id_map.erase(itemcell);//modified 2001/6/2
+    item_id_map.erase(id);// added 2001/6/2
+    pthread_mutex_unlock(&im_lock);
 
-  return true;
+    return true;
 }
 
 bool ItemManager::search_item(ItemCell *itemcell)
 {
-  bool retval;
-  pthread_mutex_lock(&im_lock);
-  /*
-  int id = itemcell->ret_id();
-  if(used_id_list.end() == find(used_id_list.begin(), used_id_list.end(), id))
-    retval =  false;
-  else retval = true;
-  */
-  if(reverse_item_id_map[itemcell] == 0) {
-    retval = false;
-  } else {
-    retval = true;
-  }
-
-  pthread_mutex_unlock(&im_lock);
-
-  return retval;
-}
-
-bool ItemManager::search_by_url(const string& url)
-{
-  bool retval = false;
-  pthread_mutex_lock(&im_lock);
-  for(list<int>::iterator itr = used_id_list.begin(); itr != used_id_list.end(); ++itr) {
-    if(item_id_map[*itr]->ret_URL_Container_opt().ret_URL() == url) {
-      retval = true;
-      break;
+    bool retval;
+    pthread_mutex_lock(&im_lock);
+    /*
+    int id = itemcell->ret_id();
+    if(used_id_list.end() == find(used_id_list.begin(), used_id_list.end(), id))
+      retval =  false;
+    else retval = true;
+    */
+    if (reverse_item_id_map[itemcell] == 0) {
+        retval = false;
+    } else {
+        retval = true;
     }
-  }
-  pthread_mutex_unlock(&im_lock);
 
-  return retval;
+    pthread_mutex_unlock(&im_lock);
+
+    return retval;
 }
 
-bool ItemManager::search_by_url_with_local_path(const string& url, const string& localPath)
+bool ItemManager::search_by_url(const string &url)
 {
-  bool retval = false;
-  pthread_mutex_lock(&im_lock);
-  for(list<int>::iterator itr = used_id_list.begin(); itr != used_id_list.end(); ++itr) {
-    string localPathItr = item_id_map[*itr]->ret_Options_opt().ret_Store_Dir()
-      +item_id_map[*itr]->ret_Filename_opt();
-    if(localPathItr == localPath &&
-       item_id_map[*itr]->ret_URL_Container_opt().ret_URL() == url) {
-      retval = true;
-      break;
+    bool retval = false;
+    pthread_mutex_lock(&im_lock);
+    for (list<int>::iterator itr = used_id_list.begin(); itr != used_id_list.end(); ++itr) {
+        if (item_id_map[*itr]->ret_URL_Container_opt().ret_URL() == url) {
+            retval = true;
+            break;
+        }
     }
-  }
-  pthread_mutex_unlock(&im_lock);
+    pthread_mutex_unlock(&im_lock);
 
-  return retval;
+    return retval;
 }
 
-const list<int>& ItemManager::ret_id_list() const
+bool ItemManager::search_by_url_with_local_path(const string &url, const string &localPath)
 {
-  return used_id_list;
+    bool retval = false;
+    pthread_mutex_lock(&im_lock);
+    for (list<int>::iterator itr = used_id_list.begin(); itr != used_id_list.end(); ++itr) {
+        string localPathItr = item_id_map[*itr]->ret_Options_opt().ret_Store_Dir()
+                              + item_id_map[*itr]->ret_Filename_opt();
+        if (localPathItr == localPath &&
+                item_id_map[*itr]->ret_URL_Container_opt().ret_URL() == url) {
+            retval = true;
+            break;
+        }
+    }
+    pthread_mutex_unlock(&im_lock);
+
+    return retval;
+}
+
+const list<int> &ItemManager::ret_id_list() const
+{
+    return used_id_list;
 }
 
 ItemCell *ItemManager::ret_itemaddr(int id)
 {
-  return item_id_map[id];
+    return item_id_map[id];
 }
 
 /*
@@ -242,11 +242,11 @@ bool ItemManager::swap_item(ItemCell *itemcell_new, ItemCell *itemcell_old)
 */
 void ItemManager::all_clear()
 {
-  used_id_list.clear();
-  item_id_map.clear();
-  reverse_item_id_map.clear();
-  reusable_id_list.clear();
-  maxid = 1;
+    used_id_list.clear();
+    item_id_map.clear();
+    reverse_item_id_map.clear();
+    reusable_id_list.clear();
+    maxid = 1;
 }
 /*
 ItemCell *ItemManager::Get_next_item()

@@ -21,52 +21,55 @@
 
 #include "ThreadSlot.h"
 
-ThreadSlot::ThreadSlot(pthread_t* thread_id_ptr_in)
+ThreadSlot::ThreadSlot(pthread_t *thread_id_ptr_in)
 {
-  thread_id_ptr = thread_id_ptr_in;
-  status = THREAD_WAIT;
-  itemcell = NULL;
-  pthread_cond_init(&token_cond, NULL);
+    thread_id_ptr = thread_id_ptr_in;
+    status = THREAD_WAIT;
+    itemcell = NULL;
+    pthread_cond_init(&token_cond, NULL);
 }
 
 ThreadSlot::~ThreadSlot()
 {
-  delete thread_id_ptr;
-  pthread_cond_destroy(&token_cond);
+    delete thread_id_ptr;
+    pthread_cond_destroy(&token_cond);
 }
 
 void ThreadSlot::set_Status(ThreadStatusType status_in)
 {
-  status = status_in;
+    status = status_in;
 }
 
 pthread_cond_t *ThreadSlot::ret_token_cond()
 {
-  return &token_cond;
+    return &token_cond;
 }
 
-ThreadStatusType ThreadSlot::ret_Status() const {
-  return status;
+ThreadStatusType ThreadSlot::ret_Status() const
+{
+    return status;
 }
 
 bool ThreadSlot::Is_equal_thread(pthread_t thread_id_in)
 {
-  if(pthread_equal(thread_id_in, *thread_id_ptr)) {
-    return true;
-  } else {
-    return false;
-  }
+    if (pthread_equal(thread_id_in, *thread_id_ptr)) {
+        return true;
+    } else {
+        return false;
+    }
 }
 
 pthread_t ThreadSlot::ret_thread_id()
 {
-  return *thread_id_ptr;
+    return *thread_id_ptr;
 }
 
-void ThreadSlot::setItemCell(ItemCell *itemcell_in) {
-  itemcell = itemcell_in;
+void ThreadSlot::setItemCell(ItemCell *itemcell_in)
+{
+    itemcell = itemcell_in;
 }
 
-ItemCell *ThreadSlot::getItemCell() const {
-  return itemcell;
+ItemCell *ThreadSlot::getItemCell() const
+{
+    return itemcell;
 }

@@ -34,49 +34,50 @@ using namespace std;
 typedef list<HTTP_Header> HTTPHeaderList;
 
 enum HTTPconErrorType {
-  HTTPCON_EUNSUPP
+    HTTPCON_EUNSUPP
 };
 
-class HTTPcontainer {
+class HTTPcontainer
+{
 private:
-  int status;
-  string etag;
-  string md5str;
-  unsigned int contentlength;
-  string contenttype;
-  string location;
-  list<string> cookie_list;
-  string contentLocation;
-  bool keepAliveFlag;
-  bool compressedFlag;
-  string transferEncoding;
+    int status;
+    string etag;
+    string md5str;
+    unsigned int contentlength;
+    string contenttype;
+    string location;
+    list<string> cookie_list;
+    string contentLocation;
+    bool keepAliveFlag;
+    bool compressedFlag;
+    string transferEncoding;
 public:
-  friend class ItemCell_HTTP;
+    friend class ItemCell_HTTP;
 
-  HTTPcontainer();
-  ~HTTPcontainer();
-  int ret_HTTP_Status() const;
-  unsigned int ret_ContentLength() const;
-  const string& ret_MD5() const;
-  const string& ret_Location() const;
-  const list<string>& ret_Cookie_list() const;
-  const string& ret_contentLocation() const;
-  void set_ContentLength(const string& clength_str);
-  void set_ETag(const string& etag);
-  void set_MD5(const string& md5Crypted);
-  void set_ContentType(const string& contenttype);
-  void set_HTTP_Status(const string& status_str);
-  void set_Location(const string& location);
-  void add_Cookie_string(const string& cookie_string);
-  void set_contentLocation(const string& content_string);
-  void setKeepAliveEnabled(bool toggle);
-  bool isKeepAliveEnabled();
-  bool isCompressEnabled();
-  void setCompressEnabled(bool toggle);
-  void setTransferEncoding(const string& trasEnc);
-  const string& getTransferEncoding();
+    HTTPcontainer();
+    ~HTTPcontainer();
+    int ret_HTTP_Status() const;
+    unsigned int ret_ContentLength() const;
+    const string &ret_MD5() const;
+    const string &ret_Location() const;
+    const list<string> &ret_Cookie_list() const;
+    const string &ret_contentLocation() const;
+    void set_ContentLength(const string &clength_str);
+    void set_ETag(const string &etag);
+    void set_MD5(const string &md5Crypted);
+    void set_ContentType(const string &contenttype);
+    void set_HTTP_Status(const string &status_str);
+    void set_Location(const string &location);
+    void add_Cookie_string(const string &cookie_string);
+    void set_contentLocation(const string &content_string);
+    void setKeepAliveEnabled(bool toggle);
+    bool isKeepAliveEnabled();
+    bool isCompressEnabled();
+    void setCompressEnabled(bool toggle);
+    void setTransferEncoding(const string &trasEnc);
+    const string &getTransferEncoding();
 
-  int Parse_HTTP_header(const HTTPHeaderList& http_header_list);
+    int Parse_HTTP_header(const HTTPHeaderList &http_header_list);
 };
 
 #endif // _HTTPCONTAINER_H_

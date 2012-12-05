@@ -41,15 +41,16 @@ using namespace std;
 #define ServiceUnavailable 503
 #define AuthorizationRequired 401
 
-class HTTP_Header {
- private:
-  string item;
-  string arg;
- public:
-  HTTP_Header(const string& item, const string& arg);
-  ~HTTP_Header();
-  const string& ret_Arg() const;
-  const string& ret_Item() const;
+class HTTP_Header
+{
+private:
+    string item;
+    string arg;
+public:
+    HTTP_Header(const string &item, const string &arg);
+    ~HTTP_Header();
+    const string &ret_Arg() const;
+    const string &ret_Item() const;
 };
 
 #endif // _HTTP_HEADER_

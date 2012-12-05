@@ -30,48 +30,49 @@
 #include "utils.h"
 #include "ItemCell.h"
 
-class ItemCellPartial : public ItemCell {
+class ItemCellPartial : public ItemCell
+{
 private:
-  unsigned int start_range;
-  unsigned int end_range;
-  unsigned int order;
-  unsigned int total_size;
-  //string filename_partial;
-  ItemCell *boss;
+    unsigned int start_range;
+    unsigned int end_range;
+    unsigned int order;
+    unsigned int total_size;
+    //string filename_partial;
+    ItemCell *boss;
 public:
-  enum SplitStatusType {
-    PARTIAL_NORMAL,
-    PARTIAL_NOINDEX,
-    PARTIAL_CHANGED
-  };
+    enum SplitStatusType {
+        PARTIAL_NORMAL,
+        PARTIAL_NOINDEX,
+        PARTIAL_CHANGED
+    };
 
-  ItemCellPartial(const string& url,
-		   const URLcontainer& urlcon,
-		   const Options& options_ptr,
-		   const string& initial_log,
-		   ItemCell *itemcell_parent,
-		   unsigned int order,
-		   unsigned int start_pos,
-		   unsigned int end_pos
-		   );
-  virtual ~ItemCellPartial();
-  /*
-  string             ret_Filename() const;
-  string             ret_Filename_opt() const;
-  */
-  void               set_Filename(const string& filename);
-  void               set_Filename_opt(const string& filename);
+    ItemCellPartial(const string &url,
+                    const URLcontainer &urlcon,
+                    const Options &options_ptr,
+                    const string &initial_log,
+                    ItemCell *itemcell_parent,
+                    unsigned int order,
+                    unsigned int start_pos,
+                    unsigned int end_pos
+                   );
+    virtual ~ItemCellPartial();
+    /*
+    string             ret_Filename() const;
+    string             ret_Filename_opt() const;
+    */
+    void               set_Filename(const string &filename);
+    void               set_Filename_opt(const string &filename);
 
-  bool               Is_Partial() const;
-  unsigned int       ret_Order() const;
-  ItemCell::DownloadStatusType Post_process();
-  unsigned int       ret_Start_range() const;
-  unsigned int       ret_End_range() const;
-  ItemCell *ret_Boss();
+    bool               Is_Partial() const;
+    unsigned int       ret_Order() const;
+    ItemCell::DownloadStatusType Post_process();
+    unsigned int       ret_Start_range() const;
+    unsigned int       ret_End_range() const;
+    ItemCell *ret_Boss();
 
-  void WriteSplitInfo(const string& filename);
-  ItemCell::DownloadStatusType Download_Main();
+    void WriteSplitInfo(const string &filename);
+    ItemCell::DownloadStatusType Download_Main();
 
-  SplitStatusType SplitNumberChanged(const string& filename);
+    SplitStatusType SplitNumberChanged(const string &filename);
 };
 #endif // _ITEMCELLPARTIAL_H_

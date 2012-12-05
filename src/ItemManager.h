@@ -33,31 +33,31 @@ using namespace std;
 class ItemManager
 {
 private:
-  list<int> used_id_list;
-  map<int, ItemCell*> item_id_map;
-  map<ItemCell *, int> reverse_item_id_map;
+    list<int> used_id_list;
+    map<int, ItemCell *> item_id_map;
+    map<ItemCell *, int> reverse_item_id_map;
 
-  list<int> reusable_id_list;
-  int maxid;
-  pthread_mutex_t im_lock;
+    list<int> reusable_id_list;
+    int maxid;
+    pthread_mutex_t im_lock;
 public:
-  ItemManager();
-  ~ItemManager();
+    ItemManager();
+    ~ItemManager();
 
-  ItemCell *Get_next_item();
-  bool regist_item_back(ItemCell *itemcell);
-  bool regist_item_front(ItemCell *itemcell);
-  bool regist_item_next_to(ItemCell *itemcell_base, ItemCell *itemcell);
-  bool unregist_item(ItemCell *itemcell);
-  bool search_item(ItemCell *itemcell);
-  bool search_by_url(const string& url);
-  bool search_by_url_with_local_path(const string& url, const string& localPath);
-  ItemCell *ret_itemaddr(int id);
-  bool move_to_front(ItemCell *itemcell);
-  bool move_to(int index_dest, ItemCell *itemcell);
-  const list<int>& ret_id_list() const;
-  bool swap_item(ItemCell *itemcell_new, ItemCell *itemcell_old);
-  void all_clear();
+    ItemCell *Get_next_item();
+    bool regist_item_back(ItemCell *itemcell);
+    bool regist_item_front(ItemCell *itemcell);
+    bool regist_item_next_to(ItemCell *itemcell_base, ItemCell *itemcell);
+    bool unregist_item(ItemCell *itemcell);
+    bool search_item(ItemCell *itemcell);
+    bool search_by_url(const string &url);
+    bool search_by_url_with_local_path(const string &url, const string &localPath);
+    ItemCell *ret_itemaddr(int id);
+    bool move_to_front(ItemCell *itemcell);
+    bool move_to(int index_dest, ItemCell *itemcell);
+    const list<int> &ret_id_list() const;
+    bool swap_item(ItemCell *itemcell_new, ItemCell *itemcell_old);
+    void all_clear();
 };
 
 #endif // _ITEMMANAGER_H_

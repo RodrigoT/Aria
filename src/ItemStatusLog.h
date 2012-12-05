@@ -27,13 +27,14 @@
 
 // 各スレッドがGUIスレッドにファイルのダウンロード状況を知らせるときに
 // 送るデータのフォーマット
-class ItemStatusLog : public ItemStatus {
+class ItemStatusLog : public ItemStatus
+{
 private:
-  ItemLogCell item_log;
+    ItemLogCell item_log;
 public:
-  ItemStatusLog(ItemCell *itemcell, const ItemLogCell& itemlogcell);
-  ~ItemStatusLog();
-  void Update();
+    ItemStatusLog(ItemCell *itemcell, const ItemLogCell &itemlogcell);
+    ~ItemStatusLog();
+    void Update();
 };
 
 #endif // _ITEMSTATUSLOG_H_

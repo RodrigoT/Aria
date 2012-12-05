@@ -27,18 +27,19 @@
 
 // 各スレッドがGUIスレッドにファイルのダウンロード状況を知らせるときに
 // 送るデータのフォーマット
-class ItemStatus {
+class ItemStatus
+{
 private:
-  ItemCell *itemcell;
+    ItemCell *itemcell;
 protected:
-  ListEntry *listentry;
+    ListEntry *listentry;
 public:
-  ItemStatus(ItemCell *itemcell);
-  virtual ~ItemStatus();
+    ItemStatus(ItemCell *itemcell);
+    virtual ~ItemStatus();
 
-  ItemCell *ret_ItemCell();
-  virtual void Update();
-  void set_Listentry(ListEntry *listentry);
+    ItemCell *ret_ItemCell();
+    virtual void Update();
+    void set_Listentry(ListEntry *listentry);
 };
 
 #endif // _ITEMSTATUS_H_

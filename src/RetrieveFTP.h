@@ -39,78 +39,78 @@ using namespace std;
 class RetrieveFTP : public Retrieve
 {
 public:
-  // constructor
-  RetrieveFTP(ItemCell *itemcell);
-  // destructor
-  virtual ~RetrieveFTP();
+    // constructor
+    RetrieveFTP(ItemCell *itemcell);
+    // destructor
+    virtual ~RetrieveFTP();
 
-  ItemCell::DownloadStatusType Download_Main();
+    ItemCell::DownloadStatusType Download_Main();
 protected:
-  // string put before file name in RETR, SIZE command when no CWD option
-  // is enabled
-  string retrPrefix;
+    // string put before file name in RETR, SIZE command when no CWD option
+    // is enabled
+    string retrPrefix;
 
-  // FTPサーバーからの返答を取得
-  // return:
-  //     -1: エラー
-  //      1: 成功
-  int Get_response(const Socket& socket, string& retbuf);
-  int Get_response(const Socket& socket, int& retstat, string& retbuf);
+    // FTPサーバーからの返答を取得
+    // return:
+    //     -1: エラー
+    //      1: 成功
+    int Get_response(const Socket &socket, string &retbuf);
+    int Get_response(const Socket &socket, int &retstat, string &retbuf);
 
-  // FTPサーバーにコマンドcommandを送る
-  void Send_command(const string& command, const Socket& socket);
+    // FTPサーバーにコマンドcommandを送る
+    void Send_command(const string &command, const Socket &socket);
 
-  // FTPサーバーにコマンドcommandを送る(表示は*に置き換えられる)
-  void Send_command_pass(const string& command, const Socket& socket);
+    // FTPサーバーにコマンドcommandを送る(表示は*に置き換えられる)
+    void Send_command_pass(const string &command, const Socket &socket);
 
-  void Send_command_cwdpass(const string& command, const Socket& sock_command);
+    void Send_command_cwdpass(const string &command, const Socket &sock_command);
 
-  // PORTコマンドを作る
-  void Get_PORT_command(const Socket& sock_command, const Socket& sock_wait, string& portcommand);
+    // PORTコマンドを作る
+    void Get_PORT_command(const Socket &sock_command, const Socket &sock_wait, string &portcommand);
 
-  // 認証など
-  void Make_Authentication(const Socket& sock_command);
-  // sub routines for authentication
-  void Get_username_password(string& username, string& password);
-  void Get_proxy_username_password(string& username, string& password);
+    // 認証など
+    void Make_Authentication(const Socket &sock_command);
+    // sub routines for authentication
+    void Get_username_password(string &username, string &password);
+    void Get_proxy_username_password(string &username, string &password);
 
-  void Send_username_password_sub(const Socket& sock_command,
-				  const string& username,
-				  const string& password);
+    void Send_username_password_sub(const Socket &sock_command,
+                                    const string &username,
+                                    const string &password);
 
-  void Send_username_password(const Socket& sock_command);
-  void Send_proxy_username_password(const Socket& sock_command);
-  
-  void Send_user_password(const Socket& sock_command);
-  void Send_proxy_user_password(const Socket& sock_command);
+    void Send_username_password(const Socket &sock_command);
+    void Send_proxy_username_password(const Socket &sock_command);
 
-  void Send_open_site_sub(const Socket& sock_command, string command);
-  void Send_open(const Socket& sock_command);
-  void Send_open2(const Socket& sock_command);
-  void Send_site(const Socket& sock_command);
+    void Send_user_password(const Socket &sock_command);
+    void Send_proxy_user_password(const Socket &sock_command);
 
-  // FTPサーバーから離脱
-  void Leave_ftp_server(Socket& sock_command);
+    void Send_open_site_sub(const Socket &sock_command, string command);
+    void Send_open(const Socket &sock_command);
+    void Send_open2(const Socket &sock_command);
+    void Send_site(const Socket &sock_command);
 
-  // PASVモード
-  void Handle_ftp_passive_mode(const Socket& sock_command, Socket& sock_data, unsigned int& startingbyte);
-  void connect_from(const Socket& sock_command, Socket& sock_wait);
+    // FTPサーバーから離脱
+    void Leave_ftp_server(Socket &sock_command);
 
-  // ACTIVEモード
-  void Handle_ftp_active_mode(const Socket& sock_command, Socket& sock_data, unsigned int& startingbyte);
-  FTPcontainer connect_to(const Socket& sock_command);
+    // PASVモード
+    void Handle_ftp_passive_mode(const Socket &sock_command, Socket &sock_data, unsigned int &startingbyte);
+    void connect_from(const Socket &sock_command, Socket &sock_wait);
 
-  // start downloading
-  void Start_Download(const Socket& sock_data, unsigned int startingbyte);
+    // ACTIVEモード
+    void Handle_ftp_active_mode(const Socket &sock_command, Socket &sock_data, unsigned int &startingbyte);
+    FTPcontainer connect_to(const Socket &sock_command);
 
-  // send PORT command
-  void Send_port_command(const Socket& sock_command, const Socket& sock_wait);
+    // start downloading
+    void Start_Download(const Socket &sock_data, unsigned int startingbyte);
 
-  string Get_fileinfo_by_ls(const Socket& sock_command, const string& filename = "");
+    // send PORT command
+    void Send_port_command(const Socket &sock_command, const Socket &sock_wait);
 
-  list<ItemCell*> Get_filelist(const Socket& sock_command);
-  list<ItemCell*> Make_filelist(string lsdata);
-  ItemCell* Make_itemcell(const string& url, const string& save_dir);
+    string Get_fileinfo_by_ls(const Socket &sock_command, const string &filename = "");
+
+    list<ItemCell *> Get_filelist(const Socket &sock_command);
+    list<ItemCell *> Make_filelist(string lsdata);
+    ItemCell *Make_itemcell(const string &url, const string &save_dir);
 };
 
 #endif // _RETRIEVEFTP_H_

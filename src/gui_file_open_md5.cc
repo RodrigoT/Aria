@@ -41,34 +41,34 @@ extern ListManager *g_listManager;
 // CRCファイルを読み込む
 //
 // CRCファイルセレクションウインドウでOKボタンを押したときの処理
-void Open_md5_file(const string& filename)
+void Open_md5_file(const string &filename)
 {
-  ListEntry *listEntry = g_listManager->ret_Current_listentry();
+    ListEntry *listEntry = g_listManager->ret_Current_listentry();
 
-  bool retval = g_itemList->Read_md5_from_file(listEntry, filename);
-  
-  if(retval == false) {
-    g_consoleItem->Send_message_to_gui(_("Error occurred while reading MD5 file"), MSG_SYS_ERROR);
-  } else {
-    g_consoleItem->Send_message_to_gui(_("MD5 list opened"), MSG_SYS_INFO);
-  }
+    bool retval = g_itemList->Read_md5_from_file(listEntry, filename);
+
+    if (retval == false) {
+        g_consoleItem->Send_message_to_gui(_("Error occurred while reading MD5 file"), MSG_SYS_ERROR);
+    } else {
+        g_consoleItem->Send_message_to_gui(_("MD5 list opened"), MSG_SYS_INFO);
+    }
 }
 
 static gboolean File_ok_open_md5_list(GtkWidget *w, GtkWidget *fs)
 {
-  const char *filename;
+    const char *filename;
 
-  g_cFileBrowser->hide();
-  if((filename = gtk_file_selection_get_filename(GTK_FILE_SELECTION(fs))) != NULL) {
-    Open_md5_file(filename);
-  }
-  return TRUE;
+    g_cFileBrowser->hide();
+    if ((filename = gtk_file_selection_get_filename(GTK_FILE_SELECTION(fs))) != NULL) {
+        Open_md5_file(filename);
+    }
+    return TRUE;
 }
 
 gboolean File_open_md5_list(GtkWidget *w, gpointer data)
 {
-  g_cFileBrowser->setup(_("Open MD5 list"),
-		      File_ok_open_md5_list);
-  g_cFileBrowser->show();
-  return TRUE;
+    g_cFileBrowser->setup(_("Open MD5 list"),
+                          File_ok_open_md5_list);
+    g_cFileBrowser->show();
+    return TRUE;
 }

@@ -21,22 +21,22 @@
 
 #include "CRCList.h"
 
-CRCList::CRCList(const string& file_in, const string& crc_in)
+CRCList::CRCList(const string &file_in, const string &crc_in)
 {
-  filename = file_in;
-  crc_string = crc_in;
+    filename = file_in;
+    crc_string = crc_in;
 };
 
 CRCList::~CRCList()
 {
 };
 
-const string& CRCList::ref_Filename() const
+const string &CRCList::ref_Filename() const
 {
-  return filename;
+    return filename;
 }
 
-const string& CRCList::ref_CRC_string() const
+const string &CRCList::ref_CRC_string() const
 {
-  return crc_string;
+    return crc_string;
 }

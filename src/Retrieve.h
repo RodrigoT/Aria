@@ -36,41 +36,41 @@
 class Retrieve
 {
 protected:
-  ItemCell *itemcell;
-  
-public:
-  Retrieve(ItemCell *itemcell);
-  virtual ~Retrieve();
+    ItemCell *itemcell;
 
-  virtual ItemCell::DownloadStatusType Download_Main();
+public:
+    Retrieve(ItemCell *itemcell);
+    virtual ~Retrieve();
+
+    virtual ItemCell::DownloadStatusType Download_Main();
 
 protected:
-  int inet_hostaddr(const string& hostname, struct in_addr *addr);
+    int inet_hostaddr(const string &hostname, struct in_addr *addr);
 
-  // リモートホストにTCP/IPで接続する
-  // connect remote host via TCP/IP
-  void Make_TCP_connection(Socket& socket, int port);
-  void Make_TCP_connection(Socket& socket, const string& server, int port);
-  void Make_TCP_connection(Socket& socket, const string& server, int port, const string& redirectedServer, int redirectedPort);
+    // リモートホストにTCP/IPで接続する
+    // connect remote host via TCP/IP
+    void Make_TCP_connection(Socket &socket, int port);
+    void Make_TCP_connection(Socket &socket, const string &server, int port);
+    void Make_TCP_connection(Socket &socket, const string &server, int port, const string &redirectedServer, int redirectedPort);
 
-  // 文字列 message を socket に書き込む
-  // write message to socket
-  void SEND(const string& message, const Socket& socket);
+    // 文字列 message を socket に書き込む
+    // write message to socket
+    void SEND(const string &message, const Socket &socket);
 
-  // ローカルファイルのサイズを取得. ロールバック処理も行う
-  unsigned int Get_starting_byte();
+    // ローカルファイルのサイズを取得. ロールバック処理も行う
+    unsigned int Get_starting_byte();
 
-  // make a directory if it doesnot exists
-  void Make_directory_if_needed();
+    // make a directory if it doesnot exists
+    void Make_directory_if_needed();
 
-  // if the modification time of the file is older than the time specified in
-  // modtime, then return true. Otherwise return false
-  bool Is_older_than_remote(time_t modtime);
+    // if the modification time of the file is older than the time specified in
+    // modtime, then return true. Otherwise return false
+    bool Is_older_than_remote(time_t modtime);
 
-  // 分割ダウンロードの準備
-  bool Create_partial_item_entry(unsigned int divide, unsigned int total_size);
+    // 分割ダウンロードの準備
+    bool Create_partial_item_entry(unsigned int divide, unsigned int total_size);
 
-  unsigned int Download_data(ofstream& outfile, const Socket& socket, bool compressedFlag = false);
+    unsigned int Download_data(ofstream &outfile, const Socket &socket, bool compressedFlag = false);
 };
 #endif //_RETRIEVE_H_
 

@@ -32,33 +32,34 @@
 using namespace std;
 
 enum MessageType {
-  MSG_DOWNLOAD_STATUS,
-  MSG_DOWNLOAD_SUCCESS,
-  MSG_DOWNLOAD_PARTIAL_SUCCESS,
-  MSG_DOWNLOAD_ABORTED,
-  MSG_DOWNLOAD_ERROR,
-  MSG_DOWNLOAD_INFO,
-  MSG_DOWNLOAD_SEND,
-  MSG_DOWNLOAD_RECV,
-  MSG_DOWNLOAD_ADD_PARTIAL,
-  MSG_SYS_REQ,
-  MSG_SYS_INFO,
-  MSG_SYS_ERROR,
-  MSG_SYS_SUCCESS,
-  MSG_INIT,
-  MSG_GET_NEXT_ITEM
+    MSG_DOWNLOAD_STATUS,
+    MSG_DOWNLOAD_SUCCESS,
+    MSG_DOWNLOAD_PARTIAL_SUCCESS,
+    MSG_DOWNLOAD_ABORTED,
+    MSG_DOWNLOAD_ERROR,
+    MSG_DOWNLOAD_INFO,
+    MSG_DOWNLOAD_SEND,
+    MSG_DOWNLOAD_RECV,
+    MSG_DOWNLOAD_ADD_PARTIAL,
+    MSG_SYS_REQ,
+    MSG_SYS_INFO,
+    MSG_SYS_ERROR,
+    MSG_SYS_SUCCESS,
+    MSG_INIT,
+    MSG_GET_NEXT_ITEM
 };
 
-class ItemLogCell {
+class ItemLogCell
+{
 private:
-  string log;
-  MessageType logtype;
+    string log;
+    MessageType logtype;
 public:
-  ItemLogCell(const string& log, MessageType reporttype);
-  ItemLogCell();
-  ~ItemLogCell();
-  MessageType ret_Logtype() const;
-  const string& ret_Log() const;
+    ItemLogCell(const string &log, MessageType reporttype);
+    ItemLogCell();
+    ~ItemLogCell();
+    MessageType ret_Logtype() const;
+    const string &ret_Log() const;
 };
 
 #endif // _ITEMLOGCELL_H_

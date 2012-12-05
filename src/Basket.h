@@ -27,41 +27,42 @@
 #include <gdk/gdkx.h>
 #include <X11/Xlib.h>
 
-class Basket {
+class Basket
+{
 private:
-  enum BasketSize {
-    SIZE_X = 100,
-    SIZE_Y = 50
-  };
-  GtkWidget *window; // base widget
-  GtkWidget *toplevel; // main window of Aria
-  GtkWidget *basketVBox;
-  GtkWidget *pixmap;
-  GtkWidget *label;
+    enum BasketSize {
+        SIZE_X = 100,
+        SIZE_Y = 50
+    };
+    GtkWidget *window; // base widget
+    GtkWidget *toplevel; // main window of Aria
+    GtkWidget *basketVBox;
+    GtkWidget *pixmap;
+    GtkWidget *label;
 
-  bool visibleFlag;
-  bool mainWindowVisibleFlag;
-  bool titleVisibleFlag;
+    bool visibleFlag;
+    bool mainWindowVisibleFlag;
+    bool titleVisibleFlag;
 
-  struct Geometry {
-    int x;
-    int y;
-  } geometry;
+    struct Geometry {
+        int x;
+        int y;
+    } geometry;
 
 public:
-  Basket(GtkWidget *toplevel); // create basket window
-  ~Basket(); // destroy basket window
+    Basket(GtkWidget *toplevel); // create basket window
+    ~Basket(); // destroy basket window
 
-  void setGeometry(int x, int y);
-  void getGeometry(int& x, int& y);
-  void setPixmap(GdkPixbuf *basketPixmap, GdkBitmap *basketBitmap);
-  void show(); // show basket window
-  void hide(); // hide basket window
-  bool isVisible();
-  void setMainWindowVisibleFlag(bool flag);
-  bool isMainWindowVisible() const;
-  GtkWidget *getMainWindow();
-  void toggleTitleBar();
-  bool hasFocus();
+    void setGeometry(int x, int y);
+    void getGeometry(int &x, int &y);
+    void setPixmap(GdkPixbuf *basketPixmap, GdkBitmap *basketBitmap);
+    void show(); // show basket window
+    void hide(); // hide basket window
+    bool isVisible();
+    void setMainWindowVisibleFlag(bool flag);
+    bool isMainWindowVisible() const;
+    GtkWidget *getMainWindow();
+    void toggleTitleBar();
+    bool hasFocus();
 };
 #endif // _BASKET_H_

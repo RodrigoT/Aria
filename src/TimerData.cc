@@ -22,18 +22,18 @@
 #include "TimerData.h"
 
 TimerData::TimerData(int hour_start_in,
-		     int min_start_in,
-		     int hour_stop_in,
-		     int min_stop_in)
+                     int min_start_in,
+                     int hour_stop_in,
+                     int min_stop_in)
 {
-  set_start_time(hour_start_in, min_start_in);
-  set_stop_time(hour_stop_in, min_stop_in);
+    set_start_time(hour_start_in, min_start_in);
+    set_stop_time(hour_stop_in, min_stop_in);
 }
 
 TimerData::TimerData()
 {
-  set_start_time(0, 0);
-  set_stop_time(0, 0);
+    set_start_time(0, 0);
+    set_stop_time(0, 0);
 }
 
 TimerData::~TimerData()
@@ -42,92 +42,92 @@ TimerData::~TimerData()
 
 void TimerData::adjustStopTimeBasedOnStartTime()
 {
-  /*
-  if((int)(t_stop-t_start) < 0) {
-    time_t baseTime = t_start;
-    struct tm *tmst = localtime(&baseTime);
+    /*
+    if((int)(t_stop-t_start) < 0) {
+      time_t baseTime = t_start;
+      struct tm *tmst = localtime(&baseTime);
 
-    ++(tmst->tm_mday);
+      ++(tmst->tm_mday);
 
-    tmst->tm_hour = hour_stop;
-    tmst->tm_min = min_stop;
-    tmst->tm_sec = 0;
+      tmst->tm_hour = hour_stop;
+      tmst->tm_min = min_stop;
+      tmst->tm_sec = 0;
 
-    t_stop = mktime(tmst);
-  }
-  */
+      t_stop = mktime(tmst);
+    }
+    */
 }
 
 time_t TimerData::get_correct_time(int hour, int min, bool force_next_day)
 {
-  time_t curtime = time(NULL);
-  struct tm *tmst = localtime(&curtime);
+    time_t curtime = time(NULL);
+    struct tm *tmst = localtime(&curtime);
 
-  if(force_next_day || tmst->tm_hour > hour || (tmst->tm_hour == hour && tmst->tm_min > min)) {
-    // set next day
-    //cerr << "update" << endl;
-    ++(tmst->tm_mday);
-  }
-  tmst->tm_hour = hour;
-  tmst->tm_min = min;
-  tmst->tm_sec = 0;
-  //cerr << "C" << curtime << endl;
-  //cerr << "T" << mktime(tmst) << endl;
-  return mktime(tmst);
+    if (force_next_day || tmst->tm_hour > hour || (tmst->tm_hour == hour && tmst->tm_min > min)) {
+        // set next day
+        //cerr << "update" << endl;
+        ++(tmst->tm_mday);
+    }
+    tmst->tm_hour = hour;
+    tmst->tm_min = min;
+    tmst->tm_sec = 0;
+    //cerr << "C" << curtime << endl;
+    //cerr << "T" << mktime(tmst) << endl;
+    return mktime(tmst);
 }
 
 void TimerData::set_start_time(int hour, int min)
-{ 
-  hour_start = hour;
-  min_start = min;
-  t_start = get_correct_time(hour, min);
+{
+    hour_start = hour;
+    min_start = min;
+    t_start = get_correct_time(hour, min);
 }
 
 void TimerData::set_stop_time(int hour, int min)
 {
-  hour_stop = hour;
-  min_stop = min;
+    hour_stop = hour;
+    min_stop = min;
 
-  t_stop = get_correct_time(hour, min);
+    t_stop = get_correct_time(hour, min);
 }
 
 void TimerData::Update_start_time()
 {
-  t_start = get_correct_time(hour_start, min_start, true);
+    t_start = get_correct_time(hour_start, min_start, true);
 }
 
 void TimerData::Update_stop_time()
 {
-  t_stop = get_correct_time(hour_stop, min_stop, true);
+    t_stop = get_correct_time(hour_stop, min_stop, true);
 }
 
 time_t TimerData::ret_start_time()
 {
-  return t_start;
+    return t_start;
 }
 
 time_t TimerData::ret_stop_time()
 {
-  return t_stop;
+    return t_stop;
 }
 
 int TimerData::ret_hour_start()
 {
-  return hour_start;
+    return hour_start;
 }
 
 int TimerData::ret_min_start()
 {
-  return min_start;
+    return min_start;
 }
 
 int TimerData::ret_hour_stop()
 {
-  return hour_stop;
+    return hour_stop;
 }
 
 int TimerData::ret_min_stop()
 {
-  return min_stop;
+    return min_stop;
 }
 

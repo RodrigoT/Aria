@@ -35,49 +35,49 @@ using namespace std;
 class Command
 {
 private:
-  string name;
-  string comment;
-  list<string> command;
-  list<string> extensions;
-  bool ignore_ret_status; // true: ignore return status of program
-  list<int> succ_status_list; // assume success
+    string name;
+    string comment;
+    list<string> command;
+    list<string> extensions;
+    bool ignore_ret_status; // true: ignore return status of program
+    list<int> succ_status_list; // assume success
 
-  bool valid;
-  bool bad_flag;
+    bool valid;
+    bool bad_flag;
 public:
-  Command(const string& name, const string& comment, const string& command_string, const string& succ_status_string, const string& ext_string);
-  Command(const string& command_string, const string& succ_status_string);
-  Command();
+    Command(const string &name, const string &comment, const string &command_string, const string &succ_status_string, const string &ext_string);
+    Command(const string &command_string, const string &succ_status_string);
+    Command();
 
-  ~Command();
+    ~Command();
 
-  bool bad() const;
+    bool bad() const;
 
-  const list<string>& ret_command() const;
-  bool Is_in_extensions(const string& fliename) const;
-  bool Is_in_succ_status_list(int status) const;
-  bool Is_ignore_return_status() const;
-  const string& ret_command_name() const;
-  const string& ret_command_comment() const;
-  const list<int>& ret_succ_status_list() const;
+    const list<string> &ret_command() const;
+    bool Is_in_extensions(const string &fliename) const;
+    bool Is_in_succ_status_list(int status) const;
+    bool Is_ignore_return_status() const;
+    const string &ret_command_name() const;
+    const string &ret_command_comment() const;
+    const list<int> &ret_succ_status_list() const;
 
-  void Process_extension_string(string ext_string);
-  void Process_command_string(string command_string);
-  void Process_command_succ_stat_string(string stat_string);
+    void Process_extension_string(string ext_string);
+    void Process_command_string(string command_string);
+    void Process_command_succ_stat_string(string stat_string);
 
-  string MyToken_splitter(string& line);
-  bool Is_reserved(const string& token);
-  static int interpret(const string& word);
-  bool Is_valid() const;
-  void set_valid(bool flag);
-  string Create_commandline(const string& filename, const string& save_dir, const URLcontainer& urlcon) const;
-  int Execute_commandline(const string& filename, const string& save_dir, const URLcontainer& urlcon) const;
-  enum {
-    VAR_FILENAME = 0,
-    VAR_DIR = 1,
-    VAR_FILEPATH = 2,
-    VAR_URL = 3,
-    UNRESERVED = 99
-  };
+    string MyToken_splitter(string &line);
+    bool Is_reserved(const string &token);
+    static int interpret(const string &word);
+    bool Is_valid() const;
+    void set_valid(bool flag);
+    string Create_commandline(const string &filename, const string &save_dir, const URLcontainer &urlcon) const;
+    int Execute_commandline(const string &filename, const string &save_dir, const URLcontainer &urlcon) const;
+    enum {
+        VAR_FILENAME = 0,
+        VAR_DIR = 1,
+        VAR_FILEPATH = 2,
+        VAR_URL = 3,
+        UNRESERVED = 99
+    };
 };
 #endif //_COMMAND_H_

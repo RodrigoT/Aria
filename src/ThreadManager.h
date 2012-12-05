@@ -30,48 +30,49 @@
 #include "ThreadSlot.h"
 using namespace std;
 
-typedef list<ThreadSlot*> ThreadList;
+typedef list<ThreadSlot *> ThreadList;
 
-class ThreadManager {
+class ThreadManager
+{
 private:
-  int maxthread;
-  bool halt_flag;
-  bool autostart_flag;
-  int n_thread_to_retire;
-  ThreadList thread_list;//スレッド管理リスト
-  pthread_mutex_t tm_lock;
-  //ThreadSlot *token_thread;
-  //struct timeval token_gettime;
-  //struct timezone tz_dummy;
-  //pthread_mutex_t token_lock;
-  void *boss;
+    int maxthread;
+    bool halt_flag;
+    bool autostart_flag;
+    int n_thread_to_retire;
+    ThreadList thread_list;//スレッド管理リスト
+    pthread_mutex_t tm_lock;
+    //ThreadSlot *token_thread;
+    //struct timeval token_gettime;
+    //struct timezone tz_dummy;
+    //pthread_mutex_t token_lock;
+    void *boss;
 public:
-  ThreadManager(int maxthread, void *boss_in);
-  void setBoss(void *boss_in);
-  void *getBoss() const;
-  void ManageThread(int maxthread);
-  void ManageThread();
+    ThreadManager(int maxthread, void *boss_in);
+    void setBoss(void *boss_in);
+    void *getBoss() const;
+    void ManageThread(int maxthread);
+    void ManageThread();
 
-  void waitThreadTermination(); // すべてのスレッドの終了を待つ
-  int getTotalThread() const; // リストのスレッドの数を返す
-  void retireThread(pthread_t thread_id); // 引数のスレッドをスレッドリスト
-                                           // から削除
-  bool retireThreadByRequest(pthread_t thread_id); //Whether_retire_is_requested()+Retire_thread(...)
-  bool isNoActiveThread() const;
-  void setThreadState(pthread_t thread_id, ItemCell *itemcell, ThreadStatusType status);
-  bool getHaltFlag() const;
-  void setHaltFlag();
+    void waitThreadTermination(); // すべてのスレッドの終了を待つ
+    int getTotalThread() const; // リストのスレッドの数を返す
+    void retireThread(pthread_t thread_id); // 引数のスレッドをスレッドリスト
+    // から削除
+    bool retireThreadByRequest(pthread_t thread_id); //Whether_retire_is_requested()+Retire_thread(...)
+    bool isNoActiveThread() const;
+    void setThreadState(pthread_t thread_id, ItemCell *itemcell, ThreadStatusType status);
+    bool getHaltFlag() const;
+    void setHaltFlag();
 
-  list<ItemCell *> getActiveItemCell();
+    list<ItemCell *> getActiveItemCell();
 
-  void setRetireNumber(int num_of_thread_to_retire);
+    void setRetireNumber(int num_of_thread_to_retire);
 
-  ThreadSlot *getThreadSlot(pthread_t thread);
-  bool getAutostartFlag() const;
-  void setAutostartFlag(bool flag);
+    ThreadSlot *getThreadSlot(pthread_t thread);
+    bool getAutostartFlag() const;
+    void setAutostartFlag(bool flag);
 
-  //bool get_token(pthread_t thread);
-  //bool release_token(pthread_t thread);
-  //ThreadSlot *get_next_token_thread(ThreadSlot *threadslot);
+    //bool get_token(pthread_t thread);
+    //bool release_token(pthread_t thread);
+    //ThreadSlot *get_next_token_thread(ThreadSlot *threadslot);
 };
 #endif // _THREADMANAGER_H_

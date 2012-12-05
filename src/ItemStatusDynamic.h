@@ -27,32 +27,33 @@
 
 // 各スレッドがGUIスレッドにファイルのダウンロード状況を知らせるときに
 // 送るデータのフォーマット
-class ItemStatusDynamic : public ItemStatus {
+class ItemStatusDynamic : public ItemStatus
+{
 private:
-  ItemCell::ItemStatusType status;
-  unsigned int retry_count;
-  unsigned int size_current;
-  unsigned int size_total;
-  float speed;
-  float avgSpeed;
-  bool delete_flag;
-  unsigned int update_flag;
+    ItemCell::ItemStatusType status;
+    unsigned int retry_count;
+    unsigned int size_current;
+    unsigned int size_total;
+    float speed;
+    float avgSpeed;
+    bool delete_flag;
+    unsigned int update_flag;
 public:
-  ItemStatusDynamic(ItemCell *itemcell, ItemCell::ItemStatusType status, unsigned int retry_count, unsigned int size_current, unsigned int size_total, float speed, float avgSpeed);
-  ItemStatusDynamic(ItemCell *itemcell, ItemCell::ItemStatusType status, unsigned int retry_count, unsigned int size_current, unsigned int size_total);
+    ItemStatusDynamic(ItemCell *itemcell, ItemCell::ItemStatusType status, unsigned int retry_count, unsigned int size_current, unsigned int size_total, float speed, float avgSpeed);
+    ItemStatusDynamic(ItemCell *itemcell, ItemCell::ItemStatusType status, unsigned int retry_count, unsigned int size_current, unsigned int size_total);
 
-  enum {
-    name_col = 1,
-    progress_col = 1 << 1,
-    crc_col = 1 << 2,
-    speed_col = 1 << 3,
-    static_col = 1 << 4,
-    all_col = name_col | progress_col | crc_col | speed_col | static_col
-  };
-  ~ItemStatusDynamic();
-  void Update();
-  void set_UpdateFlag(unsigned int flag);
-  void set_DeleteFlag(bool flag);
+    enum {
+        name_col = 1,
+        progress_col = 1 << 1,
+        crc_col = 1 << 2,
+        speed_col = 1 << 3,
+        static_col = 1 << 4,
+        all_col = name_col | progress_col | crc_col | speed_col | static_col
+    };
+    ~ItemStatusDynamic();
+    void Update();
+    void set_UpdateFlag(unsigned int flag);
+    void set_DeleteFlag(bool flag);
 };
 
 #endif // _ITEMSTATUSDYNAMIC_H_

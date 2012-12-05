@@ -28,20 +28,20 @@ extern ListManager *g_listManager;
 extern PasteWindow *g_pasteWindow;
 
 ItemStatusRec::ItemStatusRec(ItemCell *itemcell_in,
-			     const list<ItemCell *>& item_list_in
-			     ) : ItemStatus(itemcell_in)
+                             const list<ItemCell *> &item_list_in
+                            ) : ItemStatus(itemcell_in)
 {
-  item_list = item_list_in;
-  addPasteEnabled = false;
+    item_list = item_list_in;
+    addPasteEnabled = false;
 }
 
 ItemStatusRec::ItemStatusRec(ItemCell *itemcell_in,
-			     const list<ItemCell *>& item_list_in,
-			     bool addPasteEnabled_in
-			     ) : ItemStatus(itemcell_in)
+                             const list<ItemCell *> &item_list_in,
+                             bool addPasteEnabled_in
+                            ) : ItemStatus(itemcell_in)
 {
-  item_list = item_list_in;
-  addPasteEnabled = addPasteEnabled_in;
+    item_list = item_list_in;
+    addPasteEnabled = addPasteEnabled_in;
 }
 
 ItemStatusRec::~ItemStatusRec()
@@ -49,41 +49,41 @@ ItemStatusRec::~ItemStatusRec()
 }
 
 void ItemStatusRec::Update()
-{  
-  int count = 0;
-  if(!g_listManager->Search(listentry)) {
-    // delete all itemcell
-    for(list<ItemCell *>::iterator itemcell_ptr = item_list.begin(); itemcell_ptr != item_list.end(); ++itemcell_ptr) {
-      ItemCell *itemcell = *itemcell_ptr;
-      delete itemcell;
+{
+    int count = 0;
+    if (!g_listManager->Search(listentry)) {
+        // delete all itemcell
+        for (list<ItemCell *>::iterator itemcell_ptr = item_list.begin(); itemcell_ptr != item_list.end(); ++itemcell_ptr) {
+            ItemCell *itemcell = *itemcell_ptr;
+            delete itemcell;
+        }
+        return;
     }
-    return;
-  }
 
-  listentry->get_Dl_clist_lock();
-  for(list<ItemCell *>::iterator itemcell_ptr = item_list.begin(); itemcell_ptr != item_list.end(); ++itemcell_ptr) {
-    ItemCell *itemcell = *itemcell_ptr;
-    if(!listentry->getItemManager()->search_by_url(itemcell->ret_URL_Container().ret_URL())) {
-      ++count;
-      if(addPasteEnabled) {
-	// change the status of item
-	// this is needed because default status is ItemCell::ITEM_READY
-	itemcell->set_Status(ItemCell::ITEM_STOP);
-	g_pasteWindow->addItem(itemcell);
-      } else {
-	Add_new_item_to_downloadlist(itemcell, listentry);
-      }
-    } else {
-      delete itemcell;
+    listentry->get_Dl_clist_lock();
+    for (list<ItemCell *>::iterator itemcell_ptr = item_list.begin(); itemcell_ptr != item_list.end(); ++itemcell_ptr) {
+        ItemCell *itemcell = *itemcell_ptr;
+        if (!listentry->getItemManager()->search_by_url(itemcell->ret_URL_Container().ret_URL())) {
+            ++count;
+            if (addPasteEnabled) {
+                // change the status of item
+                // this is needed because default status is ItemCell::ITEM_READY
+                itemcell->set_Status(ItemCell::ITEM_STOP);
+                g_pasteWindow->addItem(itemcell);
+            } else {
+                Add_new_item_to_downloadlist(itemcell, listentry);
+            }
+        } else {
+            delete itemcell;
+        }
     }
-  }
-  if(count) {
-    if(addPasteEnabled) {
-      g_pasteWindow->show();
-    } else {
-      g_consoleItem->Send_message_to_gui(itos(count)+_(" item(s) added"), MSG_SYS_INFO);
+    if (count) {
+        if (addPasteEnabled) {
+            g_pasteWindow->show();
+        } else {
+            g_consoleItem->Send_message_to_gui(itos(count) + _(" item(s) added"), MSG_SYS_INFO);
+        }
     }
-  }
-  listentry->Send_start_signal();
-  listentry->release_Dl_clist_lock();
+    listentry->Send_start_signal();
+    listentry->release_Dl_clist_lock();
 }

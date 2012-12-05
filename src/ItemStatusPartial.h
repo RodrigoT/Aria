@@ -26,13 +26,14 @@
 
 // 各スレッドがGUIスレッドにファイルのダウンロード状況を知らせるときに
 // 送るデータのフォーマット
-class ItemStatusPartial : public ItemStatus {
+class ItemStatusPartial : public ItemStatus
+{
 private:
-  ItemCell *itemcell_partial;
+    ItemCell *itemcell_partial;
 public:
-  ItemStatusPartial(ItemCell *itemcell, ItemCell *itemcell_partial);
-  ~ItemStatusPartial();
-  void Update();
+    ItemStatusPartial(ItemCell *itemcell, ItemCell *itemcell_partial);
+    ~ItemStatusPartial();
+    void Update();
 };
 
 #endif // _ITEMSTATUSPARTIAL_H_

@@ -27,11 +27,11 @@
 class RetrieveHTTPS : public RetrieveHTTP
 {
 public:
-  RetrieveHTTPS(ItemCell *itemcell);
-  ~RetrieveHTTPS();
+    RetrieveHTTPS(ItemCell *itemcell);
+    ~RetrieveHTTPS();
 protected:
-#ifdef HAVE_OPENSSL 
-  void establishConnection(Socket& sock);
+#ifdef HAVE_OPENSSL
+    void establishConnection(Socket &sock);
 #endif // HAVE_OPENSSL
 };
 #endif // _RETRIEVEHTTPS_H_

@@ -39,10 +39,10 @@ extern "C" {
 
 //prototype declaration
 enum md5ExceptionType {
-  MD5_IOERR
+    MD5_IOERR
 };
 
-string md5_check(const string& filename);
-string md5CheckString(const string& srcString);
+string md5_check(const string &filename);
+string md5CheckString(const string &srcString);
 
 #endif // _MD5CHECK_H_

@@ -31,13 +31,13 @@ using namespace std;
 class LockList
 {
 private:
-  list<string> lock_list;
-  pthread_mutex_t ll_lock;
+    list<string> lock_list;
+    pthread_mutex_t ll_lock;
 public:
-  LockList();
-  ~LockList();
+    LockList();
+    ~LockList();
 
-  bool Try_lock(const string& filename);
-  bool Unlock(const string& filename);
+    bool Try_lock(const string &filename);
+    bool Unlock(const string &filename);
 };
 #endif // _LOCKLIST_H_

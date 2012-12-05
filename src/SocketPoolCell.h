@@ -40,53 +40,53 @@ using namespace std;
 class SocketPoolCell
 {
 private:
-  int socket;
-  string host;
-  int port;
-  string redirectedHost;
-  int redirectedPort;
-  bool enabledFlag;
-  time_t lastUsedTime;
+    int socket;
+    string host;
+    int port;
+    string redirectedHost;
+    int redirectedPort;
+    bool enabledFlag;
+    time_t lastUsedTime;
 #ifdef HAVE_OPENSSL
-  SSL_CTX *ctx;
-  SSL *ssl;
+    SSL_CTX *ctx;
+    SSL *ssl;
 #endif // HAVE_OPENSSL
-  void setLastUsedTime();
+    void setLastUsedTime();
 public:
-  SocketPoolCell();
-  SocketPoolCell(int socket, const string& host, int port);
-  SocketPoolCell(int socket, const string& host, int port,
-		 const string& redirectedHost, int redirectedPort
+    SocketPoolCell();
+    SocketPoolCell(int socket, const string &host, int port);
+    SocketPoolCell(int socket, const string &host, int port,
+                   const string &redirectedHost, int redirectedPort
 #ifdef HAVE_OPENSSL
-		 , SSL_CTX *ctx, SSL *ssl
+                   , SSL_CTX *ctx, SSL *ssl
 #endif // HAVE_OPENSSL
-		 );
-  ~SocketPoolCell();
+                  );
+    ~SocketPoolCell();
 
-  bool isSocketAlive();
-  bool isEqual(const string& host, int port, const string& redirectedHost, int redirectedPort);
-  bool isEqual(const string& host, int port);
-  bool isEqual(int socket);
-  bool isTimeOut();
-  time_t getLastUsedTime();
-  // access functions
-  bool isEnabled();
-  void setEnabled(bool toggle);
-  int getSocket();
-  const string& getHost();
-  int getPort();
-  const string& getRedirectedHost();
-  int getRedirectedPort();
-  void setSocket(int socket);
-  void setHost(const string& host);
-  void setPort(int port);
-  void setRedirectedHost(const string& host);
-  void setRedirectedPort(int port);
+    bool isSocketAlive();
+    bool isEqual(const string &host, int port, const string &redirectedHost, int redirectedPort);
+    bool isEqual(const string &host, int port);
+    bool isEqual(int socket);
+    bool isTimeOut();
+    time_t getLastUsedTime();
+    // access functions
+    bool isEnabled();
+    void setEnabled(bool toggle);
+    int getSocket();
+    const string &getHost();
+    int getPort();
+    const string &getRedirectedHost();
+    int getRedirectedPort();
+    void setSocket(int socket);
+    void setHost(const string &host);
+    void setPort(int port);
+    void setRedirectedHost(const string &host);
+    void setRedirectedPort(int port);
 #ifdef HAVE_OPENSSL
-  SSL_CTX *getSSLCTX();
-  SSL *getSSL();
-  void setSSLCTX(SSL_CTX *ctx);
-  void setSSL(SSL *ssl);
+    SSL_CTX *getSSLCTX();
+    SSL *getSSL();
+    void setSSLCTX(SSL_CTX *ctx);
+    void setSSL(SSL *ssl);
 #endif // HAVE_OPENSSL
 };
 #endif // SOCKETPOOLCELL_H_

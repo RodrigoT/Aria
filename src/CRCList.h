@@ -26,17 +26,18 @@
 #include "aria.h"
 using namespace std;
 
-class CRCList {
+class CRCList
+{
 private:
-  string filename;
-  string crc_string;
+    string filename;
+    string crc_string;
 
 public:
-  CRCList(const string& file, const string& crc_str);
-  ~CRCList();
+    CRCList(const string &file, const string &crc_str);
+    ~CRCList();
 
-  const string& ref_Filename() const;
-  const string& ref_CRC_string() const;
+    const string &ref_Filename() const;
+    const string &ref_CRC_string() const;
 };
 
 #endif // _CRCLIST_H_

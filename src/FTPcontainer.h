@@ -26,18 +26,19 @@
 #include "utils.h"
 using namespace std;
 
-class FTPcontainer {
+class FTPcontainer
+{
 private:
-  string server_addr;
-  int port;
-  unsigned int filesize;
+    string server_addr;
+    int port;
+    unsigned int filesize;
 public:
-  FTPcontainer(const string& resp);
-  ~FTPcontainer();
-  
-  void set_Filesize(unsigned int size);
-  int ret_Port() const;
-  unsigned int ret_Filesize() const;
+    FTPcontainer(const string &resp);
+    ~FTPcontainer();
+
+    void set_Filesize(unsigned int size);
+    int ret_Port() const;
+    unsigned int ret_Filesize() const;
 };
 
 #endif // _FTPCONTAINER_H_

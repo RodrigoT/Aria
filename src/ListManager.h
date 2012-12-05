@@ -30,41 +30,41 @@ using namespace std;
 class ListManager
 {
 private:
-  list<ListEntry*> listentry_list;
-  GtkWidget *baseNotebook;
-  GdkPixbuf *statusIcon[ICON_TOTAL];
-  GdkBitmap *statusIconMask[ICON_TOTAL];
+    list<ListEntry *> listentry_list;
+    GtkWidget *baseNotebook;
+    GdkPixbuf *statusIcon[ICON_TOTAL];
+    GdkBitmap *statusIconMask[ICON_TOTAL];
 public:
-  ListManager();
-  ~ListManager();
-  
-  GtkWidget *ret_baseNotebook();
-  void Register(ListEntry *listentry);
-  void Delete(int page_num);
-  void DeleteCurrentList();
-  bool Search(ListEntry *listentry);
-  ListEntry *ret_Current_listentry();
-  ListEntry *ret_nth_listentry(int page_num);
-  ListEntry *getListEntryByName(string name);
-  const list<ListEntry*>& ret_Listentry_list() const;
-  list<string> getListNames() const;
-  string getNewDefaultListName();
-  bool checkDuplicatedName(string name);
-  int ret_Length() const;
-  int getPage(ListEntry *listentry);
-  void showPage(ListEntry *listentry);
-  void showPage(int page_num);
-  void Move_left();
-  void Move_right();
-  bool Set_active_page();
+    ListManager();
+    ~ListManager();
 
-  enum ListMoveType {
-    LIST_MOVE_LEFT = -1,
-    LIST_MOVE_RIGHT = 1
-  };
+    GtkWidget *ret_baseNotebook();
+    void Register(ListEntry *listentry);
+    void Delete(int page_num);
+    void DeleteCurrentList();
+    bool Search(ListEntry *listentry);
+    ListEntry *ret_Current_listentry();
+    ListEntry *ret_nth_listentry(int page_num);
+    ListEntry *getListEntryByName(string name);
+    const list<ListEntry *> &ret_Listentry_list() const;
+    list<string> getListNames() const;
+    string getNewDefaultListName();
+    bool checkDuplicatedName(string name);
+    int ret_Length() const;
+    int getPage(ListEntry *listentry);
+    void showPage(ListEntry *listentry);
+    void showPage(int page_num);
+    void Move_left();
+    void Move_right();
+    bool Set_active_page();
 
-  void Move_sub(ListMoveType mvtype);
-  void Swap(int page_num1, int page_num2);
-  void setStatusIcon(GdkPixbuf *pixmap[], GdkBitmap *bitmap[]);
+    enum ListMoveType {
+        LIST_MOVE_LEFT = -1,
+        LIST_MOVE_RIGHT = 1
+    };
+
+    void Move_sub(ListMoveType mvtype);
+    void Swap(int page_num1, int page_num2);
+    void setStatusIcon(GdkPixbuf *pixmap[], GdkBitmap *bitmap[]);
 };
 #endif // _LISTMANAGER_H_

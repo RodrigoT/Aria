@@ -23,54 +23,54 @@
 #include <cstring>
 
 // calculates md5 checksum of the file and returns hex string
-string md5_check(const string& filename)
+string md5_check(const string &filename)
 {
-  MD5_CONTEXT md5ctx;
+    MD5_CONTEXT md5ctx;
 
-  md5_init(&md5ctx);
+    md5_init(&md5ctx);
 
-  unsigned char buf[8092];
-  ifstream infile(filename.c_str(), ios::in);
-  if(infile.bad()) {
-    throw MD5_IOERR;
-  }
-  while(infile.good()) {
-    infile.read((char *)buf, sizeof(buf));
-    md5_write(&md5ctx, buf, infile.gcount());
-  }
+    unsigned char buf[8092];
+    ifstream infile(filename.c_str(), ios::in);
+    if (infile.bad()) {
+        throw MD5_IOERR;
+    }
+    while (infile.good()) {
+        infile.read((char *)buf, sizeof(buf));
+        md5_write(&md5ctx, buf, infile.gcount());
+    }
 
-  md5_final(&md5ctx);
+    md5_final(&md5ctx);
 
-  unsigned char digest[16];  
-  memcpy(digest, md5ctx.buf, 16);
+    unsigned char digest[16];
+    memcpy(digest, md5ctx.buf, 16);
 
-  char hexDigest[32];
-  for(int i = 0; i < 16; ++i) {
-    sprintf(hexDigest+i*2, "%02x", digest[i]);
-  }
+    char hexDigest[32];
+    for (int i = 0; i < 16; ++i) {
+        sprintf(hexDigest + i * 2, "%02x", digest[i]);
+    }
 
-  return hexDigest;
+    return hexDigest;
 }
 
 string
-md5CheckString(const string& srcString)
+md5CheckString(const string &srcString)
 {
-  MD5_CONTEXT md5ctx;
+    MD5_CONTEXT md5ctx;
 
-  md5_init(&md5ctx);
+    md5_init(&md5ctx);
 
-  md5_write(&md5ctx, (byte *)srcString.c_str(), srcString.size());
+    md5_write(&md5ctx, (byte *)srcString.c_str(), srcString.size());
 
-  md5_final(&md5ctx);
+    md5_final(&md5ctx);
 
-  unsigned char digest[16];  
-  memcpy(digest, md5ctx.buf, 16);
+    unsigned char digest[16];
+    memcpy(digest, md5ctx.buf, 16);
 
-  char hexDigest[32];
-  for(int i = 0; i < 16; ++i) {
-    sprintf(hexDigest+i*2, "%02x", digest[i]);
-  }
+    char hexDigest[32];
+    for (int i = 0; i < 16; ++i) {
+        sprintf(hexDigest + i * 2, "%02x", digest[i]);
+    }
 
-  return hexDigest;
+    return hexDigest;
 }
 

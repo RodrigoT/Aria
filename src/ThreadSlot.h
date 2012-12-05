@@ -27,30 +27,31 @@
 #include "ItemCell.h"
 
 enum ThreadStatusType {
-  THREAD_ACTIVE,
-  THREAD_WAITTOKEN,
-  THREAD_WAIT
+    THREAD_ACTIVE,
+    THREAD_WAITTOKEN,
+    THREAD_WAIT
 };
 
-class ThreadSlot {
+class ThreadSlot
+{
 private:
-  pthread_t *thread_id_ptr;
-  ThreadStatusType status;
-  pthread_cond_t token_cond;
-  ItemCell *itemcell;
+    pthread_t *thread_id_ptr;
+    ThreadStatusType status;
+    pthread_cond_t token_cond;
+    ItemCell *itemcell;
 public:
-  ThreadSlot(pthread_t *thread_id_ptr_in);
-  ~ThreadSlot();
+    ThreadSlot(pthread_t *thread_id_ptr_in);
+    ~ThreadSlot();
 
-  void             set_Status(ThreadStatusType status_new);
-  ThreadStatusType ret_Status() const;
+    void             set_Status(ThreadStatusType status_new);
+    ThreadStatusType ret_Status() const;
 
-  void             setItemCell(ItemCell *itemcell);
-  ItemCell         *getItemCell() const;
+    void             setItemCell(ItemCell *itemcell);
+    ItemCell         *getItemCell() const;
 
-  bool             Is_equal_thread(pthread_t thread_id_in);
-  pthread_t        ret_thread_id();
-  pthread_cond_t *ret_token_cond();
+    bool             Is_equal_thread(pthread_t thread_id_in);
+    pthread_t        ret_thread_id();
+    pthread_cond_t *ret_token_cond();
 };
 
 #endif // _THREADSLOT_H_

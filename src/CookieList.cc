@@ -32,49 +32,49 @@ CookieList::~CookieList()
 
 void CookieList::all_clear()
 {
-  cookie_list.clear();
+    cookie_list.clear();
 }
 
-void CookieList::add_cookie(const Cookie& cookie)
+void CookieList::add_cookie(const Cookie &cookie)
 {
-  list<Cookie>::iterator itr = search_by_domain_path(cookie.ret_domain(), cookie.ret_path());
+    list<Cookie>::iterator itr = search_by_domain_path(cookie.ret_domain(), cookie.ret_path());
 
-  if(itr != cookie_list.end()) {
-    itr->merge(cookie);
-  } else {
-    cookie_list.push_back(cookie);
-  }
+    if (itr != cookie_list.end()) {
+        itr->merge(cookie);
+    } else {
+        cookie_list.push_back(cookie);
+    }
 }
 
 void CookieList::add_cookie(string cookie_string)
 {
-  Cookie cookie;
-  if(!cookie.Parse(cookie_string)) {
-    return;
-  }
-  //if(cookie.ret_domain().empty()) cookie.set_domain(hostname);
+    Cookie cookie;
+    if (!cookie.Parse(cookie_string)) {
+        return;
+    }
+    //if(cookie.ret_domain().empty()) cookie.set_domain(hostname);
 
-  add_cookie(cookie);
+    add_cookie(cookie);
 }
 
-list<Cookie>::iterator CookieList::search_by_domain_path(const string& domain, const string& path)
+list<Cookie>::iterator CookieList::search_by_domain_path(const string &domain, const string &path)
 {
-  for(list<Cookie>::iterator itr = cookie_list.begin(); itr != cookie_list.end(); ++itr) {
-    if(itr->ret_domain() == domain && itr->ret_path() == path) return itr;
-  }
-  return cookie_list.end();
+    for (list<Cookie>::iterator itr = cookie_list.begin(); itr != cookie_list.end(); ++itr) {
+        if (itr->ret_domain() == domain && itr->ret_path() == path) return itr;
+    }
+    return cookie_list.end();
 }
 
-string CookieList::ret_valid_cookie_string(const string& domain, const string& path) const
+string CookieList::ret_valid_cookie_string(const string &domain, const string &path) const
 {
-  string key_value;
-  for(list<Cookie>::const_iterator itr = cookie_list.begin(); itr != cookie_list.end(); ++itr) {
-    key_value += itr->ret_names(domain, path);
-  }
-  if(key_value.size()) {
-    key_value.erase(key_value.size()-2);
-  }
-  return key_value;
+    string key_value;
+    for (list<Cookie>::const_iterator itr = cookie_list.begin(); itr != cookie_list.end(); ++itr) {
+        key_value += itr->ret_names(domain, path);
+    }
+    if (key_value.size()) {
+        key_value.erase(key_value.size() - 2);
+    }
+    return key_value;
 }
 
 

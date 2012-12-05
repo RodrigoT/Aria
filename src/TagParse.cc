@@ -20,57 +20,57 @@
 
 #include "TagParse.h"
 
-string get_next_tag(ifstream& infile)
+string get_next_tag(ifstream &infile)
 {
-  string tag;
-  while(1) {
-    getline(infile, tag, '>');
-    tag = Remove_white(tag);
-    if(tag.size()) {
-      if(startwith(tag, "<!--")) {
-	if(!endwith(tag, "--")) {
-	  while(1) {
-	    getline(infile, tag, '>');
-	    if(endwith(tag, "--")) {
-	      break;
-	    }
-	    if(!infile.good()) {
-	      throw TAGPARSE_UCOM_EOF;
-	    }
-	  }
-	}
-      } else {
-	break;
-      }
-    }
-    if(!infile.good()) {
-      throw TAGPARSE_GETTAG_EOF;
-    }
+    string tag;
+    while (1) {
+        getline(infile, tag, '>');
+        tag = Remove_white(tag);
+        if (tag.size()) {
+            if (startwith(tag, "<!--")) {
+                if (!endwith(tag, "--")) {
+                    while (1) {
+                        getline(infile, tag, '>');
+                        if (endwith(tag, "--")) {
+                            break;
+                        }
+                        if (!infile.good()) {
+                            throw TAGPARSE_UCOM_EOF;
+                        }
+                    }
+                }
+            } else {
+                break;
+            }
+        }
+        if (!infile.good()) {
+            throw TAGPARSE_GETTAG_EOF;
+        }
 
-  }
-  tag += '>';
-  return tag;
+    }
+    tag += '>';
+    return tag;
 }
 
-string get_value(ifstream& infile, string tag)
+string get_value(ifstream &infile, string tag)
 {
-  string line;
+    string line;
 
-  tag.insert(tag.begin()+1, '/'); // end of tag
+    tag.insert(tag.begin() + 1, '/'); // end of tag
 
-  while(1) {
-    string line_temp = line;
-    getline(infile, line, '>');
-    line = line_temp+line+'>';
+    while (1) {
+        string line_temp = line;
+        getline(infile, line, '>');
+        line = line_temp + line + '>';
 
-    if(line.find(tag) != string::npos) {
-      line.erase(line.size()-tag.size());
-      break;
+        if (line.find(tag) != string::npos) {
+            line.erase(line.size() - tag.size());
+            break;
+        }
+        if (!infile.good()) {
+            throw TAGPARSE_GETVALUE_EOF;
+        }
     }
-    if(!infile.good()) {
-      throw TAGPARSE_GETVALUE_EOF;
-    }
-  }
-  line = Remove_white(line);
-  return line;
+    line = Remove_white(line);
+    return line;
 }

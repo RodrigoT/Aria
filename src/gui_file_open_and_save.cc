@@ -48,29 +48,29 @@ extern FileBrowser *g_cFileBrowser;
 //
 static gboolean File_ok_save_list(GtkWidget *w, GtkWidget *fs)
 {
-  const char *filename;
+    const char *filename;
 
-  g_cFileBrowser->hide();
-  if((filename = gtk_file_selection_get_filename(GTK_FILE_SELECTION(fs))) != NULL) {
-    
-    bool retval = g_itemList->Save_current_list(filename);
+    g_cFileBrowser->hide();
+    if ((filename = gtk_file_selection_get_filename(GTK_FILE_SELECTION(fs))) != NULL) {
 
-    if(!retval) {
-      g_consoleItem->Send_message_to_gui(_("Failed to save lists"), MSG_SYS_ERROR);
-    } else {
-      g_consoleItem->Send_message_to_gui(_("lists saved"), MSG_SYS_INFO);
+        bool retval = g_itemList->Save_current_list(filename);
+
+        if (!retval) {
+            g_consoleItem->Send_message_to_gui(_("Failed to save lists"), MSG_SYS_ERROR);
+        } else {
+            g_consoleItem->Send_message_to_gui(_("lists saved"), MSG_SYS_INFO);
+        }
     }
-  }
-  return TRUE;
+    return TRUE;
 }
 
 gboolean File_save_list(GtkWidget *w, gpointer data)
 {
-  g_cFileBrowser->setup(_("Save list"),
-			File_ok_save_list);
-  g_cFileBrowser->show();
+    g_cFileBrowser->setup(_("Save list"),
+                          File_ok_save_list);
+    g_cFileBrowser->show();
 
-  return TRUE;
+    return TRUE;
 }
 
 //
@@ -101,7 +101,7 @@ static gboolean Save_no(GtkWidget* w, GtkWidget *window)
   cfilebrowser->setup(_("Open Saved list"),
 		      File_ok_open_Saved_list);
   cfilebrowser->show();
-  
+
   return TRUE;
 }
 
@@ -119,52 +119,52 @@ static void Prompt_save_or_not()
 //
 // 保存されていたダウンロードリストを読み込む
 //
-static gboolean File_ok_open_Saved_list(GtkWidget* w, GtkWidget *fs)
+static gboolean File_ok_open_Saved_list(GtkWidget *w, GtkWidget *fs)
 {
-  const char *filename;
+    const char *filename;
 
-  g_cFileBrowser->hide();
-  ListEntry *listEntry = g_listManager->ret_Current_listentry();
+    g_cFileBrowser->hide();
+    ListEntry *listEntry = g_listManager->ret_Current_listentry();
 
-  if((filename = gtk_file_selection_get_filename(GTK_FILE_SELECTION(fs))) != NULL) {
+    if ((filename = gtk_file_selection_get_filename(GTK_FILE_SELECTION(fs))) != NULL) {
 
-    bool retval = g_itemList->Restore_saved_list(filename);
-    if(!retval) {
-      g_consoleItem->Send_message_to_gui(_("Failed to load lists"), MSG_SYS_ERROR);
-    } else {
-      g_consoleItem->Send_message_to_gui(_("Saved list opened"), MSG_SYS_INFO);
-      // modified 2001/5/20
-      listEntry->get_Dl_clist_lock();
-      if(g_appOption->Whether_use_automatic_start()) {
-	listEntry->Send_start_signal();
-      }
-      listEntry->release_Dl_clist_lock();
+        bool retval = g_itemList->Restore_saved_list(filename);
+        if (!retval) {
+            g_consoleItem->Send_message_to_gui(_("Failed to load lists"), MSG_SYS_ERROR);
+        } else {
+            g_consoleItem->Send_message_to_gui(_("Saved list opened"), MSG_SYS_INFO);
+            // modified 2001/5/20
+            listEntry->get_Dl_clist_lock();
+            if (g_appOption->Whether_use_automatic_start()) {
+                listEntry->Send_start_signal();
+            }
+            listEntry->release_Dl_clist_lock();
+        }
+        listEntry->get_Dl_clist_lock();
+        if (GTK_CLIST(listEntry->ret_Dl_clist())->rows > 0) {
+            Set_sensitive__list_not_empty(); // fix this
+        }
+        listEntry->release_Dl_clist_lock();
     }
-    listEntry->get_Dl_clist_lock();
-    if(GTK_CLIST(listEntry->ret_Dl_clist())->rows > 0) {
-      Set_sensitive__list_not_empty(); // fix this
-    }
-    listEntry->release_Dl_clist_lock();  
-  }
-  return TRUE;
+    return TRUE;
 }
 
 gboolean File_open_Saved_list(GtkWidget *w, gpointer data)
 {
-  /*
-  // 現在のアイテムリストを保存もしくは破棄
-  if(GTK_CLIST(itemlistwidget)->rows) {// if clist contains any items
-    // 現在のリストを保存するかどうか尋ねる
-    AfterOpen = true;
-    Prompt_save_or_not();
-  } else {
-  */
-  // AfterOpen = false;
-  g_cFileBrowser->setup(_("Open Saved list"),
-			File_ok_open_Saved_list);
-  g_cFileBrowser->show();
     /*
-  }
+    // 現在のアイテムリストを保存もしくは破棄
+    if(GTK_CLIST(itemlistwidget)->rows) {// if clist contains any items
+      // 現在のリストを保存するかどうか尋ねる
+      AfterOpen = true;
+      Prompt_save_or_not();
+    } else {
     */
-  return TRUE;
+    // AfterOpen = false;
+    g_cFileBrowser->setup(_("Open Saved list"),
+                          File_ok_open_Saved_list);
+    g_cFileBrowser->show();
+    /*
+    }
+    */
+    return TRUE;
 }

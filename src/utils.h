@@ -34,7 +34,7 @@
 using namespace std;
 
 string Remove_white(string nword);
-string Token_splitter(string& line, const char *delimitors=" \t");
+string Token_splitter(string &line, const char *delimitors = " \t");
 string get_human_readable_size(int size);
 // convert an integer to a string
 string itos(int value, bool comma = false);
@@ -46,35 +46,35 @@ string itos_hex(unsigned int value, unsigned int width, char ch);
 string ftos(float value, unsigned int precision = 2);
 
 int power(int base, int power);
-string insert_comma(const string& val_str);
+string insert_comma(const string &val_str);
 
-int stoi(const string& src_string, int base = 10);
-unsigned int stoui(const string& src_string, int base = 10);
+int stoi(const string &src_string, int base = 10);
+unsigned int stoui(const string &src_string, int base = 10);
 
-bool isalpha_all(const string& src_string);
-bool isdigit_all(const string& src_string);
+bool isalpha_all(const string &src_string);
+bool isdigit_all(const string &src_string);
 
 #define GETABSURL_EUSTACK 0 // stack under run
 string get_abs_url(string base_url, string target);
 #define GETSTOREDIR_EUSTACK 0 // stack under run
 string get_storedir(string store_dir, string target);
 string get_hostname(string url);
-string get_file(string& target);
-string get_file_mod_date(const string& filename);
-size_t casefind(const string& string1, const string& string2);
-bool startwith(const string& string1, const string& string2);
-bool casecomp(const string& string1, const string& string2);
-bool endwith(const string& string1, const string& string2);
-time_t get_mod_time(const string& mdtm_string);
-string convert_tilde(const string& src_str);
-bool copy_file(const string& srcfile, const string& destfile);
-string replaceSubstring(const string& srcStr, const string& oldSubstr, const string& newSubstr);
-string removeCtrlChar(const string& srcStr);
+string get_file(string &target);
+string get_file_mod_date(const string &filename);
+size_t casefind(const string &string1, const string &string2);
+bool startwith(const string &string1, const string &string2);
+bool casecomp(const string &string1, const string &string2);
+bool endwith(const string &string1, const string &string2);
+time_t get_mod_time(const string &mdtm_string);
+string convert_tilde(const string &src_str);
+bool copy_file(const string &srcfile, const string &destfile);
+string replaceSubstring(const string &srcStr, const string &oldSubstr, const string &newSubstr);
+string removeCtrlChar(const string &srcStr);
 bool patternMatch(string str, string pattern);
 void updateInterval(struct timeval &dst, int timeout);
 void updateInterval(struct timeval &dst, struct timeval src);
 void updateInteverl(struct timeval &dst,
-		    const struct timeval &start,
-		    const struct timeval &end);
-string get_protocol_from_url(const string& base_url);
+                    const struct timeval &start,
+                    const struct timeval &end);
+string get_protocol_from_url(const string &base_url);
 #endif //_UTILS_H_
